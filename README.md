@@ -2,5 +2,6 @@
 Es una plataforma E-Commerce de practica
 Colaboradores:
 
-Antonio Hernandez Oropeza
-Jesus Emmanuel Baca Hernández
+Antonio Hernandez Oropeza<br>
+Jesus Emmanuel Baca Hernández<br>
+David Jimenez Hernandez<br>
