@@ -1,8 +1,8 @@
   <!-- Haeader barra sub INICIO-->
   <div class="barsub">
                 <div class="logoDiv">
-                  <a href="Index.html">
-                    <img class="logo" src="/Imagenes/logo.png" alt="GabineteMX">
+                  <a href="Index.php">
+                    <img class="logo" src="Imagenes/logo.png" alt="GabineteMX">
                   </a>
                 </div>
                 <div class="menuDiv">
@@ -32,7 +32,7 @@
                     <i class="small material-icons">account_box</i>  
                 </div>
                 <div class="nombreperfilDiv">
-                    <a href="Login.html" class="waves-effect waves-light btn btnIng">Ingresar</a>
+                    <a href="Login.php" class="waves-effect waves-light btn btnIng">Ingresar</a>
                 </div>
                 <div class="ubicacionDiv">
                     <p style="font-size: 10px;">Ubicación</p>

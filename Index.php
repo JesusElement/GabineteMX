@@ -3,6 +3,7 @@
 <head>
     <title>Gabinete MX</title>
     <?php include('Componentes/Head.php'); ?>
+   
 </head>
 <body>
     <div class="contenedor">
@@ -10,8 +11,7 @@
           <?php include('Componentes/Heder.php'); ?>
         </div>
         <!-- Inicia Contenido -->
-        <div class="contenido">
-             
+        <div class="contenido">      
             <div class="carousel">
                 <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
                
@@ -43,7 +43,7 @@
 
                       <div class="card z-depth-3">
                         <div class="card-image">
-                          <img class="imgCard" src="/Imagenes/tarhetagrafica.png">
+                          <img class="imgCard" src="Imagenes/tarhetagrafica.png">
                           <span class="card-title">NVIDIA GeForce GTX</span>
                           <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
@@ -138,6 +138,6 @@
             
         </div>
     </div>
-    <script src="/js/Main.js"></script>
+    <script src="js/Main.js"></script>
 </body>
 </html>
