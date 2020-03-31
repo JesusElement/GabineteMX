@@ -1,6 +1,84 @@
 @extends('plantilla')
 
 @section('seccion')
+ <!-- IMPORTANTE PARA QUE EL LOADER CARGUE PRIMERO TIENE QUE ESTAR EL CODIGO AQUI     -->
+ <style>
+    
+    .master{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #404040;
+      z-index: 9999;
+    }
+    
+    .loader {
+      position: absolute;
+      width: 500px;
+      height: 200px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+        @keyframes load {
+        0%{
+            opacity: 0.08;
+            filter: blur(5px);
+            letter-spacing: 3px;
+            }
+        100%{
+    
+            }
+    }
+    
+    .animate {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height:100%;
+      margin: auto;
+      color: #ffffff;
+      font-family: Helvetica, sans-serif, Arial;
+      animation: load 1.2s infinite 0s ease-in-out;
+      animation-direction: alternate;
+      text-shadow: 0 0 1px white;
+    }
+    /* body, html{
+      height: 96vh;
+      background-color: #111;
+      color: white;
+    } */
+        </style>
+    
+    
+    <div class="master">
+      <div class="loader">
+      <!-- <h2 class="animate">GABINETE MX</h2> -->
+      <img class="animate" src="/Imagenes/logo.png">
+    
+      </div>
+    </div>
+    
+    
+    
+    <script>
+           $(window).on('load', function () {
+          setTimeout(function () {
+        $(".master").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 3990);
+       });
+     $(window).on('load', function () {
+          setTimeout(function () {
+        $(".loader").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 4000);
+       });
+    
+       
+    
+    
+        </script>
+
+        <!-- TERMINA EL LOADER  -->
 <div class="contenido">      
             <div class="carousel">
                 <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
