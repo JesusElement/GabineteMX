@@ -29,6 +29,10 @@ Route::get('registrar', function () {
     return view('RegistroUser');
 })->name('registro');
 
+Route::get('ayuda', function () {
+    return view('ayuda');
+})->name('ayuda');
+
 Route::get('producto/{number}', function ($number) {
     return view('Producto',['producto'=>$number]);
 })->name('producto')->where('number', '[0-9]+');

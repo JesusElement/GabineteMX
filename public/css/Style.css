@@ -14,544 +14,478 @@
    Naranja: #ec9129
 
    */
-
-   *{
-       margin: 0px ;
+   
+   * {
+       margin: 0px;
        padding: 0px;
    }
    
-.contenedor{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 3;
-    grid-template-areas: "header"
-                       "contenido"
-                        "footer";
-}
-
-   .contenedor
-    .header{
-
-        background-color:#404040;
-        grid-area: header;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:"barsub"
-                            "barinf";
-
-    }
-
-    .contenedor .header
-    .barsub{
-        grid-area: barsub;
-        display: grid;
-        grid-template-columns: 15% 5% 45% 5% 10% 10% 10%;
-        grid-template-areas: "logoDiv menuDiv buscarDiv fotoperfilDiv nombreperfilDiv ubicacionDiv carritoDiv";
-        max-height: 50px;
-    }
-
-    
-
-
-    .contenedor .header .barsub
-    .logoDiv{
-        display: logoDiv;
-        justify-self: right;
-        max-height: 50px;
-    }
-
-    .contenedor .header .logoDiv
-    .logo{
-        width: 120px;
-        height: 49px;
-        margin-left: 10px;
-    }
-
-
-    .contenedor .header .barsub
-    .menuDiv{
-        display: menuDiv;
+   .contenedor {
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: 3;
+       grid-template-areas: "header" "contenido" "footer";
+   }
+   
+   .contenedor .header {
+       background-color: #404040;
+       grid-area: header;
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: auto;
+       grid-template-areas: "barsub" "barinf";
+   }
+   
+   .contenedor .header .barsub {
+       grid-area: barsub;
+       display: grid;
+       grid-template-columns: 15% 5% 45% 5% 10% 10% 10%;
+       grid-template-areas: "logoDiv menuDiv buscarDiv fotoperfilDiv nombreperfilDiv ubicacionDiv carritoDiv";
+       max-height: 50px;
+   }
+   
+   .contenedor .header .barsub .logoDiv {
+       display: logoDiv;
+       justify-self: right;
+       max-height: 50px;
+   }
+   
+   .contenedor .header .logoDiv .logo {
+       width: 120px;
+       height: 49px;
+       margin-left: 10px;
+   }
+   
+   .contenedor .header .barsub .menuDiv {
+       display: menuDiv;
        justify-self: center;
        align-self: center;
        text-align: left;
-      
-    }
-
-    .contenedor .header .barsub .menuDiv
-    .btnMenu{
-      text-align: left;
-    }
-
-    .contenedor .header .barsub .menuDiv
-    .dropMenu{
-        background-color: #404040;
-        color: #F2F2F2;
-        min-width: 160px;
-    }
-
-    .contenedor .header .barsub .menuDiv
-    .dropMenu:hover{
-        color: #404040;
-    }
-
-    .material-icons{
-        color: #F2F2F2;
-    }
-
-    .contenedor .header .barsub
-    .buscarDiv{
-        display: buscarDiv;
-        align-self: stretch;
-        color: #F2F2F2;
+   }
+   
+   .contenedor .header .barsub .menuDiv .btnMenu {
+       text-align: left;
+   }
+   
+   .contenedor .header .barsub .menuDiv .dropMenu {
+       background-color: #404040;
+       color: #F2F2F2;
+       min-width: 160px;
+   }
+   
+   .contenedor .header .barsub .menuDiv .dropMenu:hover {
+       color: #404040;
+   }
+   
+   .material-icons {
+       color: #F2F2F2;
+   }
+   
+   .contenedor .header .barsub .buscarDiv {
+       display: buscarDiv;
+       align-self: stretch;
+       color: #F2F2F2;
        height: 50px;
-      
-    }
-
-    .contenedor .header .barsub .buscarDiv
-    .buscador{
-        max-height: max-content;
-        margin: 0px;
-        padding: 0px;
-        line-height: 0px;
-        background-color: #8C8C8C !important;
-       
-    }
-
-    .contenedor .header .barsub .buscarDiv .buscador
-    .material-icons{
-        line-height: 50px; 
-        /* Esto genera el tamaño no visible en altura */
-    }
-
-    nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
-        height: 48px;
-        line-height: 48px;
-    }
-
-
-    .contenedor .header .barsub
-    .fotoperfilDiv{
+   }
+   
+   .contenedor .header .barsub .buscarDiv .buscador {
+       max-height: max-content;
+       margin: 0px;
+       padding: 0px;
+       line-height: 0px;
+       background-color: #8C8C8C !important;
+   }
+   
+   .contenedor .header .barsub .buscarDiv .buscador .material-icons {
+       line-height: 50px;
+       /* Esto genera el tamaño no visible en altura */
+   }
+   
+   nav,
+   nav .nav-wrapper i,
+   nav a.sidenav-trigger,
+   nav a.sidenav-trigger i {
+       height: 48px;
+       line-height: 48px;
+   }
+   
+   .contenedor .header .barsub .fotoperfilDiv {
        grid-area: fotoperfilDiv;
-        align-self: center;
+       align-self: center;
        justify-self: center;
-        padding-top: 5px;
-       
-    }
-
-    .contenedor .header .barsub
-    .nombreperfilDiv{
+       padding-top: 5px;
+   }
+   
+   .contenedor .header .barsub .nombreperfilDiv {
        grid-area: nombreperfilDiv;
        justify-self: left;
        margin-left: 10px;
        align-self: center;
        color: #F2F2F2;
-       
-    }
-
-    .contenedor .header .barsub .nombreperfilDiv
-    .btnIng{
-        background-color: #0046c2;
-
-    }
-
-    .contenedor .header .barsub
-    .ubicacionDiv{
-        grid-area: ubicacionDiv;
-        justify-self: center;
-        
-        align-self: center;
-        color: #F2F2F2;
-    }
-
-    .contenedor .header .barsub
-    .carritoDiv{
-        grid-area: carritoDiv;
-        align-self: center;
-        padding-top: 5px;
-        justify-self: center;
-        margin-right: 3rem;
-    }
-
-
-    .contenedor .header
-    .barinf{
-        height: 50px;
-        grid-area: barinf;
-        display: grid;
-        grid-template-columns: 25% 10% 10% 10% 10% 10% 25%;
-  
-        grid-template-areas: "ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv masbuscadoDiv mascalificadoDiv";
-    }
-
-
-    .contenedor .header .barinf
-    .ejecutivaDiv{
-        justify-self:right;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: ejecutivaDiv;
-        margin-right: 3rem;
-        
-    }
-
-    .contenedor .header .barinf
-    .trabajoDiv{
-        justify-self: stretch;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: trabajoDiv;
-        text-align: center;
-        border-left: solid white;
-        
-    }
-
-    .contenedor .header .barinf
-    .gamerDiv{
-        justify-self: stretch;
-        text-align: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: gamerDiv;
-        border-left: solid white;
-        border-right: solid white;
-        
-    }
-
-    .contenedor .header .barinf
-    .hardwareDiv{
-        justify-self: stretch;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: hardwareDiv;
-        border-right: solid white;
-        text-align: center;
-    }
-
-    .contenedor .header .barinf
-    .gadetsDiv{
-        justify-self: stretch;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: gadetsDiv;
-        border-right: solid white;
-        text-align: center;
-    }
-
-    .contenedor .header .barinf
-    .masbuscadoDiv{
-        justify-self: stretch;
-        align-self: center;
-        text-align: center;
-        border-right: solid white;
-        color: #F2F2F2;
-        grid-area: masbuscadoDiv;
-    }
-
-    .contenedor .header .barinf
-    .mascalificadoDiv{
-        justify-self: left;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: mascalificadoDiv;
-        margin-left: 3rem;
-    }
-
-    .contenedor .header .barinf
-    .ejecutivaDiv:hover{
-        justify-self:right;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: ejecutivaDiv;
-        margin-right: 5rem;
-        
-    }
-
-    .contenedor .header .barinf
-    .trabajoDiv:hover{
-        justify-self: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: trabajoDiv;
-    }
-
-    .contenedor .header .barinf
-    .gamerDiv:hover{
-        justify-self: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: gamerDiv;
-    }
-
-    .contenedor .header .barinf
-    .hardwareDiv:hover{
-        justify-self: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: hardwareDiv;
-    }
-
-    .contenedor .header .barinf
-    .gadetsDiv:hover{
-        justify-self: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: gadetsDiv;
-    }
-
-    .contenedor .header .barinf
-    .masbuscadoDiv:hover{
-        justify-self: center;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: masbuscadoDiv;
-    }
-
-    .contenedor .header .barinf
-    .mascalificadoDiv:hover{
-        justify-self: left;
-        align-self: center;
-        color: #F2F2F2;
-        grid-area: mascalificadoDiv;
-        margin-left: 5rem;
-    }
-
-    /* Aqui comienza el grid de contenido */
-    .contenedor 
-    .contenido{
-        grid-area: contenido;
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto;
-        grid-template-areas: "carousel"
-                            "otroscontenidos"
-                            
-    }
-    .contenedor .contenido 
-    .card-title{
-        color: #ec9129;
-    }
-
-
-    .contenedor .contenido
-    .carousel{
-        width: 100%;
-        justify-self: stretch;
-        grid-area: carousel;
-        height: 250px !important;
-    }
-
-    .contenedor .contenido .carousel
-    .carousel-item{
-  
-        width: 100%;
-        
-    }
-
-    .contenedor .contenido
-    .otroscontenidos{
-        justify-content: center;
-        grid-gap: 1%;
-        display: grid;
-        grid-area: otroscontenidos;
-        grid-template-columns: 5% 20% 20% 20% 20% 5% ;
-        grid-template-areas: "marizq card1 card2 card3 card4 marder";
-    }
-
-    .contenido .contenido .otroscontenidos
-    .marizq{
-     margin-left: 1rem;
-     grid-area: marizq;  
-     justify-self: center;
-     background-color: aqua;
-    
-    }
-
-    .contenido .contenido .otroscontenidos
-    .card1{
-     
-     grid-area: card1;  
-    
-    }
-    .contenido .contenido .otroscontenidos
-    .card2{
-     grid-area: card2;  
-  
-    }
-    
-    .contenido .contenido .otroscontenidos
-    .card3{
-     grid-area: card3;  
-  
-    }
-    
-    .contenido .contenido .otroscontenidos
-    .card4{
-     grid-area: card4;  
-     
-    }
-
-    .contenido .contenido .otroscontenidos
-    .marder{
-      
-     grid-area: marder;  
-    
-    
-    }
-
-    .contenedor .contenido 
-    .btnComprar{
-        width: 177px;
-        background-color: #0046c2;
-        margin-right: 2rem;
-        margin-left: 1rem;
-    }
-
-    .contenedor .contenido 
-    .btnAgregarCarrito{
-        width: 177px;
-        background-color: #cf1889;
-        margin-left: 1rem;
-        
-    }
-
-    .contenedor .contenido 
-    .btnComprar{
-        background-color: #0046c2;
-        margin-left: 1rem;
-    }
-
-    .contenedor .contenido
-    .star{
-        color: black;
-        background: gold;
-    }
-
-     /* Aqui termina el grid de contenido */
-    /* Login Contenido Inicio */
-    .contenedor .contenido
-    .login{
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-        grid-template-rows: auto;
-        grid-template-areas: "marizq row marder";
-    }
-
-    .contenedor .contenido .login
-    .marizq{
-        grid-area: marizq;
-    }
-
-    .contenedor .contenido .login
-    .row{
-        grid-area: row;
-    }
-
-    .contenido .contenido .login .row
-    .btnCss{
-        background-color: #0046c2;
-    }
-
-    .contenedor .contenido .login
-    .marder{
-        grid-area: marder;
-    }
-
-    /* Login Contenido Fin */
-
-    /* Prodcuto Contenido Inicio */
-
-    .contenedor .contenido
-    .producto{
-        display: grid;
-        grid-template-columns: 5% 30% 40% 20% 5%;
-        grid-template-rows: auto;
-        grid-template-areas: "marizq imagenProducto infoProducto opCarrito marder";
-    }
-
-    .contenedor .contenido .producto
-    .marizq{
-        grid-area: marizq;
-    }
-    .contenedor .contenido .producto
-    .imagenProducto{
-        grid-area: imagenProducto;
-    }
-
-    .contenedor .contenido .producto
-    .infoProducto{
-        grid-area: infoProducto;
-    }
-
-    .contenedor .contenido .producto .infoProducto
-    .card{
-     width: 100%;
-    }
-
-    .contenedor .contenido .producto
-    .opCarrito{
-        grid-area: opCarrito;
-    }
-
-    .contenedor .contenido .producto
-    .marder{
-        grid-area: marder;
-    }
-
-    /* Prodcuto Contenido Fin */
-    /* Carrito Contenido Inicio */
-    .contenedor .contenido
-    .Carrito{
-        display: grid;
-        grid-template-columns: 5% 70% 20% 5%;
-        grid-template-rows: auto;
-        grid-template-areas: "marizq imagenCarrito  opCarrito marder";
-    }
-
-    .contenedor .contenido .Carrito
-    .marizq{
-        grid-area: marizq;
-    }
-    .contenedor .contenido .Carrito
-    .imagenCarrito{
-        grid-area: imagenCarrito;
-     
-    }
-    .contenedor .contenido .Carrito
-    .opCarrito{
-        margin-top: 4rem;
-        grid-area: opCarrito;
-    
-    }
-
-    .contenedor .contenido .Carrito
-    .ImgTarjeta{
+   }
+   
+   .contenedor .header .barsub .nombreperfilDiv .btnIng {
+       background-color: #0046c2;
+   }
+   
+   .contenedor .header .barsub .ubicacionDiv {
+       grid-area: ubicacionDiv;
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+   }
+   
+   .contenedor .header .barsub .carritoDiv {
+       grid-area: carritoDiv;
+       align-self: center;
+       padding-top: 5px;
+       justify-self: center;
+       margin-right: 3rem;
+   }
+   
+   .contenedor .header .barinf {
+       height: 50px;
+       grid-area: barinf;
+       display: grid;
+       grid-template-columns: 25% 10% 10% 10% 10% 10% 25%;
+       grid-template-areas: "ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv masbuscadoDiv mascalificadoDiv";
+   }
+   
+   .contenedor .header .barinf .ejecutivaDiv {
+       justify-self: right;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: ejecutivaDiv;
+       margin-right: 3rem;
+   }
+   
+   .contenedor .header .barinf .trabajoDiv {
+       justify-self: stretch;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: trabajoDiv;
+       text-align: center;
+       border-left: solid white;
+   }
+   
+   .contenedor .header .barinf .gamerDiv {
+       justify-self: stretch;
+       text-align: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: gamerDiv;
+       border-left: solid white;
+       border-right: solid white;
+   }
+   
+   .contenedor .header .barinf .hardwareDiv {
+       justify-self: stretch;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: hardwareDiv;
+       border-right: solid white;
+       text-align: center;
+   }
+   
+   .contenedor .header .barinf .gadetsDiv {
+       justify-self: stretch;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: gadetsDiv;
+       border-right: solid white;
+       text-align: center;
+   }
+   
+   .contenedor .header .barinf .masbuscadoDiv {
+       justify-self: stretch;
+       align-self: center;
+       text-align: center;
+       border-right: solid white;
+       color: #F2F2F2;
+       grid-area: masbuscadoDiv;
+   }
+   
+   .contenedor .header .barinf .mascalificadoDiv {
+       justify-self: left;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: mascalificadoDiv;
+       margin-left: 3rem;
+   }
+   
+   .contenedor .header .barinf .ejecutivaDiv:hover {
+       justify-self: right;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: ejecutivaDiv;
+       margin-right: 5rem;
+   }
+   
+   .contenedor .header .barinf .trabajoDiv:hover {
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: trabajoDiv;
+   }
+   
+   .contenedor .header .barinf .gamerDiv:hover {
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: gamerDiv;
+   }
+   
+   .contenedor .header .barinf .hardwareDiv:hover {
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: hardwareDiv;
+   }
+   
+   .contenedor .header .barinf .gadetsDiv:hover {
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: gadetsDiv;
+   }
+   
+   .contenedor .header .barinf .masbuscadoDiv:hover {
+       justify-self: center;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: masbuscadoDiv;
+   }
+   
+   .contenedor .header .barinf .mascalificadoDiv:hover {
+       justify-self: left;
+       align-self: center;
+       color: #F2F2F2;
+       grid-area: mascalificadoDiv;
+       margin-left: 5rem;
+   }
+   /* Aqui comienza el grid de contenido */
+   
+   .contenedor .contenido {
+       grid-area: contenido;
+       display: grid;
+       grid-template-columns: 100%;
+       grid-template-rows: auto;
+       grid-template-areas: "carousel" "otroscontenidos"
+   }
+   
+   .contenedor .contenido .card-title {
+       color: #ec9129;
+   }
+   
+   .contenedor .contenido .carousel {
+       width: 100%;
+       justify-self: stretch;
+       grid-area: carousel;
+       height: 250px !important;
+   }
+   
+   .contenedor .contenido .carousel .carousel-item {
+       width: 100%;
+   }
+   
+   .contenedor .contenido .otroscontenidos {
+       justify-content: center;
+       grid-gap: 1%;
+       display: grid;
+       grid-area: otroscontenidos;
+       grid-template-columns: 5% 20% 20% 20% 20% 5%;
+       grid-template-areas: "marizq card1 card2 card3 card4 marder";
+   }
+   
+   .contenido .contenido .otroscontenidos .marizq {
+       margin-left: 1rem;
+       grid-area: marizq;
+       justify-self: center;
+       background-color: aqua;
+   }
+   
+   .contenido .contenido .otroscontenidos .card1 {
+       grid-area: card1;
+   }
+   
+   .contenido .contenido .otroscontenidos .card2 {
+       grid-area: card2;
+   }
+   
+   .contenido .contenido .otroscontenidos .card3 {
+       grid-area: card3;
+   }
+   
+   .contenido .contenido .otroscontenidos .card4 {
+       grid-area: card4;
+   }
+   
+   .contenido .contenido .otroscontenidos .marder {
+       grid-area: marder;
+   }
+   
+   .contenedor .contenido .btnComprar {
+       width: 177px;
+       background-color: #0046c2;
+       margin-right: 2rem;
+       margin-left: 1rem;
+   }
+   
+   .contenedor .contenido .btnAgregarCarrito {
+       width: 177px;
+       background-color: #cf1889;
+       margin-left: 1rem;
+   }
+   
+   .contenedor .contenido .btnComprar {
+       background-color: #0046c2;
+       margin-left: 1rem;
+   }
+   
+   .contenedor .contenido .star {
+       color: black;
+       background: gold;
+   }
+   /* Aqui termina el grid de contenido */
+   /* Login Contenido Inicio */
+   
+   .contenedor .contenido .login {
+       display: grid;
+       grid-template-columns: 10% 80% 10%;
+       grid-template-rows: auto;
+       grid-template-areas: "marizq row marder";
+   }
+   
+   .contenedor .contenido .login .marizq {
+       grid-area: marizq;
+   }
+   
+   .contenedor .contenido .login .row {
+       grid-area: row;
+   }
+   
+   .contenido .contenido .login .row .btnCss {
+       background-color: #0046c2;
+   }
+   
+   .contenedor .contenido .login .marder {
+       grid-area: marder;
+   }
+   /* Login Contenido Fin */
+   /* Prodcuto Contenido Inicio */
+   
+   .contenedor .contenido .producto {
+       display: grid;
+       grid-template-columns: 5% 30% 40% 20% 5%;
+       grid-template-rows: auto;
+       grid-template-areas: "marizq imagenProducto infoProducto opCarrito marder";
+   }
+   
+   .contenedor .contenido .producto .marizq {
+       grid-area: marizq;
+   }
+   
+   .contenedor .contenido .producto .imagenProducto {
+       grid-area: imagenProducto;
+   }
+   
+   .contenedor .contenido .producto .infoProducto {
+       grid-area: infoProducto;
+   }
+   
+   .contenedor .contenido .producto .infoProducto .card {
+       width: 100%;
+   }
+   
+   .contenedor .contenido .producto .opCarrito {
+       grid-area: opCarrito;
+   }
+   
+   .contenedor .contenido .producto .marder {
+       grid-area: marder;
+   }
+   /* Prodcuto Contenido Fin */
+   /* Carrito Contenido Inicio */
+   
+   .contenedor .contenido .Carrito {
+       display: grid;
+       grid-template-columns: 5% 70% 20% 5%;
+       grid-template-rows: auto;
+       grid-template-areas: "marizq imagenCarrito  opCarrito marder";
+   }
+   
+   .contenedor .contenido .Carrito .marizq {
+       grid-area: marizq;
+   }
+   
+   .contenedor .contenido .Carrito .imagenCarrito {
+       grid-area: imagenCarrito;
+   }
+   
+   .contenedor .contenido .Carrito .opCarrito {
+       margin-top: 4rem;
+       grid-area: opCarrito;
+   }
+   
+   .contenedor .contenido .Carrito .ImgTarjeta {
        width: 50%;
-       
-    }
-
-
-
-    .contenedor .contenido .Carrito
-    .marder{
-        grid-area: marder;
-    }
-
-
-    /* Carrito Contenido Fin */
-
-
-    /* Aqui comienza el grid del footer */
-    .contenedor
-    .footer{
-        display: grid;
-        grid-area: footer;
-
-       
-    }
-
-    .contenedor .footer
-    .footerCcc{
-        background-color: #404040;
-    }
-
+   }
+   
+   .contenedor .contenido .Carrito .marder {
+       grid-area: marder;
+   }
+   /* Carrito Contenido Fin */
+   /* Aqui comienza el grid del footer */
+   
+   .contenedor .footer {
+       display: grid;
+       grid-area: footer;
+   }
+   
+   .contenedor .footer .footerCcc {
+       background-color: #404040;
+   }
+   /* Parte de ayuda al cliente inicio */
+   /* Grid de ayuda al cliente */
+   
+   .ayuda {
+       display: grid;
+       grid-template-columns: 30% 70%;
+       grid-gap: 1px;
+   }
+   
+   .ayuda {
+       background-color: #F2F2F2;
+       width: 100%;
+       height: 30rem;
+       margin: 1%;
+       border-radius: 25px;
+       border: 2px solid #8C8C8C;
+   }
+   
+   .ayuda .opciones {
+       margin: 10px;
+   }
+   
+   .ayuda .opciones p {
+       font-size: larger;
+       text-align: center;
+   }
+   
+   .opciones a {
+       margin: 5px;
+       background-color: #0096c0;
+   }
+   
+   .opciones a:hover {
+       margin: 5px;
+       background-color: #ec9129;
+   }
+   
+   .ayuda .informacion {
+       margin: 5px;
+       padding: 10px;
+       background-color: #929292;
+       border-radius: 20px;
+   }
+   /* Parte de ayuda al cliente fin */

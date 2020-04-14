@@ -114,10 +114,11 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Ayuda</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Servicio al cliente</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contacto</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Rastrear</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Informción corporativa</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Servicio al cliente</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Contacto</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Rastrear</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Chat</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Informción corporativa</a></li>
                 </ul>
               </div>
             </div>
