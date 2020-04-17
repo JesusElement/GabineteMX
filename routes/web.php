@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('Index');
 })->name('index');
@@ -26,7 +25,7 @@ Route::get('ingresar', function () {
 })->name('login');
 
 Route::get('registrar', function () {
-    return view('RegistroUser');
+     return view('RegistroUser');
 })->name('registro');
 
 Route::get('ayuda', function () {
@@ -36,3 +35,10 @@ Route::get('ayuda', function () {
 Route::get('producto/{number}', function ($number) {
     return view('Producto',['producto'=>$number]);
 })->name('producto')->where('number', '[0-9]+');
+
+// Route::get('registrar', 'RegistroUsuarioController@index');
+
+//AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
+
+Route::resource('CreateUser', 'CreateUserController');
+Route::resource('LoginUser','LoginUserController');

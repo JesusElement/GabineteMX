@@ -5,7 +5,9 @@
             <div class="login">
                 <div class="row">
                     <h3>Registrate</h3>
-                    <form class="col s12">
+                    <form class="col s12" action="{{url ('/registrar')}}" method="get">
+                        {{ csrf_field() }}  
+                        {{-- Token para que laravel tome como valido este form --}}
                         <div class="row">
                             <div class="input-field col s6">
                                 <input placeholder="Placeholder" id="first_name" type="text" class="validate">
@@ -16,9 +18,9 @@
                                 <label for="last_name">Segundo Apellido</label>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row"> 
                             <div class="input-field col s12">
-                                <input id="Nombre" type="text" class="validate">
+                                <input id="Nombre" type="text" class="validate" name="name">
                                 <label for="Nombre">Nombre Completo</label>
                             </div>
                         </div>
@@ -30,13 +32,13 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="email" type="email" class="validate">
+                                <input id="email" type="email" class="validate" name="email">
                                 <label for="email">Email</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="password" type="password" class="validate">
+                                <input id="password" type="password" class="validate" name="password">
                                 <label for="password">Password</label>
                             </div>
                         </div>
@@ -59,11 +61,11 @@
                             <label>Municipio</label>
                         </div>
 <center>
-  <a class="btn waves-effect waves-light blue darken-4 btn-large " type="submit" name="action" href="Index.html">Enviar
+  <a class="btn waves-effect waves-light blue darken-4 btn-large " type="submit" name="action" >Enviar
     <i class="material-icons right">send</i>
     </a>
 </center>
-  </button>
+
         
                     </form>
                 </div>

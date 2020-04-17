@@ -7,9 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Request;
 
 class RegisterController extends Controller
 {
+
+   
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -21,7 +25,8 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    // use RegistersUsers;
+    use Request;
 
     /**
      * Where to redirect users after registration.
@@ -46,7 +51,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    public function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -61,12 +66,31 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+    // public function create(array $data)
+    // {
+    //     return User::create([
+    //         'name' => $data['name'],
+    //         'email' => $data['email'],
+    //         'password' => Hash::make($data['password']),
+    //     ]);
+    // }
+
+    public function create(){
+
+        return view('registrar');
     }
+
+
+    public function store (Request $request){
+        $user = new User; 
+        $user->nombre=$request->input(['name']);
+        $user->email=$request->input(['email']);
+        $user->contra=$request->input(['password']);
+        $user->save();
+        return Request::all();
+    }
+
+
+  
+
 }
