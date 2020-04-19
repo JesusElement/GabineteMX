@@ -26,6 +26,7 @@ class LoginUserController extends Controller
     public function create()
     {
         //
+        return view('Login');
     }
 
     /**

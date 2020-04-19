@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\CreateUser;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Routing\Registrar;
+use Illuminate\Support\Facades\DB;
+
 
 class CreateUserController extends Controller
 {
@@ -16,6 +20,7 @@ class CreateUserController extends Controller
     {
         //
         return view('RegistroUser');
+        
     }
 
     /**
@@ -36,9 +41,48 @@ class CreateUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $datosUsuario=request()->all();
-        return response()->json($datosUsuario);
+
+        
+    /**
+     * Creamos la instancia de la clase registro
+     */
+    $registro = new CreateUser;
+
+    /* Realizamos la asignación masiva */
+    $registro->nom = $request['name'];
+    $registro->ape1 = $request['pa'];
+    $registro->ape2 = $request['sa'];
+    $registro->email = $request['email'];
+ 
+   
+    /**
+     * Se repite con los demás datos que desees asignar...
+     */
+
+    $registro->save();
+
+    return "Usuario registrado";
+
+
+
+        
+        //  $usuario= new CreateUser;
+        //  request()->except('_token');
+        //  $usuario->nombre=$request->input('name');
+        //  $usuario->email=$request->input('email');
+        //  $usuario->password=$request->input('password');
+
+     
+
+        // DB::insert('insert INTO cliente (nom,email) values ("Antonio","Antonio@mail.com")');
+
+           //  DB::table('cliente')->insert( ['nom' => $usuario->nombre, 'email' => $usuario->email]);
+     
+
+        //    $discussion = CreateUser::create($request->all());
+        //    return response()->json($discussion);
+        
+
     }
 
     /**
@@ -50,6 +94,7 @@ class CreateUserController extends Controller
     public function show(CreateUser $createUser)
     {
         //
+       
     }
 
     /**

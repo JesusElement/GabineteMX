@@ -24,9 +24,9 @@ Route::get('ingresar', function () {
     return view('Login');
 })->name('login');
 
-Route::get('registrar', function () {
-     return view('RegistroUser');
-})->name('registro');
+// Route::get('registrar', function () {
+//      return view('RegistroUser');
+// })->name('registro');
 
 Route::get('ayuda', function () {
     return view('ayuda');
@@ -40,5 +40,5 @@ Route::get('producto/{number}', function ($number) {
 
 //AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
 
-Route::resource('CreateUser', 'CreateUserController');
+Route::resource('registrar', 'CreateUserController');
 Route::resource('LoginUser','LoginUserController');

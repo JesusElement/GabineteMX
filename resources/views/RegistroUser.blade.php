@@ -10,23 +10,23 @@
                         {{-- Token para que laravel tome como valido este form --}}
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                <input id="first_name" type="text" class="validate" name="pa">
                                 <label for="first_name">Primer Apellido</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="last_name" type="text" class="validate">
+                                <input id="last_name" type="text" class="validate" name="sa">
                                 <label for="last_name">Segundo Apellido</label>
                             </div>
                         </div>
                         <div class="row"> 
                             <div class="input-field col s12">
-                                <input id="Nombre" type="text" class="validate" name="name">
+                                <input id="Nombre" type="text" class="validate" name="name" >
                                 <label for="Nombre">Nombre Completo</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="Num" type="text" class="validate">
+                                <input id="Num" type="text" class="validate" name="numtel">
                                 <label for="Num">Numero de telefono</label>
                             </div>
                         </div>
@@ -61,9 +61,11 @@
                             <label>Municipio</label>
                         </div>
 <center>
-  <a class="btn waves-effect waves-light blue darken-4 btn-large " type="submit" name="action" >Enviar
+  <button>
+    <a class="btn waves-effect waves-light blue darken-4 btn-large " type="submit" name="action" >Enviar
     <i class="material-icons right">send</i>
     </a>
+  </button>
 </center>
 
         
