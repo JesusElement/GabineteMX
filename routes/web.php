@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+     return "Cache is cleared";
+     });
+
 Route::get('/', function () {
     return view('Index');
 })->name('index');

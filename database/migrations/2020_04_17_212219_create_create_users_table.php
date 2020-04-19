@@ -13,9 +13,9 @@ class CreateCreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('create_users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::cliente('cliente', function (Blueprint $table) {
+            $table->id_cliente();
+            $table->nom();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateCreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('create_users');
+        Schema::dropIfExists('cliente');
     }
 }

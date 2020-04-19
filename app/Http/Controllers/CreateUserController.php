@@ -19,8 +19,9 @@ class CreateUserController extends Controller
     public function index()
     {
         //
+
         return view('RegistroUser');
-        
+        return redirect()->back()->with('alert','hello');
     }
 
     /**
@@ -30,7 +31,7 @@ class CreateUserController extends Controller
      */
     public function create()
     {
-        //
+        return view('RegistroUser');
     }
 
     /**
@@ -41,7 +42,9 @@ class CreateUserController extends Controller
      */
     public function store(Request $request)
     {
-
+    
+        
+        DB::insert('insert into cliente (nom, ape1) values (?, ?)', ['ANtonio', 'Hernandez']);
         
     /**
      * Creamos la instancia de la clase registro
