@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Routing\Registrar;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests;
 
 
 class CreateUserController extends Controller
@@ -21,7 +22,7 @@ class CreateUserController extends Controller
         //
 
         return view('RegistroUser');
-        return redirect()->back()->with('alert','hello');
+      
     }
 
     /**
@@ -43,48 +44,33 @@ class CreateUserController extends Controller
     public function store(Request $request)
     {
     
-        
-        DB::insert('insert into cliente (nom, ape1) values (?, ?)', ['ANtonio', 'Hernandez']);
-        
-    /**
-     * Creamos la instancia de la clase registro
-     */
-    $registro = new CreateUser;
+ 
+    // $nom=$request['name'];
+    // $password=bcrypt($request['password']);
+    // $email=$request['email'];
+    // $ape1=$request['pa'];
+    // $ape2=$request['sa'];
 
-    /* Realizamos la asignación masiva */
-    $registro->nom = $request['name'];
-    $registro->ape1 = $request['pa'];
-    $registro->ape2 = $request['sa'];
-    $registro->email = $request['email'];
+    // $usuario = new CreateUser();
+
+    // $usuario->nom = $nom;
+    // $usuario->ape1 = $ape1;
+    // $usuario->ape2 = $ape2;
+    // $usuario->email = $email;
+    // $usuario->save();
+    // return redirect()->back();
+
  
    
-    /**
-     * Se repite con los demás datos que desees asignar...
-     */
+    
 
-    $registro->save();
+     $datos=request()->except('_token');
+    //  return response()->json($datos);
 
-    return "Usuario registrado";
-
+    CreateUser::insert($datos);
 
 
-        
-        //  $usuario= new CreateUser;
-        //  request()->except('_token');
-        //  $usuario->nombre=$request->input('name');
-        //  $usuario->email=$request->input('email');
-        //  $usuario->password=$request->input('password');
-
-     
-
-        // DB::insert('insert INTO cliente (nom,email) values ("Antonio","Antonio@mail.com")');
-
-           //  DB::table('cliente')->insert( ['nom' => $usuario->nombre, 'email' => $usuario->email]);
-     
-
-        //    $discussion = CreateUser::create($request->all());
-        //    return response()->json($discussion);
-        
+    
 
     }
 

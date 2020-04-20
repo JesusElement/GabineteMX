@@ -24,9 +24,11 @@
                           <i class="material-icons right">send</i>
                       </center>
                       <center>
-                        <a class="btn waves-effect waves-light blue green lighten-1 btn-large " type="submit" href="{{route('registro')}}">Registrate
+                        <button>
+                        <a class="btn waves-effect waves-light blue green lighten-1 btn-large " type="submit" href="{{ url('registrar') }}">Registrate
                           <i class="material-icons right">add_circle_outline</i>
                           </a>
+                        </button>
                       </center>
                     </form>
                   </div>

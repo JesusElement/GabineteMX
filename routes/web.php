@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+//AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
+
+Route::resource('registrar', 'CreateUserController');
+Route::resource('ingresar','LoginUserController');
+
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
@@ -30,9 +38,9 @@ Route::get('ingresar', function () {
     return view('Login');
 })->name('login');
 
-// Route::get('registrar', function () {
-//      return view('RegistroUser');
-// })->name('registro');
+Route::get('registrar', function () {
+      return view('RegistroUser');
+ })->name('registro');
 
 Route::get('ayuda', function () {
     return view('ayuda');
@@ -44,7 +52,3 @@ Route::get('producto/{number}', function ($number) {
 
 // Route::get('registrar', 'RegistroUsuarioController@index');
 
-//AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
-
-Route::resource('registrar', 'CreateUserController');
-Route::resource('LoginUser','LoginUserController');

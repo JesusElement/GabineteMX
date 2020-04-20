@@ -5,7 +5,7 @@
             <div class="login">
                 <div class="row">
                     <h3>Registrate</h3>
-                    <form class="col s12" action="{{url ('/registrar')}}" method="get">
+                    <form class="col s12" action="{{url ('/ingresar')}}" method="get">
                         {{ csrf_field() }}  
                         {{-- Token para que laravel tome como valido este form --}}
                         <div class="row">

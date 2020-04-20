@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\LoginUser;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\Routing\Registrar;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests;
 
 class LoginUserController extends Controller
 {

@@ -478,6 +478,7 @@ class ComposerStaticInit72e8282288a3361d9a84a2807c219edc
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CreateUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/CreateUserController.php',
+        'App\\Http\\Controllers\\LoginUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginUserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
