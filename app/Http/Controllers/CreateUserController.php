@@ -43,32 +43,19 @@ class CreateUserController extends Controller
      */
     public function store(Request $request)
     {
+        DB::table('cliente')->insert([
+            'id_cliente'=>'1',
+            'nom'=>'Antonio',
+            'ape1'=>'Hernandez',
+            'ape2'=>'Oropeza',
+            'email'=>'antonioher@gmail.com',
+            'telefono'=>'55004879',
+            'fech_na'=>'1998/10/04',
+            'rfc'=>'xxxxxxxx'
+        ]);
     
  
-    // $nom=$request['name'];
-    // $password=bcrypt($request['password']);
-    // $email=$request['email'];
-    // $ape1=$request['pa'];
-    // $ape2=$request['sa'];
-
-    // $usuario = new CreateUser();
-
-    // $usuario->nom = $nom;
-    // $usuario->ape1 = $ape1;
-    // $usuario->ape2 = $ape2;
-    // $usuario->email = $email;
-    // $usuario->save();
-    // return redirect()->back();
-
- 
-   
-    
-
-     $datos=request()->except('_token');
-    //  return response()->json($datos);
-
-    CreateUser::insert($datos);
-
+        
 
     
 

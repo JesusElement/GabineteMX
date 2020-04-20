@@ -61,8 +61,8 @@
                             <label>Municipio</label>
                         </div>
 <center>
-  <button>
-    <a class="btn waves-effect waves-light blue darken-4 btn-large " type="submit" name="action" >Enviar
+  <button type="submit" >
+    <a class="btn waves-effect waves-light blue darken-4 btn-large " name="action" >Enviar
     <i class="material-icons right">send</i>
     </a>
   </button>
