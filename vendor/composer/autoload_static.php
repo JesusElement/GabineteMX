@@ -468,6 +468,7 @@ class ComposerStaticInit72e8282288a3361d9a84a2807c219edc
     );
 
     public static $classMap = array (
+        'App\\AltaProducto' => __DIR__ . '/../..' . '/app/AltaProducto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\CreateUser' => __DIR__ . '/../..' . '/app/CreateUser.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -477,6 +478,7 @@ class ComposerStaticInit72e8282288a3361d9a84a2807c219edc
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\ClienteController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClienteController.php',
+        'App\\Http\\Controllers\\ContraController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContraController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CreateUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/CreateUserController.php',
         'App\\Http\\Controllers\\LoginUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/LoginUserController.php',

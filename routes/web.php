@@ -44,3 +44,4 @@ Route::get('producto/{number}', function ($number) {
 // Route::get('registrar', 'RegistroUsuarioController@index');
 
 Route::resource('cliente','ClienteController');
+Route::resource('altaproducto','AltaProductoController');
