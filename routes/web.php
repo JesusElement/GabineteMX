@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
-
-Route::resource('registrar', 'CreateUserController');
-Route::resource('ingresar','LoginUserController');
-
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
@@ -38,10 +33,6 @@ Route::get('ingresar', function () {
     return view('Login');
 })->name('login');
 
-Route::get('registrar', function () {
-      return view('RegistroUser');
- })->name('registro');
-
 Route::get('ayuda', function () {
     return view('ayuda');
 })->name('ayuda');
@@ -52,3 +43,4 @@ Route::get('producto/{number}', function ($number) {
 
 // Route::get('registrar', 'RegistroUsuarioController@index');
 
+Route::resource('cliente','ClienteController');

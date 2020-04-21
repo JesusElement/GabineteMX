@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\CreateUser;
-use Illuminate\Http\Request;
+use App\contra;
 use App\Http\Controllers\Controller;
-use Illuminate\Contracts\Routing\Registrar;
-use Illuminate\Support\Facades\DB;
-use App\Http\Requests;
+use Illuminate\Http\Request;
 
-
-class CreateUserController extends Controller
+class ContraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +16,6 @@ class CreateUserController extends Controller
     public function index()
     {
         //
-
-        return view('RegistroUser');
-      
     }
 
     /**
@@ -32,7 +25,7 @@ class CreateUserController extends Controller
      */
     public function create()
     {
-        return view('RegistroUser');
+        //
     }
 
     /**
@@ -43,28 +36,27 @@ class CreateUserController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\CreateUser  $createUser
+     * @param  \App\contra  $contra
      * @return \Illuminate\Http\Response
      */
-    public function show(CreateUser $createUser)
+    public function show(contra $contra)
     {
         //
-       
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\CreateUser  $createUser
+     * @param  \App\contra  $contra
      * @return \Illuminate\Http\Response
      */
-    public function edit(CreateUser $createUser)
+    public function edit(contra $contra)
     {
         //
     }
@@ -73,10 +65,10 @@ class CreateUserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\CreateUser  $createUser
+     * @param  \App\contra  $contra
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CreateUser $createUser)
+    public function update(Request $request, contra $contra)
     {
         //
     }
@@ -84,10 +76,10 @@ class CreateUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\CreateUser  $createUser
+     * @param  \App\contra  $contra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CreateUser $createUser)
+    public function destroy(contra $contra)
     {
         //
     }
