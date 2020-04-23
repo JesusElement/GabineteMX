@@ -33,6 +33,10 @@ Route::get('ingresar', function () {
     return view('Login');
 })->name('login');
 
+Route::get('registroUser', function () {
+    return view('cliente/RegistroUser');
+})->name('RegistroUsuario');
+
 Route::get('ayuda', function () {
     return view('ayuda');
 })->name('ayuda');
@@ -41,7 +45,7 @@ Route::get('producto/{number}', function ($number) {
     return view('Producto',['producto'=>$number]);
 })->name('producto')->where('number', '[0-9]+');
 
-// Route::get('registrar', 'RegistroUsuarioController@index');
+ //Route::get('registrar', 'RegistroUsuarioController@index');
 
 Route::resource('cliente','ClienteController');
 Route::resource('altaproducto','AltaProductoController');

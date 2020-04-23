@@ -24,11 +24,10 @@
                           <i class="material-icons right">send</i>
                       </center>
                       <center>
-                        <button>
-                        <a class="btn waves-effect waves-light blue green lighten-1 btn-large " type="submit" href="{{ url('registrar') }}">Registrate
-                          <i class="material-icons right">add_circle_outline</i>
-                          </a>
-                        </button>
+                      <br>
+               <label for="">¿Aun no tienes una cuenta?</label>
+               <a class="" type="submit" href="{{ url('registrar') }}">!Registrate¡</a>
+                   
                       </center>
                     </form>
                   </div>
