@@ -501,7 +501,7 @@
        grid-template-areas:  
        "marizq tituloCss tituloCss tituloCss marder"
        "marizq proveCss famProCss sunFamCss marder"
-       "marizq nomProCss desProCss claseProCss marder"
+       "marizq nomProCss desProCss desProCss marder"
        "marizq precioProCss precioProCss precioProCss marder"
        "marizq imagenProCss imagenProCss imagenProCss marder"
        "marizq bttnCss bttnCss bttnCss marder";
@@ -535,16 +535,12 @@
    .contenedor .contenido .agregarProductoCss
    .nomProCss{
      grid-area: nomProCss;
+     margin-top: 1.7rem;
    }
 
    .contenedor .contenido .agregarProductoCss
    .desProCss{
      grid-area: desProCss;
-   }
-
-   .contenedor .contenido .agregarProductoCss
-   .claseProCss{
-     grid-area: claseProCss;
    }
 
    .contenedor .contenido .agregarProductoCss

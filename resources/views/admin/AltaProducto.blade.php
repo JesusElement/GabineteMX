@@ -33,28 +33,29 @@
             <input id="titulo" type="text" class="validate" name="titulo" required>
             <label for="titulo">{{'Nombre del producto'}}</label>
         </div>
-        <div class="desProCss">
-            <input id="Descripcion" type="text" class="validate" name="Descripcion" required>
-            <label for="Descripcion">{{'Descripcion'}}</label>
+        <div class="desProCss input-field ">
+            <div class="input-field  col s6">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" name="Descripcion" class="materialize-textarea validate" data-length="175"
+                    requiered></textarea>
+                <label for="icon_prefix2">{{'Descripcion'}}</label>
+            </div>
         </div>
-        <div class="claseProCss">
-            <input id="clav_clas" type="text" class="validate" name="clav_clas" required>
-            <label for="clav_clas">{{'Clav class'}}</label>
-        </div>
+
         <div class="precioProCss">
             <input id="Precio" type="text" class="validate" name="Precio" required>
             <label for="Precio">{{'Precio'}}</label>
         </div>
         <div class="imagenProCss">
-        <input id="imagen" type="text" class="validate" name="imagen" required>
+            <input id="imagen" type="text" class="validate" name="imagen" required>
             <label for="imagen">{{'Imagen (ruta)'}}</label>
         </div>
         <div class="bttnCss">
-        <center>
-            <button type="submit" class="btn">
-                Agregar
-            </button>
-        </center>
+            <center>
+                <button type="submit" class="btn">
+                    Agregar
+                </button>
+            </center>
         </div>
         </form>
         <div class="marder">
