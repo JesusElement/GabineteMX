@@ -113,18 +113,24 @@ class ProductoController extends Controller
     public function show(producto $producto)
     {
 
-        $productos = DB::table('producto')
-        ->get();
-        $proveedores = DB::table('proveedor')
-        ->get();
-        $familias = DB::table('familia')
-        ->get();
-        $claves = DB::table('claves')
-        ->get();
+        // $productos = DB::table('producto')
+        // ->get();
+        // $proveedores = DB::table('proveedor')
+        // ->get();
+        // $familias = DB::table('familia')
+        // ->get();
+        // $claves = DB::table('claves')
+        // ->get();
+
+        $resultados=DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titutlo,producto.datos
+        FROM ((producto
+        INNER JOIN familia ON familia.id_familia = producto.id_familia)
+        INNER JOIN claves ON claves.id_clav=producto.clav_clas
+        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)',);
 
         
 
-        return view('admin.producto.cambios-baja.actualizarp')->with('producto', $productos)->with('proveedor', $proveedores)->with('familia',$familias)->with('clave',$claves);
+        return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados);
     }
 
     /**

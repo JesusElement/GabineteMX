@@ -13,13 +13,13 @@
 
         </tr>
        
-          @foreach($producto ?? '' as $productos)
+          @foreach($resultado ?? '' as $resultados)
           <tr>
-          <td>{{ $productos->id_familia}}</td>
-          <td>{{ $productos->clav_clas}}</td>
-          <td>{{ $productos->id_provee}}</td>
-          <td>{{ $productos->titutlo}}</td>
-          <td>{{ $productos->datos}}</td>
+          <td>{{ $resultados->nom_fami}}</td>
+          <td>{{ $resultados->name}}</td>
+          <td>{{ $resultados->nom}}</td>
+          <td>{{ $resultados->titutlo}}</td>
+          <td>{{ $resultados->datos}}</td>
          
         </tr>
         @endforeach
