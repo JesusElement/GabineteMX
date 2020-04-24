@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+     return "Cache is cleared";
+     });
+
 
 Route::get('/', function () {
     return view('index');
@@ -29,6 +36,19 @@ Route::get('/producto', function () {
     return view('cliente.producto.index');
 })->name('producto');
 
+Route::get('/altaproducto', function () {
+    return view('admin.producto.index');
+})->name('altaproducto');
+
+Route::get('/actualizarproducto', function () {
+    return view('admin.producto.cambios-baja.actualizarp');
+})->name('producto');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
+Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
+
+

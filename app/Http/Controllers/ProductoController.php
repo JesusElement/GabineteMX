@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\producto;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use BD;
 
 class ProductoController extends Controller
 {
@@ -14,7 +17,17 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
+        $proveedores = DB::table('proveedor')
+       ->get();
+       $familias = DB::table('familia')
+       ->get();
+       $claves = DB::table('claves')
+       ->get();
+       
+
+
+
+        return view('admin.producto.index')->with('proveedor', $proveedores)->with('familia',$familias)->with('clave',$claves);
     }
 
     /**
@@ -35,7 +48,60 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datos = $request ->except('_token');
+
+   
+ 
+        DB::table('producto')->insert([
+            'id_produc'=> $datos['id_produc'],
+            'id_provee'=> $datos['id_provee'],
+            'titulo'=> $datos['titulo'],
+            'datos'=> $datos['datos'],
+            'clav_clas'=> $datos['clav_clas']
+          
+        ]);
+        
+        
+              DB::table('proveedor')->insert([
+                'id_provee'=> $datos['id_provee']
+               ]);
+       
+   
+              DB::table('stock')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+              DB::table('claves')->insert([
+               'id_clav'=> $datos['clav_clas']
+              ]);
+
+           
+              DB::table('deta_comp')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+              DB::table('comentario')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+              DB::table('buscador')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+              DB::table('contenido')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+              DB::table('oferta')->insert([
+               'id_produc'=> $datos['id_produc']
+              ]);
+
+
+
+            //   return view('admin.producto.cambios-baja.actualizarp');
+          
+              return redirect()->back()->with('alert', $datos);
+
     }
 
     /**
@@ -46,7 +112,19 @@ class ProductoController extends Controller
      */
     public function show(producto $producto)
     {
-        //
+
+        $productos = DB::table('producto')
+        ->get();
+        $proveedores = DB::table('proveedor')
+        ->get();
+        $familias = DB::table('familia')
+        ->get();
+        $claves = DB::table('claves')
+        ->get();
+
+        
+
+        return view('admin.producto.cambios-baja.actualizarp')->with('producto', $productos)->with('proveedor', $proveedores)->with('familia',$familias)->with('clave',$claves);
     }
 
     /**
@@ -69,7 +147,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, producto $producto)
     {
-        //
+       
     }
 
     /**
