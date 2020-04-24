@@ -1,4 +1,5 @@
-<?
+<?php
+
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,7 @@ Route::get('/actualizarproducto', function () {
 
 Auth::routes();
 
+Route::post('/login','Auth\LoginController@Login')->name('login');
+
 Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
 Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
-
