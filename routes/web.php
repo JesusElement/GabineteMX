@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,38 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//AQUI SE TIENE QUE ENLAZAR LA URL CON EL CONTROL CORRESPONDIENTE
-
-Route::get('/clear-cache', function() {
-    Artisan::call('cache:clear');
-     return "Cache is cleared";
-     });
-
 Route::get('/', function () {
-    return view('Index');
+    return view('index');
 })->name('index');
 
-Route::get('carrito', function () {
-    return view('Carrito');
+Route::get('/carrito', function () {
+    return view('cliente.carrito.index');
 })->name('carrito');
 
-Route::get('ingresar', function () {
-    return view('Login');
-})->name('login');
-
-Route::get('registroUser', function () {
-    return view('cliente/RegistroUser');
-})->name('RegistroUsuario');
-
-Route::get('ayuda', function () {
-    return view('ayuda');
+Route::get('/ayuda', function () {
+    return view('cliente.ayuda.index');
 })->name('ayuda');
 
-Route::get('producto/{number}', function ($number) {
-    return view('Producto',['producto'=>$number]);
-})->name('producto')->where('number', '[0-9]+');
+Route::get('/producto', function () {
+    return view('cliente.producto.index');
+})->name('producto');
 
- //Route::get('registrar', 'RegistroUsuarioController@index');
+Auth::routes();
 
-Route::resource('cliente','ClienteController');
-Route::resource('altaproducto','AltaProductoController');
+Route::get('/home', 'HomeController@index')->name('home');

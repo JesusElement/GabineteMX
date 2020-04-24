@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-use Illuminate\Support\Facades\Schema; // llama a clase Schema
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,7 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // limitar la longitud a 191 chars
-        Schema::defaultStringLength(191);
+        //
     }
 }

@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Enumerable;
 use Illuminate\Support\HigherOrderCollectionProxy;
+use Illuminate\Support\HigherOrderWhenProxy;
 use JsonSerializable;
 use Symfony\Component\VarDumper\VarDumper;
 use Traversable;
@@ -35,6 +36,7 @@ use Traversable;
  * @property-read HigherOrderCollectionProxy $sortByDesc
  * @property-read HigherOrderCollectionProxy $sum
  * @property-read HigherOrderCollectionProxy $unique
+ * @property-read HigherOrderCollectionProxy $until
  */
 trait EnumeratesValues
 {
@@ -44,9 +46,27 @@ trait EnumeratesValues
      * @var array
      */
     protected static $proxies = [
-        'average', 'avg', 'contains', 'each', 'every', 'filter', 'first',
-        'flatMap', 'groupBy', 'keyBy', 'map', 'max', 'min', 'partition',
-        'reject', 'some', 'sortBy', 'sortByDesc', 'sum', 'unique',
+        'average',
+        'avg',
+        'contains',
+        'each',
+        'every',
+        'filter',
+        'first',
+        'flatMap',
+        'groupBy',
+        'keyBy',
+        'map',
+        'max',
+        'min',
+        'partition',
+        'reject',
+        'some',
+        'sortBy',
+        'sortByDesc',
+        'sum',
+        'unique',
+        'until',
     ];
 
     /**
@@ -404,12 +424,16 @@ trait EnumeratesValues
      * Apply the callback if the value is truthy.
      *
      * @param  bool|mixed  $value
-     * @param  callable  $callback
+     * @param  callable|null  $callback
      * @param  callable|null  $default
      * @return static|mixed
      */
-    public function when($value, callable $callback, callable $default = null)
+    public function when($value, callable $callback = null, callable $default = null)
     {
+        if (! $callback) {
+            return new HigherOrderWhenProxy($this, $value);
+        }
+
         if ($value) {
             return $callback($this, $value);
         } elseif ($default) {
@@ -696,6 +720,31 @@ trait EnumeratesValues
     public function uniqueStrict($key = null)
     {
         return $this->unique($key, true);
+    }
+
+    /**
+     * Take items in the collection until condition is met.
+     *
+     * @param  mixed  $key
+     * @return static
+     */
+    public function until($value)
+    {
+        $passed = [];
+
+        $callback = $this->useAsCallable($value) ? $value : function ($item) use ($value) {
+            return $item === $value;
+        };
+
+        foreach ($this as $key => $item) {
+            if ($callback($item, $key)) {
+                break;
+            }
+
+            $passed[$key] = $item;
+        }
+
+        return new static($passed);
     }
 
     /**
