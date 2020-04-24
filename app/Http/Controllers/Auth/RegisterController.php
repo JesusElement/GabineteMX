@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,8 +51,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'nom' => ['required', 'string', 'max:75'],
+            'ape2' => ['required', 'string', 'max:75'],
+            'ape2' => ['required', 'string', 'max:75'],
+            'email' => ['required', 'string', 'email', 'max:100', 'unique:cliente'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,10 +67,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $id = date('d');
+        $id = $id . substr($data['nom'],0,1);
+        $id = $id . substr($data['ape1'],0,1);
+        $id = $id . substr($data['ape2'],0,1);
+        $id = $id . substr($data['telefono'],6,9);
+        $id = $id . rand(100,999);
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'id_cliente'=> $id,
+            'nom'=> $data['nom'],
+            'ape1'=> $data['ape1'],
+            'ape2'=> $data['ape2'],
+            'email'=> $data['email'],
+            'telefono'=> $data['telefono'],
+            'fech_na'=> '2020/02/10',
+            'password'=> $data['password']
         ]);
+        
+ /*
+        return User::create([
+            'nom' => $data['nom'],
+            'ape1' => 'Jimenez',
+            'ape2' => 'Hernandez',
+            'telefono' => '5532313305',
+            'email' => $data['email'],
+            'fech_na' => '2020/04/01'            
+        ]);   
+        
+        */
     }
 }

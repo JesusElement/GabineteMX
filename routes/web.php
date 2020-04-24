@@ -48,4 +48,3 @@ Auth::routes();
 Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
 Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
 
-Route::post('login','Auth\LoginController@login')->name('login');

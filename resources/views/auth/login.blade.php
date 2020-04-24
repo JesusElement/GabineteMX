@@ -13,17 +13,23 @@
 <div class="contenido">
             <div class="login">
                 <div class="row">
-                    <form class="col s12">
+                    <form class="col s12" method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}  
                       <div class="row">
                           <h3>Ingresar</h3>
                         <div class="input-field col s12">
                           <i class="material-icons prefix">account_circle</i>
-                          <input id="icon_prefix" type="text" class="validate">
+                          <input id="icon_prefix" type="text" value="{{old('email')}}" class="validate" name="email">
                           <label for="icon_prefix">Correo</label>
+                          @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                         </div>
                         <div class="input-field col s12">
                           <i class="material-icons prefix">https</i>
-                          <input id="icon_telephone" type="password" class="validate">
+                          <input id="icon_telephone" type="password" class="validate" name="password">
                           <label for="icon_telephone">Contraseña</label>
                         </div>
                       </div>
