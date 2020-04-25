@@ -50,3 +50,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
 Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
+Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');

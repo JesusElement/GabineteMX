@@ -50,57 +50,66 @@ class ProductoController extends Controller
     {
         $datos = $request ->except('_token');
 
-   
+        $id = substr($datos['id_provee'],0,6);
+         $id = $id . substr($datos['id_familia'],6,8);
+     
+        //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
+        // 3 sigueintes letras -> las 3 ultimas letras de la familia
+        // 3 SIGUIENTES DIGITOS  CAMBIAN POR 5 EN SUBMODELOS EJ: 000,005,0010 
+        // SI ES EL MISMO SUBMODELO, PERO TIENE ALGUNA CARACTERISTICA DIFERENTE.
+
+        
  
-        DB::table('producto')->insert([
-            'id_produc'=> $datos['id_produc'],
-            'id_provee'=> $datos['id_provee'],
-            'titulo'=> $datos['titulo'],
-            'datos'=> $datos['datos'],
-            'clav_clas'=> $datos['clav_clas']
+        //  DB::table('producto')->insert([
+        //      'id_produc'=> $id,
+        //      'id_provee'=> $datos['id_provee'],
+        //      'id_familia'=> $datos['id_familia'],
+        //      'titutlo'=> $datos['titulo'],
+        //      'datos'=> $datos['datos'],
+        //      'clav_clas'=> $datos['clav_clas']
           
-        ]);
+        //  ]);
         
         
-              DB::table('proveedor')->insert([
-                'id_provee'=> $datos['id_provee']
-               ]);
+        //       DB::table('proveedor')->insert([
+        //         'id_provee'=> $datos['id_provee']
+        //        ]);
        
    
-              DB::table('stock')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('stock')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
-              DB::table('claves')->insert([
-               'id_clav'=> $datos['clav_clas']
-              ]);
+        //       DB::table('claves')->insert([
+        //        'id_clav'=> $datos['clav_clas']
+        //       ]);
 
            
-              DB::table('deta_comp')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('deta_comp')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
-              DB::table('comentario')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('comentario')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
-              DB::table('buscador')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('buscador')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
-              DB::table('contenido')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('contenido')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
-              DB::table('oferta')->insert([
-               'id_produc'=> $datos['id_produc']
-              ]);
+        //       DB::table('oferta')->insert([
+        //        'id_produc'=> $datos['id_produc']
+        //       ]);
 
 
 
-            //   return view('admin.producto.cambios-baja.actualizarp');
+        return response()->json($datos);
           
-              return redirect()->back()->with('alert', $datos);
+            //   return redirect()->back()->with('alert', $datos);
 
     }
 

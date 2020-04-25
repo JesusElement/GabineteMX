@@ -4,7 +4,7 @@
 <div class="contenido">
   <div class="actualizarProductoCss">
     <div class="actProTabCss">
-      <h3>Actualizar productos</h3>
+      <h3>DASHBOARD</h3>
     <table style="">
         <tr>
           <th>Tipo</th>     {{--   id_familia --}}
