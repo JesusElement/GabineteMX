@@ -16,7 +16,7 @@
                     <option value="" selected="true" disabled="disabled">Proveedor</option>
                     @foreach($proveedor ?? '' as $id_provee)
                     <option value="{{ $id_provee->id_provee}}">{{ $id_provee->nom }}</option>
-               
+
                     @endforeach
                 </select>
                 <label>Provedores</label>
@@ -28,7 +28,7 @@
                 <option value="" selected="true" disabled="disabled">Familia producto</option>
                 @foreach($familia ?? '' as $id_familia)
                 <option value="{{ $id_familia->id_familia}}">{{ $id_familia->nom_fami }}</option>
-              
+
                 @endforeach
             </select>
             <label>Familia prodcuto</label>
@@ -42,7 +42,7 @@
                 <option value="" selected="true" disabled="disabled">Subfamilia producto</option>
                 @foreach($clave ?? '' as $id_clav)
                 <option value="{{ $id_clav->id_clav}}">{{ $id_clav->name }}</option>
-              
+
                 @endforeach
             </select>
             <label>Subfamilia producto</label>
@@ -54,7 +54,7 @@
         </div>
         <div class="desProCss input-field ">
             <div class="input-field  col s6">
-                <i class="material-icons prefix">mode_edit</i>
+
                 <textarea id="icon_prefix2" name="Descripcion" class="materialize-textarea validate" data-length="175"
                     requiered></textarea>
                 <label for="icon_prefix2">{{'Descripcion'}}</label>
@@ -66,8 +66,21 @@
             <label for="Precio">{{'Precio'}}</label>
         </div>
         <div class="imagenProCss">
-            <input id="imagen" type="text" class="validate" name="imagen" required>
-            <label for="imagen">{{'Imagen (ruta)'}}</label>
+            <div class="file-field input-field">
+                <div class="btn">
+                    <span>File</span>
+                    <input type="file" id="imagen" name="imagen" multiple  required>
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Subir imagenes">
+                </div>
+            </div>
+        </div>
+        <div class="stockProCss">
+            <p class="range-field">
+            <input id="stock" type="text" class="validate" name="stock" required>
+                <label for="range">{{'Stock'}}</label>
+            </p>
         </div>
         <div class="bttnCss">
             <center>
@@ -76,6 +89,8 @@
                 </button>
             </center>
         </div>
+        <br>
+        <br>
         </form>
         <div class="marder">
 

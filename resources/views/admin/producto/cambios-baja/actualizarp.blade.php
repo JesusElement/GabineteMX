@@ -2,14 +2,18 @@
 @section('seccion')
 <!-- Inicia Contenido -->
 <div class="contenido">
-    <table style="width:70% ">
+  <div class="actualizarProductoCss">
+    <div class="actProTabCss">
+      <h3>Actualizar productos</h3>
+    <table style="">
         <tr>
           <th>Tipo</th>     {{--   id_familia --}}
           <th>Subtipo</th>  {{--   clav_clas --}}
           <th>Provedor</th>   {{--   id_provee --}}
           <th>Nombre</th>      {{--   titulo --}}
           <th>Descripcion</th>      {{--   datos --}}
-          <th>BOTONES</th>      {{--   amarillo update rojo delete --}}
+          <th>Opciones</th>      {{-- actualizarEliminar --}}
+       
 
         </tr>
        
@@ -20,7 +24,8 @@
           <td>{{ $resultados->nom}}</td>
           <td>{{ $resultados->titutlo}}</td>
           <td>{{ $resultados->datos}}</td>
-         
+          <td style="width: 170px;"><a class="waves-effect waves-light btn blue darken-4"><i class="small material-icons left">arrow_upward</i>Actualizar</a><a class="waves-effect waves-light btn red accent-4 btnacP"><i class="small material-icons left">warning</i>Eliminar</a></td>
+          
         </tr>
         @endforeach
 
@@ -28,6 +33,9 @@
 
         
       </table>
+
+      </div>
+
       <br>
       <br>
       <br>
@@ -38,10 +46,8 @@
       
       
       
-
+      </div>
+      
 </div>
-
-
-
 <!-- Termina contenido -->
 @endsection
