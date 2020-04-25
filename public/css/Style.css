@@ -502,8 +502,8 @@
        "marizq tituloCss tituloCss tituloCss marder"
        "marizq proveCss famProCss sunFamCss marder"
        "marizq nomProCss nomProCss precioProCss  marder"
-       "marizq desProCss desProCss imagenProCss marder"
-       "marizq stockProCss stockProCss stockProCss marder"
+       "marizq desProCss desProCss  stockProCss marder"
+       "marizq imagenProCss imagenProCss imagenProCss  marder"
        "marizq bttnCss bttnCss bttnCss marder";
    }
 
@@ -555,10 +555,17 @@
      margin-top: 1rem;;
    }
 
+   /*Esto es para subir varias imagenes a la vez INICIO Agregar P*/
+
+   
+
+   /*Esto es para subir varias imagenes a la vez FIN Agregar P*/
+
    .contenedor .contenido .agregarProductoCss
    .stockProCss{
      grid-area: stockProCss;
-     width: 100px;;
+     width: 100px;
+     margin-top: 1.9rem;;
    }
    
 

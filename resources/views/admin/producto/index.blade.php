@@ -6,10 +6,11 @@
         <div class="marizq">
             
         </div>
+       
+        <div class="tituloCss">
         <form action="{{url ('/storeproducto')}}" method="get" enctype="multipart/form-data">
             {{ csrf_field() }}
               {{-- Token para que laravel tome como valido este form --}}
-        <div class="tituloCss">
             <h3>Registrar producto</h3>
         </div>
     <div class="proveCss">
