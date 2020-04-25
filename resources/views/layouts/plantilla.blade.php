@@ -55,6 +55,7 @@
                 <div class="fotoperfilDiv">
                     <i class="small material-icons">account_box</i>  
                 </div>
+                
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
                 </div>
@@ -123,6 +124,15 @@
               </div>
             </div>
           </div>
+  <h1> Hola
+  </h1>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST">
+             {{ csrf_field() }}
+             <button type="submit" class="btn btn-danger" >
+             Salir ayuda
+             </button>
+              </form>
+
           <div class="footer-copyright">
             <div class="container">
                     Aviso de privacidad
