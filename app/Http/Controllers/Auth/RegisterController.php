@@ -69,11 +69,10 @@ class RegisterController extends Controller
     {
 
         $id = date('d');
-        $id = $id . substr($data['nom'],0,1);
-        $id = $id . substr($data['ape1'],0,1);
-        $id = $id . substr($data['ape2'],0,1);
+        $id = $id . date('m');
+        $id = $id . date('y');
         $id = $id . substr($data['telefono'],6,9);
-        $id = $id . rand(100,999);
+        $id = $id . rand(10,99);
 
         return User::create([
             'id_cliente'=> $id,

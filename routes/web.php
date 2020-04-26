@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,3 +51,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
 Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
 Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
+
+Route::middleware('auth')->group(function() {
+    Route::get('/sessions', function () {
+        $sessions = DB::table('sessions')
+            ->where('user_id', auth()->id())
+            ->orderBy('last_activity', 'DESC')
+            ->get();
+        return view('auth.sessions', ['sessions' => $sessions]);
+    });
+    Route::post('/delete-session', function(Request $request) {
+        DB::table('sessions')
+            ->where('id', $request->id)
+            ->where('user_id', auth()->id())
+            ->delete();
+    });
+});

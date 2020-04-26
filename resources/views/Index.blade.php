@@ -79,7 +79,8 @@
         </script>
 
         <!-- TERMINA EL LOADER  -->
-<div class="contenido">      
+<div class="contenido">   
+
             <div class="carousel">
                 <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
                
