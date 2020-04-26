@@ -12,6 +12,8 @@ class User extends Authenticatable
 
     protected $table = 'cliente';
     protected $primaryKey = 'id_cliente';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
     public $timestamps = false;
     const UPDATED_AT = null;
