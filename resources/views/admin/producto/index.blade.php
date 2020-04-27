@@ -2,16 +2,19 @@
 @section('seccion')
 <!-- Inicia Contenido -->
 <div class="contenido">
+    <form action="{{url ('/storeproducto')}}" method="get" enctype="multipart/form-data">
+        {{ csrf_field() }}
+          {{-- Token para que laravel tome como valido este form --}}
     <div class="agregarProductoCss">
         <div class="marizq">
             
         </div>
-       
+
+
+              
         <div class="tituloCss">
-        <form action="{{url ('/storeproducto')}}" method="get" enctype="multipart/form-data">
-            {{ csrf_field() }}
-              {{-- Token para que laravel tome como valido este form --}}
             <h3>Registrar producto</h3>
+            
         </div>
     <div class="proveCss">
          <select  id="id_provee" class="form-control" name="id_provee">
