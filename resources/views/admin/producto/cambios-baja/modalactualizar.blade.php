@@ -1,5 +1,4 @@
-
-<div class="modal " id="#actualizarproducto{{$resultados->id_produc}}">
+<div class="modal " id="#actualizarproducto{{ $resultados->id_produc }}">
   <div class="modal-content">
     <!--Body-->
     <div class="modal-body">
@@ -15,9 +14,10 @@
         <label for="Segundo nombre">Ingresa descripcion:</label>
       </div>
       <!--EndBody-->
-      </div>
+    </div>
     <div class="modal-footer">
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
       <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1" id="cerrarmodal">Cerrar</a>
     </div>
   </div>
+</div>

@@ -52,7 +52,7 @@ class ProductoController extends Controller
 
         $id = substr($datos['id_provee'], 0, 6);
         $id = $id . substr($datos['id_familia'], 6, 8);
-    
+
 
         //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
         // 3 sigueintes letras -> las 3 ultimas letras de la familia

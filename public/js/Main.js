@@ -10,10 +10,10 @@ $(document).ready(function () {
 //     alert("eliminar");
 // }
 
-// $("#activarmodal").click(function () {
-//   $(".modal").modal();
-// });
+function eliminar(x){
+  alert(x);
+  // $(".modal").modal();
 
-// $("#cerrarmodal").click(function () {
-//   $(".modal").close();
-// });
+}
+
+
