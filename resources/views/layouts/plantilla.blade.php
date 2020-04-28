@@ -64,12 +64,24 @@
                 <div class="fotoperfilDiv">
                     <i class="small material-icons">account_box</i>  
                 </div>
-                {{auth()->user()}}
-  
-
+                @guest
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
                 </div>
+
+                @else
+                <div class="nombreperfilDiv">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger" >
+                      Salir
+                    </button>
+                </form>
+                </div>
+                @endguest
+  
+
+                
                 <div class="ubicacionDiv">
                     <p style="font-size: 10px;">Ubicación</p>
                     <p style="display: inline;">Cuautitlán</p>
@@ -109,12 +121,7 @@
              
                 </div>
                 <div class="marder">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST">
-     {{ csrf_field() }}
-     <button type="submit" class="btn btn-danger" >
-     Salir
-     </button>
-      </form>
+                
                 </div>
           </div>
         <!-- Haeader barra inf FIN-->
