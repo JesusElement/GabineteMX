@@ -57,12 +57,7 @@
                 </div>
                 {{auth()->user()}}
   
-  <form id="logout-form" action="{{ route('logout') }}" method="POST">
-     {{ csrf_field() }}
-     <button type="submit" class="btn btn-danger" >
-     Salir ayuda
-     </button>
-      </form>
+
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
                 </div>
@@ -79,6 +74,7 @@
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
+            <div class="marizq"></div>
                 <div class="ejecutivaDiv">
                     Ejecutiva  
                 </div>
@@ -95,10 +91,21 @@
                     Gadgets   
                 </div>
                 <div class="masbuscadoDiv">
-                    Lo mas buscado   
+                    Mas buscado   
                 </div>
                 <div class="mascalificadoDiv">
-                    Lo mejor calificado   
+                    Mejor calificado   
+                </div>
+                <div class="salirDiv">
+             
+                </div>
+                <div class="marder">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+     {{ csrf_field() }}
+     <button type="submit" class="btn btn-danger" >
+     Salir
+     </button>
+      </form>
                 </div>
           </div>
         <!-- Haeader barra inf FIN-->

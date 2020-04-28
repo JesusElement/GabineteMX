@@ -39,13 +39,89 @@
    .contenedor .header .barsub {
        grid-area: barsub;
        display: grid;
+       grid-template-rows: auto;
        grid-template-columns: 15% 5% 45% 5% 10% 10% 10%;
        grid-template-areas: "logoDiv menuDiv buscarDiv fotoperfilDiv nombreperfilDiv ubicacionDiv carritoDiv";
-       max-height: 50px;
+       max-height: 50px auto;
    }
+
+   @media screen and (max-width: 1068px){
+
+    .contenedor .header {
+      
+        grid-area: header;
+        display: grid;
+        grid-template-columns:  1fr ;
+        grid-template-rows: auto;
+        grid-template-areas: "barsub" "barinf";
+    }
+    
+    .contenedor .header .barsub{
+        justify-content: center;
+  
+        grid-template-columns: 25% 10% 10% 20% 10% 25%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "logoDiv menuDiv fotoperfilDiv nombreperfilDiv ubicacionDiv carritoDiv"
+        "buscarDiv buscarDiv buscarDiv buscarDiv buscarDiv buscarDiv";
+    
+    }
+    
+
+    .contenedor .header .barsub
+    .buscarDiv{
+     grid-column-start: -1;
+     grid-column-end: 7;
+   
+    }
+
+
+}
+
+
+@media screen and (max-width: 600px){
+
+    .contenedor .header {
+      
+        grid-area: header;
+        display: grid;
+        grid-template-columns:  1fr ;
+        grid-template-rows: auto;
+        grid-template-areas: "barsub" "barinf";
+    }
+    
+    .contenedor .header .barsub{
+        justify-content: center;
+        grid-template-columns: 35% 30% 35%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "logoDiv fotoperfilDiv nombreperfilDiv"
+        "menuDiv  ubicacionDiv carritoDiv"
+        "buscarDiv buscarDiv buscarDiv ";
+    
+    }
+    .contenedor .header .barsub
+    .carritoDiv{
+        margin-right: 0rem !important;
+        
+    }
+    
+
+    .contenedor .header .barsub
+    .buscarDiv{
+     grid-column-start: -1;
+     grid-column-end: 7;
+   
+    }
+
+
+}
+
+
+
    
    .contenedor .header .barsub .logoDiv {
-       display: logoDiv;
+       grid-area: logoDiv;
        justify-self: right;
        max-height: 50px;
    }
@@ -57,7 +133,7 @@
    }
    
    .contenedor .header .barsub .menuDiv {
-       display: menuDiv;
+       grid-area: menuDiv;
        justify-self: center;
        align-self: center;
        text-align: left;
@@ -82,7 +158,7 @@
    }
    
    .contenedor .header .barsub .buscarDiv {
-       display: buscarDiv;
+       grid-area: buscarDiv;
        align-self: stretch;
        color: #F2F2F2;
        height: 50px;
@@ -124,18 +200,21 @@
        color: #F2F2F2;
    }
    
-   .contenedor .header .barsub .nombreperfilDiv .btnIng {
+   .contenedor .header .barsub .nombreperfilDiv 
+   .btnIng {
        background-color: #0046c2;
    }
    
-   .contenedor .header .barsub .ubicacionDiv {
+   .contenedor .header .barsub 
+   .ubicacionDiv {
        grid-area: ubicacionDiv;
        justify-self: center;
        align-self: center;
        color: #F2F2F2;
    }
    
-   .contenedor .header .barsub .carritoDiv {
+   .contenedor .header .barsub 
+   .carritoDiv {
        grid-area: carritoDiv;
        align-self: center;
        padding-top: 5px;
@@ -144,81 +223,155 @@
    }
    
    .contenedor .header .barinf {
-       height: 50px;
+       padding-top: 10px;
+       padding-bottom: 10px;
+       height: 50px auto;
        grid-area: barinf;
        display: grid;
-       grid-template-columns: 25% 10% 10% 10% 10% 10% 25%;
-       grid-template-areas: "ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv masbuscadoDiv mascalificadoDiv";
+       grid-template-rows: auto;
+       grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+       grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv masbuscadoDiv mascalificadoDiv salirDiv marder";
    }
+
+   @media screen and (max-width: 1068px){
+    
+    .contenedor .header .barinf{
+        max-height: auto !important;
+        grid-template-columns: 15% 10% 20% 20% 20% 15%;
+        grid-template-rows: auto;
+        grid-template-areas: "marizq ejecutivaDiv trabajoDiv   gamerDiv      hardwareDiv marder"
+                             "marizq gadetsDiv   masbuscadoDiv mascalificadoDiv salirDiv marder" ;
+    
+    }
+    .contenedor .header .barinf 
+    .marder{
+     
+        justify-self: center;
+ }   
+ 
+
+}
+
+@media screen and (max-width: 600px){
+    
+    .contenedor .header .barinf{
+        max-height: auto !important;
+        grid-template-columns: 5% 30% 30% 35%;
+        grid-template-rows: auto;
+        grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv"
+                             "marizq hardwareDiv gadetsDiv  marder"
+                             "marizq masbuscadoDiv mascalificadoDiv marder";
+                             
+    
+    }
+
+    .contenedor .header .barinf
+    .marder{
+    
+        grid-area: marder;
+        padding-bottom: 0px !important;
+        padding-top: 10px;
+    }
+
+
+
+}
+
+    .contenedor .header .barinf
+    .marizq{
+        grid-area: marizq;
+    }
    
    .contenedor .header .barinf .ejecutivaDiv {
-       justify-self: right;
+       justify-self: stretch;
        align-self: center;
        color: #F2F2F2;
        grid-area: ejecutivaDiv;
-       margin-right: 3rem;
+       text-align: center;
+       border-bottom: solid white;
    }
    
    .contenedor .header .barinf .trabajoDiv {
+  
        justify-self: stretch;
        align-self: center;
        color: #F2F2F2;
        grid-area: trabajoDiv;
        text-align: center;
-       border-left: solid white;
+       border-bottom: solid white;
    }
    
    .contenedor .header .barinf .gamerDiv {
+   
        justify-self: stretch;
        text-align: center;
        align-self: center;
        color: #F2F2F2;
        grid-area: gamerDiv;
-       border-left: solid white;
-       border-right: solid white;
+       border-bottom: solid white;
+   
    }
    
    .contenedor .header .barinf .hardwareDiv {
+ 
        justify-self: stretch;
        align-self: center;
        color: #F2F2F2;
        grid-area: hardwareDiv;
-       border-right: solid white;
+       border-bottom: solid white;
        text-align: center;
    }
    
    .contenedor .header .barinf .gadetsDiv {
+ 
        justify-self: stretch;
        align-self: center;
        color: #F2F2F2;
        grid-area: gadetsDiv;
-       border-right: solid white;
+       border-bottom: solid white;
        text-align: center;
    }
    
    .contenedor .header .barinf .masbuscadoDiv {
+
        justify-self: stretch;
        align-self: center;
        text-align: center;
-       border-right: solid white;
+       border-bottom: solid white;
        color: #F2F2F2;
        grid-area: masbuscadoDiv;
    }
    
    .contenedor .header .barinf .mascalificadoDiv {
-       justify-self: left;
+  
+     
        align-self: center;
        color: #F2F2F2;
        grid-area: mascalificadoDiv;
-       margin-left: 3rem;
+       text-align: center;
+       border-bottom: solid white;
    }
+
+   .contenedor .header .barinf 
+   .salirDiv{
+
+    grid-area: salirDiv;
+}   
+
+    .contenedor .header .barinf
+    .marder{
+    
+        grid-area: marder;
+        padding-bottom: 10px;
+    }
+
    
    .contenedor .header .barinf .ejecutivaDiv:hover {
-       justify-self: right;
+       justify-self: center;
        align-self: center;
        color: #F2F2F2;
        grid-area: ejecutivaDiv;
-       margin-right: 5rem;
+       
    }
    
    .contenedor .header .barinf .trabajoDiv:hover {
@@ -257,13 +410,15 @@
    }
    
    .contenedor .header .barinf .mascalificadoDiv:hover {
-       justify-self: left;
+       justify-self: center;
        align-self: center;
        color: #F2F2F2;
        grid-area: mascalificadoDiv;
-       margin-left: 5rem;
+     
    }
-   /* Aqui comienza el grid de contenido */
+
+
+/* Aqui comienza el grid de contenido */
    
    .contenedor .contenido {
        grid-area: contenido;
@@ -573,6 +728,7 @@
    .bttnCss{
    
      grid-area: bttnCss;
+     margin-bottom: 1rem;
   
    }
 
@@ -580,6 +736,59 @@
    .marder{
      grid-area: marder;
    }   
+
+   @media screen and (max-width: 1068px){
+    
+    .contenedor .contenido 
+    .agregarProductoCss{
+      
+        display: grid;
+        grid-gap: 0px !important;
+        grid-template-rows: auto;
+        grid-template-columns: 5% 30% 30% 30% 5%;
+        grid-template-areas:  
+        "marizq tituloCss tituloCss tituloCss marder"
+        "marizq proveCss famProCss sunFamCss marder"
+        "marizq nomProCss nomProCss precioProCss marder"
+        "marizq desProCss desProCss stockProCss marder"
+        "marizq imagenProCss imagenProCss imagenProCss  marder"
+        "marizq bttnCss bttnCss bttnCss marder";
+ 
+    
+    }
+
+    
+
+}
+
+@media screen and (max-width: 600px){
+    
+    .contenedor .contenido 
+    .agregarProductoCss{
+      
+        display: grid;
+        grid-gap: 0px !important;
+        grid-template-rows: auto;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-areas:  
+        "marizq tituloCss marder"
+        "marizq proveCss marder"
+        "marizq famProCss marder"
+        "marizq sunFamCss marder"
+        "marizq nomProCss marder"
+        "marizq precioProCss marder"
+        "marizq desProCss  marder"
+        "marizq stockProCss marder"
+        "marizq imagenProCss marder"
+        "marizq bttnCss marder";
+ 
+    
+    }
+
+    
+
+}
+   
    /*Aqui Termina Aregarproducto form*/
 
    /*Aqui Empieza ActualizarProductoTabla form*/

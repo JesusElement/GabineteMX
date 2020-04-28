@@ -23,8 +23,6 @@
                 </select>
                 <label>Provedores</label>
         </div>
-
-
         <div class="famProCss">
            
             <select  id="id_familia" class="form-control" name="id_familia">
