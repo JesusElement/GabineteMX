@@ -133,7 +133,7 @@ class ProductoController extends Controller
         FROM ((producto
         INNER JOIN familia ON familia.id_familia = producto.id_familia)
         INNER JOIN claves ON claves.id_clav=producto.clav_clas
-        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)',);
+        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)');
 
         $proveedores = DB::table('proveedor')
         ->get();
