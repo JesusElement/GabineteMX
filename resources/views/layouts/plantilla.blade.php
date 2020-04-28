@@ -76,8 +76,8 @@
                     <i class="material-icons">place</i>
                 </div>
                 <div class="carritoDiv">
-                 <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>   
-                </div>
+          <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
+              </div>
               </form>
             </div>
             <!-- Haeader barra sub FIN-->
@@ -118,57 +118,7 @@
                 </div>
           </div>
         <!-- Haeader barra inf FIN-->
-        </div>
-        <div class="fotoperfilDiv">
-          <i class="small material-icons">account_box</i>
-        </div>
-        {{auth()->user()}}
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-          {{ csrf_field() }}
-          <button type="submit" class="btn btn-danger">
-            Salir ayuda
-          </button>
-        </form>
-        <div class="nombreperfilDiv">
-          <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
-        </div>
-        <div class="ubicacionDiv">
-          <p style="font-size: 10px;">Ubicación</p>
-          <p style="display: inline;">Cuautitlán</p>
-          <i class="material-icons">place</i>
-        </div>
-        <div class="carritoDiv">
-          <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
-        </div>
-
-      </div>
-      <!-- Haeader barra sub FIN-->
-      <!-- Haeader barra inf INICIO-->
-      <div class="barinf">
-        <div class="ejecutivaDiv">
-          Ejecutiva
-        </div>
-        <div class="trabajoDiv">
-          Trabajo
-        </div>
-        <div class="gamerDiv">
-          Gamer
-        </div>
-        <div class="hardwareDiv">
-          Hardware
-        </div>
-        <div class="gadetsDiv">
-          Gadgets
-        </div>
-        <div class="masbuscadoDiv">
-          Lo mas buscado
-        </div>
-        <div class="mascalificadoDiv">
-          Lo mejor calificado
-        </div>
-      </div>
-      <!-- Haeader barra inf FIN-->
+    
     </div>
     <div class="containeer">
       @yield('seccion')
