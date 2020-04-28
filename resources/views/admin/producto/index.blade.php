@@ -22,6 +22,45 @@
                     @endforeach
                 </select>
                 <label>Provedores</label>
+<<<<<<< HEAD
+        </div>
+        <div class="famProCss">
+           
+            <select  id="id_familia" class="form-control" name="id_familia">
+                <option value="" selected="true" disabled="disabled">Familia producto</option>
+                @foreach($familia ?? '' as $id_familia)
+                <option value="{{ $id_familia->id_familia}}">{{ $id_familia->nom_fami }}</option>
+
+                @endforeach
+            </select>
+            <label>Familia prodcuto</label>
+
+        </div>
+        <div class="subFamCss">
+          
+
+            <select  id="clav_clas" class="form-control" name="clav_clas">
+                <option value="" selected="true" disabled="disabled">Subfamilia producto</option>
+                @foreach($clave ?? '' as $id_clav)
+                <option value="{{ $id_clav->id_clav}}">{{ $id_clav->name }}</option>
+
+                @endforeach
+            </select>
+            <label>Subfamilia producto</label>
+
+        </div>
+        <div class="nomProCss">
+            <input id="titulo" type="text" class="validate" name="titulo" required>
+            <label for="titulo">{{'Nombre del producto'}}</label>
+        </div>
+        <div class="desProCss input-field ">
+            <div class="input-field  col s6">
+
+                <textarea id="icon_prefix2" name="datos" class="materialize-textarea validate" data-length="175"
+                    requiered></textarea>
+                <label for="icon_prefix2">{{'Descripcion'}}</label>
+=======
+>>>>>>> 3a9eeb49c53acd578f8696f0d8a8a7b06c4142a1
             </div>
 
 
