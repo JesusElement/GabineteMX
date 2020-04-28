@@ -18,16 +18,16 @@ class ProductoController extends Controller
     public function index()
     {
         $proveedores = DB::table('proveedor')
-       ->get();
-       $familias = DB::table('familia')
-       ->get();
-       $claves = DB::table('claves')
-       ->get();
-       
+            ->get();
+        $familias = DB::table('familia')
+            ->get();
+        $claves = DB::table('claves')
+            ->get();
 
 
 
-        return view('admin.producto.index')->with('proveedor', $proveedores)->with('familia',$familias)->with('clave',$claves);
+
+        return view('admin.producto.index')->with('proveedor', $proveedores)->with('familia', $familias)->with('clave', $claves);
     }
 
     /**
@@ -48,34 +48,35 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $datos = $request ->except('_token');
+        $datos = $request->except('_token');
 
-        $id = substr($datos['id_provee'],0,6);
-         $id = $id . substr($datos['id_familia'],6,8);
-     
+        $id = substr($datos['id_provee'], 0, 6);
+        $id = $id . substr($datos['id_familia'], 6, 8);
+    
+
         //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
         // 3 sigueintes letras -> las 3 ultimas letras de la familia
         // 3 SIGUIENTES DIGITOS  CAMBIAN POR 5 EN SUBMODELOS EJ: 000,005,0010 
         // SI ES EL MISMO SUBMODELO, PERO TIENE ALGUNA CARACTERISTICA DIFERENTE.
 
-        
- 
-        //  DB::table('producto')->insert([
-        //      'id_produc'=> $id,
-        //      'id_provee'=> $datos['id_provee'],
-        //      'id_familia'=> $datos['id_familia'],
-        //      'titutlo'=> $datos['titulo'],
-        //      'datos'=> $datos['datos'],
-        //      'clav_clas'=> $datos['clav_clas']
-          
-        //  ]);
-        
-        
+
+
+        DB::table('producto')->insert([
+            'id_produc' => $id,
+            'id_provee' => $datos['id_provee'],
+            'id_familia' => $datos['id_familia'],
+            'titutlo' => $datos['titulo'],
+            'datos' => $datos['datos'],
+            'clav_clas' => $datos['clav_clas']
+
+        ]);
+
+
         //       DB::table('proveedor')->insert([
         //         'id_provee'=> $datos['id_provee']
         //        ]);
-       
-   
+
+
         //       DB::table('stock')->insert([
         //        'id_produc'=> $datos['id_produc']
         //       ]);
@@ -84,7 +85,7 @@ class ProductoController extends Controller
         //        'id_clav'=> $datos['clav_clas']
         //       ]);
 
-           
+
         //       DB::table('deta_comp')->insert([
         //        'id_produc'=> $datos['id_produc']
         //       ]);
@@ -107,10 +108,7 @@ class ProductoController extends Controller
 
 
 
-        return response()->json($datos);
-          
-            //   return redirect()->back()->with('alert', $datos);
-
+        return redirect('/actualizarproducto');
     }
 
     /**
@@ -131,13 +129,13 @@ class ProductoController extends Controller
         // $claves = DB::table('claves')
         // ->get();
 
-        $resultados=DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titutlo,producto.datos
+        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titutlo,producto.datos,producto.id_produc
         FROM ((producto
         INNER JOIN familia ON familia.id_familia = producto.id_familia)
         INNER JOIN claves ON claves.id_clav=producto.clav_clas
         INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)',);
 
-        
+
 
         return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados);
     }
@@ -162,7 +160,6 @@ class ProductoController extends Controller
      */
     public function update(Request $request, producto $producto)
     {
-       
     }
 
     /**
