@@ -10,10 +10,5 @@ $(document).ready(function () {
 //     alert("eliminar");
 // }
 
-function eliminar(x){
-  alert(x);
-  // $(".modal").modal();
-
-}
 
 

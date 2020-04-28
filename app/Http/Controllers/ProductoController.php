@@ -135,9 +135,16 @@ class ProductoController extends Controller
         INNER JOIN claves ON claves.id_clav=producto.clav_clas
         INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)',);
 
+        $proveedores = DB::table('proveedor')
+        ->get();
+        $familias = DB::table('familia')
+        ->get();
+        $claves = DB::table('claves')
+        ->get();
 
 
-        return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados);
+
+        return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados)->with('proveedor', $proveedores)->with('familia', $familias)->with('clave', $claves);
     }
 
     /**

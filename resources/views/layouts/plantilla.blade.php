@@ -29,7 +29,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="contenedor">
         <div class="header">
            <!-- Haeader barra sub INICIO-->
@@ -77,41 +76,10 @@
                     <i class="material-icons">place</i>
                 </div>
                 <div class="carritoDiv">
-                 <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>   
-=======
-  <div class="contenedor">
-    <div class="header">
-      <!-- Haeader barra sub INICIO-->
-      <div class="barsub">
-        <div class="logoDiv">
-          <a href="{{route('index')}}">
-            <img class="logo" src="/Imagenes/logo.png" alt="GabineteMX">
-          </a>
-        </div>
-        <div class="menuDiv">
-          <a class="dropdown-trigger btnMenu" href='#' data-target='dropdown1'><i
-              class="small material-icons">toc</i></a>
-          <ul id='dropdown1' class='dropdown-content dropMenu'>
-            <li><a class="grey-text  text-lighten-5" href="#!">Pedidos</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Devoluciones</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a class="grey-text  text-lighten-5" href="#!">Cuenta</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Compras</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Dirección</a></li>
-          </ul>
-        </div>
-        <div class="buscarDiv">
-          <nav class="buscador">
-            <div class="nav-wrapper">
-              <form>
-                <div class="input-field">
-                  <input class="buscardor grey-text text-darken-4" id="search" type="search">
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
->>>>>>> 3a9eeb49c53acd578f8696f0d8a8a7b06c4142a1
-                </div>
+          <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
+              </div>
               </form>
             </div>
-<<<<<<< HEAD
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
@@ -150,60 +118,7 @@
                 </div>
           </div>
         <!-- Haeader barra inf FIN-->
-=======
-          </nav>
->>>>>>> 3a9eeb49c53acd578f8696f0d8a8a7b06c4142a1
-        </div>
-        <div class="fotoperfilDiv">
-          <i class="small material-icons">account_box</i>
-        </div>
-        {{auth()->user()}}
-
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
-          {{ csrf_field() }}
-          <button type="submit" class="btn btn-danger">
-            Salir ayuda
-          </button>
-        </form>
-        <div class="nombreperfilDiv">
-          <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
-        </div>
-        <div class="ubicacionDiv">
-          <p style="font-size: 10px;">Ubicación</p>
-          <p style="display: inline;">Cuautitlán</p>
-          <i class="material-icons">place</i>
-        </div>
-        <div class="carritoDiv">
-          <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
-        </div>
-
-      </div>
-      <!-- Haeader barra sub FIN-->
-      <!-- Haeader barra inf INICIO-->
-      <div class="barinf">
-        <div class="ejecutivaDiv">
-          Ejecutiva
-        </div>
-        <div class="trabajoDiv">
-          Trabajo
-        </div>
-        <div class="gamerDiv">
-          Gamer
-        </div>
-        <div class="hardwareDiv">
-          Hardware
-        </div>
-        <div class="gadetsDiv">
-          Gadgets
-        </div>
-        <div class="masbuscadoDiv">
-          Lo mas buscado
-        </div>
-        <div class="mascalificadoDiv">
-          Lo mejor calificado
-        </div>
-      </div>
-      <!-- Haeader barra inf FIN-->
+    
     </div>
     <div class="containeer">
       @yield('seccion')

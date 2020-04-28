@@ -3,21 +3,20 @@
         <!--Body-->
         <div class="modal-body">
 
-            <label>TIPO DE PRODUCTO </label><br>
-
-            <label>{{ $resultados->nom_fami }}</label><br>
-
-            <label>SUBTIPO </label><br>
-            <label>{{ $resultados->name }}</label><br>
-
-            <label>MARCA</label><br>
-            <label>{{ $resultados->nom }}</label><br>
-
-            <label>NOMBRE </label><br>
-            <label>{{ $resultados->titutlo }}</label><br>
             
-            <label>DESCRIPCION</label><br>
-            <label>{{ $resultados->datos }}</label> <br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">TIPO DE PRODUCTO:&nbsp;&nbsp;&nbsp;</span>   <label>{{ $resultados->nom_fami }}</label><br>
+
+            
+            <span class="label label-primary" style="color: black; font-weight: bold; ">SUBTIPO:&nbsp;&nbsp;&nbsp;</span>  <label>{{ $resultados->name }}</label><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">MARCA:&nbsp;&nbsp;&nbsp;</span>  <label>{{ $resultados->nom }}</label><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">NOMBRE:&nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->titutlo }}</label><br>
+            
+            <span class="label label-primary" style="color: black; font-weight: bold; ">DESCRIPCION:&nbsp;&nbsp;&nbsp;</span>   <label>{{ $resultados->datos }}</label> <br>
+
+            
 
         <!--EndBody-->
         </div>
