@@ -4,13 +4,18 @@
         <div class="modal-body">
 
             <label>TIPO DE PRODUCTO </label><br>
+
             <label>{{ $resultados->nom_fami }}</label><br>
+
             <label>SUBTIPO </label><br>
             <label>{{ $resultados->name }}</label><br>
+
             <label>MARCA</label><br>
             <label>{{ $resultados->nom }}</label><br>
+
             <label>NOMBRE </label><br>
             <label>{{ $resultados->titutlo }}</label><br>
+            
             <label>DESCRIPCION</label><br>
             <label>{{ $resultados->datos }}</label> <br>
 
