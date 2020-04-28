@@ -29,7 +29,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <div class="contenedor">
         <div class="header">
            <!-- Haeader barra sub INICIO-->
@@ -78,40 +77,9 @@
                 </div>
                 <div class="carritoDiv">
                  <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>   
-=======
-  <div class="contenedor">
-    <div class="header">
-      <!-- Haeader barra sub INICIO-->
-      <div class="barsub">
-        <div class="logoDiv">
-          <a href="{{route('index')}}">
-            <img class="logo" src="/Imagenes/logo.png" alt="GabineteMX">
-          </a>
-        </div>
-        <div class="menuDiv">
-          <a class="dropdown-trigger btnMenu" href='#' data-target='dropdown1'><i
-              class="small material-icons">toc</i></a>
-          <ul id='dropdown1' class='dropdown-content dropMenu'>
-            <li><a class="grey-text  text-lighten-5" href="#!">Pedidos</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Devoluciones</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a class="grey-text  text-lighten-5" href="#!">Cuenta</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Compras</a></li>
-            <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Dirección</a></li>
-          </ul>
-        </div>
-        <div class="buscarDiv">
-          <nav class="buscador">
-            <div class="nav-wrapper">
-              <form>
-                <div class="input-field">
-                  <input class="buscardor grey-text text-darken-4" id="search" type="search">
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
->>>>>>> 3a9eeb49c53acd578f8696f0d8a8a7b06c4142a1
                 </div>
               </form>
             </div>
-<<<<<<< HEAD
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
@@ -150,9 +118,6 @@
                 </div>
           </div>
         <!-- Haeader barra inf FIN-->
-=======
-          </nav>
->>>>>>> 3a9eeb49c53acd578f8696f0d8a8a7b06c4142a1
         </div>
         <div class="fotoperfilDiv">
           <i class="small material-icons">account_box</i>
