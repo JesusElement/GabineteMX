@@ -85,6 +85,32 @@
                 <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
                
               </div>
+              <div class="container"> 
+              <div class="card-body">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Proveedor</th>
+                          <th scope="col">Titulo</th>
+                          <th scope="col">Caracteristicas</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          @foreach($productos as $producto)
+                          <tr>
+                              <td>{{ $producto->id_produc }}</td>
+                              <td>{{ $producto->id_provee }}</td>
+                              <td>{{ $producto->titulo }}</td>
+                             @php 
+                              $datos = str_replace("*/*", ' ', $producto->datos);;
+                             @endphp
+                              <td>{{ $datos }}</td>
+                          @endforeach
+                      </tbody>
+                    </table>
+                </div>
+              </div>
 
             <div class="otroscontenidos">
                 <div class="marizq"></div>

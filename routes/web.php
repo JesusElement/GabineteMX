@@ -21,7 +21,10 @@ Route::get('/clear-cache', function() {
 
 
 Route::get('/', function () {
-    return view('index');
+    $productos = DB::table('producto')
+            ->orderBy('titulo', 'DESC')
+            ->paginate(2);
+    return view('index', ['productos' => $productos]);
 })->name('index');
 
 Route::get('/carrito', function () {
@@ -36,6 +39,8 @@ Route::get('/producto', function () {
     return view('cliente.producto.index');
 })->name('producto');
 
+Route::middleware('auth')->group(function() {
+
 Route::get('/altaproducto', function () {
     return view('admin.producto.index');
 })->name('altaproducto');
@@ -43,6 +48,8 @@ Route::get('/altaproducto', function () {
 Route::get('/actualizarproducto', function () {
     return view('admin.producto.cambios-baja.actualizarp');
 })->name('producto');
+
+});
 
 Auth::routes();
 
