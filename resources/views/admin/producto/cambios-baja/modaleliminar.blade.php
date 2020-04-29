@@ -12,7 +12,7 @@
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">MARCA:&nbsp;&nbsp;&nbsp;</span>  <label>{{ $resultados->nom }}</label><br>
 
-            <span class="label label-primary" style="color: black; font-weight: bold; ">NOMBRE:&nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->titutlo }}</label><br>
+            <span class="label label-primary" style="color: black; font-weight: bold; ">NOMBRE:&nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->titulo }}</label><br>
             
             <span class="label label-primary" style="color: black; font-weight: bold; ">DESCRIPCION:&nbsp;&nbsp;&nbsp;</span>   <label>{{ $resultados->datos }}</label> <br>
 

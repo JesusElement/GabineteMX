@@ -71,7 +71,7 @@ class ProductoController extends Controller
             'id_produc' => $id,
             'id_provee' => $datos['id_provee'],
             'id_familia' => $datos['id_familia'],
-            'titutlo' => $datos['titulo'],
+            'titulo' => $datos['titulo'],
             'datos' => $datos['datos'],
             'clav_clas' => $datos['clav_clas']
 
@@ -135,7 +135,7 @@ class ProductoController extends Controller
         // $claves = DB::table('claves')
         // ->get();
 
-        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titutlo,producto.datos,producto.id_produc
+        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titulo,producto.datos,producto.id_produc
         FROM ((producto
         INNER JOIN familia ON familia.id_familia = producto.id_familia)
         INNER JOIN claves ON claves.id_clav=producto.clav_clas

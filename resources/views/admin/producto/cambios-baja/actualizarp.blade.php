@@ -23,7 +23,7 @@
             <td>{{ $resultados->nom_fami }}</td>
             <td>{{ $resultados->name }}</td>
             <td>{{ $resultados->nom }}</td>
-            <td>{{ $resultados->titutlo }}</td>
+            <td>{{ $resultados->titulo }}</td>
             <td>{{ $resultados->datos }}</td>
             <td style="width: 170px;">
 

@@ -6,7 +6,8 @@
                 <div class="row">
                     <h3>Registrate</h3>
                     <form class="col s12" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
-                        {{ csrf_field() }}  
+                        {{ csrf_field() }} 
+                         
                         {{-- Token para que laravel tome como valido este form --}}
                         <div class="row">
                             <div class="input-field col s6">
