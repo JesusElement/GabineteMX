@@ -58,7 +58,7 @@
                 <div class="input-field  col s6">
 
                     <textarea id="icon_prefix2" name="datos" class="materialize-textarea validate" data-length="175"
-                        requiered></textarea>
+                        requiered rows="10"></textarea>
                     <label for="icon_prefix2">{{ 'Descripcion' }}</label>
                 </div>
             </div>
