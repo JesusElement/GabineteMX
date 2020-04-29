@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use BD;
+use App\Http\Controllers\Session;
+
 
 class ProductoController extends Controller
 {
@@ -20,7 +22,7 @@ class ProductoController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         $proveedores = DB::table('proveedor')
@@ -142,11 +144,11 @@ class ProductoController extends Controller
         INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)');
 
         $proveedores = DB::table('proveedor')
-        ->get();
+            ->get();
         $familias = DB::table('familia')
-        ->get();
+            ->get();
         $claves = DB::table('claves')
-        ->get();
+            ->get();
 
 
 
@@ -181,8 +183,9 @@ class ProductoController extends Controller
      * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(producto $producto)
+    public function destroy($producto)
     {
-        //
+        DB::table('producto')->where('id_produc', '=', $producto)->delete();
+        return redirect('/actualizarproducto');
     }
 }

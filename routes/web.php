@@ -17,16 +17,17 @@ use Illuminate\Support\Facades\DB;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/clear-cache', function() {
+
+Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
-     return "Cache is cleared";
-     });
+    return "Cache is cleared";
+});
 
 
 Route::get('/', function () {
     $productos = DB::table('producto')
-            ->orderBy('titulo', 'DESC')
-            ->paginate(2);
+        ->orderBy('titulo', 'DESC')
+        ->paginate(2);
     return view('index', ['productos' => $productos]);
 })->name('index');
 
@@ -42,27 +43,29 @@ Route::get('/producto', function () {
     return view('cliente.producto.index');
 })->name('producto');
 
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
 
-Route::get('/altaproducto', function () {
-    return view('admin.producto.index');
-})->name('altaproducto');
+    Route::get('/altaproducto', function () {
+        return view('admin.producto.index');
+    })->name('altaproducto');
 
-Route::get('/actualizarproducto', function () {
-    return view('admin.producto.cambios-baja.actualizarp');
-})->name('producto');
+    Route::get('/actualizarproducto', function () {
+        return view('admin.producto.cambios-baja.actualizarp');
+    })->name('producto');
 
+
+
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
+    Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
+    Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
+    Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
-Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
-Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
-
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     Route::get('/sessions', function () {
         $sessions = DB::table('sessions')
             ->where('user_id', auth()->id())
@@ -70,7 +73,7 @@ Route::middleware('auth')->group(function() {
             ->get();
         return view('auth.sessions', ['sessions' => $sessions]);
     });
-    Route::post('/delete-session', function(Request $request) {
+    Route::post('/delete-session', function (Request $request) {
         DB::table('sessions')
             ->where('id', $request->id)
             ->where('user_id', auth()->id())

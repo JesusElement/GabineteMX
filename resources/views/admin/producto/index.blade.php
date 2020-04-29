@@ -17,7 +17,7 @@
                 <select id="id_provee" class="form-control" name="id_provee">
                     <option value="" selected="true" disabled="disabled">Proveedor</option>
                     @foreach($proveedor ?? '' as $id_provee)
-                        <option value="{{ $id_provee->id_provee }}">{{ $id_provee->nom }}</option>
+                    <option value="{{ $id_provee->id_provee }}">{{ $id_provee->nom }}</option>
 
                     @endforeach
                 </select>
@@ -30,7 +30,7 @@
                 <select id="id_familia" class="form-control" name="id_familia">
                     <option value="" selected="true" disabled="disabled">Familia producto</option>
                     @foreach($familia ?? '' as $id_familia)
-                        <option value="{{ $id_familia->id_familia }}">{{ $id_familia->nom_fami }}</option>
+                    <option value="{{ $id_familia->id_familia }}">{{ $id_familia->nom_fami }}</option>
 
                     @endforeach
                 </select>
@@ -43,7 +43,7 @@
                 <select id="clav_clas" class="form-control" name="clav_clas">
                     <option value="" selected="true" disabled="disabled">Subfamilia producto</option>
                     @foreach($clave ?? '' as $id_clav)
-                        <option value="{{ $id_clav->id_clav }}">{{ $id_clav->name }}</option>
+                    <option value="{{ $id_clav->id_clav }}">{{ $id_clav->name }}</option>
 
                     @endforeach
                 </select>
