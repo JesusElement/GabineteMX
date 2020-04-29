@@ -43,7 +43,7 @@ Route::get('/producto', function () {
     return view('cliente.producto.index');
 })->name('producto');
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 
     Route::get('/altaproducto', function () {
         return view('admin.producto.index');
@@ -62,7 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
     Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
-});
+// });
 
 
 Route::middleware('auth')->group(function () {
