@@ -832,8 +832,7 @@
     position: fixed;
     width: 55%;
     height: 96%;
-    background-color: white;
-    background: white;
+
     margin-top: 0px;
 }
 
@@ -841,8 +840,6 @@
     position: fixed;
     width:40%;
     height: 96%;
-    background-color: white;
-    background: white;
     margin-left: 56%;
     margin-top: 0px;
    
@@ -851,10 +848,13 @@
     position: relative;
     width: 30%;
     height: 5%;
-    margin-top: 98%;
+    margin-top: 60%;
     margin-left: 70%;
-    
+
     
 }
+
+
+
 
 
