@@ -86,29 +86,34 @@
                
               </div>
               <div class="container"> 
-              <div class="card-body">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th scope="col">Producto</th>
-                          <th scope="col">Proveedor</th>
-                          <th scope="col">Titulo</th>
-                          <th scope="col">Caracteristicas</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                          @foreach($productos as $producto)
+                <div class="card-body">
+                      <table class="table">
+                        <thead>
                           <tr>
-                              <td>{{ $producto->id_produc }}</td>
-                              <td>{{ $producto->id_provee }}</td>
-                              <td>{{ $producto->titulo }}</td>
-                             @php 
-                              $datos = str_replace("*/*", ' ', $producto->datos);;
-                             @endphp
-                              <td>{{ $datos }}</td>
-                          @endforeach
-                      </tbody>
-                    </table>
+                            <th scope="col">Oferta</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Datos</th>
+                            <th scope="col">Descueto</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($ofertas as $oferta)
+                            <tr>
+                                <td>{{ $oferta->id_oferta }}</td>
+                                <td>{{ $oferta->titulo }}</td>
+                                @php 
+                                $datos = str_replace("*/*", ' ', $oferta->datos);;
+                               @endphp
+                               <td>{{ $datos }}</td>
+                               @php
+                                $desc = $oferta->prec_uni * ($oferta->desc / 100 );
+                                $precio = $oferta->prec_uni - $desc;
+                                $precio = round($precio, 2);
+                               @endphp
+                                <td>{{  $precio }}</td>
+                            @endforeach
+                        </tbody>
+                      </table>
                 </div>
               </div>
 
