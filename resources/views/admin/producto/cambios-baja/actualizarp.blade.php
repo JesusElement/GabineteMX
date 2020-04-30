@@ -13,6 +13,8 @@
             <th>Provedor</th> {{-- id_provee --}}
             <th>Nombre</th> {{-- titulo --}}
             <th>Descripcion</th> {{-- datos --}}
+            <th>Stock</th> {{-- stock --}}
+            <th>Precio U.</th> {{-- prec uni --}}
             <th>Opciones</th> {{-- actualizarEliminar --}}
           </tr>
         </thead>
@@ -24,6 +26,11 @@
             <td>{{ $resultados->nom }}</td>
             <td>{{ $resultados->titulo }}</td>
             <td>{{ $resultados->datos }}</td>
+            <td>{{ $resultados->stock }}</td>
+            <td>{{ $resultados->prec_uni }}</td>
+     
+
+
             <td style="width: 170px;">
 
               <button data-target="#actualizarproducto{{ $resultados->id_produc }}"

@@ -64,8 +64,8 @@
             </div>
 
             <div class="precioProCss">
-                <input id="precio" type="text" class="validate" name="precio" required>
-                <label for="precio">{{ 'Precio' }}</label>
+                <input id="prec_uni" type="text" class="validate" name="prec_uni" required>
+                <label for="prec_uni">{{ 'Precio' }}</label>
             </div>
             <div class="imagenProCss">
                 <div class="file-field input-field">

@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use BD;
 use App\Http\Controllers\Session;
-
+use Hamcrest\Core\HasToString;
 
 class ProductoController extends Controller
 {
@@ -79,40 +79,18 @@ class ProductoController extends Controller
 
         ]);
 
+        DB::table('stock')->insert([
+            'id_produc' => $id,
+            'stock' => $datos['stock'],
+            'prec_uni' => $datos['prec_uni']
 
-        //       DB::table('proveedor')->insert([
-        //         'id_provee'=> $datos['id_provee']
-        //        ]);
+        ]);
 
-
-        //       DB::table('stock')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
-
-        //       DB::table('claves')->insert([
-        //        'id_clav'=> $datos['clav_clas']
-        //       ]);
+        // DB::table('contenido')->insert([
+        //     'id_produc' => $datos['id_produc']
+        // ]);
 
 
-        //       DB::table('deta_comp')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
-
-        //       DB::table('comentario')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
-
-        //       DB::table('buscador')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
-
-        //       DB::table('contenido')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
-
-        //       DB::table('oferta')->insert([
-        //        'id_produc'=> $datos['id_produc']
-        //       ]);
 
 
 
@@ -137,11 +115,12 @@ class ProductoController extends Controller
         // $claves = DB::table('claves')
         // ->get();
 
-        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titulo,producto.datos,producto.id_produc
+        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titulo,producto.datos,producto.id_provee,producto.id_familia,producto.clav_clas,producto.id_produc,stock.stock,stock.prec_uni
         FROM ((producto
         INNER JOIN familia ON familia.id_familia = producto.id_familia)
         INNER JOIN claves ON claves.id_clav=producto.clav_clas
-        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee)');
+        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee
+        INNER JOIN stock ON stock.id_produc = producto.id_produc)');
 
         $proveedores = DB::table('proveedor')
             ->get();
@@ -175,7 +154,20 @@ class ProductoController extends Controller
      */
     public function update(Request $request, producto $producto)
     {
+        $datos = $request->except('_token');
+
+        //     $affected = DB::table('users')
+        //           ->where('id', 1)
+        //           ->update(['votes' => 1]);
+
+        // return redirect('/actualizarproducto');
+
+        return response()->json($datos);
     }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -185,7 +177,9 @@ class ProductoController extends Controller
      */
     public function destroy($producto)
     {
-        DB::table('producto')->where('id_produc', '=', $producto)->delete();
-        return redirect('/actualizarproducto');
+        DB::table('stock')->where('id_produc', '=', $producto)->delete();
+         DB::table('producto')->where('id_produc', '=', $producto)->delete();
+     
+         return redirect('/actualizarproducto');
     }
 }

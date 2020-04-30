@@ -59,9 +59,11 @@ Route::get('/producto', function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
-    Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
+    Route::get('/actualizarproducto', 'ProductoController@show')->name('verproducto');
     Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
+    Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
+    
 // });
 
 
