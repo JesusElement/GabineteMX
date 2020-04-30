@@ -158,15 +158,17 @@
           <h4>Imagenes</h4>
         </div> {{-- TERMINA TITUTLO 40% --}}
         <?php
-        $d = opendir("./Imagenes/Productos/Gabinetes/Acteck/AC9005GAB005/");
+        $d = opendir("./Imagenes/Productos/Gabinetes/Asus/AS2041GAB005/");
         // $d = opendir("./Imagenes/Productos/$id_familia->nom_fami/{{ $id_provee->nom }}/{{ $resultados->id_produc }}");
         while (($e = readdir($d)) != false)
           if ($e != '.' && $e != '..') {
-           $e1 = "/Imagenes/Productos/Gabinetes/Acteck/AC9005GAB005/" . $e;
+           $e1 = "/Imagenes/Productos/Gabinetes/Asus/AS2041GAB005/" . $e;
             // $e1 = "/Imagenes/Productos/$id_familia->nom_fami/{{ $id_provee->nom }}/{{ $resultados->id_produc }}" . $e;
             echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
           }
         ?>
+
+
       </article>{{-- TERMINA 40% PARA MOSTRAR IMAGENES DEL PRODUCTO--}}
 
     </div> {{--TERMINA BODY--}}
