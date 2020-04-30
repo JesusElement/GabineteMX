@@ -85,32 +85,6 @@
                 <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
                
               </div>
-              <div class="container"> 
-                <div class="card-body">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Oferta</th>
-                            <th scope="col">Producto</th>
-                            <th scope="col">Descueto</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($ofertas as $oferta)
-                            <tr>
-                                <td>{{ $oferta->id_oferta }}</td>
-                                <td>{{ $oferta->titulo }}</td>
-                               @php
-                                $desc = $oferta->prec_uni * ($oferta->desc / 100 );
-                                $precio = $oferta->prec_uni - $desc;
-                                $precio = round($precio, 2);
-                               @endphp
-                                <td>{{  $precio }}</td>
-                            @endforeach
-                        </tbody>
-                      </table>
-                </div>
-              </div>
 
             <div class="otroscontenidos">
             <div class="marizq"></div>
@@ -121,18 +95,18 @@
                 <div class="card{{$i}}">
                       <div class="card z-depth-3">
                         <div class="card-image">
-                          <img class="imgCard" src="Imagenes/GabineteGamer.png">
+                          <img class="imgCard" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
+                          <span class="card-title">{{ $oferta->titulo }}</span>
                           <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
-                        <strong >{{ $oferta->titulo }}</strong>
                         @php
                           $desc = $oferta->prec_uni * ($oferta->desc / 100 );
                           $precio = $oferta->prec_uni - $desc;
                           $precio = round($precio, 2);
                           $i++;
                         @endphp
-                          <h6 class="black-text">Total: ${{$precio}}</h6>
+                          <h6 class="black-text">Total: ${{number_format($precio)}}</h6>
                         </div>
                       </div>
                 </div> 
