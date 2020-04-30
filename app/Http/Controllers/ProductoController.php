@@ -152,17 +152,29 @@ class ProductoController extends Controller
      * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, producto $producto)
+    public function update(Request $request,  $producto)
     {
         $datos = $request->except('_token');
 
-        //     $affected = DB::table('users')
-        //           ->where('id', 1)
-        //           ->update(['votes' => 1]);
+        DB::table('stock')
+            ->where('id_produc', $producto)
+            ->update([
+                'stock' => $datos['stock'],
+                'prec_uni' => $datos['prec_uni']
+            ]);
 
-        // return redirect('/actualizarproducto');
+        DB::table('producto')
+            ->where('id_produc', $producto)
+            ->update([
+                'titulo' => $datos['titulo'],
+                'datos' => $datos['datos'],
 
-        return response()->json($datos);
+
+            ]);
+
+        return redirect('/actualizarproducto');
+
+        // return response()->json($datos);
     }
 
 
@@ -178,8 +190,8 @@ class ProductoController extends Controller
     public function destroy($producto)
     {
         DB::table('stock')->where('id_produc', '=', $producto)->delete();
-         DB::table('producto')->where('id_produc', '=', $producto)->delete();
-     
-         return redirect('/actualizarproducto');
+        DB::table('producto')->where('id_produc', '=', $producto)->delete();
+
+        return redirect('/actualizarproducto');
     }
 }
