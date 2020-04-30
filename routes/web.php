@@ -28,7 +28,7 @@ Route::get('/', function () {
     $productos = DB::table('producto')
         ->orderBy('titulo', 'DESC')
         ->paginate(2);
-    $ofertas = DB::select('select a.id_oferta, a.fech_ini, a.hora_ini, a.fech_ter, a.hora_ter, a.desc, b.id_produc, b.titulo, b.datos, c.stock, c.prec_uni from oferta a INNER JOIN producto b INNER JOIN stock c WHERE a.id_produc = b.id_produc && a.id_produc = c.id_produc && c.id_produc = b.id_produc ORDER BY a.fech_ini ASC, a.fech_ter ASC');
+    $ofertas = DB::select('select a.id_oferta, a.fech_ini, a.hora_ini, a.fech_ter, a.hora_ter, a.desc, b.id_produc, b.titulo, b.datos, c.stock, c.prec_uni from oferta a INNER JOIN producto b INNER JOIN stock c WHERE a.id_produc = b.id_produc && a.id_produc = c.id_produc && c.id_produc = b.id_produc ORDER BY a.fech_ini ASC, a.fech_ter ASC LIMIT 8');
     return view('index', ['productos' => $productos], ['ofertas' => $ofertas]);
 })->name('index');
 
