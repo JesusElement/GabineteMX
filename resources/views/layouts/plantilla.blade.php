@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="/css/Style.css">
   <link href="{{ asset('/css/Style.css') }}" rel="stylesheet">
-  <script src="{{ asset('js/Main.js') }}"></script>
+
   <!-- Compiled and minified JavaScript -->
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src="https://unpkg.com/vue"></script>
@@ -24,7 +24,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-
+  <script src="{{ asset('js/Main.js') }}"></script>
 
 </head>
 
@@ -167,7 +167,6 @@
 
     </div>
   </div>
-  <script src="/js/Main.js"></script>
 </body>
 
 </html>
