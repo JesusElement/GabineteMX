@@ -5,14 +5,15 @@
   <title>Gabinete MX</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="Imagenes/logo.ico" />
+
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="/css/Style.css">
-  <link href="{{ asset('/css/Style.css') }}" rel="stylesheet">
-  <script src="{{ asset('js/Main.js') }}"></script>
+  <link rel="stylesheet" href="css/Style.css">
+  <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src="https://unpkg.com/vue"></script>
@@ -24,8 +25,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-
-
+  <script src="{{ asset('js/Main.js') }}"></script>
 </head>
 
 <body>
@@ -167,7 +167,6 @@
 
     </div>
   </div>
-  <script src="/js/Main.js"></script>
 </body>
 
 </html>

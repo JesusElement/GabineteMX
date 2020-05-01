@@ -357,14 +357,26 @@
        grid-template-areas: "carousel" "otroscontenidos"
    }
    
+   .paginacion nav {
+       width: 100%;
+       align-items: center;
+       align-content: center;
+       text-align: center;
+       background-color: #0096c0;
+   }
+   
+   .pagination li.active {
+       background-color: #0096c0;
+   }
+   
    .contenedor .contenido .card-title {
-       color: #8C8C8C;
-       -webkit-text-stroke: .9px #8C8C8C;
+       color: black;
+       -webkit-text-stroke: .5px #0096c0;
    }
    
    .contenedor .contenido .card-title:hover {
-       color: #ec9129;
-       -webkit-text-stroke: .9px #ec9129;
+       color: white;
+       -webkit-text-stroke: .3px black;
    }
    
    .contenedor .contenido .carousel {

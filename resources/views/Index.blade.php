@@ -90,6 +90,7 @@
             <div class="marizq"></div>
                 @php
                   $i = 1;
+                  $p = 1;
                 @endphp
                 @foreach($ofertas as $oferta)
                 <div class="card{{$i}}">
@@ -97,7 +98,7 @@
                         <div class="card-image">
                           <img class="imgCard" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
                           <span class="card-title">{{ $oferta->titulo }}</span>
-                          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                          <a class="btn-floating halfway-fab waves-effect waves-light red" href="#modal1"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
                         @php
@@ -111,6 +112,7 @@
                       </div>
                 </div> 
                 @php
+                $p++;
                 if( $i == 5){
                   $i= 1;
                   echo '<div class="marizq"></div>';
@@ -118,6 +120,43 @@
                 }
                 @endphp
                 @endforeach             
+            </div>
+
+            <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>Asus ROG</h4>
+                    <h6 class="black-text">Total: $9,776.53</h6>
+                    <table>
+                      <thead>
+                        <tr>
+                            <th>Caracteristicas</th>
+                            <th style="width: 80%;">Detalles</th>
+                        </tr>
+                      </thead>         
+                      <tbody>
+                        <tr>
+                          <td>Chipset</td>
+                          <td>Intel® Z390</td>
+                        </tr>
+                        <tr>
+                          <td>Memoria</td>
+                          <td>4 x DIMM, Max. 128GB, DDR4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                          
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close btn waves-effect waves-light red">Cerrar</a>
+                    <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>
+                    <a href="{{route('producto',[1])}}" class="btn waves-effect waves-light btnComprar">Especificaciones</a>
+                  </div>
+                </div>
+            
+            <div class="container paginacion" >
+              <center>
+            {{ $ofertas->links() }}
+              </center>
             </div>
 </div>
 @endsection

@@ -1,5 +1,5 @@
-$(document).ready(function () {
-  M.AutoInit();
+$(document).ready(function() {
+    M.AutoInit();
 });
 
 // function actualizarProducto(){
@@ -9,6 +9,3 @@ $(document).ready(function () {
 // function eliminarProducto(){
 //     alert("eliminar");
 // }
-
-
-
