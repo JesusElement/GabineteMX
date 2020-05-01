@@ -1,5 +1,7 @@
 $(document).ready(function() {
+
     M.AutoInit();
+
 });
 
 // function actualizarProducto(){
