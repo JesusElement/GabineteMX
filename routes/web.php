@@ -28,7 +28,14 @@ Route::get('/', function () {
     $productos = DB::table('producto')
         ->orderBy('titulo', 'DESC')
         ->paginate(2);
-    return view('index', ['productos' => $productos]);
+
+    $ofertas = DB::table('oferta as b')
+        ->join('producto as a','a.id_produc','=','b.id_produc')
+        ->join('stock as c','c.id_produc','=','b.id_produc')
+        ->join('familia as d','d.id_familia','=','a.id_familia')
+        ->join('proveedor as e','e.id_provee','=','a.id_provee')
+        ->paginate(8);
+    return view('index', ['productos' => $productos], ['ofertas' => $ofertas]);
 })->name('index');
 
 Route::get('/carrito', function () {
@@ -59,9 +66,11 @@ Route::get('/producto', function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
-    Route::get('/actualizarproducto', 'ProductoController@show')->name('actualziarproducto');
+    Route::get('/actualizarproducto', 'ProductoController@show')->name('verproducto');
     Route::get('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
+    Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
+    
 // });
 
 

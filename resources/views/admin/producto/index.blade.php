@@ -58,14 +58,14 @@
                 <div class="input-field  col s6">
 
                     <textarea id="icon_prefix2" name="datos" class="materialize-textarea validate" data-length="175"
-                        requiered></textarea>
+                        requiered rows="10"></textarea>
                     <label for="icon_prefix2">{{ 'Descripcion' }}</label>
                 </div>
             </div>
 
             <div class="precioProCss">
-                <input id="precio" type="text" class="validate" name="precio" required>
-                <label for="precio">{{ 'Precio' }}</label>
+                <input id="prec_uni" type="text" class="validate" name="prec_uni" required>
+                <label for="prec_uni">{{ 'Precio' }}</label>
             </div>
             <div class="imagenProCss">
                 <div class="file-field input-field">
