@@ -662,6 +662,7 @@
        "marizq bttnCss bttnCss bttnCss marder";
    }
 
+
    .contenedor .contenido .agregarProductoCss
    .marizq{
      grid-area: marizq;
@@ -815,14 +816,92 @@
        margin-top: 1rem; 
        width: 155px;
     }   
-
-
-
    /*Aqui termina ActualizarProductoTabla form*/
 
-
-
-
    /*Aqui Empieza RegistrarUser form*/
-   
+
+   .contenedor .contenido 
+   .RegistroUserCss{
+       display: grid;
+       grid-template-rows: auto;
+       grid-template-columns: 25% 50% 25%;
+       grid-template-areas: 
+                            "marizq RegistroUserTituloCss marder"
+                            "marizq blockUnoRegistroUserCss marder"
+                            "marizq blockDosRegistroUserCss marder"
+                            "marizq blockTresRegistroUserCss marder"
+                            "marizq RegistroUserBtnCss marder";
+   }
+
+
+.contenedor .contenido .RegistroUserCss
+.marizq{
+    grid-area: marizq;
+}
+
+.contenedor .contenido .RegistroUserCss
+.RegistroUserTituloCss{
+    grid-area: RegistroUserTituloCss;  
+}
+
+.contenedor .contenido .RegistroUserCss
+.blockUnoRegistroUserCss{
+    grid-area: blockUnoRegistroUserCss;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "RegistreUserPrimerApeCss RegistreUserSegundoApeCss"
+                            "RegistreUserNombreCss RegistreUserNombreCss";
+
+}
+
+.contenedor .contenido .RegistroUserCss .blockUnoRegistroUserCss
+.RegistreUserPrimerApeCss{
+    grid-area: RegistreUserPrimerApeCss;
+}
+
+
+.contenedor .contenido .RegistroUserCss .blockUnoRegistroUserCss
+.RegistreUserSegundoApeCss{
+    grid-area: RegistreUserSegundoApeCss;
+}
+
+.contenedor .contenido .RegistroUserCss .blockUnoRegistroUserCss
+.RegistreUserNombreCss{
+    grid-area: RegistreUserNombreCss;
+}
+
+.contenedor .contenido .RegistroUserCss
+.blockDosRegistroUserCss{
+    grid-area: blockDosRegistroUserCss;
+    display: block;
+    
+}
+
+.contenedor .contenido .RegistroUserCss .blockDosRegistroUserCss
+.RegistroUserTelCss{
+    width: 30%;
+}
+.contenedor .contenido .RegistroUserCss
+.blockTresRegistroUserCss{
+    grid-area: blockTresRegistroUserCss;
+    display: block;
+    
+}
+
+
+.contenedor .contenido .RegistroUserCss
+.RegistroUserBtnCss{
+    grid-area: RegistroUserBtnCss;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+.contenedor .contenido .RegistroUserCss
+.marder{
+    grid-area: marder;
+}
+
    /*Aqui termina RegistrarUser form*/
