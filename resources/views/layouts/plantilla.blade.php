@@ -12,6 +12,7 @@
 
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <link rel="stylesheet" href="css/Style.css">
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
