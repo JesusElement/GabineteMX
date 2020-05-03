@@ -1,70 +1,82 @@
 @extends('layouts.plantilla')
 @section('seccion')
+        <?php
+        $produc = $_GET['num_poduc'];
+        $fech_ac = date("Y-m-s");
+        $hora = date("H:i:s");
+        $comproba = DB::select('SELECT count(*) as prub FROM `producto` WHERE `id_produc` = ? ', [$produc]);
+            if($comproba[0]->prub == 1){
+
+                $comproba2 = DB::select('SELECT count(*) as prub FROM `oferta` WHERE `id_produc` = ? && `fech_ini` <= ? && `hora_ini` <= ? && `fech_ter` >= ? ', [$produc,$fech_ac,$hora,$hora,$fech_ac]);
+
+                if($comproba2[0]->prub == 1){
+
+                    $productos = DB::select('SELECT * from `producto` as `a` inner join `stock` as `c` on `c`.`id_produc` = `a`.`id_produc` inner join `familia` as `d` on `d`.`id_familia` = `a`.`id_familia` inner join `proveedor` as `e` on `e`.`id_provee` = `a`.`id_provee` inner join `oferta` as `o` on `o`.`id_produc` = `a`.`id_produc` where `a`.`id_produc` = ?', [$produc]);
+                    $pro=1;
+                }
+                else{
+
+                    $productos = DB::select('SELECT * from `producto` as `a` inner join `stock` as `c` on `c`.`id_produc` = `a`.`id_produc` inner join `familia` as `d` on `d`.`id_familia` = `a`.`id_familia` inner join `proveedor` as `e` on `e`.`id_provee` = `a`.`id_provee` where `a`.`id_produc` = ?', [$produc]);
+                    $pro=0;
+                }
+            }
+        ?>
         <!-- Inicia Contenido -->
         <div class="contenido">
             <div class="producto">
+            @foreach($productos as $producto)
                 <div style="" class="marizq">
-                    
+                
                 </div>
                 <div style="" class="imagenProducto">
-                    <img class="responsive-img" src="/Imagenes/venderTar.png">
+                <img class="responsive-img" src="Imagenes/Productos/{{$producto->nom_fami}}/{{$producto->nom}}/{{$producto->id_produc}}/1.jpg">
                 </div>
                 <div style="" class="infoProducto">
                     <div class="row">
                         <div class="col s12 m12">
                             <div class="card white darken-1">
                                 <div class=" card-content white-text">
-                                    <span class="card-title">AMD B450, Motherboard ASUS ROG Strix B450-F Gaming</span>
-                                    <i class="tiny material-icons star">star</i>
-                                    <i class="tiny material-icons star">star</i>
-                                    <i class="tiny material-icons star">star</i>
-                                    <i class="tiny material-icons star">star</i>
-                                    <i class="tiny material-icons star">star</i>
-                                    <h5 class="black-text">precio: $9,776.53</h5>
-                                </div>
-                                <div class="card-action">
-                                    <p class=" black-text">
-                                        <h6 class=" black-text">Chipset</h6>
-                                       <ul>
-                                           <li class=" black-text">• Intel® Z390</li>
-                                       </ul>
-                                    </p>
-                                </div>
-                                <div class="card-action">
+                                @php 
+                                if(isset($producto->titulo)){
 
-                                    <p class=" black-text">
-                                        <h6 class=" black-text">Ranura de expansion</h6>
-                                       <ul>
-                            <li class=" black-text">• Intel® Z390</li>
-                            <li class=" black-text">• Socket 1151 for 9th / 8th Gen Intel® CoreTM, Pentium® Gold
-                                and Celeron® processorsz</li>
-                        <li class=" black-text">• 2 x PCIe 3.0 x16 (x16 or dual x8 or x8/x4/x4)</li>
-                            <li class=" black-text">• Intel® Z390 Chipset</li>
-                                <li class=" black-text">• 1 x PCIe 3.0 x16 (max at x4 mode)</li>
-                                    <li class=" black-text">• 3 x PCIe 3.0 x1</li>
-                                       </ul>
-                                    </p>
+                                }
+                                @endphp
+                                    <span class="card-title">{{ $producto->titulo }}</span>
+                                    <i class="tiny material-icons star">star</i>
+                                    <i class="tiny material-icons star">star</i>
+                                    <i class="tiny material-icons star">star</i>
+                                    <i class="tiny material-icons star">star</i>
+                                    <i class="tiny material-icons star">star</i>
+                                    @php 
+                                    if($pro == 1){
+                                        $desc = $producto->prec_uni * ($producto->desc / 100 );
+                                        $precio = $producto->prec_uni - $desc;
+                                        $precio = round($precio, 2);
+                                    }
+                                    else if ($pro == 0){
+                                        $precio = $producto->prec_uni;
+                                    }
+                                    @endphp
+                                    <h5 class="black-text">Precio:${{number_format($precio)}}  </h5>
+                                    <h6 class="black-text">En existencia: {{$producto->stock}}  </h6>
                                 </div>
                                 <div class="card-action">
-                                    <p class=" black-text">
-                                        <h6 class=" black-text">Graficos integrados</h6>
-                                       <ul>
-                                           <li class=" black-text">• Integrated Graphics Processor- Intel® UHD Graphics support</li>
-                                           <li class=" black-text">• Multi-VGA output support : HDMI/DisplayPort port</li>
-                                           <li class=" black-text">• Supports HDMI with max. resolution 4096 x 2160 @ 30 Hz</li>
-                                           <li class=" black-text">• Supports DisplayPort with max. resolution 4096 x 2304 @
-                                            60 Hz</li>
-                                       </ul>
-                                    </p>
-                           
-                                </div>
-                                <div class="card-action">
-                    
-                           
-                                </div>
-                                <div class="card-action">
-                    
-                           
+                                <h6 class="black-text">Caracteristicas  </h6>
+                                @php 
+                                 $datos = str_replace("*/*", '</br>', $producto->datos);
+                                 $datos = explode('*/*',$producto->datos);
+                                 foreach ($datos as $key){
+                                    if($key == 'No'){
+                                       echo '<li> Graficos Integrados: '.$key.'</li>';
+                                    }
+                                    else if ($key == 'Si'){
+                                       echo '<li> Graficos Integrados: '.$key.'</li>';
+                                    }
+                                    else{
+                                       echo '<li>'.$key.'</li>';
+                                    }
+                                 }
+                                @endphp
                                 </div>
                             </div>
                         </div>
@@ -102,6 +114,7 @@
                 <div style="" class="marder">
 
                 </div>
+                @endforeach
             </div>
         </div>
         <!-- Termina contenido -->

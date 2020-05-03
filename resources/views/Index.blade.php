@@ -2,6 +2,11 @@
 
 @section('seccion')
  <!-- IMPORTANTE PARA QUE EL LOADER CARGUE PRIMERO TIENE QUE ESTAR EL CODIGO AQUI     -->
+ @php
+  if(isset($_GET['page'])){
+  }
+  else{
+ @endphp
  <style>
     
     .master{
@@ -60,7 +65,9 @@
     
       </div>
     </div>
-    
+   @php 
+  }
+   @endphp 
     
     
     <script>
@@ -98,20 +105,54 @@
                         <div class="card-image">
                           <img class="imgCard" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
                           <span class="card-title">{{ $oferta->titulo }}</span>
-                          <a class="btn-floating halfway-fab waves-effect waves-light red" href="#modal1"><i class="material-icons">add</i></a>
+                          <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#modal{{$p}}"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
                         @php
                           $desc = $oferta->prec_uni * ($oferta->desc / 100 );
                           $precio = $oferta->prec_uni - $desc;
                           $precio = round($precio, 2);
-                          $i++;
+                          
                         @endphp
                           <h6 class="black-text">Total: ${{number_format($precio)}}</h6>
                         </div>
                       </div>
+                </div>
+
+                <div id="modal{{$p}}" class="modal">
+                  <div class="modal-content">
+                    <h4>{{ $oferta->titulo }}</h4>
+                    <h5 class="black-text">Total: ${{number_format($precio)}}</h5>
+                  <h6 class="black-text">Caracteristicas</h6>
+                  </div>
+                  <div class="container">
+                    <div>
+                    @php 
+                    $datos = str_replace("*/*", '</br>', $oferta->datos);
+                     $datos = explode('*/*',$oferta->datos);
+                     foreach ($datos as $key){
+                      if($key == 'No'){
+                        echo '<li> Graficos Integrados: '.$key.'</li>';
+                      }
+                      else if ($key == 'Si'){
+                        echo '<li> Graficos Integrados: '.$key.'</li>';
+                      }
+                      else{
+                        echo '<li>'.$key.'</li>';
+                      }
+                     }
+                    @endphp
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="modal-close btn waves-effect waves-light red">Cerrar</a>
+                    <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>
+                    <a href="{{route('producto',['num_poduc' => $oferta->id_produc])}}" class="btn waves-effect waves-light btnComprar">Especificaciones</a>
+                  </div>
                 </div> 
+
                 @php
+                $i++;
                 $p++;
                 if( $i == 5){
                   $i= 1;
@@ -122,36 +163,8 @@
                 @endforeach             
             </div>
 
-            <div id="modal1" class="modal">
-                  <div class="modal-content">
-                    <h4>Asus ROG</h4>
-                    <h6 class="black-text">Total: $9,776.53</h6>
-                    <table>
-                      <thead>
-                        <tr>
-                            <th>Caracteristicas</th>
-                            <th style="width: 80%;">Detalles</th>
-                        </tr>
-                      </thead>         
-                      <tbody>
-                        <tr>
-                          <td>Chipset</td>
-                          <td>Intel® Z390</td>
-                        </tr>
-                        <tr>
-                          <td>Memoria</td>
-                          <td>4 x DIMM, Max. 128GB, DDR4</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                          
-                  </div>
-                  <div class="modal-footer">
-                    <a href="#!" class="modal-close btn waves-effect waves-light red">Cerrar</a>
-                    <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>
-                    <a href="{{route('producto',[1])}}" class="btn waves-effect waves-light btnComprar">Especificaciones</a>
-                  </div>
-                </div>
+                
+            
             
             <div class="container paginacion" >
               <center>
