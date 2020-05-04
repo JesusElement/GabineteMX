@@ -135,6 +135,10 @@
           <h4>Imagenes</h4>
         </div> {{-- TERMINA TITUTLO 40% --}}
         <?php
+
+        $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
+        if (count($carpeta)>2){
+        
        
         $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
         while (($e = readdir($d)) != false)
@@ -142,7 +146,10 @@
        
              $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
             echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
-           
+          }
+
+        }else{
+            echo "<img   src='/imagenes/sonic.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
           }
         ?>
 
