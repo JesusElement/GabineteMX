@@ -46,8 +46,12 @@ Route::get('/ayuda', function () {
     return view('cliente.ayuda.index');
 })->name('ayuda');
 
-Route::get('/producto', function () {
+Route::get('/productos', function () {
     return view('cliente.producto.index');
+})->name('productos');
+
+Route::get('/producto', function () {
+    return view('cliente.producto.especifico');
 })->name('producto');
 
 // Route::middleware('auth')->group(function () {
