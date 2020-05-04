@@ -43,12 +43,12 @@
                 <div class="menuDiv">
                     <a class="dropdown-trigger btnMenu" href='#' data-target='dropdown1'><i class="small material-icons">toc</i></a>
                     <ul id='dropdown1' class='dropdown-content dropMenu'>
-                        <li><a class="grey-text  text-lighten-5" href="#!">Pedidos</a></li>
-                        <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Devoluciones</a></li>
+                        <li><a class="ct" href="#!">Pedidos</a></li>
+                        <li><a class="ct" style="font-size: 15px;" href="#!">Devoluciones</a></li>
                         <li class="divider" tabindex="-1"></li>
-                        <li><a class="grey-text  text-lighten-5" href="#!">Cuenta</a></li>
-                        <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Compras</a></li>
-                        <li><a class="grey-text  text-lighten-5" style="font-size: 15px;" href="#!">Dirección</a></li>
+                        <li><a class="ct" href="#!">Cuenta</a></li>
+                        <li><a class="ct" style="font-size: 15px;" href="#!">Compras</a></li>
+                        <li><a class="ct" style="font-size: 15px;" href="#!">Dirección</a></li>
                       </ul>
                 </div>
                 <div class="buscarDiv">
@@ -97,6 +97,7 @@
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
+            <?php $categorias = DB::select("SELECT * FROM familia;"); ?>
             <div class="marizq"></div>
                 <div class="ejecutivaDiv">
                     Ejecutiva  
@@ -107,8 +108,16 @@
                 <div class="gamerDiv">
                     Gamer   
                 </div>
+                
                 <div class="hardwareDiv">
-                    Hardware     
+
+                    <a class='dropdown-trigger colortext' href='#' data-target='dropdown2'>Hardware</a>
+                    <!-- Dropdown Structure -->                         
+                    <ul id='dropdown2' class='dropdown-content dropmenu'>
+                      @foreach ($categorias as $categoria)
+                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{route('buscarproducto',['cate' => $categoria->id_familia])}}">{{$categoria->nom_fami}}</a></li>
+                      @endforeach
+                    </ul>
                 </div>
                 <div class="gadetsDiv">
                     Gadgets   

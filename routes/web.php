@@ -50,6 +50,12 @@ Route::get('/producto', function () {
     return view('cliente.producto.index');
 })->name('producto');
 
+
+Route::get('/buscarproducto', function() {
+    return view('cliente.producto.buscarproducto');
+    
+ })->name('buscarproducto');
+
 // Route::middleware('auth')->group(function () {
 
     Route::get('/altaproducto', function () {
