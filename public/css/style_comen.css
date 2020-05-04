@@ -1,0 +1,66 @@
+/*Hoja de estilos para los compentarios*/
+
+.comentarios {
+    display: grid;
+    grid-template-columns: 250px 700px 270px;
+}
+
+.comentarios {
+    margin: 50px;
+}
+
+.comentarios .tituloC {
+    grid-column-start: 1;
+    grid-column-end: -1;
+}
+
+.comentarios .CreaComent {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.CreaComent {
+    vertical-align: top;
+}
+
+.comentarios input[type="radio"] {
+    display: none;
+}
+
+.comentarios label {
+    color: grey;
+}
+
+.comentarios .Estrella {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    display: inline-block;
+}
+
+.Estrella label {
+    font-size: larger;
+}
+
+.comentarios .CreaComent label:hover,
+label:hover~.scome {
+    color: orange;
+}
+
+.comentarios .CreaComent input[type="radio"]:checked~.scome {
+    color: orange;
+}
+
+.StarComentV {
+    font-size: medium;
+}
+
+.Estrella2 .check {
+    color: orange;
+}
+
+#WCU {
+    width: 72%;
+    height: auto;
+}
+
+#ECE {}

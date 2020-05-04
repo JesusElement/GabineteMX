@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="css/Style.css">
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/style_comen.css') }}" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
   <script src="https://unpkg.com/vue"></script>
