@@ -26,8 +26,10 @@
                       <h3>Actualizar producto</h3>
       
                   </div>
+
+         
                   <div class="proveCss">
-                      <select id="id_provee" class="form-control" name="id_provee">
+                      <select id="id_provee" class="form-control" name="id_provee" disabled>
                           <option value="{{ $resultados->id_provee }}" selected="true" disabled="disabled">{{$resultados->nom}}</option>
                           @foreach($proveedor ?? '' as $id_provee)
                           <option value="{{ $id_provee->id_provee }}">{{ $id_provee->nom }}</option>
@@ -40,7 +42,7 @@
       
                   <div class="famProCss">
       
-                      <select id="id_familia" class="form-control" name="id_familia">
+                      <select id="id_familia" class="form-control" name="id_familia" disabled>
                           <option value="{{ $resultados->id_familia }}" selected="true" disabled="disabled">{{ $resultados->nom_fami }}</option>
                           @foreach($familia ?? '' as $id_familia)
                           <option value="{{ $id_familia->id_familia }}">{{ $id_familia->nom_fami }}</option>
@@ -53,7 +55,7 @@
                   <div class="subFamCss">
       
       
-                      <select id="clav_clas" class="form-control" name="clav_clas">
+                      <select id="clav_clas" class="form-control" name="clav_clas" disabled>
                           <option value="{{ $resultados->clav_clas }}" selected="true" disabled="disabled">{{ $resultados->name }}</option>
                           @foreach($clave ?? '' as $id_clav)
                           <option value="{{ $id_clav->id_clav }}">{{ $id_clav->name }}</option>
@@ -98,6 +100,12 @@
                           <label for="range">{{ 'Stock' }}</label>
                       </p>
                   </div>
+
+        
+
+
+
+
                   <div class="bttnCss">
                       <center>
                         <button type="submit" class="modal-close waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
@@ -118,38 +126,7 @@
       </div>
       </div>
       
-
-
-
-
       </aside> {{--TERMINA 60%--}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -158,13 +135,14 @@
           <h4>Imagenes</h4>
         </div> {{-- TERMINA TITUTLO 40% --}}
         <?php
-        $d = opendir("./Imagenes/Productos/Gabinetes/Asus/AS2041GAB005/");
-        // $d = opendir("./Imagenes/Productos/$id_familia->nom_fami/{{ $id_provee->nom }}/{{ $resultados->id_produc }}");
+       
+        $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
         while (($e = readdir($d)) != false)
           if ($e != '.' && $e != '..') {
-           $e1 = "/Imagenes/Productos/Gabinetes/Asus/AS2041GAB005/" . $e;
-            // $e1 = "/Imagenes/Productos/$id_familia->nom_fami/{{ $id_provee->nom }}/{{ $resultados->id_produc }}" . $e;
+       
+             $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
             echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+           
           }
         ?>
 

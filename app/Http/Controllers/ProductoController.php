@@ -128,10 +128,12 @@ class ProductoController extends Controller
             ->get();
         $claves = DB::table('claves')
             ->get();
+        $productos = DB::table('producto')
+            ->get();
 
 
 
-        return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados)->with('proveedor', $proveedores)->with('familia', $familias)->with('clave', $claves);
+        return view('admin.producto.cambios-baja.actualizarp')->with('resultado', $resultados)->with('proveedor', $proveedores)->with('familia', $familias)->with('clave', $claves)->with('producto', $productos);
     }
 
     /**
