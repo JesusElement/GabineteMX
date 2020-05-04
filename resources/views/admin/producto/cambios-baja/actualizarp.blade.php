@@ -5,18 +5,22 @@
   <div class="actualizarProductoCss">
     <div class="actProTabCss">
       <h3>DASHBOARD</h3>
-      <table class="table-responsive">
+      <div>
+
+      </div>
+      <table class="tabla" id="tablaproductos" >
         <thead>
           <tr>
-            <th>Tipo</th> {{-- id_familia --}}
-            <th>Subtipo</th> {{-- clav_clas --}}
-            <th>Provedor</th> {{-- id_provee --}}
-            <th>Nombre</th> {{-- titulo --}}
-            <th>Descripcion</th> {{-- datos --}}
-            <th>Stock</th> {{-- stock --}}
-            <th>Precio U.</th> {{-- prec uni --}}
-            <th>Opciones</th> {{-- actualizarEliminar --}}
+            <th><span>Tipo.</span></th> {{-- id_familia --}}
+            <th><span>Subtipo.</span></th> {{-- clav_clas --}}
+            <th><span>Provedor.</span></th> {{-- id_provee --}}
+            <th><span>Nombre.</span></th> {{-- titulo --}}
+            <th><span>Descripcion.</span></th> {{-- datos --}}
+            <th><span>Stock.</span></th> {{-- stock --}}
+            <th><span>Precio U.</span></th> {{-- prec uni --}}
+            <th>Opciones.</th> {{-- actualizarEliminar --}}
           </tr>
+    
         </thead>
         <tbody>
           @foreach($resultado as $resultados)

@@ -28,6 +28,10 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
   <script src="{{ asset('js/Main.js') }}"></script>
+  <script src="{{ asset('js/JQuery.js') }}"></script>
+  <script src="js/JQuery.js"></script>
+  <script src="js/Main.js"></script>
+  <script type="text/javascript" src="js/tablesorter.source.js"> </script>
 </head>
 
 <body>

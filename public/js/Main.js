@@ -1,13 +1,7 @@
-$(document).ready(function() {
-
-    M.AutoInit();
-
+$(document).ready(function () {
+  M.AutoInit();
 });
 
-// function actualizarProducto(){
-//     alert("Actualizar");
-// }
-
-// function eliminarProducto(){
-//     alert("eliminar");
-// }
+$(function () {
+  $("#tablaproductos").tablesorter();     //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
+});

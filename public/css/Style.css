@@ -847,3 +847,43 @@ h5{
 
 
 /*Termina buscar producto estructura*/
+
+
+/* AQUI VA EL DISEÑO DE LA TABLA DE ACTUALIZAR PRODUCTO CON COMPLEMENTO DE ORDER BY */
+
+/* SI OCACIONA PROBLEMAS MOVER AL INICIO DE ACTUALIZARP */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
+.tabla {
+  margin: 0 auto;
+}
+.tabla thead {
+  cursor: pointer;
+  background: rgba(0, 0, 0, .2);
+}
+.tabla thead tr th { 
+  font-weight: bold;
+  padding: 10px 20px;
+}
+.tabla thead tr th span { 
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 55%;
+}
+.tabla thead tr th.headerSortUp,
+.tabla thead tr th.headerSortDown {
+  background: rgba(0, 0, 0, .2);
+}
+.tabla thead tr th.headerSortUp span {
+  background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+}
+.tabla thead tr th.headerSortDown span {
+  background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+}
+.tabla tbody tr td {
+  text-align: center;
+  padding: 10px 20px;
+}
+.tabla tbody tr td.align-left {
+  text-align: left;
+}
