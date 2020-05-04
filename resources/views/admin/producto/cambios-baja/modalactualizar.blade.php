@@ -83,16 +83,15 @@
                       <label for="prec_uni">{{ 'Precio' }}</label>
                   </div>
                   <div class="imagenProCss">
-                      <div class="file-field input-field">
-                          <div class="btn">
-                              <span>File</span>
-                              <input type="file" id="imagen" name="imagen" multiple >
-                          </div>
-                          <div class="file-path-wrapper">
-                              <input class="file-path validate" type="text"
-                                  placeholder="Subir imagenes (Para seleccionar varias presiona CTRL+Click)">
-                          </div>
-                      </div>
+                   
+                    {{-- <a class="waves-effect waves-red btn-small" style="width:100%;!important"><i class="material-icons center">photo</i>&nbsp;&nbsp;SUBIR IMAGENES</a> --}}
+                    
+                    <a class="btn tooltipped waves-red btn blue-grey lighten-4" data-position="top" data-tooltip=" DA CLICK Y MUEVE LAS IMAGENES CORRESPONDIENTES AL PRODUCTO" style="width:100%;!important" >
+                      <i class="material-icons center">photo</i>&nbsp;&nbsp;SUBIR IMAGENES</a>  
+                    
+                    <br>
+                      <br>
+                     
                   </div>
                   <div class="stockProCss">
                       <p class="range-field">
@@ -105,9 +104,10 @@
 
 
 
-
+                  
                   <div class="bttnCss">
                       <center>
+                       
                         <button type="submit" class="modal-close waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
                         
                       </center>
@@ -149,7 +149,7 @@
           }
 
         }else{
-            echo "<img   src='/imagenes/sonic.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+            echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
           }
         ?>
 

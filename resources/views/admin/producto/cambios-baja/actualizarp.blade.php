@@ -38,12 +38,12 @@
             <td style="width: 170px;">
 
               <button data-target="#actualizarproducto{{ $resultados->id_produc }}"
-                class="btn modal-trigger waves-effect waves-light btn yellow accent-4 btnacP">
+                class="btn modal-trigger waves-effect waves-light btn green accent-3 btnacP">
                 <i class="small material-icons left">arrow_upward</i> Actualizar
               </button>
 
               <button data-target="#eliminarproducto{{ $resultados->id_produc }}"
-                class="btn modal-trigger waves-effect waves-light btn red accent-4 btnacP">
+                class="btn modal-trigger waves-effect waves-light btn  amber darken-3 btnacP">
                 <i class="small material-icons left">warning</i> Eliminar
               </button>
           </tr>
