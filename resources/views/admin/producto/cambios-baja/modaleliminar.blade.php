@@ -6,7 +6,7 @@
             <span class="label label-primary" style="color: black; font-weight: bold; ">TIPO DE
                 PRODUCTO:&nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->nom_fami }}</label><br>
 
-            <span class="label label-primary"
+        <span class="label label-primary"
                 style="color: black; font-weight: bold; ">SUBTIPO:&nbsp;&nbsp;&nbsp;</span>
             <label>{{ $resultados->name }}</label><br>
 

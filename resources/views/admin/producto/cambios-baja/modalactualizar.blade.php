@@ -91,15 +91,16 @@
               </div>
               <div class="imagenProCss">
 
-                {{-- <a class="waves-effect waves-red btn-small" style="width:100%;!important"><i class="material-icons center">photo</i>&nbsp;&nbsp;SUBIR IMAGENES</a> --}}
-
-                <a class="btn tooltipped waves-red btn blue-grey lighten-4" data-position="top"
-                  data-tooltip=" DA CLICK Y MUEVE LAS IMAGENES CORRESPONDIENTES AL PRODUCTO"
-                  style="width:100%;!important">
-                  <i class="material-icons center">photo</i>&nbsp;&nbsp;SUBIR IMAGENES</a>
-
-                <br>
-                <br>
+                <div class="file-field input-field">
+                  <div class="btn">
+                      <span>File</span>
+                      <input type="file" id="imagen" name="imagen" multiple required >
+                  </div>
+                  <div class="file-path-wrapper">
+                      <input class="file-path validate" type="text"
+                          placeholder="Subir imagenes (Para seleccionar varias presiona CTRL+Click)">
+                  </div>
+              </div>
 
               </div>
               <div class="stockProCss">
@@ -150,9 +151,7 @@
 
         $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
         if (count($carpeta)>2){
-        
-       
-        $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
+          $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
         while (($e = readdir($d)) != false)
           if ($e != '.' && $e != '..') {
        

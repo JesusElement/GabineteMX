@@ -69,7 +69,7 @@ class ProductoController extends Controller
         $id = substr($datos['id_provee'], 0, 6);
         $id = $id . substr($datos['id_familia'], 6, 8);
         $id=$id.$c;
-         $id= $id.rand(1, 20);
+        $id= $id.rand(1, 20);
 
 
         //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
@@ -77,7 +77,10 @@ class ProductoController extends Controller
         // 3 SIGUIENTES DIGITOS  CAMBIAN POR 5 EN SUBMODELOS EJ: 000,005,0010 
         // SI ES EL MISMO SUBMODELO, PERO TIENE ALGUNA CARACTERISTICA DIFERENTE.
 
-
+        $ceros =00000;
+        $id_conte = substr($datos['id_familia'], 6, 8);
+        $id_conte=$id_conte.$ceros;
+        $id_conte=$id_conte.substr($id,10,11);
 
 
         // INSERTAR LA IMAGEN A LA RUTA CORRESPONDIENTE
@@ -88,13 +91,8 @@ class ProductoController extends Controller
         $nomfamilia = DB::table('familia')
             ->where('id_familia', $datos['id_familia'])
             ->first();
-
-
-
-
-
-
-        if ($request->hasFile('imagen')) {
+        
+            if ($request->hasFile('imagen')) {
 
             $image_name = $request->file('imagen')->getClientOriginalName();
             $image_ext = $request->file('imagen')->getClientOriginalExtension();
@@ -128,6 +126,7 @@ class ProductoController extends Controller
             'clav_clas' => $datos['clav_clas']
 
         ]);
+        
         DB::table('stock')->insert([
             'id_produc' => $id,
             'stock' => $datos['stock'],
@@ -135,9 +134,15 @@ class ProductoController extends Controller
 
         ]);
 
-        // DB::table('contenido')->insert([
-        //     'id_produc' => $datos['id_produc']
-        // ]);
+        DB::table('contenido')->insert([
+            'id_conte' => $id_conte,
+             'id_produc' => $id,
+             'ruta' => $path,
+             'tip_arch'=>$image_ext
+             
+         ]);
+
+   
 
 
 
@@ -203,9 +208,35 @@ class ProductoController extends Controller
      * @param  \App\producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $producto)
+    public function update(Request $request,$producto)
     {
         $datos = $request->except('_token');
+        // INSERTAR LA IMAGEN A LA RUTA CORRESPONDIENTE
+
+        $path = DB::table('contenido')
+            ->where('id_produc', $producto)
+         ->first();
+        
+        
+            if ($request->hasFile('imagen')) {
+
+            $image_name = $request->file('imagen')->getClientOriginalName();
+            $image_ext = $request->file('imagen')->getClientOriginalExtension();
+            // $path = "Imagenes/Productos/$nomfamilia->nom_fami/$nomproveedor->nom/$id";
+
+
+            $imgnomfin = $producto . rand(0, 99) . ".";
+
+
+            try {
+                $request->file('imagen')->move(public_path($path->ruta), $imgnomfin . $image_ext);
+                
+            } catch (Exception $e) {
+                echo "Entra en catch";
+            }
+        } else {
+            echo "Entra en else";
+        }
 
         DB::table('stock')
             ->where('id_produc', $producto)
@@ -241,7 +272,9 @@ class ProductoController extends Controller
     public function destroy($producto)
     {
         DB::table('stock')->where('id_produc', '=', $producto)->delete();
+        DB::table('contenido')->where('id_produc', '=', $producto)->delete();
         DB::table('producto')->where('id_produc', '=', $producto)->delete();
+        
 
         return redirect('/actualizarproducto');
     }
