@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use BD;
 use App\Http\Controllers\Session;
+use Exception;
 use Hamcrest\Core\HasToString;
+use App\Http\Controllers\Input;
+use Symfony\Component\Console\Input\Input as InputInput;
 
 class ProductoController extends Controller
 {
@@ -56,7 +59,12 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
         $datos = $request->except('_token');
+
 
         $id = substr($datos['id_provee'], 0, 6);
         $id = $id . substr($datos['id_familia'], 6, 8);
@@ -69,6 +77,47 @@ class ProductoController extends Controller
 
 
 
+
+        // INSERTAR LA IMAGEN A LA RUTA CORRESPONDIENTE
+
+        $nomproveedor = DB::table('proveedor')
+            ->where('id_provee', $datos['id_provee'])
+            ->first();
+        $nomfamilia = DB::table('familia')
+            ->where('id_familia', $datos['id_familia'])
+            ->first();
+
+
+
+
+
+
+        if ($request->hasFile('imagen')) {
+
+            $image_name = $request->file('imagen')->getClientOriginalName();
+            $filename = pathinfo($image_name, PATHINFO_FILENAME);
+            $image_ext = $request->file('imagen')->getClientOriginalExtension();
+            $path = "Imagenes/Productos/$nomfamilia->nom_fami/$nomproveedor->nom/$id";
+
+
+            $imgnomfin = $id . rand(0, 99) . ".";
+
+
+            try {
+                $request->file('imagen')->move(public_path($path), $imgnomfin . $image_ext);
+                
+            } catch (Exception $e) {
+                echo "Entra en catch";
+            }
+        } else {
+            echo "Entra en else";
+        }
+
+
+
+
+
+
         DB::table('producto')->insert([
             'id_produc' => $id,
             'id_provee' => $datos['id_provee'],
@@ -78,7 +127,6 @@ class ProductoController extends Controller
             'clav_clas' => $datos['clav_clas']
 
         ]);
-
         DB::table('stock')->insert([
             'id_produc' => $id,
             'stock' => $datos['stock'],

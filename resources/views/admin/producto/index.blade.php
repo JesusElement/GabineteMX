@@ -2,7 +2,8 @@
 @section('seccion')
 <!-- Inicia Contenido -->
 <div class="contenido">
-    <form action="{{ url ('/storeproducto') }}" method="get" enctype="multipart/form-data">
+    <form action="{{ url ('/storeproducto') }}"  method="post" enctype="multipart/form-data" class="reviews-form" role="form">
+
         {{ csrf_field() }}
         {{-- Token para que laravel tome como valido este form --}}
         <div class="agregarProductoCss">
@@ -18,7 +19,7 @@
                     <option value="" selected="true" disabled="disabled">Proveedor</option>
                     @foreach($proveedor ?? '' as $id_provee)
                     <option value="{{ $id_provee->id_provee }}">{{ $id_provee->nom }}</option>
-
+                    
                     @endforeach
                 </select>
                 <label>Provedores</label>
@@ -71,7 +72,7 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>File</span>
-                        <input type="file" id="imagen" name="imagen" multiple required>
+                        <input type="file" id="imagen" name="imagen" multiple required >
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text"
