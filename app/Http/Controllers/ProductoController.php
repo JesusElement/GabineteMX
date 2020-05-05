@@ -65,9 +65,11 @@ class ProductoController extends Controller
 
         $datos = $request->except('_token');
 
-
+        $c=0;
         $id = substr($datos['id_provee'], 0, 6);
         $id = $id . substr($datos['id_familia'], 6, 8);
+        $id=$id.$c;
+         $id= $id.rand(1, 20);
 
 
         //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
@@ -95,7 +97,6 @@ class ProductoController extends Controller
         if ($request->hasFile('imagen')) {
 
             $image_name = $request->file('imagen')->getClientOriginalName();
-            $filename = pathinfo($image_name, PATHINFO_FILENAME);
             $image_ext = $request->file('imagen')->getClientOriginalExtension();
             $path = "Imagenes/Productos/$nomfamilia->nom_fami/$nomproveedor->nom/$id";
 
