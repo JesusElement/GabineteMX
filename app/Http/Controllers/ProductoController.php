@@ -269,9 +269,6 @@ class ProductoController extends Controller
             ->first();
         $carpeta = public_path($contenido->ruta);
 
-
-
-
         foreach (glob($carpeta . "/*") as $archivos_carpeta) {
             if (is_dir($archivos_carpeta)) {
             } else {
