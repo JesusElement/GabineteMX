@@ -74,8 +74,10 @@ Route::get('/buscarproducto', function() {
 
     Auth::routes();
 
+    Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
+
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
+    Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto')
     Route::get('/actualizarproducto', 'ProductoController@show')->name('verproducto');
     Route::post('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');

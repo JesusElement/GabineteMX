@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return redirect('/');
     }
+
+    public function adminHome()
+    {
+        return view('admin.index');
+    }
 }

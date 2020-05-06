@@ -70,6 +70,7 @@
                 <div class="fotoperfilDiv">
                     <i class="small material-icons">account_box</i>  
                 </div>
+                {{auth()->user()}}
                 @guest
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
