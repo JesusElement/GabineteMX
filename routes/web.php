@@ -71,8 +71,15 @@ Route::get('/buscarproducto', function() {
     })->name('producto');
 
 
+    Route::get('/admin/gestionpromocion', function () {
+        return view('admin.producto.promocion.index');
+    })->name('promocion');
+
+
 
     Auth::routes();
+
+    Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
 
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
@@ -80,6 +87,14 @@ Route::get('/buscarproducto', function() {
     Route::post('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
     Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
+
+
+    Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
+   
+
+
+
+
     
 // });
 
