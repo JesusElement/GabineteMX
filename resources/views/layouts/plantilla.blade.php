@@ -58,9 +58,9 @@
                 <div class="buscarDiv">
                     <nav  class="buscador">
                         <div class="nav-wrapper">
-                          <form>
+                          <form action="/buscarproducto?=search" method="GET">
                             <div class="input-field">
-                              <input class="buscardor grey-text text-darken-4" id="search" type="search">
+                              <input class="buscardor grey-text text-darken-4" id="search" id="search" name="search" type="search">
                               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             </div>
                           </form>

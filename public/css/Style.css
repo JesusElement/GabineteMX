@@ -565,6 +565,7 @@ nav a.sidenav-trigger i {
 .contenedor .footer {
     display: grid;
     grid-area: footer;
+    
 }
 
 .contenedor .footer .footerCcc {
