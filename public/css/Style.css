@@ -565,6 +565,7 @@ nav a.sidenav-trigger i {
 .contenedor .footer {
     display: grid;
     grid-area: footer;
+    
 }
 
 .contenedor .footer .footerCcc {
@@ -882,5 +883,40 @@ h5{
   padding: 10px 20px;
 }
 .tabla tbody tr td.align-left {
+  text-align: left;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
+.tablaprom {
+  margin: 0 auto;
+}
+.tablaprom thead {
+  cursor: pointer;
+  background: rgba(0, 0, 0, .2);
+}
+.tablaprom thead tr th { 
+  font-weight: bold;
+  padding: 10px 20px;
+}
+.tablaprom thead tr th span { 
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: 100% 55%;
+}
+.tablaprom thead tr th.headerSortUp,
+.tablaprom thead tr th.headerSortDown {
+  background: rgba(0, 0, 0, .2);
+}
+.tablaprom thead tr th.headerSortUp span {
+  background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+}
+.tablaprom thead tr th.headerSortDown span {
+  background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+}
+.tablaprom tbody tr td {
+  text-align: center;
+  padding: 10px 20px;
+}
+.tablaprom tbody tr td.align-left {
   text-align: left;
 }
