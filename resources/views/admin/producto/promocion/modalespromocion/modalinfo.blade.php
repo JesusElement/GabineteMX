@@ -1,0 +1,76 @@
+<div class="modal " id="#informacionproducto{{ $resultados->id_produc }}">
+    <div class="modal-content">
+        <!--Body-->
+        <div class="modal-body">
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">ID OFERTA:
+                &nbsp;&nbsp;&nbsp;</span> <label >{{ $resultados->id_oferta }}</label><br><br> 
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">ID
+                PRODUCTO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->id_produc }}</label><br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">NOMBRE DEL
+                PRODUCTO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->titulo }}</label><br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">FECHA DE
+                INICIO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->fech_ini }}</label><br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">FECHA DE
+                TERMINO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->fech_ter }}</label><br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">HORA DE
+                INICIO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->hora_ini }}</label> <br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">HORA DE
+                TERMINO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->hora_ter }}</label> <br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">PORCENTAJE DE
+                DESCUENTO:&nbsp;&nbsp;&nbsp;</span>
+            <label >{{ $resultados->desc }}</label> <br><br>
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO
+                NORMAL:&nbsp;&nbsp;&nbsp;</span>
+            <label >aqui va el precio normal</label> <br><br>
+
+
+            <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO CON
+                DESCUENTO:&nbsp;&nbsp;&nbsp;</span>
+            <label>aqui va el precio con descuento</label> <br>
+
+
+
+
+            <br><br>
+
+            <?php
+   
+            $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
+            if (count($carpeta)>2){
+                $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
+                    while (($e = readdir($d)) != false)
+                        if ($e != '.' && $e != '..') {
+                             $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
+                                echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+                        
+                        }
+            }else{
+                echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+            }
+            
+            ?>
+            <!--EndBody-->
+        </div>
+        <div class="modal-footer">
+
+
+
+            <button class="modal-action modal-close waves-effect waves-red btn blue-grey lighten-2">Cerrar</button>
+        </div>
+    </div>
+</div>

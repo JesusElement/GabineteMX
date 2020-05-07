@@ -39,13 +39,14 @@
 
               <button data-target="#actualizarproducto{{ $resultados->id_produc }}"
                 class="btn modal-trigger waves-effect waves-light btn green accent-3 btnacP">
-                <i class="small material-icons left">arrow_upward</i> Actualizar
+                <i class="small material-icons left">update</i> Actualizar
               </button>
 
               <button data-target="#eliminarproducto{{ $resultados->id_produc }}"
                 class="btn modal-trigger waves-effect waves-light btn  amber darken-3 btnacP">
-                <i class="small material-icons left">warning</i> Eliminar
+                <i class="small material-icons left">clear</i> Eliminar
               </button>
+            </td>
           </tr>
           @include('admin.producto.cambios-baja.modalactualizar')
           @include('admin.producto.cambios-baja.modaleliminar')

@@ -16,3 +16,7 @@ $("#buscarcheck").change(function(){
 $(function () {
   $("#tablaproductos").tablesorter();     //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
 });
+
+$(function () {
+  $("#tablapromociones").tablesorter();     //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
+});
