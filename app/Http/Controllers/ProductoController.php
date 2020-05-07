@@ -69,7 +69,7 @@ class ProductoController extends Controller
         $id = substr($datos['id_provee'], 0, 6);
         $id = $id . substr($datos['id_familia'], 6, 8);
         $id = $id . $c;
-        $id = $id . rand(1, 20);
+        $id = $id . rand(30, 99);
 
 
         //6 primeros caracteres -> Los primeros 6 caracteres de el ID de provedor
@@ -161,12 +161,23 @@ class ProductoController extends Controller
 
 
 
-        $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titulo,producto.datos,producto.id_provee,producto.id_familia,producto.clav_clas,producto.id_produc,stock.stock,stock.prec_uni
-        FROM ((producto
-        INNER JOIN familia ON familia.id_familia = producto.id_familia)
-        INNER JOIN claves ON claves.id_clav=producto.clav_clas
-        INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee
-        INNER JOIN stock ON stock.id_produc = producto.id_produc)');
+        // $resultados = DB::select('SELECT familia.nom_fami, claves.name,proveedor.nom,producto.titulo,producto.datos,producto.id_provee,producto.id_familia,producto.clav_clas,producto.id_produc,stock.stock,stock.prec_uni
+        // FROM ((producto
+        // INNER JOIN familia ON familia.id_familia = producto.id_familia)
+        // INNER JOIN claves ON claves.id_clav=producto.clav_clas
+        // INNER JOIN proveedor ON proveedor.id_provee = producto.id_provee
+        // INNER JOIN stock ON stock.id_produc = producto.id_produc)')->paginate(20);
+
+
+
+        $resultados=DB::table('producto')
+        ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
+        ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
+        ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
+        ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
+        ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.clav_clas','producto.id_produc','stock.stock','stock.prec_uni')
+        ->orderBy('nom_fami', 'asc')
+        ->paginate(20);
 
         $proveedores = DB::table('proveedor')
             ->get();
