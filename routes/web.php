@@ -57,7 +57,6 @@ Route::get('/producto', function () {
 
 Route::get('/buscarproducto', function() {
     return view('cliente.producto.buscarproducto');
-    
  })->name('buscarproducto');
 
 // Route::middleware('auth')->group(function () {
@@ -87,7 +86,7 @@ Route::get('/buscarproducto', function() {
     Route::post('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
     Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
-
+    Route::get('/buscarproducto/{Familia}/{Producto?}','BuscarProductoController@show');
 
     Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
    

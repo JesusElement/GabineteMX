@@ -120,7 +120,8 @@
                     <!-- Dropdown Structure -->                         
                     <ul id='dropdown2' class='dropdown-content dropmenu'>
                       @foreach ($categorias as $categoria)
-                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{route('buscarproducto',['cate' => $categoria->id_familia])}}">{{$categoria->nom_fami}}</a></li>
+                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ url("buscarproducto/{$categoria->id_familia}") }}
+                      ">{{$categoria->nom_fami}}</a></li>
                       @endforeach
                     </ul>
                 </div>
