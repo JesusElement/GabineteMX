@@ -6,19 +6,20 @@
     <div class="barraproductoCss">
       <h4>En la sección de
         @foreach($Categoria as $item)
-          <span id="NomMar">{{ $CateMar=$item->nom_fami }}</span>
+          <span id="NomMar">{{$item->nom_fami }}</span>
         @endforeach
-
       </h4>
     </div>
     <div class="filtroproductoCss">
-        <h5>Opciones</h5>
+        <h5>Opciones</h5  >
         <hr>
         <h6>Marcas:</h6>
         
         <div class="collection z-depth-3">
           @foreach($Marca as $Mar)
-          <a href="{{ url("buscarproducto/{$Mar->nom}") }}"  class="collection-item">{{ $Mar->nom }}</a>
+            @foreach ($Categoria as $Item)
+            <a href="{{ url("buscarproducto/{$Item->nom_fami}-{$Mar->nom}") }}"  class="collection-item">{{ $Mar->nom }}</a>
+            @endforeach
           @endforeach
         </div>
       
@@ -38,17 +39,35 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($resultado as $resultados)
-            <tr>
-              <td>{{ $resultados->nom_fami }}</td>
-              <td>{{ $resultados->name }}</td>
-              <td>{{ $resultados->nom }}</td>
-              <td>{{ $resultados->titulo }}</td>
-              <td>{{ $resultados->datos }}</td>
-              <td>{{ $resultados->stock }}</td>
-              <td>{{ $resultados->prec_uni }}</td>
-            </tr>
-          @endforeach
+@if (!$productoFamProv ->isEmpty())
+
+      @foreach($productoFamProv as $resultados)
+      <tr>
+        <td>{{ $resultados->nom_fami }}</td>
+        <td>{{ $resultados->name }}</td>
+        <td>{{ $resultados->nom }}</td>
+        <td>{{ $resultados->titulo }}</td>
+        <td>{{ $resultados->datos }}</td>
+        <td>{{ $resultados->stock }}</td>
+        <td>{{ $resultados->prec_uni }}</td>
+      </tr>
+      @endforeach
+        
+ @else
+    
+      @foreach($resultado as $resultados)
+        <tr>
+          <td>{{ $resultados->nom_fami }}</td>
+          <td>{{ $resultados->name }}</td>
+          <td>{{ $resultados->nom }}</td>
+          <td>{{ $resultados->titulo }}</td>
+          <td>{{ $resultados->datos }}</td>
+          <td>{{ $resultados->stock }}</td>
+          <td>{{ $resultados->prec_uni }}</td>
+        </tr>
+       @endforeach
+  
+ @endif 
         </tbody>
       </table>
     </div>
