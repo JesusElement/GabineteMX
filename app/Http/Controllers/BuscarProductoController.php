@@ -21,13 +21,17 @@ class BuscarProductoController extends Controller
      */
     public function recibir(Request $request)
     {
-        $metodo = $request->method();
-        if($request->isMethod('post')){
-            echo "Estoy recibiendo por post";
-        }
-       
         $name = $request->search;
+
+        $FueFamilia = DB::table('familia')
+        ->select('familia.nom_fami')
+        ->where('familia.nom_fami','like','%'.$name.'%')
+        ->get();
     
+        $FueMarca = DB::table('proveedor')
+        ->select('proveedor.nom')
+        ->where('proveedor.nom','like','%'.$name.'%')
+        ->get();
 
         $resultados=DB::table('producto')
         ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
@@ -38,11 +42,6 @@ class BuscarProductoController extends Controller
         ->where('familia.nom_fami',$name)
         ->orderBy('nom_fami', 'asc')
         ->paginate(20);
-
-        $FamiliaCategoria = DB::table('familia')
-        ->select('familia.nom_fami')
-        ->where('familia.nom_fami',$name)
-        ->get();
 
         
         $Marcas = DB::table('proveedor')
@@ -60,14 +59,40 @@ class BuscarProductoController extends Controller
             ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.id_produc','stock.stock','stock.prec_uni')
             ->where('familia.nom_fami','like','%'.$name.'%')
             ->paginate(20);
-    
+
+        $ProductosMarcaFamilia = DB::table('producto')
+        ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
+        ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
+        ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
+        ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
+        ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.id_produc','stock.stock','stock.prec_uni')
+        ->where('proveedor.nom','like','%'.$name.'%')
+        ->paginate(20);
+
+        $FamiliaCategoria = DB::table('familia')
+        ->join('producto','familia.id_familia', 'producto.id_familia')    
+        ->join('proveedor','proveedor.id_provee','producto.id_provee')
+        ->select('familia.nom_fami')
+        ->distinct()
+        ->where('proveedor.nom','like','%'.$name.'%')
+        ->get();
+
+        $CategoriaFamilia = DB::table('familia')
+        ->select('familia.nom_fami')
+        ->where('familia.nom_fami',$name)
+        ->get();
+        
+        
+        
 
         
         return view('cliente.producto.buscarproducto')
         ->with('resultado', $resultados)
         ->with('Categoria', $FamiliaCategoria)
         ->with('Marca', $Marcas)
-        ->with('productoFamProv', $ProductosMarcaFamilia);
+        ->with('productoFamProv', $ProductosMarcaFamilia)
+        ->with('quefamilia',$FueFamilia)
+        ->with('quemarca',$FueMarca);
      
     }
   
@@ -138,6 +163,8 @@ class BuscarProductoController extends Controller
         ->orderBy('nom_fami', 'asc')
         ->paginate(20);
 
+        
+
         $proveedores = DB::table('proveedor')
             ->get();
 
@@ -178,6 +205,9 @@ class BuscarProductoController extends Controller
         ->where('familia.nom_fami',$A[0])
         ->where('proveedor.nom',$A[1])
         ->paginate(20);
+
+        
+
 
         $BuscoFamilia = DB::table('producto')
         ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')

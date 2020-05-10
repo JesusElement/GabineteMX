@@ -841,8 +841,70 @@ h5{
 .contenedor .contenido .buscarproductoCss
 .mostradorproductoCss{
     grid-area: mostradorproductoCss;
-    background-color: aqua;
+  
+    padding: 2rem;
+    width: 75%;
 }
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss
+.buscarproductoCardCss{
+    display: grid;
+    margin: 10px;
+    
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
+    grid-template-areas: "buscarproductoCardImgCss buscarproductoCardInfoCss";
+}
+
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss
+.buscarproductoCardImgCss{
+    grid-area: buscarproductoCardImgCss;
+    width: 100%;
+    height: auto;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss
+.buscarproductoCardInfoCss{
+    grid-area:  buscarproductoCardInfoCss;
+    display: grid;
+    
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss
+.titlulo{
+    color:#ec9129;
+    justify-content: left;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss
+.titluloProve{
+    color:#0046c2;
+    margin-left: 2rem;
+    justify-content: left;
+    
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss
+.precio{
+ 
+    justify-self: flex-start;
+    align-content: end;
+    color:#0046c2;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss
+.footerCardCss{
+
+    display: grid;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-bottom: 5px;
+}
+
 
 /*Termina buscar producto estructura*/
 
