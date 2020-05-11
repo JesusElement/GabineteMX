@@ -17,7 +17,7 @@
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style_comen.css') }}" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -32,6 +32,7 @@
   <script src="js/JQuery.js"></script>
   <script src="js/Main.js"></script>
   <script type="text/javascript" src="js/tablesorter.source.js"> </script>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -188,6 +189,13 @@
     </div>
   </div>
   <script> (function(b,c){var e=document.createElement('link');e.rel='stylesheet',e.type='text/css',e.href='https://chatboxlive.blahbox.net/static/css/main.css',document.getElementsByTagName('head')[0].appendChild(e); var f=document.createElement('script');f.onload=function(){var g;if(c)g='previewInit';else{var h=document.createElement('div');g='cbinit',h.id='cbinit',document.body.append(h)} console.log(document.querySelector('#'+g)),chatbox.initChat(document.querySelector('#'+g),b,c)},f.src='https://chatboxlive.blahbox.net/static/js/chat-lib.js',document.getElementsByTagName('head')[0].appendChild(f)}) ('67fdf26bb08d7701422d77bc25cfa268', 0); </script>
+  <script>
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  </script>
 </body>
 
 </html>

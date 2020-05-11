@@ -6,8 +6,7 @@
             <div class="login">
                 <div class="row">
                 <form class="col s12" method="POST" action="{{ route('login') }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}  
-                  
+                    @csrf
                       <div class="row">
                           <h3>Ingresar</h3>
                         <div class="input-field col s12">
