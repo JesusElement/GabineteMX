@@ -1,4 +1,18 @@
-* Estos son los colores que vamos a usar Tres de escala de grises : gris claro: #F2F2F2 gris: #8C8C8C gris obscuro: #404040 y dos azules : azul fuerte: #0046c2 azul claro: #0096c0 para efectos especiales : rosa: #cf1889 Naranja: #ec9129 */ * {
+/* Estos son los colores que vamos a usar
+   Tres de escala de grises:
+   gris claro: #F2F2F2
+   gris: #8C8C8C
+   gris obscuro: #404040
+   
+   y dos azules:
+   azul fuerte: #0046c2
+   azul claro: #0096c0
+   para efectos especiales:
+   rosa: #cf1889
+   Naranja: #ec9129
+   */
+
+* {
     margin: 0px;
     padding: 0px;
 }
