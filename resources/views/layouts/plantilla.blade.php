@@ -59,17 +59,18 @@
                 <div class="buscarDiv">
                     <nav  class="buscador">
                         <div class="nav-wrapper">
-                          <form action="/buscarproducto?=search" method="GET">
+                        <form action="{{url('/buscarproductoS')}}" method="GET" role="form">
+                          {{ csrf_field() }}
                             <div class="input-field">
-                              <input class="buscardor grey-text text-darken-4" id="search" id="search" name="search" type="search">
-                              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <input class="buscardor grey-text text-darken-4" name="search" id="search"  type="search">
+                              <label class="label-icon" for="search"><i class="material-icons">{{'search'}}</i></label>
                             </div>
                           </form>
                         </div>
                     </nav>
                 </div>
                 <div class="fotoperfilDiv">
-                  <a class='dropdown-trigger colortext' data-target='dropdown3'>  <i class="small material-icons" >account_box</i>  </a>
+                  <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
                   <ul id='dropdown3' class='dropdown-content dropmenu'>
                     <li class="blue-text text-darken-2"></li>
                   </ul>
@@ -124,8 +125,7 @@
                     <!-- Dropdown Structure -->                         
                     <ul id='dropdown2' class='dropdown-content dropmenu'>
                       @foreach ($categorias as $categoria)
-                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ url("buscarproducto/{$categoria->id_familia}") }}
-                      ">{{$categoria->nom_fami}}</a></li>
+                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ url("buscarproducto/{$categoria->nom_fami}") }}">{{$categoria->nom_fami}}</a></li>
                       @endforeach
                     </ul>
                 </div>
