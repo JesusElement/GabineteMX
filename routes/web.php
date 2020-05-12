@@ -90,7 +90,9 @@ Route::get('/buscarproducto', function() {
 
 
     Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
-   
+    Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
+    Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');
+    Route::post('/admin/cambiopromocion/{id_oferta}', 'PromocionController@update')->name('cambiopromociones');
 
 
 
