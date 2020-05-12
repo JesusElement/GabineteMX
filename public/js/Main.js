@@ -1,6 +1,10 @@
 $(document).ready(function () {
   M.AutoInit();
 
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+
   //Esto es para que los filtros funcionen
   //Chekets de  filtros con jQuey
   $("#buscarcheck").change(function () {
@@ -78,3 +82,7 @@ function ShowSelected() {
   var label = document.querySelector("#id_p");
   label.value = cod;
 }
+
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
