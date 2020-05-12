@@ -388,15 +388,9 @@ nav a.sidenav-trigger i {
 
 .contenedor .contenido .carousel .carousel-item {
     width: 100%;
-
 }
 
-.contenedor .contenido .carousel .carousel-item 
-.imgCaroCss{
-
-    
-}
-
+.contenedor .contenido .carousel .carousel-item .imgCaroCss {}
 
 .contenedor .contenido .otroscontenidos {
     justify-content: center;
@@ -990,15 +984,19 @@ fieldset {
     margin: 1%;
 }
 
+.Espacio {
+    text-align: center;
+}
+
 
 /* GRID PARA DIRECCION */
 
 .direccion-add {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(3, [col-start] minmax(100px, 1fr) [col-end]);
+    grid-template-columns: repeat(3, [col-start] minmax(150px, 1fr) [col-end]);
     grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
-    grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia  boton";
+    grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia boton";
 }
 
 .direccion-add .Alias {
@@ -1015,4 +1013,68 @@ fieldset {
 .direccion-add .Calle {
     grid-column-start: calle;
     grid-column-end: calle;
+}
+
+.direccion-add .Numero {
+    grid-column-start: numero;
+    grid-column-end: numero;
+}
+
+.direccion-add .Estado {
+    grid-column-start: estado;
+    grid-column-end: estado;
+}
+
+.direccion-add .Ciudad {
+    grid-column-start: ciudad;
+    grid-column-end: ciudad;
+}
+
+.direccion-add .CodigoPost {
+    grid-column-start: codigo;
+    grid-column-end: codigo;
+}
+
+.direccion-add .Colonia {
+    grid-column-start: colonia;
+    grid-column-end: colonia;
+}
+
+.direccion-add .Referencia {
+    grid-column-start: referencia;
+    grid-column-end: referencia;
+}
+
+.direccion-add .boton {
+    grid-column-start: boton;
+    grid-column-end: boton;
+}
+
+@media screen and (max-width: 600px) {
+    .direccion-add {
+        display: grid;
+        grid-gap: 2px;
+        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+        grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia referencia" "espacio boton espacio";
+    }
+    .direccion-add .Ciudad {
+        grid-column-start: ciudad;
+        grid-column-end: codigo;
+    }
+    .direccion-add .CodigoPost {
+        grid-column-start: colonia;
+        grid-column-end: colonia;
+    }
+    .direccion-add .Colonia {
+        grid-column-start: referencia;
+        grid-column-end: boton;
+    }
+    .direccion-add .Referencia {
+        grid-column-start: 1;
+        grid-column-end: -2;
+    }
+    .Espacio h5 {
+        font-size: 100%;
+    }
 }

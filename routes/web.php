@@ -121,4 +121,5 @@ Route::middleware('auth')->group(function () {
     Route::get('cliente/direccion', function () {
         return view('cliente.dirreccion.agregarD');
     });
+    Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
 });
