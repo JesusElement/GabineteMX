@@ -966,3 +966,43 @@ nav a.sidenav-trigger i {
 .tablaprom tbody tr td.align-left {
     text-align: left;
 }
+
+.direccion-add {
+    margin: 1%;
+}
+
+fieldset {
+    border-radius: 30px;
+    border: 1px solid #0096c0;
+}
+
+.Direc-mar {
+    margin: 1%;
+}
+
+
+/* GRID PARA DIRECCION */
+
+.direccion-add {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, [col-start] minmax(100px, 1fr) [col-end]);
+    grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+    grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia  boton";
+}
+
+.direccion-add .Alias {
+    padding: 15px;
+    grid-column-start: alias;
+    grid-column-end: alias;
+}
+
+.direccion-add .Espacio {
+    grid-column-start: espacio;
+    grid-column-end: espacio;
+}
+
+.direccion-add .Calle {
+    grid-column-start: calle;
+    grid-column-end: calle;
+}

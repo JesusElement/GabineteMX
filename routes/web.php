@@ -109,4 +109,8 @@ Route::middleware('auth')->group(function () {
             ->where('user_id', auth()->id())
             ->delete();
     });
+
+    Route::get('cliente/direccion', function () {
+        return view('cliente.dirreccion.agregarD');
+    });
 });
