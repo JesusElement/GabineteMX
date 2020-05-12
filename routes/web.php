@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ Route::get('/producto', function () {
 
 
 Route::get('/buscarproducto', function() {
+  
     return view('cliente.producto.buscarproducto');
-    
  })->name('buscarproducto');
 
 // Route::middleware('auth')->group(function () {
@@ -87,9 +87,10 @@ Route::get('/buscarproducto', function() {
     Route::post('/storeproducto', 'ProductoController@store')->name('insertarproducto');
     Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
     Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
-
-
+    Route::get('/buscarproducto/{search}','BuscarProductoController@show')->name('buscarproducto');
+    Route::get('/buscarproductoS','BuscarProductoController@recibir')->name('buscarproductoS');
     Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
+<<<<<<< HEAD
     Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
     Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');
     Route::post('/admin/cambiopromocion/{id_oferta}', 'PromocionController@update')->name('cambiopromociones');
@@ -97,6 +98,9 @@ Route::get('/buscarproducto', function() {
 
 
 
+=======
+   
+>>>>>>> 3da176590ffa020228f0ea5d461cdecbe61b3e8c
     
 // });
 

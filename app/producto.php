@@ -12,3 +12,4 @@ class producto extends Model
         'remember_token',
     ];
 }
+ 

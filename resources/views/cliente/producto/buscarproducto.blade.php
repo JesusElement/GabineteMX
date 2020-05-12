@@ -1,86 +1,136 @@
 @extends('layouts.plantilla')
 @section('seccion')
 <div class="contenido">
-    <?php   
-    //Aqui por si quiere ver productos por marca seleccionada  
-    if (isset($_GET['marcaCheck'])) {
-     $buscarMarca = $_GET['marcaCheck'];
-    $buscarFam = $_GET['fam'];
-      $porMarca = DB::select("SELECT * FROM producto as p INNER JOIN proveedor as prov ON p.id_provee = prov.id_provee INNER JOIN familia as fa ON p.id_familia = fa.id_familia WHERE prov.nom = '$buscarMarca' AND fa.nom_fami = '$buscarFam'");
-    
-      $NomMar = $buscarFam;
-     
-      //Necesitas buscar tambien el rpoducto por familia si no te imprime todos los productops de una marca ignopradnof la familia
-      $nomprovee = DB ::select("SELECT DISTINCT nom FROM proveedor as pv INNER JOIN producto as p on pv.id_provee = p.id_provee INNER JOIN familia as f on p.id_familia = f.id_familia WHERE f.nom_fami = '$buscarFam'"); 
-    }else{
-  
-    if (isset($_GET["cate"]) && $_GET["cate"] != "") {
-    
-      $catego = $_GET["cate"];  
-          //Esto optiene todos los productos 
-        $producto= DB::select("SELECT * FROM producto WHERE id_familia = '$catego';");
-          //esto optiene toda la familia del producto
-        $nomcate= DB::select("SELECT nom_fami FROM familia WHERE id_familia = '$catego';");
-        foreach($nomcate as $nom){
-         $NomMar =  $nom->nom_fami;
-        }
-        $nomprovee = DB ::select("SELECT DISTINCT nom FROM proveedor as pv INNER JOIN producto as p ON pv.id_provee = p.id_provee INNER JOIN familia as fa ON fa.id_familia = p.id_familia WHERE fa.id_familia = '$catego'"); 
-    } 
-  }   
-      //esto es para seleccionar solo una ves los proveedores de todos los productos   
-     
-?>
-    <div class="buscarproductoCss">
-        <div class="barraproductoCss">
-            <h5>Tenemos los siguientes productos en la sección de: <?php echo("<span id='NomMar'>".$NomMar."</span>");?></h5>
-        </div>
-        <div class="filtroproductoCss">
-            <h4>Opciones</h4>
-            <hr>
-            <br>
-            <form>          
-              <select id="buscarcheck" multiple="multiple">
-        <option value="" disabled selected>Marcas:</option>
-        @foreach($nomprovee as $nomp)
-        <option>{{$nomp->nom}}</option>     
-         @endforeach
-            </select>
-          </form>
-        </div>
-        <div class="mostradorproductoCss">
 
-           
-    @php
-    if(isset($productob->titulo)){
+  <div class="buscarproductoCss">
+    <div class="barraproductoCss">
 
-    }
-    @endphp
+      @if($Categoria ->isEmpty())
+        <h4>En la sección de
+          @foreach($Categoria as $item)
+            <span id="NomMar">{{ $item->nom_fami }}</span>
+          @endforeach
+        </h4>
+      @else
+        <h4>
+          Resultados de la busqueda: 
+          @foreach ($quemarca as $mar)
+        <span>{{$mar->nom}}</span>
+          @endforeach
+          @foreach ($quefamilia as $fam)
+          <span>{{$fam->nom_fami}}</span>
+            @endforeach
+        </h4>
+      @endif
 
-        <table style="width:80%">
-  <tr>
-    <th>Titulo</th>
-    <th>Datos</th>
-  </tr>
-  @if(isset($producto))
-    @if($producto !=  null)
-      @foreach($producto as $productob)
-  <tr>
-  <td>{{$productob->titulo}}</td>
-  <td>{{$productob->datos}}</td>
-  </tr>
+    </div>
+    <div class="filtroproductoCss">
+      <h5>Opciones</h5>
+      <hr>
+      <h6>Marcas y otros productos:</h6>
+
+      <div class="collection z-depth-3">
+        @if (!$Marca -> isEmpty() && ! $Categoria -> isEmpty())
+        @foreach($Marca as $Mar)
+          @foreach($Categoria as $item)
+            <a href="{{ url("buscarproducto/{$item->nom_fami}-{$Mar->nom}") }}"
+              class="collection-item">{{ $Mar->nom }}</a>
+          @endforeach
+        @endforeach
+        <h2>1</h2>
+
+      @else
+        @if(!$Marca -> isEmpty())
+
+          @foreach($Marca as $Mar)
+          <a href="{{ url("buscarproducto/{$Mar->nom}") }}"
+            class="collection-item">{{ $Mar->nom }}</a>
+        @endforeach
+        <h2>2</h2>
+
+        @else
+        @foreach($Categoria as $item)
+        <a href="{{ url("buscarproducto/{$item->nom_fami}") }}"
+          class="collection-item">{{ $item->nom_fami }}</a>
       @endforeach
-    @endif
-    @else
-      @foreach($porMarca as $productob)
-  <tr>
-  <td>{{$productob->titulo}}</td>
-  <td>{{$productob->datos}}</td>
-  </tr>
-     @endforeach
+      <h2>3</h2>
 
-  @endif
-</table>
+        @endif
+      @endif
+      </div>
+    </div>
+    <div class="mostradorproductoCss">
+    
+      <table class="tabla" id="tablaproductos">
+        <thead>
+          <tr>
+            <th><span>Tipo.</span></th> {{-- id_familia --}}
+            <th><span>Subtipo.</span></th> {{-- clav_clas --}}
+            <th><span>Provedor.</span></th> {{-- id_provee --}}
+            <th><span>Nombre.</span></th> {{-- titulo --}}
+            <th><span>Descripcion.</span></th> {{-- datos --}}
+            <th><span>Stock.</span></th> {{-- stock --}}
+            <th><span>Precio U.</span></th> {{-- prec uni --}}
+          </tr>
+        </thead>
+        <tbody>
+          @if(!$productoFamProv ->isEmpty())
 
-        </div>
+            @foreach($productoFamProv as $resultados)
+              <tr>
+                <td>{{ $resultados->nom_fami }}</td>
+                <td>{{ $resultados->name }}</td>
+                <td>{{ $resultados->nom }}</td>
+                <td>{{ $resultados->titulo }}</td>
+                <td>{{ $resultados->datos }}</td>
+                <td>{{ $resultados->stock }}</td>
+                <td>{{ $resultados->prec_uni }}</td>
+              </tr>
+
+              <div class="buscarproductoCardCss z-depth-2">
+                <img class="buscarproductoCardImgCss" src="/Imagenes/Productos/{{$resultados->nom_fami}}/{{$resultados->nom}}/{{$resultados->id_produc}}/1.jpg" alt="">
+                <div class="buscarproductoCardInfoCss">
+                  <h5 class="titlulo">{{ $resultados->titulo }}</h5>
+                  <h6 class="titluloProve">{{ $resultados->nom }}</h6>
+                  <h6 class="precio">{{ $resultados->prec_uni }}</h6>
+                  <div class="footerCardCss">
+                    <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>                  </div>
+                </div>
+              </div>
+            @endforeach
+
+          @else
+
+            @foreach($resultado as $resultados)
+              <tr>
+                <td>{{ $resultados->nom_fami }}</td>
+                <td>{{ $resultados->name }}</td>
+                <td>{{ $resultados->nom }}</td>
+                <td>{{ $resultados->titulo }}</td>
+                <td>{{ $resultados->datos }}</td>
+                <td>{{ $resultados->stock }}</td>
+                <td>{{ $resultados->prec_uni }}</td>
+              </tr>
+              <div class="buscarproductoCardCss z-depth-2">
+                <img class="buscarproductoCardImgCss" src="/Imagenes/Productos/{{$resultados->nom_fami}}/{{$resultados->nom}}/{{$resultados->id_produc}}/1.jpg" alt="">
+                <div class="buscarproductoCardInfoCss">
+                  <h5 class="titlulo">{{ $resultados->titulo }}</h5>
+                  <h6 class="titluloProve">{{ $resultados->nom }}</h6>
+                  <h6 class="precio">{{ $resultados->prec_uni }}</h6>
+                  <div class="footerCardCss">
+                    <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>                  </div>
+                </div>
+              </div>
+            @endforeach
+
+          @endif
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+    <br>
+    {{ $resultado->render("pagination::materialize-ui") }}
+  </div>
 </div>
-        @endsection
+@endsection

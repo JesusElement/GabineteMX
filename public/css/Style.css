@@ -118,16 +118,13 @@
     color: #404040;
 }
 
-.contenedor .header .barsub .menuDiv .dropMenu 
-.ct{
+.contenedor .header .barsub .menuDiv .dropMenu .ct {
     color: #f2f2f2;
 }
-
 
 .contenedor .header .barsub .menuDiv .dropMenu .ct:hover {
     color: #404040;
 }
-
 
 .material-icons {
     color: #F2F2F2;
@@ -272,20 +269,14 @@ nav a.sidenav-trigger i {
     text-align: center;
 }
 
-.contenedor .header .barinf .hardwareDiv
-.dropmenu{
+.contenedor .header .barinf .hardwareDiv .dropmenu {
     color: black !important;
     min-width: 160px;
-
 }
 
-.contenedor .header .barinf .hardwareDiv
-.colortext{
+.contenedor .header .barinf .hardwareDiv .colortext {
     color: #F2F2F2;
-
 }
-
-
 
 .contenedor .header .barinf .gadetsDiv {
     justify-self: stretch;
@@ -806,116 +797,172 @@ nav a.sidenav-trigger i {
 
 /*Aqui termina RegistrarUser form*/
 
+
 /*Comienza buscar producto estructura*/
-.contenedor .contenido 
-.buscarproductoCss{
-  display: grid;
-  grid-template-columns: 15% 85%;
-  grid-template-rows: auto;
-  grid-template-areas: "barraproductoCss barraproductoCss"
-                        "filtroproductoCss mostradorproductoCss";
+
+.contenedor .contenido .buscarproductoCss {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
+    grid-template-areas: "barraproductoCss barraproductoCss" "filtroproductoCss mostradorproductoCss";
 }
 
-.contenedor .contenido .buscarproductoCss
-.barraproductoCss{
+.contenedor .contenido .buscarproductoCss .barraproductoCss {
     grid-area: barraproductoCss;
-   
 }
 
-.contenedor .contenido .buscarproductoCss
-h5{
-   margin-left: 2rem;
-   
+.contenedor .contenido .buscarproductoCss h5 {
+    margin-left: 2rem;
 }
 
-.contenedor .contenido .buscarproductoCss
-.filtroproductoCss{
+.contenedor .contenido .buscarproductoCss .filtroproductoCss {
     grid-area: filtroproductoCss;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-
-
-.contenedor .contenido .buscarproductoCss
-.mostradorproductoCss{
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss {
     grid-area: mostradorproductoCss;
-    background-color: aqua;
+    padding: 2rem;
+    width: 75%;
 }
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardCss {
+    display: grid;
+    margin: 10px;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: auto;
+    grid-template-areas: "buscarproductoCardImgCss buscarproductoCardInfoCss";
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardImgCss {
+    grid-area: buscarproductoCardImgCss;
+    width: 100%;
+    height: auto;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss {
+    grid-area: buscarproductoCardInfoCss;
+    display: grid;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titlulo {
+    color: #ec9129;
+    justify-content: left;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titluloProve {
+    color: #0046c2;
+    margin-left: 2rem;
+    justify-content: left;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .precio {
+    justify-self: flex-start;
+    align-content: end;
+    color: #0046c2;
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .footerCardCss {
+    display: grid;
+    justify-content: flex-end;
+    margin-right: 1rem;
+    margin-bottom: 5px;
+}
+
 
 /*Termina buscar producto estructura*/
 
 
 /* AQUI VA EL DISEÑO DE LA TABLA DE ACTUALIZAR PRODUCTO CON COMPLEMENTO DE ORDER BY */
 
+
 /* SI OCACIONA PROBLEMAS MOVER AL INICIO DE ACTUALIZARP */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
 .tabla {
-  margin: 0 auto;
+    margin: 0 auto;
 }
+
 .tabla thead {
-  cursor: pointer;
-  background: rgba(0, 0, 0, .2);
+    cursor: pointer;
+    background: rgba(0, 0, 0, .2);
 }
-.tabla thead tr th { 
-  font-weight: bold;
-  padding: 10px 20px;
+
+.tabla thead tr th {
+    font-weight: bold;
+    padding: 10px 20px;
 }
-.tabla thead tr th span { 
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 55%;
+
+.tabla thead tr th span {
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 55%;
 }
+
 .tabla thead tr th.headerSortUp,
 .tabla thead tr th.headerSortDown {
-  background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, .2);
 }
+
 .tabla thead tr th.headerSortUp span {
-  background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+    background-image: url('http://tablesorter.com/themes/blue/asc.gif');
 }
+
 .tabla thead tr th.headerSortDown span {
-  background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+    background-image: url('http://tablesorter.com/themes/blue/desc.gif');
 }
+
 .tabla tbody tr td {
-  text-align: center;
-  padding: 10px 20px;
+    text-align: center;
+    padding: 10px 20px;
 }
+
 .tabla tbody tr td.align-left {
-  text-align: left;
+    text-align: left;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
 .tablaprom {
-  margin: 0 auto;
+    margin: 0 auto;
 }
+
 .tablaprom thead {
-  cursor: pointer;
-  background: rgba(0, 0, 0, .2);
+    cursor: pointer;
+    background: rgba(0, 0, 0, .2);
 }
-.tablaprom thead tr th { 
-  font-weight: bold;
-  padding: 10px 20px;
+
+.tablaprom thead tr th {
+    font-weight: bold;
+    padding: 10px 20px;
 }
-.tablaprom thead tr th span { 
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 55%;
+
+.tablaprom thead tr th span {
+    padding-right: 20px;
+    background-repeat: no-repeat;
+    background-position: 100% 55%;
 }
+
 .tablaprom thead tr th.headerSortUp,
 .tablaprom thead tr th.headerSortDown {
-  background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, .2);
 }
+
 .tablaprom thead tr th.headerSortUp span {
-  background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+    background-image: url('http://tablesorter.com/themes/blue/asc.gif');
 }
+
 .tablaprom thead tr th.headerSortDown span {
-  background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+    background-image: url('http://tablesorter.com/themes/blue/desc.gif');
 }
+
 .tablaprom tbody tr td {
-  text-align: center;
-  padding: 10px 20px;
+    text-align: center;
+    padding: 10px 20px;
 }
+
 .tablaprom tbody tr td.align-left {
-  text-align: left;
+    text-align: left;
 }

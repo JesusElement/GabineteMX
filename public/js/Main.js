@@ -3,15 +3,30 @@ $(document).ready(function () {
 
   //Esto es para que los filtros funcionen
   //Chekets de  filtros con jQuey
+<<<<<<< HEAD
   $("#buscarcheck").change(function () {
     var Mar = $("#buscarcheck").val();
     var Fam = $("#NomMar").text();
     //window.alert(Mar);
     //window.alert(Fam);
     window.location = "buscarproducto?marcaCheck=" + Mar + "&fam=" + Fam;
+=======
+  
+$("#buscarcheck").change(function(){
+
+
+>>>>>>> 3da176590ffa020228f0ea5d461cdecbe61b3e8c
 
     //Fin de los filtros javaScrip
   });
+<<<<<<< HEAD
+=======
+  
+});
+$(function () {
+  $("#tablaproductos").tablesorter();     //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
+});
+>>>>>>> 3da176590ffa020228f0ea5d461cdecbe61b3e8c
 
   $(function () {
     $("#tablaproductos").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT

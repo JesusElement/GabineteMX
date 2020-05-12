@@ -17,7 +17,7 @@
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style_comen.css') }}" rel="stylesheet">
   <!-- Compiled and minified JavaScript -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -32,9 +32,13 @@
   <script src="js/JQuery.js"></script>
   <script src="js/Main.js"></script>
   <script type="text/javascript" src="js/tablesorter.source.js"> </script>
+<<<<<<< HEAD
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+=======
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+>>>>>>> 3da176590ffa020228f0ea5d461cdecbe61b3e8c
 </head>
 
 <body>
@@ -61,19 +65,23 @@
                 <div class="buscarDiv">
                     <nav  class="buscador">
                         <div class="nav-wrapper">
-                          <form>
+                        <form action="{{url('/buscarproductoS')}}" method="GET" role="form">
+                          {{ csrf_field() }}
                             <div class="input-field">
-                              <input class="buscardor grey-text text-darken-4" id="search" type="search">
-                              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <input class="buscardor grey-text text-darken-4" name="search" id="search"  type="search">
+                              <label class="label-icon" for="search"><i class="material-icons">{{'search'}}</i></label>
                             </div>
                           </form>
                         </div>
                     </nav>
                 </div>
                 <div class="fotoperfilDiv">
-                    <i class="small material-icons">account_box</i>  
+                  <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
+                  <ul id='dropdown3' class='dropdown-content dropmenu'>
+                    <li class="blue-text text-darken-2"></li>
+                  </ul>
+                    
                 </div>
-                {{auth()->user()}}
                 @guest
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
@@ -123,7 +131,7 @@
                     <!-- Dropdown Structure -->                         
                     <ul id='dropdown2' class='dropdown-content dropmenu'>
                       @foreach ($categorias as $categoria)
-                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{route('buscarproducto',['cate' => $categoria->id_familia])}}">{{$categoria->nom_fami}}</a></li>
+                    <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ url("buscarproducto/{$categoria->nom_fami}") }}">{{$categoria->nom_fami}}</a></li>
                       @endforeach
                     </ul>
                 </div>
@@ -186,6 +194,14 @@
 
     </div>
   </div>
+  <script> (function(b,c){var e=document.createElement('link');e.rel='stylesheet',e.type='text/css',e.href='https://chatboxlive.blahbox.net/static/css/main.css',document.getElementsByTagName('head')[0].appendChild(e); var f=document.createElement('script');f.onload=function(){var g;if(c)g='previewInit';else{var h=document.createElement('div');g='cbinit',h.id='cbinit',document.body.append(h)} console.log(document.querySelector('#'+g)),chatbox.initChat(document.querySelector('#'+g),b,c)},f.src='https://chatboxlive.blahbox.net/static/js/chat-lib.js',document.getElementsByTagName('head')[0].appendChild(f)}) ('67fdf26bb08d7701422d77bc25cfa268', 0); </script>
+  <script>
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  </script>
 </body>
 
 </html>

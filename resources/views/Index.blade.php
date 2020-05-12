@@ -168,7 +168,7 @@
             
             <div class="container paginacion" >
               <center>
-            {{ $ofertas->links() }}
+              {{ $ofertas->render("pagination::materialize-ui")}}
               </center>
             </div>
 </div>

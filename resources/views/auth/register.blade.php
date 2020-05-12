@@ -11,9 +11,7 @@
                 <br><br>
         </div>
         <form class="col s12" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
-
-            {{-- Token para que laravel tome como valido este form --}}
+                @csrf
             <div class="blockUnoRegistroUserCss" id="blockUnoRegistroUserCss">
 
                 <div class="RegistreUserPrimerApeCss">
