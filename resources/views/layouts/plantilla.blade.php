@@ -32,13 +32,10 @@
   <script src="js/JQuery.js"></script>
   <script src="js/Main.js"></script>
   <script type="text/javascript" src="js/tablesorter.source.js"> </script>
-<<<<<<< HEAD
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
-=======
   <meta name="csrf-token" content="{{ csrf_token() }}">
->>>>>>> 3da176590ffa020228f0ea5d461cdecbe61b3e8c
 </head>
 
 <body>
