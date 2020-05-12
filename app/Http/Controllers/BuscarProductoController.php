@@ -22,7 +22,7 @@ class BuscarProductoController extends Controller
     public function recibir(Request $request)
     {
         $name = $request->search;
-
+       // echo "Esto es del REQUEST:"; var_dump($name);
         $FueFamilia = DB::table('familia')
         ->select('familia.nom_fami')
         ->where('familia.nom_fami','like','%'.$name.'%')
@@ -33,7 +33,7 @@ class BuscarProductoController extends Controller
         ->where('proveedor.nom','like','%'.$name.'%')
         ->get();
 
-        $resultados=DB::table('producto')
+        $resultadosNomFa=DB::table('producto')
         ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
         ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
         ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
@@ -42,6 +42,19 @@ class BuscarProductoController extends Controller
         ->where('familia.nom_fami',$name)
         ->orderBy('nom_fami', 'asc')
         ->paginate(20);
+
+        $resultadosNomMar=DB::table('producto')
+        ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
+        ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
+        ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
+        ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
+        ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.id_produc','stock.stock','stock.prec_uni')
+        ->where('proveedor.nom',$name)
+        ->orderBy('nom_fami', 'asc')
+        ->paginate(20);
+
+        
+
 
         
         $Marcas = DB::table('proveedor')
@@ -87,7 +100,8 @@ class BuscarProductoController extends Controller
 
         
         return view('cliente.producto.buscarproducto')
-        ->with('resultado', $resultados)
+        ->with('resultadoFAM', $resultadosNomFa)
+        ->with('resultadoMAR', $resultadosNomMar)
         ->with('Categoria', $FamiliaCategoria)
         ->with('Marca', $Marcas)
         ->with('productoFamProv', $ProductosMarcaFamilia)
@@ -139,27 +153,49 @@ class BuscarProductoController extends Controller
         //laraVel tome la desición de mejor hacer  un explode para 
         //optener la cadena de datos. El siguiente codigo sirve para tal 
         //proposito
-
-   
+           
+        
+            //var_dump($search);
             $A = explode("-",$search);
-           // var_dump($search);
-       // echo"Esto es A0 (FAMILIAS): ";  var_dump($A[0]);
+        //echo"<br>Esto es A0 (FAMILIAS): ";  var_dump($A[0]);
         if (isset($A[0])) {
             if(isset($A[1])){
-             //echo"<br>Esto es A1 (MARCAS): ";   var_dump($A[1]);    
+          //   echo"<br>Esto es A1 (MARCAS): ";   var_dump($A[1]);    
             }else{                 
             $A[1] = "nada";
            // var_dump($A[1]);
             }
         }
+
+        
+        $FueFamilia = DB::table('familia')
+        ->select('familia.nom_fami')
+        ->where('familia.nom_fami',$A[0])
+        ->get();
+    
+        $FueMarca = DB::table('proveedor')
+        ->select('proveedor.nom')
+        ->where('proveedor.nom',$A[0])
+        ->get();
+
             
-        $resultados=DB::table('producto')
+        $resultadosNomFa=DB::table('producto')
         ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
         ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
         ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
         ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
         ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.id_produc','stock.stock','stock.prec_uni')
         ->where('familia.nom_fami',$A[0])
+        ->orderBy('nom_fami', 'asc')
+        ->paginate(20);
+
+        $resultadosNomMar=DB::table('producto')
+        ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
+        ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
+        ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
+        ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
+        ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.id_produc','stock.stock','stock.prec_uni')
+        ->where('proveedor.nom',$A[0])
         ->orderBy('nom_fami', 'asc')
         ->paginate(20);
 
@@ -220,7 +256,8 @@ class BuscarProductoController extends Controller
 
 
             return view('cliente.producto.buscarproducto')
-            ->with('resultado', $resultados)
+            ->with('resultadoFAM', $resultadosNomFa)
+            ->with('resultadoMAR', $resultadosNomMar)
             ->with('proveedor', $proveedores)
             ->with('familia', $familias)
             ->with('BuscoPorFam', $BuscoFamilia)
@@ -229,7 +266,9 @@ class BuscarProductoController extends Controller
             ->with('Marca',$Marcas)
             ->with('producto', $productos)
             ->with('productoFamProv', $ProductosMarcaFamilia)
-            ->with('Categoria', $FamiliaCategoria);
+            ->with('Categoria', $FamiliaCategoria)
+            ->with('quefamilia',$FueFamilia)
+            ->with('quemarca',$FueMarca);
     
         
     

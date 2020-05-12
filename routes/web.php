@@ -34,6 +34,7 @@ Route::get('/', function () {
         ->join('stock as c','c.id_produc','=','b.id_produc')
         ->join('familia as d','d.id_familia','=','a.id_familia')
         ->join('proveedor as e','e.id_provee','=','a.id_provee')
+        ->orderBy('prec_uni', 'DESC')
         ->paginate(8);
     return view('index', ['productos' => $productos], ['ofertas' => $ofertas]);
 })->name('index');

@@ -30,7 +30,7 @@
                 
                 </div>
                 <div style="" class="imagenProducto">
-                <img class="responsive-img" src="Imagenes/Productos/{{$producto->nom_fami}}/{{$producto->nom}}/{{$producto->id_produc}}/1.jpg">
+                <img class="responsive-img materialboxed" src="Imagenes/Productos/{{$producto->nom_fami}}/{{$producto->nom}}/{{$producto->id_produc}}/1.jpg">
                 </div>
                 <div style="" class="infoProducto">
                     <div class="row">

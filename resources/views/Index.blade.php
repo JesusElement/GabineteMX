@@ -132,7 +132,32 @@ $(window).on("load", function () {
                 <div class="card{{$i}}">
                       <div class="card z-depth-3">
                         <div class="card-image">
-                          <img class="imgCard" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
+
+                          <?php
+
+                          $carpeta="Imagenes/Productos/$oferta->nom_fami/$oferta->nom/$oferta->id_produc/";
+
+                          $imagenes=array();
+
+                          $finfo = finfo_open(FILEINFO_MIME_TYPE);
+
+                          foreach (glob($carpeta."*") as $filename) {
+                          $mime=finfo_file($finfo, $filename);
+                          if($mime=="image/jpeg" || $mime=="image/pjpeg" || $mime=="image/gif" || $mime=="image/png")
+                          {
+
+                          $imagenes[]=$filename;
+                          }
+                          }
+                          finfo_close($finfo);
+
+                          $aleatorio=rand(0,count($imagenes)-1);
+
+                          echo "<img class='imgCard materialboxed' src='".$imagenes[$aleatorio]."'>";
+                          ?>
+
+
+                          {{-- <img class="imgCard materialboxed" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg"> --}}
                           
                           <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#modal{{$p}}"><i class="material-icons">add</i></a>
                         </div>
