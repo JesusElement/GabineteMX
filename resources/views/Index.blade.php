@@ -106,7 +106,6 @@ $(window).on("load", function () {
                 width:82% !important;
                 height:100% !important;
                 }
-
                 .carousel-item img{
                 
                 height: 100%;
@@ -133,17 +132,22 @@ $(window).on("load", function () {
                       <div class="card z-depth-3">
                         <div class="card-image">
                           <img class="imgCard" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
-                          <span class="card-title">{{ $oferta->titulo }}</span>
+                          
                           <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#modal{{$p}}"><i class="material-icons">add</i></a>
                         </div>
                         <div class="card-content">
+                          
                         @php
                           $desc = $oferta->prec_uni * ($oferta->desc / 100 );
                           $precio = $oferta->prec_uni - $desc;
                           $precio = round($precio, 2);
                           
-                        @endphp
-                          <h6 class="black-text">Total: ${{number_format($precio)}}</h6>
+                        @endphp 
+                        <div style="width: 300px; max-height: 800px;">
+                        <span class="card-title" style="text-overflow: ellipsis;    white-space: nowrap;  overflow: hidden;">{{ $oferta->titulo }}</span>
+                        </div>
+                          <h6 class="black-text"><s>Antes: ${{ number_format($oferta->prec_uni) }} </s> </h6>
+                          <h6 class="black-text">Ahora: ${{ number_format($precio) }}</h6>
                         </div>
                       </div>
                 </div>
