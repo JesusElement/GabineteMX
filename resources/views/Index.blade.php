@@ -112,11 +112,12 @@ $(window).on("load", function () {
                 
                 }
                 </style>
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/1.jpg"></a>
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/2.jpg"></a>
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/3.jpg"></a>
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/4.png"></a>
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/5.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_6.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_2.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_3.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_4.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_5.jpg"></a>
+                <a class="carousel-item imgCaroCss" href="#one!"><img src="/Imagenes/Banners/Banner_1.jpg"></a>
                
               </div>
               

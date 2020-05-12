@@ -378,6 +378,8 @@ nav a.sidenav-trigger i {
 }
 
 .contenedor .contenido .carousel {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 100%;
     justify-self: stretch;
     grid-area: carousel;
@@ -386,7 +388,15 @@ nav a.sidenav-trigger i {
 
 .contenedor .contenido .carousel .carousel-item {
     width: 100%;
+
 }
+
+.contenedor .contenido .carousel .carousel-item 
+.imgCaroCss{
+
+    
+}
+
 
 .contenedor .contenido .otroscontenidos {
     justify-content: center;
