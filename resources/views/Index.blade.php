@@ -1,97 +1,126 @@
+<!-- IMPORTANTE PARA QUE EL LOADER CARGUE PRIMERO TIENE QUE ESTAR EL CODIGO AQUI     -->
+@php
+if(isset($_GET['page'])){
+}
+else{
+@endphp
+<style>
+  
+  .master{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden!important;
+    
+    background-color: #404040;
+    z-index: 9999;
+  }
+  .content::-webkit-scrollbar { 
+  /* solo oculta su visualizacion */
+  display: none;
+}
+  
+  .loader {
+    position: absolute;
+    width: 500px;
+    height: 200px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+      @keyframes load {
+      0%{
+          opacity: 0.08;
+          filter: blur(5px);
+          letter-spacing: 3px;
+          }
+      100%{
+  
+          }
+  }
+  
+  .animate {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    margin: auto;
+    color: #ffffff;
+    font-family: Helvetica, sans-serif, Arial;
+    animation: load 1.2s infinite 0s ease-in-out;
+    animation-direction: alternate;
+    text-shadow: 0 0 1px white;
+  }
+ 
+  html,body{
+  overflow-x: hidden;
+ 
+  height:100%;
+  width:101%;
+  margin: 0px;
+  padding: 0px;
+}
+      </style>
+  
+  
+  <div class="master">
+    <div class="loader">
+    <!-- <h2 class="animate">GABINETE MX</h2> -->
+    <img class="animate" src="/Imagenes/logo.png">
+  
+    </div>
+  </div>
+ @php 
+}
+ @endphp 
+  
+  
+  <script>
+ $(window).on("load", function () {
+  setTimeout(function () {
+    $(".master").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
+  }, 3990);
+});
+$(window).on("load", function () {
+  setTimeout(function () {
+    $(".loader").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
+  }, 4000);
+});
+  
+  </script>
+
+      <!-- TERMINA EL LOADER  -->
+
 @extends('layouts.plantilla')
 
 @section('seccion')
- <!-- IMPORTANTE PARA QUE EL LOADER CARGUE PRIMERO TIENE QUE ESTAR EL CODIGO AQUI     -->
- @php
-  if(isset($_GET['page'])){
-  }
-  else{
- @endphp
- <style>
-    
-    .master{
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: #404040;
-      z-index: 9999;
-    }
-    
-    .loader {
-      position: absolute;
-      width: 500px;
-      height: 200px;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-        @keyframes load {
-        0%{
-            opacity: 0.08;
-            filter: blur(5px);
-            letter-spacing: 3px;
-            }
-        100%{
-    
-            }
-    }
-    
-    .animate {
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      height:100%;
-      margin: auto;
-      color: #ffffff;
-      font-family: Helvetica, sans-serif, Arial;
-      animation: load 1.2s infinite 0s ease-in-out;
-      animation-direction: alternate;
-      text-shadow: 0 0 1px white;
-    }
-    /* body, html{
-      height: 96vh;
-      background-color: #111;
-      color: white;
-    } */
-        </style>
-    
-    
-    <div class="master">
-      <div class="loader">
-      <!-- <h2 class="animate">GABINETE MX</h2> -->
-      <img class="animate" src="/Imagenes/logo.png">
-    
-      </div>
-    </div>
-   @php 
-  }
-   @endphp 
-    
-    
-    <script>
-           $(window).on('load', function () {
-          setTimeout(function () {
-        $(".master").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 3990);
-       });
-     $(window).on('load', function () {
-          setTimeout(function () {
-        $(".loader").css({visibility:"hidden",opacity:"0"} ).fadeOut("slow")} , 4000);
-       });
-    
-       
-    
-    
-        </script>
-
-        <!-- TERMINA EL LOADER  -->
+ 
 <div class="contenido">   
 
             <div class="carousel">
-                <a class="carousel-item" href="#one!"><img src="/Imagenes/BannerBlancoRam.png"></a>
+
+              <style>
+                .carousel .carousel-item {
+                width:82% !important;
+                height:100% !important;
+                }
+
+                .carousel-item img{
+                
+                height: 100%;
+                
+                }
+                </style>
+                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/1.jpg"></a>
+                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/2.jpg"></a>
+                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/3.jpg"></a>
+                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/4.png"></a>
+                <a class="carousel-item" href="#one!"><img src="/Imagenes/Banners/5.jpg"></a>
                
               </div>
+              
 
             <div class="otroscontenidos">
             <div class="marizq"></div>
@@ -164,12 +193,18 @@
             </div>
 
                 
-            
+            <br>
+            <br>
+            <br>
             
             <div class="container paginacion" >
               <center>
+              
               {{ $ofertas->render("pagination::materialize-ui")}}
               </center>
             </div>
+            <br>
+            <br>
+            <br>
 </div>
 @endsection
