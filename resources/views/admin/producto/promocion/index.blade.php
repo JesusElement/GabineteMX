@@ -1,30 +1,41 @@
 @extends('layouts/plantilla')
 @section('seccion')
 <!-- Inicia Contenido -->
+
+
 <div class="contenido">
   <div class="actualizarProductoCss">
     <div class="actProTabCss">
       <h3>Gestionar promociones.</h3>
     
-      <table class="tablaprom" id="tablapromociones" >
+      <table class="tabla" id="tablapromociones" >
         <thead>
           <tr>
            {{-- <th><span>ID Oferta          </span></th> {{-- id_oferta --}}
             {{--<th><span>ID Producto        </span></th> {{-- id_product--}}
-            <th><span>Nombre producto    </span></th> {{-- titulo --}}
-            <th><span>Fecha de inicio    </span></th> {{-- fech_ini --}}
-            <th><span>Fecha de termino   </span></th> {{-- fech_ter --}}
-            <th><span>Hora de inicio     </span></th> {{-- hora_ini--}}
-            <th><span>Hora de termino    </span></th> {{-- hora_ter--}}
-            <th><span>Descuento          </span></th> {{-- desc--}}
-            <th><span>Precio Normal      </span></th> {{-- costo_n--}}
-            <th><span>Precio C/Descuento </span></th> {{-- costo_cd--}}
-            <th>Opciones.                       </th> {{-- actualizarEliminar --}}
+            <th style="width: 20%;"><span>Nombre producto    </span></th> {{-- titulo --}}
+            <th style="width: 10%;"><span>Fecha de inicio    </span></th> {{-- fech_ini --}}
+            <th style="width: 10%;"><span>Fecha de termino   </span></th> {{-- fech_ter --}}
+            <th style="width: 5%;"><span>Hora de inicio     </span></th> {{-- hora_ini--}}
+            <th style="width: 5%;"><span>Hora de termino    </span></th> {{-- hora_ter--}}
+            <th style="width: 5%;"><span>Descuento          </span></th> {{-- desc--}}
+            <th style="width: 5%;"><span>Precio Normal      </span></th> {{-- costo_n--}}
+            <th style="width: 5%;"><span>Precio C/Descuento </span></th> {{-- costo_cd--}}
+            <th style="width: 15%;">Opciones.   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+            
+              <button data-target="#altapromocion"
+              class="btn modal-trigger waves-effect waves-light btn green accent-3 btnacP" style="width:55%; height: 45px;" >
+             <i class="large material-icons left">arrow_upward</i>Agregar
+            </button>
+            
+            </th> {{-- actualizarEliminar --}}
+            
           </tr>
     
         </thead>
         <tbody>
-          @foreach($resultado as $resultados)
+          @foreach($resultado ?? '' as $resultados)
           <tr>
             {{-- <td>{{ $resultados->id_oferta }}</td>
             <td>{{ $resultados->id_produc }}</td> --}}
@@ -33,30 +44,32 @@
             <td>{{ $resultados->fech_ter  }}</td>
             <td>{{ $resultados->hora_ini  }}</td>
             <td>{{ $resultados->hora_ter  }}</td>
-            <td>{{ $resultados->desc      }}</td>
-            <td>Precio normal</td>
-            <td>Precio descuento</td>
+            <td>{{ $resultados->desc      }}%</td>
+            <td>${{ $resultados->prec_uni }}</td>
+            <td>${{ $resultados->prec_final }}</td>
        
      
 
 
-            <td style="width: 20%;">
-                <button
+            <td style="width: 35%;">
+                {{-- <button data-target="#altapromocion"
                 class="btn modal-trigger waves-effect waves-light btn green accent-3 btnacP" style="width: 45px; height: 45px;">
                 <i class="large material-icons left">arrow_upward</i> 
-              </button>&nbsp;
+              </button>&nbsp; --}}
 
               {{-- <button data-target="#actualizarproducto{{ $resultados->id_produc }}" --}}
-                  <button
+
+                
+                  <button  data-target="#actualizarpromocion{{ $resultados->id_oferta}}"
                 class="btn modal-trigger waves-effect waves-light btn amber accent-3 btnacP" style="width: 45px; height: 45px;">
                 <i class="small material-icons left">update</i> 
-              </button>&nbsp;
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
               {{-- <button data-target="#informacionproducto{{ $resultados->id_produc }}" --}}
-                  <button
+                  <button data-target="#bajapromocion{{ $resultados->id_produc }}"
                 class="btn modal-trigger waves-effect waves-light btn  deep-orange accent-3 btnacP" style="width: 45px; height: 45px;">
                 <i class="small material-icons left">clear</i> 
-              </button>&nbsp;
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               
               <button data-target="#informacionproducto{{ $resultados->id_produc }}"
               class="btn modal-trigger waves-effect waves-light btn  cyan darken-3 btnacP" style="width: 45px; height: 45px;">

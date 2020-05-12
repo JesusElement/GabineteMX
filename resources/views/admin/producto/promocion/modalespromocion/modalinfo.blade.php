@@ -1,4 +1,14 @@
-<div class="modal " id="#informacionproducto{{ $resultados->id_produc }}">
+<style>
+    /* .modal { max-height: 100%; overflow: visible;} */
+    .custominfo.open {
+      width: 35%;
+      max-height: 100%;
+      height: 95%;
+      top: 0 !important;
+    }
+  </style>
+
+<div class="modal custominfo" id="#informacionproducto{{ $resultados->id_produc }}">
     <div class="modal-content">
         <!--Body-->
         <div class="modal-body">
@@ -32,16 +42,16 @@
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PORCENTAJE DE
                 DESCUENTO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->desc }}</label> <br><br>
+            <label >{{ $resultados->desc }}%</label> <br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO
                 NORMAL:&nbsp;&nbsp;&nbsp;</span>
-            <label >aqui va el precio normal</label> <br><br>
+            <label >${{ $resultados->prec_uni }}</label> <br><br>
 
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO CON
                 DESCUENTO:&nbsp;&nbsp;&nbsp;</span>
-            <label>aqui va el precio con descuento</label> <br>
+            <label>${{ $resultados->prec_final }}</label> <br>
 
 
 
