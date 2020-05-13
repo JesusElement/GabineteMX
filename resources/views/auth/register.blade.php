@@ -28,7 +28,7 @@
                     <label for="Nombre">{{'Nombre Completo'}}</label>
                     <br>
                     <center>
-                    <a class="btn" type="submit" id="siguienteDos">
+                    <a class="btn" id="siguienteDos">
                         Siguiente
                     </a>
                 
@@ -53,12 +53,12 @@
                     <br>
                     <center>          
                  
-                    <a class="btn" type="submit" id="siguienteTres">
+                    <a class="btn" id="siguienteTres">
                         Siguiente
                     </a>
                     <br>
                     <br>
-                    <a  type="submit" id="RegresaUno">
+                    <a id="RegresaUno">
                         Regresar!
                     </a>
                     </center>
@@ -76,12 +76,11 @@
                  
                     <br>
                     <center>
-                    <a class="btn" type="submit" id="Enviar">
-                        Enviar
-                    </a>
+                    <input class="btn" type="submit" value="Enviar" id="Enviar">
+                        
                     <br>
                     <br>
-                    <a  type="submit" id="RegresaDos">
+                    <a id="RegresaDos">
                         Regresar!
                     </a>
                     
