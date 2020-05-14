@@ -2,27 +2,33 @@
 
 @section('seccion')
 
-<div class="container">
+
     <div class="ayuda">
 
         <div class="opciones">
-        <p> Opciones </p>
         <a class="btn btn-block">Servicio al cliente</a>
         <a class="btn btn-block">Contacto</a>
-        <a class="btn btn-block">Rastrear</a>
-        <a class="btn btn-block">Chat</a>
         <a class="btn btn-block">Información Corporativas</a>
+        <a class="btn btn-block" onclick="aviso()">Aviso de Privacidad</a>
         </div>
 
         <div class="informacion" id="content">
-        <iframe
-    allow="microphone;"
-    width="350"
-    height="430"
-    src="https://console.dialogflow.com/api-client/demo/embedded/b61fc4e4-fd15-44e8-9d59-a754fbc23cf3">
-</iframe>
         </div>
-    </div>
-</div>
 
+    </div>
+
+    <script>
+        var contenido = document.querySelector('#content');
+        function aviso(){
+            fetch('contenidos/Aviso_Privacidad.txt')
+            .then(data => data.text())
+                //Otra promesa que captura esa data que ya viene preformateada
+                .then(data => {
+                    //pintamos la data
+                    contenido.innerHTML = data
+
+                })
+
+        }
+    </script>
 @endsection

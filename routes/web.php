@@ -105,7 +105,7 @@ Route::get('/buscarproducto', function() {
 
 
 Route::middleware('auth')->group(function () {
-    Route::get('/sessions', function () {
+    Route::get('cliente/sessions', function () {
         $sessions = DB::table('sessions')
             ->where('user_id', auth()->id())
             ->orderBy('last_activity', 'DESC')
@@ -122,5 +122,6 @@ Route::middleware('auth')->group(function () {
     Route::get('cliente/direccion', function () {
         return view('cliente.dirreccion.agregarD');
     });
+
     Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
 });

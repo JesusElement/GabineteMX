@@ -574,43 +574,37 @@ nav a.sidenav-trigger i {
 
 .ayuda {
     display: grid;
-    grid-template-columns: 30% 70%;
-    grid-gap: 1px;
+    grid-gap: 5px;
+    grid-template-columns: minmax(50px, 100px) minmax(200px, 100px) minmax(100px, 1000px) minmax(50px, 100px);
+    grid-template-rows: minmax(100px, auto) minmax(200px, auto) minmax(100px, auto);
+    grid-template-areas: "cabeza cabeza cabeza modifica" "espaIzq opcion contenido espaDere" "espaInIzq espaInCen espaInCen espaInDer";
 }
 
-.ayuda {
-    background-color: #F2F2F2;
-    width: 100%;
-    height: 30rem;
-    margin: 1%;
-    border-radius: 25px;
-    border: 2px solid #8C8C8C;
-}
-
-.ayuda .opciones {
-    margin: 10px;
-}
-
-.ayuda .opciones p {
-    font-size: larger;
+.opciones {
     text-align: center;
+    grid-column-start: opcion;
+    grid-column-end: opcion;
+    grid-row-start: opcion;
+    grid-row-end: option;
 }
 
 .opciones a {
-    margin: 5px;
     background-color: #0096c0;
+    margin: 2%;
+    height: auto;
 }
 
-.opciones a:hover {
-    margin: 5px;
-    background-color: #ec9129;
+.informacion {
+    background-color: #F2F2F2;
+    border-radius: 5px;
+    grid-column-start: contenido;
+    grid-column-end: contenido;
+    grid-row-start: contenido;
+    grid-row-end: contenido;
 }
 
-.ayuda .informacion {
-    margin: 5px;
-    padding: 10px;
-    background-color: #929292;
-    border-radius: 20px;
+.opciones {
+    border-right: 2px solid #0096c0;
 }
 
 
@@ -839,12 +833,10 @@ nav a.sidenav-trigger i {
     grid-template-areas: "buscarproductoCardImgCss buscarproductoCardInfoCss";
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss 
-.buscarproductoCardCss:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardCss:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
     background: #f1f1f1;
 }
-
 
 .contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardImgCss {
     grid-area: buscarproductoCardImgCss;
