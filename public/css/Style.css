@@ -588,15 +588,37 @@ nav a.sidenav-trigger i {
     grid-row-end: option;
 }
 
+.modifica {
+    color: #8C8C8C;
+    font-size: small;
+    text-align: center;
+    grid-column-start: modifica;
+    grid-column-end: modifica;
+}
+
+.TerCondi {
+    list-style: none;
+    margin: 1%;
+}
+
 .opciones a {
-    background-color: #0096c0;
+    background-color: transparent;
+    color: black;
     margin: 2%;
-    height: auto;
+    height: 3rem;
+    font-size: x-small;
+}
+
+.informacion li {
+    padding-left: 35px;
+    padding-right: 35px;
 }
 
 .informacion {
     background-color: #F2F2F2;
     border-radius: 5px;
+    padding: 15px;
+    text-align: justify;
     grid-column-start: contenido;
     grid-column-end: contenido;
     grid-row-start: contenido;
@@ -604,7 +626,21 @@ nav a.sidenav-trigger i {
 }
 
 .opciones {
-    border-right: 2px solid #0096c0;
+    border-left: 2px solid #0096c0;
+}
+
+.informacion h2 {
+    text-align: center;
+    color: #0046c2;
+}
+
+.informacion p {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.ayuda b {
+    color: #0096c0;
 }
 
 
