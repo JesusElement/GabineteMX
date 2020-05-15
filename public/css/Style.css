@@ -885,18 +885,36 @@ nav a.sidenav-trigger i {
     display: grid;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titlulo {
-    color: #ec9129;
-    justify-content: left;
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss {
+    background-color: transparent;
+    display: grid;
+    border: 0px;
+    justify-self: stretch;
+    text-align: left;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titluloProve {
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .EstrellasBuscarPCss {
+    margin-left: 1rem;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .star {
+    background: rgb(255, 217, 0);
+    color: rgb(0, 0, 0);
+    display: inline;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .titlulo {
+    justify-content: left;
+    color: #ec9129;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .titluloProve {
     color: #0046c2;
     margin-left: 2rem;
     justify-content: left;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .precio {
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .precio {
     justify-self: flex-start;
     align-content: end;
     color: #0046c2;
