@@ -1,18 +1,14 @@
 $(document).ready(function() {
     M.AutoInit();
 
+    
+
     $(document).ready(function() {
         $('.materialboxed').materialbox();
     });
 
     //Esto es para que los filtros funcionen
     //Chekets de  filtros con jQuey
-    $("#VerProducto").click(function() {
-        // window.alert("Hola :v");
-        // $("#VerProducto").submit();
-
-    });
-
     $(function() {
         $("#tablaproductos").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
     });

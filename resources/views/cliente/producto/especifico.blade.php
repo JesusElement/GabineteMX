@@ -27,7 +27,23 @@
             <div class="producto">
             @foreach($productos as $producto)
                 <div style="" class="marizq">
-                
+                        <?php
+                    $carpeta = @scandir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc");
+                    if (count($carpeta)>2){     
+                      $d = opendir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc/");
+                    while (($e = readdir($d)) != false)
+                      if ($e != '.' && $e != '..') {
+                            $i = 1;
+                            echo"<div class='img'.$i.''>";
+                         $e1 = "/Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc/" . $e;
+                        echo "<img class='imgsize responsive-img materialboxed'  src='$e1'     ' ></div>  ";
+                        $i++;  
+                      }
+                    }else{
+                        echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+                      }
+                    ?>
+                                        
                 </div>
                 <div style="" class="imagenProducto">
                 <img class="responsive-img materialboxed" src="Imagenes/Productos/{{$producto->nom_fami}}/{{$producto->nom}}/{{$producto->id_produc}}/1.jpg">

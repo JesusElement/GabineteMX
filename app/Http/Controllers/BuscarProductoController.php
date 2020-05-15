@@ -254,6 +254,9 @@ class BuscarProductoController extends Controller
         ->orwhere('familia.nom_fami','like', '%'. $A[0] .'%' )
         ->get();
 
+        
+
+
 
             return view('cliente.producto.buscarproducto')
             ->with('resultadoFAM', $resultadosNomFa)
