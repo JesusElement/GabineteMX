@@ -110,7 +110,7 @@
 
 .contenedor .header .barsub .menuDiv .dropMenu {
     background-color: #404040;
-    color: #F2F2F2;
+    color: #f2f2f2;
     min-width: 160px;
 }
 
@@ -127,13 +127,13 @@
 }
 
 .material-icons {
-    color: #F2F2F2;
+    color: #f2f2f2;
 }
 
 .contenedor .header .barsub .buscarDiv {
     grid-area: buscarDiv;
     align-self: stretch;
-    color: #F2F2F2;
+    color: #f2f2f2;
     height: 50px;
 }
 
@@ -142,7 +142,7 @@
     margin: 0px;
     padding: 0px;
     line-height: 0px;
-    background-color: #8C8C8C !important;
+    background-color: #8c8c8c !important;
 }
 
 .contenedor .header .barsub .buscarDiv .buscador .material-icons {
@@ -170,7 +170,7 @@ nav a.sidenav-trigger i {
     justify-self: left;
     margin-left: 10px;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
 }
 
 .contenedor .header .barsub .nombreperfilDiv .btnIng {
@@ -181,7 +181,7 @@ nav a.sidenav-trigger i {
     grid-area: ubicacionDiv;
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
 }
 
 .contenedor .header .barsub .carritoDiv {
@@ -236,7 +236,7 @@ nav a.sidenav-trigger i {
 .contenedor .header .barinf .ejecutivaDiv {
     justify-self: stretch;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: ejecutivaDiv;
     text-align: center;
     border-bottom: solid white;
@@ -245,7 +245,7 @@ nav a.sidenav-trigger i {
 .contenedor .header .barinf .trabajoDiv {
     justify-self: stretch;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: trabajoDiv;
     text-align: center;
     border-bottom: solid white;
@@ -255,7 +255,7 @@ nav a.sidenav-trigger i {
     justify-self: stretch;
     text-align: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: gamerDiv;
     border-bottom: solid white;
 }
@@ -263,7 +263,7 @@ nav a.sidenav-trigger i {
 .contenedor .header .barinf .hardwareDiv {
     justify-self: stretch;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: hardwareDiv;
     border-bottom: solid white;
     text-align: center;
@@ -275,13 +275,13 @@ nav a.sidenav-trigger i {
 }
 
 .contenedor .header .barinf .hardwareDiv .colortext {
-    color: #F2F2F2;
+    color: #f2f2f2;
 }
 
 .contenedor .header .barinf .gadetsDiv {
     justify-self: stretch;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: gadetsDiv;
     border-bottom: solid white;
     text-align: center;
@@ -292,13 +292,13 @@ nav a.sidenav-trigger i {
     align-self: center;
     text-align: center;
     border-bottom: solid white;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: masbuscadoDiv;
 }
 
 .contenedor .header .barinf .mascalificadoDiv {
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: mascalificadoDiv;
     text-align: center;
     border-bottom: solid white;
@@ -316,49 +316,49 @@ nav a.sidenav-trigger i {
 .contenedor .header .barinf .ejecutivaDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: ejecutivaDiv;
 }
 
 .contenedor .header .barinf .trabajoDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: trabajoDiv;
 }
 
 .contenedor .header .barinf .gamerDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: gamerDiv;
 }
 
 .contenedor .header .barinf .hardwareDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: hardwareDiv;
 }
 
 .contenedor .header .barinf .gadetsDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: gadetsDiv;
 }
 
 .contenedor .header .barinf .masbuscadoDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: masbuscadoDiv;
 }
 
 .contenedor .header .barinf .mascalificadoDiv:hover {
     justify-self: center;
     align-self: center;
-    color: #F2F2F2;
+    color: #f2f2f2;
     grid-area: mascalificadoDiv;
 }
 
@@ -370,7 +370,7 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
-    grid-template-areas: "carousel" "otroscontenidos"
+    grid-template-areas: "carousel" "otroscontenidos";
 }
 
 .contenedor .contenido .card-title {
@@ -488,14 +488,55 @@ nav a.sidenav-trigger i {
 
 .contenedor .contenido .producto {
     display: grid;
-    grid-template-columns: 5% 30% 40% 20% 5%;
+    grid-template-columns: 10% 30% 35% 15% 10%;
     grid-template-rows: auto;
     grid-template-areas: "marizq imagenProducto infoProducto opCarrito marder";
 }
 
 .contenedor .contenido .producto .marizq {
     grid-area: marizq;
+    display: grid;
+    justify-content: right;
+    align-content: center;
+    margin-top: 2rem;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    grid-template-areas:"img1" 
+                        "img2"
+                        "img3" 
+                        "img4";
 }
+
+.contenedor .contenido .producto .marizq .img1 {
+    grid-area: img1;
+
+}
+
+.contenedor .contenido .producto .marizq .img2 {
+    grid-area: img2;
+ 
+}
+
+.contenedor .contenido .producto .marizq .img3 {
+    grid-area: img3;
+    
+}
+
+.contenedor .contenido .producto .marizq .img4 {
+    grid-area: img4;
+
+  
+}
+
+.contenedor .contenido .producto .marizq  
+.imgsize{
+    width: 150px;
+    height: 150px;
+  
+}
+
+
+
 
 .contenedor .contenido .producto .imagenProducto {
     grid-area: imagenProducto;
@@ -575,8 +616,8 @@ nav a.sidenav-trigger i {
 .ayuda {
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: minmax(50px, 100px) minmax(200px, 100px) minmax(100px, 1000px) minmax(50px, 100px);
-    grid-template-rows: minmax(100px, auto) minmax(200px, auto) minmax(100px, auto);
+    grid-template-columns: minmax(50px, 100px) minmax(200px, 100px) minmax( 100px, 1000px) minmax(50px, 100px);
+    grid-template-rows: minmax(100px, auto) minmax(200px, auto) minmax( 100px, auto);
     grid-template-areas: "cabeza cabeza cabeza modifica" "espaIzq opcion contenido espaDere" "espaInIzq espaInCen espaInCen espaInDer";
 }
 
@@ -589,7 +630,7 @@ nav a.sidenav-trigger i {
 }
 
 .modifica {
-    color: #8C8C8C;
+    color: #8c8c8c;
     font-size: small;
     text-align: center;
     grid-column-start: modifica;
@@ -615,7 +656,7 @@ nav a.sidenav-trigger i {
 }
 
 .informacion {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
     border-radius: 5px;
     padding: 15px;
     text-align: justify;
@@ -692,7 +733,6 @@ nav a.sidenav-trigger i {
 .contenedor .contenido .agregarProductoCss .imagenProCss {
     grid-area: imagenProCss;
     margin-top: 1rem;
-    ;
 }
 
 
@@ -705,7 +745,6 @@ nav a.sidenav-trigger i {
     grid-area: stockProCss;
     width: 100px;
     margin-top: 1.9rem;
-    ;
 }
 
 .contenedor .contenido .agregarProductoCss .bttnCss {
@@ -885,18 +924,36 @@ nav a.sidenav-trigger i {
     display: grid;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titlulo {
-    color: #ec9129;
-    justify-content: left;
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss {
+    background-color: transparent;
+    display: grid;
+    border: 0px;
+    justify-self: stretch;
+    text-align: left;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .titluloProve {
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .EstrellasBuscarPCss {
+    margin-left: 1rem;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .star {
+    background: rgb(255, 217, 0);
+    color: rgb(0, 0, 0);
+    display: inline;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .titlulo {
+    justify-content: left;
+    color: #ec9129;
+}
+
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .titluloProve {
     color: #0046c2;
     margin-left: 2rem;
     justify-content: left;
 }
 
-.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .precio {
+.contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .precio {
     justify-self: flex-start;
     align-content: end;
     color: #0046c2;
@@ -920,14 +977,19 @@ nav a.sidenav-trigger i {
 
 /* SI OCACIONA PROBLEMAS MOVER AL INICIO DE ACTUALIZARP */
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
+ 300,
+600,
+700,
+300italic,
+400italic);
 .tabla {
     margin: 0 auto;
 }
 
 .tabla thead {
     cursor: pointer;
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .tabla thead tr th {
@@ -943,15 +1005,15 @@ nav a.sidenav-trigger i {
 
 .tabla thead tr th.headerSortUp,
 .tabla thead tr th.headerSortDown {
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .tabla thead tr th.headerSortUp span {
-    background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+    background-image: url("http://tablesorter.com/themes/blue/asc.gif");
 }
 
 .tabla thead tr th.headerSortDown span {
-    background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+    background-image: url("http://tablesorter.com/themes/blue/desc.gif");
 }
 
 .tabla tbody tr td {
@@ -963,14 +1025,19 @@ nav a.sidenav-trigger i {
     text-align: left;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,300italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
+ 300,
+600,
+700,
+300italic,
+400italic);
 .tablaprom {
     margin: 0 auto;
 }
 
 .tablaprom thead {
     cursor: pointer;
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .tablaprom thead tr th {
@@ -986,15 +1053,15 @@ nav a.sidenav-trigger i {
 
 .tablaprom thead tr th.headerSortUp,
 .tablaprom thead tr th.headerSortDown {
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .tablaprom thead tr th.headerSortUp span {
-    background-image: url('http://tablesorter.com/themes/blue/asc.gif');
+    background-image: url("http://tablesorter.com/themes/blue/asc.gif");
 }
 
 .tablaprom thead tr th.headerSortDown span {
-    background-image: url('http://tablesorter.com/themes/blue/desc.gif');
+    background-image: url("http://tablesorter.com/themes/blue/desc.gif");
 }
 
 .tablaprom tbody tr td {
@@ -1030,7 +1097,7 @@ fieldset {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(3, [col-start] minmax(150px, 1fr) [col-end]);
-    grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+    grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax( 100px, auto) minmax(100px, auto);
     grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia boton";
 }
 
@@ -1089,8 +1156,8 @@ fieldset {
     .direccion-add {
         display: grid;
         grid-gap: 2px;
-        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
-        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto) minmax(100px, auto);
+        grid-template-columns: minmax(100px, auto) minmax(100px, auto) minmax( 100px, auto);
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto) minmax( 100px, auto) minmax(100px, auto) minmax(100px, auto);
         grid-template-areas: "alias espacio espacio" "calle calle numero" "estado ciudad codigo" "colonia referencia referencia" "espacio boton espacio";
     }
     .direccion-add .Ciudad {
