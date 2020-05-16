@@ -28,6 +28,7 @@
             @foreach($productos as $producto)
                 <div style="" class="marizq">
                         <?php
+
                     $carpeta = @scandir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc");
                     if (count($carpeta)>2){     
                       $d = opendir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc/");
@@ -39,6 +40,7 @@
                         echo "<img class='imgsize responsive-img materialboxed'  src='$e1'     ' ></div>  ";
                         $i++;  
                       }
+
                     }else{
                         echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
                       }
@@ -128,140 +130,142 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
+
+                <?php
+                $produc = $_GET['num_produc'];
+                $coments = DB::select('SELECT * FROM `comentario` WHERE `id_produc` = ? ', [$produc]);
+                    
+                ?>
+                
+                <!-- Inicia contenido productos relacionados -->
+                <div class="comentarioProducto">
+                    <div class="CreaComent">
+                    <h5 class="black-text"> Deja tu comentario </h5>
+                        <form id="comentariouser" action="" method="POST" enctype="multipart/form-data">
+                            <textarea id="WCU" rows="4" cols="30" >  </textarea>
+                            <div class="Estrella">
+                            <h6 class="black-text"> Calificalo </h6>
+                            <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                                --><label class="scome" for="radio1">★</label><!--
+                                --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                                --><label class="scome" for="radio2">★</label><!--
+                                --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                                --><label class="scome" for="radio3">★</label><!--
+                                --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                                --><label class="scome" for="radio4">★</label><!--
+                                --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                                --><label class="scome" for="radio5">★</label>
+                            </div>
+                            
+                            <input id="ECE" type="submit" class="btn btn-info" value="Enviar">
+                            
+                        </form>
+                    </div>
+                    <div class="tituloC"> <h5 class="black-text"> Opiniones de los usuarios </h5>  </div>
+                    @foreach ($coments as $coment)
+                        <div>
+                        <i class="small material-icons">account_box</i>
+                        </div>
+                        <div>
+                            <p>Comentario</p>
+                            <p>{{$coment->coment}}</p>
+                        </div>
+        
+                        <div>
+                            <p>Estrellas</p>
+                            <div class="Estrella2">
+                            @php
+                            $star = $coment->star;
+                            if($star==5){
+                            @endphp
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                            @php
+                            }
+                            else if($star==4){
+                            @endphp
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV">★</label>
+                            @php
+                            }
+                            else if($star==3){
+                            @endphp
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                            @php
+                            }
+                            else if($star==4){
+                                @endphp
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                            @php
+                            }
+                            else{
+                                @endphp
+                                <label class="StarComentV check">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                                <label class="StarComentV">★</label>
+                                @php
+                            }
+                            @endphp
+                            
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <?php
+                }
+                else{
+                ?>
+            <div class="contenido">
+                    <div class="producto">
+                    
+                    <div style="" class="infoProducto">
+                            <div class="row">
+                                <div class="col s12 m12">
+                                    <div class="card white darken-1">
+                                        <div class=" card-content white-text">
+                                            <span class="card-title">No se encontro ningun producto</span>
+                                            
+                                            <h5 class="black-text">Por favor verifique que haya seleccionado un producto de manera correcta, si el error persiste favor de comunicarse con nuestro equipo para atender el problema.</h5>
+                                        </div>
+                                        <div class="card-action">
+                                        <h6 class="black-text"><a href="{{route('index')}}"> Regresar el inicio</a>  </h6>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+        
+            </div>
+        
+        <?php
+                }
+        ?>
                 <div style="" class="marder">
 
                 </div>
-                @endforeach
+               
             </div>
         </div>
         <!-- Termina contenido -->
 
-        <?php
-        $produc = $_GET['num_produc'];
-        $coments = DB::select('SELECT * FROM `comentario` WHERE `id_produc` = ? ', [$produc]);
-            
-        ?>
-        
-        <!-- Inicia contenido productos relacionados -->
-        <div class="comentarios">
-            <div class="CreaComent">
-            <h5 class="black-text"> Deja tu comentario </h5>
-                <form id="comentariouser" action="" method="POST" enctype="multipart/form-data">
-                    <textarea id="WCU" rows="4" cols="30" >  </textarea>
-                    <div class="Estrella">
-                    <h6 class="black-text"> Calificalo </h6>
-                    <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                        --><label class="scome" for="radio1">★</label><!--
-                        --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                        --><label class="scome" for="radio2">★</label><!--
-                        --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-                        --><label class="scome" for="radio3">★</label><!--
-                        --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                        --><label class="scome" for="radio4">★</label><!--
-                        --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                        --><label class="scome" for="radio5">★</label>
-                    </div>
-                    
-                    <input id="ECE" type="submit" class="btn btn-info" value="Enviar">
-                    
-                </form>
-            </div>
-            <div class="tituloC"> <h5 class="black-text"> Opiniones de los usuarios </h5>  </div>
-            @foreach ($coments as $coment)
-                <div>
-                <i class="small material-icons">account_box</i>
-                </div>
-                <div>
-                    <p>Comentario</p>
-                    <p>{{$coment->coment}}</p>
-                </div>
-
-                <div>
-                    <p>Estrellas</p>
-                    <div class="Estrella2">
-                    @php
-                    $star = $coment->star;
-                    if($star==5){
-                    @endphp
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                    @php
-                    }
-                    else if($star==4){
-                    @endphp
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV">★</label>
-                    @php
-                    }
-                    else if($star==3){
-                    @endphp
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                    @php
-                    }
-                    else if($star==4){
-                        @endphp
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                    @php
-                    }
-                    else{
-                        @endphp
-                        <label class="StarComentV check">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                        <label class="StarComentV">★</label>
-                        @php
-                    }
-                    @endphp
-                    
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <?php
-        }
-        else{
-        ?>
-    <div class="contenido">
-            <div class="producto">
-            
-            <div style="" class="infoProducto">
-                    <div class="row">
-                        <div class="col s12 m12">
-                            <div class="card white darken-1">
-                                <div class=" card-content white-text">
-                                    <span class="card-title">No se encontro ningun producto</span>
-                                    
-                                    <h5 class="black-text">Por favor verifique que haya seleccionado un producto de manera correcta, si el error persiste favor de comunicarse con nuestro equipo para atender el problema.</h5>
-                                </div>
-                                <div class="card-action">
-                                <h6 class="black-text"><a href="{{route('index')}}"> Regresar el inicio</a>  </h6>
-                                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-    </div>
-
-<?php
-        }
-?>
 @endsection
