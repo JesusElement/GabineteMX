@@ -67,16 +67,36 @@
                                     <i class="tiny material-icons star">star</i>
                                     <i class="tiny material-icons star">star</i>
                                     @php 
-                                    if($pro == 1){
-                                        $desc = $producto->prec_uni * ($producto->desc / 100 );
+
+
+                                   
+
+
+                                    $idp=$producto->id_produc;
+                                    $flag=DB::table('stock')
+                                    ->join('oferta', 'oferta.id_produc', '=', 'stock.id_produc')
+                                    ->select('oferta.id_oferta','oferta.desc','stock.id_produc', 
+                                    DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+                                    ->where('oferta.id_produc','=',$idp)->first();
+                                   
+                           
+
+
+
+
+                                    if($flag->promocionflag == 1){
+                                        $desc = $producto->prec_uni * ($flag->desc / 100 );
                                         $precio = $producto->prec_uni - $desc;
                                         $precio = round($precio, 2);
                                     }
-                                    else if ($pro == 0){
+                                    else {
                                         $precio = $producto->prec_uni;
                                     }
+
+
+                                    $flag=null;
                                     @endphp
-                                    <h5 class="black-text">Precio:${{number_format($precio)}}  </h5>
+                                    <h5 class="black-text">Precio:${{number_format($precio,2)}}  </h5>
                                     <h6 class="black-text">En existencia: {{$producto->stock}}  </h6>
                                 </div>
                                 <div class="card-action">
