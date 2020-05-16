@@ -1012,7 +1012,7 @@ nav a.sidenav-trigger i {
 
 fieldset {
     border-radius: 30px;
-    border: 1px solid #0096c0;
+    border: 3px solid #0096c0 !important;
 }
 
 .Direc-mar {
