@@ -157,7 +157,7 @@
               <h6 class="precio">${{ $resultados->prec_uni }}</h6>
             </button> 
               <div class="footerCardCss">
-                <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> </div>
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> </div>
             </div>
           </div>
         @endforeach

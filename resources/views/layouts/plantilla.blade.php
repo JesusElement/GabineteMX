@@ -103,7 +103,7 @@
                     <i class="material-icons">place</i>
                 </div>
                 <div class="carritoDiv">
-          <a href="{{ route('carrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
+          <a href="{{ route('verCarrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
               </div>
               </form>
             </div>

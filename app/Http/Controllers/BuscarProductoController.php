@@ -218,7 +218,7 @@ class BuscarProductoController extends Controller
             ->join('familia','familia.id_familia','=','producto.id_familia')
             ->select('proveedor.nom')
             ->distinct()
-            ->where('familia.nom_fami', $A[0])->get();
+            ->where('familia.nom_fami', $A[0])->get(); 
             
         $FamiliaCategoria = DB::table('familia')
             ->select('familia.nom_fami')
