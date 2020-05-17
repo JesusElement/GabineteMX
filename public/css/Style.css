@@ -574,25 +574,95 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-columns: 5% 70% 20% 5%;
     grid-template-rows: auto;
-    grid-template-areas: "marizq imagenCarrito  opCarrito marder";
+    grid-template-areas: 
+    "marizq tituloCarrito tituloCarrito marder"
+    "marizq imagenCarrito  opCarrito marder";
 }
 
 .contenedor .contenido .Carrito .marizq {
     grid-area: marizq;
+    
+}
+
+.contenedor .contenido .Carrito .tituloCarrito{
+    grid-area: tituloCarrito;
+    background-color: lightskyblue;
 }
 
 .contenedor .contenido .Carrito .imagenCarrito {
     grid-area: imagenCarrito;
+    
 }
+
+.contenedor .contenido .Carrito .imagenCarrito
+.carritoCardCss{
+   
+    display: grid;
+    margin: 1rem;
+    grid-template-columns: 15% 85%;
+    grid-template-areas: "carritoCardImgCss carritoCardInfoCss"
+                        "carritoCardImgCss carritoEliPreCss";
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss
+.carritoCardImgCss{
+    grid-area: carritoCardImgCss;
+
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardImgCss
+.carritoImgCss{
+    
+    width: 200px;
+    height: 200px;
+}
+
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss
+.carritoCardInfoCss  {
+    grid-area: carritoCardInfoCss;
+    padding-left: 2rem;
+}
+
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss  
+.titulo{
+   color:#ec9129;
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss
+.carritoEliPreCss{
+    display: grid;
+    grid-area: carritoEliPreCss;
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss
+.precio{
+    margin-right: 2rem;
+   font-size: large;
+   justify-self: end;
+   align-content: end;
+  
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss
+.Eli{
+    display: inline;
+    justify-self: left;
+   size: 15px;
+    margin-left: 4rem;
+  
+}
+
+
+
 
 .contenedor .contenido .Carrito .opCarrito {
-    margin-top: 4rem;
+   
     grid-area: opCarrito;
+    background-color: khaki;
 }
 
-.contenedor .contenido .Carrito .ImgTarjeta {
-    width: 50%;
-}
 
 .contenedor .contenido .Carrito .marder {
     grid-area: marder;
