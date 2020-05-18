@@ -50,13 +50,13 @@ class CarritoController extends Controller
     public function store(Request $request, $Producto)
     {
 
-        var_dump($Producto);
+        //var_dump($Producto);
         $id  =  auth()->user()->id_cliente;
         $Id_Pro = $Producto;
         $fechaPrimera = Carbon::now()->toDateString('Y-m-d');
-        var_dump($fechaPrimera);
+        //var_dump($fechaPrimera);
         $fechaSegunda = Carbon::now()->addDay(7)->toDateString('Y-m-d');
-        var_dump($fechaSegunda);
+        //var_dump($fechaSegunda);
           DB::table('carrito')->insert(
               [
                   'id_cliente'=>$id,
@@ -71,7 +71,9 @@ class CarritoController extends Controller
                 ->where('cliente.id_cliente', $id)
                 ->get();
                 
-                return redirect('carrito');
+                // return view('cliente.carrito.index')
+                // ->with('Carrito',$TodosCarrtios);
+                return redirect()->back();
     }
 
     /**
@@ -83,7 +85,7 @@ class CarritoController extends Controller
     public function show(carrito $carrito)
     {
        $id  =  auth()->user()->id_cliente;
-        var_dump($id);
+        //var_dump($id);
 // Get the currently authenticated user's ID...
 
 /*** SELECT car.id_produc, car.id_cliente, p.titulo, p.id_provee, fa.nom_fami, prov.nom, sk.stock, sk.prec_uni
@@ -145,6 +147,19 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         $id  =  auth()->user()->id_cliente;
         $id_ProE = $Eli;
         DB::table('carrito')->where('id_produc', '=', $id_ProE, 'AND', 'id_cliente', '=', $id  )->delete();
-        return view('cliente.carrito.index');
+        return redirect('carrito');
+  
     }
+
+    // public function CarritoPlantilla(){
+    //     $id  =  auth()->user()->id_cliente;
+    //     $NumeroProduc = DB::table('carrito')
+    //     ->selectRaw('carrito.id_cliente')
+    //     ->where('carrito.id_cliente',$id)
+    //     ->get();
+    
+    //     var_dump($NumeroProduc);
+    //     return view('layouts.plantilla')
+    //     ->with($NumeroProduc, 'NumP');
+    // }
 }                        

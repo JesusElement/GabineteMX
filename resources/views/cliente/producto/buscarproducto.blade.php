@@ -76,8 +76,10 @@
               <div class="EstrellasBuscarPCss">
                             @php
                            $id_Producto = $resultados->id_produc; 
+                           $id  =  auth()->user()->id_cliente;
+                           //echo $id;
                     $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
-                          
+                    $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
                     if ($Res == false) {
                             echo"Algo salio mal";
                           } else {
@@ -154,10 +156,28 @@
                          {{-- Zona de estrellas --}}
 
                          <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-              <h6 class="precio">${{ $resultados->prec_uni }}</h6>
+              <h6 class="precio">${{ number_format($resultados->prec_uni) }}</h6>
             </button> 
               <div class="footerCardCss">
-                <a href="{{ url("carrito/{$resultados->id_produc}") }}" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> </div>
+                @php
+                    if($ResCarrito == false){
+                       // echo"Algo no esta bien :c";
+                        $Agregado = "";
+                    }else{
+                      
+                      foreach ($ResCarrito as $A) {
+                                $Agregado = $A -> id_produc;
+                            }
+                          
+                    }
+                @endphp 
+                @if ($Agregado == $resultados->id_produc)
+                <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
+              </div>
+                @else
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
+              </div>
+                @endif
             </div>
           </div>
         @endforeach
@@ -180,7 +200,10 @@
               <div class="EstrellasBuscarPCss">
                 @php
                $id_Producto = $resultados->id_produc; 
+               $id  =  auth()->user()->id_cliente;
+
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
+        $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -257,10 +280,28 @@
             </div>
              {{-- Zona de estrellas --}}
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{ $resultados->prec_uni }}</h6>
+                <h6 class="precio">${{ number_format($resultados->prec_uni) }}</h6>
                 </button>
                 <div class="footerCardCss">
-                  <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> </div>
+                  @php
+                  if($ResCarrito == false){
+                     // echo"Algo no esta bien :c";
+                      $Agregado = "";
+                  }else{
+                    
+                    foreach ($ResCarrito as $A) {
+                              $Agregado = $A -> id_produc;
+                          }
+                        
+                  }
+              @endphp 
+              @if ($Agregado == $resultados->id_produc)
+              <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
+            </div>
+              @else
+              <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
+            </div>
+              @endif
               </div>
             </div>
           @endforeach
@@ -280,7 +321,9 @@
               <div class="EstrellasBuscarPCss">
                 @php
                $id_Producto = $resultados->id_produc; 
+               $id  =  auth()->user()->id_cliente;
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
+        $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -355,10 +398,28 @@
             </div>
              {{-- Zona de estrellas --}}
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{ $resultados->prec_uni }}</h6>
+                <h6 class="precio">${{number_format($resultados->prec_uni)}}</h6>
                 <</button>
                 <div class="footerCardCss">
-                  <a href="#!" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> </div>
+                  @php
+                  if($ResCarrito == false){
+                     // echo"Algo no esta bien :c";
+                      $Agregado = "";
+                  }else{
+                    
+                    foreach ($ResCarrito as $A) {
+                              $Agregado = $A -> id_produc;
+                          }
+                        
+                  }
+              @endphp 
+              @if ($Agregado == $resultados->id_produc)
+              <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
+            </div>
+              @else
+              <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
+            </div>
+              @endif
               </div>
             </div>
           @endforeach
