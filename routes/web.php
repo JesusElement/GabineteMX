@@ -76,8 +76,6 @@ Route::get('/buscarproducto', function() {
         return view('admin.producto.promocion.index');
     })->name('promocion');
 
-
-
     Auth::routes();
 
     Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');

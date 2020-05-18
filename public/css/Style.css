@@ -190,7 +190,33 @@ nav a.sidenav-trigger i {
     padding-top: 5px;
     justify-self: center;
     margin-right: 3rem;
+    display: grid;
+  
 }
+
+.contenedor .header .barsub .carritoDiv 
+.NumProductosCarrito{
+    position: relative;
+    display: grid;
+    z-index: +1;
+    color: #404040;
+    text-align: left;
+    justify-self: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.contenedor .header .barsub .carritoDiv 
+.iconProductosCarrito{
+    position: absolute;
+    z-index: -1;
+    text-align: left;
+    justify-self: center;
+    color: whitesmoke;
+    font-size: 33px;
+}
+
+
 
 .contenedor .header .barinf {
     padding-top: 10px;
@@ -586,7 +612,7 @@ nav a.sidenav-trigger i {
 
 .contenedor .contenido .Carrito .tituloCarrito{
     grid-area: tituloCarrito;
-    background-color: lightskyblue;
+  
 }
 
 .contenedor .contenido .Carrito .imagenCarrito {
@@ -651,16 +677,13 @@ nav a.sidenav-trigger i {
     justify-self: left;
    size: 15px;
     margin-left: 4rem;
-  
+    margin-bottom: 1rem;
 }
-
-
-
 
 .contenedor .contenido .Carrito .opCarrito {
    
     grid-area: opCarrito;
-    background-color: khaki;
+ 
 }
 
 

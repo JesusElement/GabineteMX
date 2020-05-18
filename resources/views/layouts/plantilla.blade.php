@@ -103,7 +103,18 @@
                     <i class="material-icons">place</i>
                 </div>
                 <div class="carritoDiv">
-          <a href="{{ route('verCarrito') }}"><i class="small material-icons">add_shopping_cart</i> </a>
+          <a class=" NumProductosCarrito" href="{{ route('verCarrito') }}"><i class="material-icons iconProductosCarrito">shopping_cart</i>
+            @guest
+             +
+            @else
+              @php
+                  $NumP = DB::select("SELECT COUNT(id_cliente) as N FROM carrito");
+              @endphp
+             @foreach ($NumP as $item)
+              {{$item->N}}
+             @endforeach
+            @endguest
+            </a>
               </div>
               </form>
             </div>
