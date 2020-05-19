@@ -58,7 +58,7 @@ class DireccionController extends Controller
             'id_direc' => $id,
             'id_cliente' => $id_cli
         ]);
-        return redirect('/');
+        return redirect('cliente/Tarjetas');
     }
 
     /**

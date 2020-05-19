@@ -125,4 +125,9 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
+
+    Route::get('cliente/Tarjetas', function () {
+        return view('cliente.tarjetas.registroT');
+    });
+    Route::post('cliente/Tarjetas', 'TargCredController@store')->name('AddTarj');
 });
