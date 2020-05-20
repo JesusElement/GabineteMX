@@ -81,12 +81,12 @@ else{
  $(window).on("load", function () {
   setTimeout(function () {
     $(".master").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
-  }, 3990);
+  }, 2990);
 });
 $(window).on("load", function () {
   setTimeout(function () {
     $(".loader").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
-  }, 4000);
+  }, 3000);
 });
   
   </script>
