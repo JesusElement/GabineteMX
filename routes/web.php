@@ -92,6 +92,8 @@ Route::get('/buscarproducto', function() {
     Route::get('/carrito/{producto}','CarritoController@store')->name('agregarAcarrito');
     Route::get('/carrito', 'CarritoController@show')->name('verCarrito');
     Route::get('/EliCarrito/{Eli}','CarritoController@destroy')->name('EliCarrito');
+    Route::get('/carritoMenos/{Menos}','CarritoController@Menos')->name('carritoMenos');
+    Route::get('/carritoMas/{Mas}','CarritoController@Mas')->name('carritoMas');
 
     Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
     Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');

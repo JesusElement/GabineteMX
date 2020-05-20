@@ -1,7 +1,6 @@
 @extends('layouts.plantilla')
 @section('seccion')
 <div class="contenido">
-
   <div class="buscarproductoCss">
     <div class="barraproductoCss">
       @guest
@@ -11,6 +10,7 @@
           @else
           @php
               $id  =  auth()->user()->id_cliente;
+
           @endphp 
       @endguest
       <h4>
@@ -33,11 +33,11 @@
 
     </div>
     <div class="filtroproductoCss">
-      <h5>Opciones</h5>
-      <hr>
-      <h6>Marcas y otros productos:</h6>
+      <h5 class="opbuscarp">Opciones</h5>
+      <hr class="opbuscarp">
+      <h6 class="opbuscarp">Marcas y otros productos:</h6>
 
-      <div class="collection z-depth-3">
+      <div class="opbuscarp collection z-depth-3">
         @if(!$Marca -> isEmpty() && ! $Categoria -> isEmpty())
           @foreach($Marca as $Mar)
             @foreach($Categoria as $item)
@@ -65,6 +65,45 @@
           @endif
         @endif
       </div>
+
+      <div class="BuscarPCssPhone">
+<center>
+        <ul class="collapsible">
+          <li>
+            <div class="collapsible-header"></i>Mas opciones...</div>
+        @if(!$Marca -> isEmpty() && ! $Categoria -> isEmpty())
+          @foreach($Marca as $Mar)
+            @foreach($Categoria as $item)
+            <div class="collapsible-body"><span>
+              <a href="{{ url("buscarproducto/{$item->nom_fami}-{$Mar->nom}") }}"
+                class="waves-effect btn-small orange darken-1 rc">{{ $Mar->nom }}</a>
+              </span></div>
+            @endforeach
+          @endforeach
+   
+        @else
+          @if(!$Marca -> isEmpty())
+            @foreach($quefamilia as $fam)
+              @foreach($Marca as $Mar)
+              <div class="collapsible-body"><span>
+                <a href="{{ url("buscarproducto/{$fam->nom_fami}-{$Mar->nom}") }}"
+                  class="waves-effect btn-small orange darken-1 rc">{{ $Mar->nom }}</a>
+                </span></div>
+              @endforeach
+            @endforeach
+     
+          @else
+            @foreach($Categoria as $item)
+            <div class="collapsible-body"><span>
+              <a href="{{ url("buscarproducto/{$item->nom_fami}") }}"
+                class="waves-effect btn-small orange darken-1 rc">{{ $item->nom_fami }}</a>
+              </span></div>
+            @endforeach
+          @endif
+        @endif
+      </li>
+    </center>
+      </div>
     </div>
     <div class="mostradorproductoCss">
       <form action="{{ url("/producto") }}" method="GET" role="form" id="VerProducto">
@@ -87,7 +126,7 @@
                            //echo $id;
                     $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
                     $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
-                    $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+                    $ResCarritoCount = DB::select("SELECT cantidad FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
                     
                     if ($Res == false) {
                             echo"Algo salio mal";
@@ -182,7 +221,7 @@
                 @endphp 
                 @if ($Agregado == $resultados->id_produc)
                 @foreach($ResCarritoCount as $NumP)
-                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light orange darken-1 btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light orange darken-1 btnAgregarCarrito" >En carrito: {{$NumP->cantidad}}</a>
                @endforeach
               </div>
                 @else
@@ -215,7 +254,7 @@
 
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
         $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
-        $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+        $ResCarritoCount = DB::select("SELECT cantidad  FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -291,8 +330,37 @@
 
             </div>
              {{-- Zona de estrellas --}}
+             @php
+             $idp=$resultados->id_produc;
+   
+             try {
+             $flag=DB::table('oferta')
+             ->join('stock','oferta.id_produc','=','stock.id_produc')
+             ->select('oferta.id_produc','oferta.desc','stock.prec_uni',
+             DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+             ->where('oferta.id_produc','=',$idp)->first();
+   
+             if($flag->promocionflag == 1){
+             $desc = $flag->prec_uni * ($flag->desc / 100 );
+             $precio = $flag->prec_uni - $desc;
+             $precio = round($precio, 2);
+             }
+             else {
+             $precio = $resultados->prec_uni;
+             }
+   
+   
+   
+             } catch (\Throwable $th) {
+             $idp=$resultados->id_produc;
+             $precio = $resultados->prec_uni;
+             }
+   
+   
+           @endphp
+             
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{ number_format($resultados->prec_uni) }}</h6>
+                <h6 class="precio">Precio:${{number_format($precio,2)}} </h6>
                 </button>
                 <div class="footerCardCss">
                   @php
@@ -309,7 +377,7 @@
               @endphp 
               @if ($Agregado == $resultados->id_produc)
               @foreach($ResCarritoCount as $NumP)
-              <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+              <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP->cantidad}}</a>
              @endforeach
             </div>
               @else
@@ -338,7 +406,7 @@
               // $id  =  auth()->user()->id_cliente;
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
         $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
-        $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+        $ResCarritoCount = DB::select("SELECT cantidad FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -412,9 +480,43 @@
 
             </div>
              {{-- Zona de estrellas --}}
+
+            
+
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{number_format($resultados->prec_uni)}}</h6>
-                <</button>
+
+                @php
+                $idp=$resultados->id_produc;
+      
+                try {
+                $flag=DB::table('oferta')
+                ->join('stock','oferta.id_produc','=','stock.id_produc')
+                ->select('oferta.id_produc','oferta.desc','stock.prec_uni',
+                DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+                ->where('oferta.id_produc','=',$idp)->first();
+      
+                if($flag->promocionflag == 1){
+                $desc = $flag->prec_uni * ($flag->desc / 100 );
+                $precio = $flag->prec_uni - $desc;
+                $precio = round($precio, 2);
+                }
+                else {
+                $precio = $resultados->prec_uni;
+                }
+      
+      
+      
+                } catch (\Throwable $th) {
+                $idp=$resultados->id_produc;
+                $precio = $resultados->prec_uni;
+                }
+      
+      
+              @endphp
+
+
+                <h6 class="precio">$Precio:${{number_format($precio,2)}} </h6>
+                </button>
                 <div class="footerCardCss">
                   @php
                   if($ResCarrito == false){
@@ -430,7 +532,7 @@
               @endphp 
               @if ($Agregado == $resultados->id_produc)
                @foreach($ResCarritoCount as $NumP)
-                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP->cantidad}}</a>
                @endforeach
               </div>
               @else

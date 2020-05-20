@@ -69,6 +69,7 @@
                                     @php 
 
                                     $idp=$producto->id_produc;
+<<<<<<< HEAD
                                     $flag=DB::table('stock')
                                     ->join('oferta', 'oferta.id_produc', '=', 'stock.id_produc')
                                     ->select('oferta.id_oferta','oferta.desc','stock.id_produc', 
@@ -77,6 +78,26 @@
                                    
                            
 
+=======
+
+
+                                    // $flag=DB::table('stock')
+                                    // ->join('oferta','oferta.id_produc','=','stock.id_produc')
+                                    // ->select('oferta.id_oferta','oferta.desc','stock.id_produc', 
+                                    // DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+                                    // ->where('oferta.id_produc','=',$idp)->first();
+
+                                    // select  oferta.id_produc,oferta.desc,stock.prec_uni  
+                                    // from oferta INNER JOIN stock 
+                                    //where stock.id_produc=oferta.id_produc
+                                    try {
+                                        $flag=DB::table('oferta')
+                                    ->join('stock','oferta.id_produc','=','stock.id_produc')
+                                    ->select('oferta.id_produc','oferta.desc','stock.prec_uni',
+                                    DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+                                    ->where('oferta.id_produc','=',$idp)->first();
+                                        
+>>>>>>> 9e2ea6e62c27b6ad893625e12319a3d7dbc8ce07
                                     if($flag->promocionflag == 1){
                                         $desc = $producto->prec_uni * ($flag->desc / 100 );
                                         $precio = $producto->prec_uni - $desc;
@@ -87,7 +108,22 @@
                                     }
 
 
-                                    $flag=null;
+
+                                    } catch (\Throwable $th) {
+                                        $idp=$producto->id_produc;
+                                        $precio = $producto->prec_uni;
+                                    }
+                                   
+
+                                    
+
+                                   
+                           
+
+
+
+
+                                
                                     @endphp
                                     <h5 class="black-text">Precio:${{number_format($precio,2)}}  </h5>
                                     <h6 class="black-text">En existencia: {{$producto->stock}}  </h6>

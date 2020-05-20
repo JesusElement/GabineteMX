@@ -6,12 +6,7 @@
       @php
           $Total = 0;
       @endphp
-    @foreach ($fechasAll as $fc)
-        {{$fc->id_produc}}
-        {{$fc->id_cliente}}
-        {{$fechaI = $fc->fecha_in}}
-        {{$fechaT = $fc->fecha_ter }}
-    @endforeach
+
     </div>
     <div class="tituloCarrito">
 <h3>Carrito</h3>
@@ -32,26 +27,19 @@
       <p>{{$q->nom}}</p>
       <p>Cantidad:</p>
       <p style="display: none;">{{$H = $q->stock}}</p>
-      @php
-          foreach($num as $p){
-              if ($q->id_produc == $p->id_produc) {
-                $Num =$p->Np;
-              }
-          }
-      @endphp
-      <a  class="waves-effect waves-light btn transparent"  value="" id="quantity"><i class="b material-icons">exposure_neg_1</i></a>
-        <b style="margin: 1rem; background-color: #fff;">{{$Num}}</b>
-      <a  class="waves-effect waves-light btn transparent"  value="" id="quantity"><i class="b material-icons">exposure_plus_1</i></a>
+      <a  class="waves-effect waves-light btn transparent"   href="{{ url("carritoMenos/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">exposure_neg_1</i></a>
+        <b style="margin: 1rem; background-color: #fff;">{{$q->cantidad}}</b>
+      <a  class="waves-effect waves-light btn transparent"  href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">exposure_plus_1</i></a>
     </div>
       <div class="carritoEliPreCss">
-        <b class="precio">${{number_format($q->prec_uni,2)}}</b>
+      <b class="precio">${{number_format($q->cantidad*$q->prec_uni,2)}} x {{$q->cantidad}}</b>
     <a class="Eli" href="{{ url("EliCarrito/{$q->id_produc}")}}">Eliminar</a>
 
     </div>
    
       </div>
     @php
-        $Total = $Total + $q->prec_uni;
+        $Total = $Total + $q->prec_uni * $q->cantidad;
     @endphp
       @endforeach
     </div>
