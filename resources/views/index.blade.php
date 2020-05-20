@@ -155,7 +155,7 @@ $(window).on("load", function () {
                           ?>
 
 
-                          {{-- <img class="imgCard materialboxed" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg"> --}}
+                          <img class="imgCard materialboxed" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
                           
                           <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#modal{{$p}}"><i class="material-icons">add</i></a>
                         </div>
