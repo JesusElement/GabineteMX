@@ -15,7 +15,6 @@
 * {
     margin: 0px;
     padding: 0px;
-    
 }
 
 .contenedor {
@@ -413,9 +412,8 @@ nav a.sidenav-trigger i {
 }
 
 .contenedor .contenido .carousel .carousel-item .imgCaroCss {
-
-    width:82% !important;
-    height:100% !important;
+    width: 82% !important;
+    height: 100% !important;
 }
 
 .contenedor .contenido .otroscontenidos {
@@ -645,21 +643,15 @@ nav a.sidenav-trigger i {
     margin-bottom: 1rem;
 }
 
-.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss 
-.b{
-   font-size: 15px;
-   color: black;
-  
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .b {
+    font-size: 15px;
+    color: black;
 }
 
-.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss 
-.btn{
-
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .btn {
     width: 50px;
     height: 30px;
 }
-
-
 
 .contenedor .contenido .Carrito .opCarrito {
     grid-area: opCarrito;
@@ -677,7 +669,6 @@ nav a.sidenav-trigger i {
 
 .contenedor .footer {
     display: grid;
- 
 }
 
 .contenedor .footer .footerCcc {
@@ -888,14 +879,8 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 25% 50% 25%;
-    grid-template-areas: 
-    "marizq RegistroUserTituloCss marder" 
-    "marizq blockUnoRegistroUserCss marder" 
-    "marizq blockDosRegistroUserCss marder" 
-    "marizq blockTresRegistroUserCss marder" 
-    "marizq RegistroUserBtnCss marder";
+    grid-template-areas: "marizq RegistroUserTituloCss marder" "marizq blockUnoRegistroUserCss marder" "marizq blockDosRegistroUserCss marder" "marizq blockTresRegistroUserCss marder" "marizq RegistroUserBtnCss marder";
 }
-
 
 .contenedor .contenido .RegistroUserCss .marizq {
     grid-area: marizq;
@@ -960,9 +945,7 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-columns: 15% 85%;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "barraproductoCss barraproductoCss"
-     "filtroproductoCss mostradorproductoCss";
+    grid-template-areas: "barraproductoCss barraproductoCss" "filtroproductoCss mostradorproductoCss";
 }
 
 @media screen and (max-width: 700px) {
@@ -970,21 +953,15 @@ nav a.sidenav-trigger i {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "barraproductoCss" 
-        "filtroproductoCss"
-        "mostradorproductoCss";
+        grid-template-areas: "barraproductoCss" "filtroproductoCss" "mostradorproductoCss";
     }
-    
 }
-
 
 .contenedor .contenido .buscarproductoCss .barraproductoCss {
     grid-area: barraproductoCss;
 }
 
 @media screen and (max-width: 700px) {
-
     .contenedor .contenido .buscarproductoCss .barraproductoCss {
         grid-area: barraproductoCss;
         margin-left: 1rem;
@@ -993,11 +970,10 @@ nav a.sidenav-trigger i {
 }
 
 @media screen and (max-width: 700px) {
-
-.contenedor .contenido .buscarproductoCss h5{
-    margin-left: 2rem;
-    width: 80%;
- }
+    .contenedor .contenido .buscarproductoCss h5 {
+        margin-left: 2rem;
+        width: 80%;
+    }
 }
 
 .contenedor .contenido .buscarproductoCss .filtroproductoCss {
@@ -1006,40 +982,30 @@ nav a.sidenav-trigger i {
     padding-right: 1rem;
 }
 
-.contenedor .contenido .buscarproductoCss .filtroproductoCss 
-.opbuscarp{
-   display: block;
+.contenedor .contenido .buscarproductoCss .filtroproductoCss .opbuscarp {
+    display: block;
 }
 
 @media screen and (max-width: 600px) {
-
-   .contenedor .contenido .buscarproductoCss .filtroproductoCss 
-   .opbuscarp{
-      display: none !important;
-   }
+    .contenedor .contenido .buscarproductoCss .filtroproductoCss .opbuscarp {
+        display: none !important;
+    }
 }
 
-.contenedor .contenido .buscarproductoCss .filtroproductoCss 
-.BuscarPCssPhone{
-   display: none;
+.contenedor .contenido .buscarproductoCss .filtroproductoCss .BuscarPCssPhone {
+    display: none;
 }
 
 @media screen and (max-width: 600px) {
-
-    .contenedor .contenido .buscarproductoCss .filtroproductoCss 
-    .BuscarPCssPhone{
-       display: block;
-       margin-bottom: 0px;
+    .contenedor .contenido .buscarproductoCss .filtroproductoCss .BuscarPCssPhone {
+        display: block;
+        margin-bottom: 0px;
     }
-
-    .contenedor .contenido .buscarproductoCss .filtroproductoCss 
-    .BuscarPCssPhone .rc{
-      width: 100%;
-      height: 100%;
-       
+    .contenedor .contenido .buscarproductoCss .filtroproductoCss .BuscarPCssPhone .rc {
+        width: 100%;
+        height: 100%;
     }
- }
- 
+}
 
 .contenedor .contenido .buscarproductoCss .mostradorproductoCss {
     grid-area: mostradorproductoCss;
@@ -1053,9 +1019,7 @@ nav a.sidenav-trigger i {
         padding: 10px;
         width: 100%;
     }
-
 }
-
 
 .contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardCss {
     display: grid;
@@ -1071,26 +1035,19 @@ nav a.sidenav-trigger i {
         margin: 3px;
         grid-template-columns: 40% 60%;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "buscarproductoCardImgCss buscarproductoCardInfoCss" 
-        ;
+        grid-template-areas: "buscarproductoCardImgCss buscarproductoCardInfoCss";
     }
-
     .contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardImgCss {
         grid-area: buscarproductoCardImgCss;
         width: 150px !important;
         height: 150px !important;
         margin-top: 2rem;
-       
     }
-
     .contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardInfoCss .btnCss .titlulo {
         justify-content: center;
         color: #ec9129;
         font-size: medium;
     }
-    
-    
 }
 
 .contenedor .contenido .buscarproductoCss .mostradorproductoCss .buscarproductoCardCss:hover {
@@ -1364,4 +1321,12 @@ fieldset {
     .Espacio h5 {
         font-size: 100%;
     }
+}
+
+
+/* Para la pagina de mi cuenta*/
+
+.contenedor .header .fotoperfilDiv .dropmenu {
+    color: black !important;
+    min-width: 160px;
 }

@@ -9,15 +9,13 @@
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="css/Style.css">
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style_comen.css') }}" rel="stylesheet">
-  <!-- Compiled and minified JavaScript -->
-
+  <!-- Compiled and minified JavaScript -->                                                                                                       
+  <script src="{{ asset('js/JQuery.js') }}"></script>
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -27,14 +25,12 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-  <script src="{{ asset('js/Main.js') }}"></script>
-  <script src="{{ asset('js/JQuery.js') }}"></script>
-  <script src="js/JQuery.js"></script>
-  <script src="js/Main.js"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <script type="text/javascript" src="js/tablesorter.source.js"> </script>
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
+<!-- <script src="js/Main.js"></script> -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -72,19 +68,23 @@
                         </div>
                     </nav>
                 </div>
-                <div class="fotoperfilDiv">
-                  <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
-                  <ul id='dropdown3' class='dropdown-content dropmenu'>
-                    <li class="blue-text text-darken-2"></li>
-                  </ul>
-                    
-                </div>
+                
                 @guest
                 <div class="nombreperfilDiv">
                     <a href="{{route('login')}}" class="waves-effect waves-light btn btnIng">Ingresar</a>
                 </div>
 
                 @else
+                <div class="fotoperfilDiv">
+                  <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
+                  <ul id='dropdown3' class='dropdown-content dropmenu'>
+                  <li class="blue-text text-darken-2"><a class="dropmenu"> Mi Cuenta </a></li>
+                  <li class="blue-text text-darken-2"><a class="dropmenu"> Mis Pedidos </a></li>
+                  <li class="blue-text text-darken-2"><a class="dropmenu"> Ayuda </a></li>
+                  </ul>
+                    
+                </div>
+
                 <div class="nombreperfilDiv">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                     {{ csrf_field() }}
@@ -121,7 +121,7 @@
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
-            <?php $categorias = DB::select("SELECT * FROM familia;"); ?>
+            <?php $categorias = DB::select("SELECT * FROM familia WHERE id_familia != 000000000"); ?>
             <div class="marizq"></div>
                 <div class="ejecutivaDiv">
                     Ejecutiva  
@@ -182,11 +182,10 @@
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Ayuda</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Servicio al cliente</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Contacto</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Rastrear</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Chat</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda')}}">Informción corporativa</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'SAC'])}}">Servicio al cliente</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'CONT'])}}">Contacto</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'RAST'])}}">Rastrear</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'ICORP'])}}">Informción corporativa</a></li>
               </ul>
             </div>
           </div>
@@ -195,7 +194,7 @@
         <div class="footer-copyright">
           <div class="container">
             Aviso de privacidad
-            <a class="grey-text text-lighten-4 right" href="#!">Terminos y codiciones</a>
+            <a class="grey-text text-lighten-4 right" href="{{route('ayuda',['tip' => 'TEC'])}}">Terminos y codiciones</a>
           </div>
         </div>
       </footer>
@@ -209,6 +208,12 @@
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
+  </script>
+  <script>
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {
+      coverTrigger:false
+    });
   </script>
 </body>
 

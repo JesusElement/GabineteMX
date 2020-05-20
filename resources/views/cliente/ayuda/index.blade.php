@@ -1,7 +1,9 @@
 @extends('layouts.plantilla')
 
 @section('seccion')
-
+<?php 
+    $tipo = $_GET['tip'] ;
+?>
 
     <div class="ayuda">
         <div class="modifica">
@@ -13,8 +15,8 @@
         <a class="btn btn-block">Servicio al cliente</a>
         <a class="btn btn-block">Contacto</a>
         <a class="btn btn-block">Información Corporativas</a>
-        <a class="btn btn-block" onclick="aviso()">Aviso de Privacidad</a>
-        <a class="btn btn-block" onclick="termi()">Terminos y Condiciones</a>
+        <a class="btn btn-block" id="SAC">Aviso de Privacidad</a>
+        <a class="btn btn-block" id="TEC">Terminos y Condiciones</a>
         </div>
 
         <div class="informacion" id="content">
@@ -23,28 +25,26 @@
     </div>
 
     <script>
-        var contenido = document.querySelector('#content');
-        function aviso(){
-            fetch('contenidos/Aviso_Privacidad.html')
-            .then(data => data.text())
-                //Otra promesa que captura esa data que ya viene preformateada
-                .then(data => {
-                    //pintamos la data
-                    contenido.innerHTML = data
 
-                })
+var contenido = document.querySelector('#content');
 
-        }
-        function termi(){
-            fetch('contenidos/Ter_Condi.html')
-            .then(data => data.text())
-                //Otra promesa que captura esa data que ya viene preformateada
-                .then(data => {
-                    //pintamos la data
-                    contenido.innerHTML = data
-
-                })
-
-        }
+$(document).ready(function() {
+    if('<?php echo $tipo ?>' == 'SAC'){
+        $('#content').load('contenidos/SAC.html');
+    }
+    if('<?php echo $tipo ?>' == 'AVP'){
+        $('#content').load('contenidos/Aviso_Privacidad.html');
+    }
+    if('<?php echo $tipo ?>' == 'TEC'){
+        $('#content').load('contenidos/Ter_Condi.html');
+    }
+		
+        $("#TEC").click(function(){
+            $('#content').load('contenidos/Ter_Condi.html');
+        });
+        $("#SAC").click(function(){
+            $('#content').load('contenidos/Aviso_Privacidad.html');
+        });
+});
     </script>
 @endsection
