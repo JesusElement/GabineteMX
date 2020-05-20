@@ -96,6 +96,7 @@ INNER JOIN familia as fa on fa.id_familia = p.id_familia
 INNER JOIN proveedor as prov on prov.id_provee = p.id_provee
 INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
 
+
         $CarritoCliente = DB::table('producto')
         ->join('carrito', 'carrito.id_produc', '=', 'producto.id_produc')
         ->join('cliente', 'cliente.id_cliente','=','carrito.id_cliente')
@@ -104,10 +105,23 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         ->join('stock','stock.id_produc','=','producto.id_produc')
         ->select('carrito.id_produc', 'carrito.id_cliente', 'producto.titulo', 'producto.id_provee', 'familia.nom_fami', 'proveedor.nom', 'stock.stock', 'stock.prec_uni')
         ->where('carrito.id_cliente', $id)
+        ->distinct()->get();
+//SELECT id_produc, COUNT(id_produc) as Np FROM carrito WHERE id_cliente = '260420323111' GROUP BY id_produc
+        $IdProducCount = DB::table('carrito')
+        ->select('carrito.id_produc')
+        ->where('carrito.id_cliente', $id)
+        ->groupBy('id_produc')
+        ->addSelect(DB::raw('count(carrito.id_produc) as Np'))->get();
+        
+        $IdCarFechas = DB::table('carrito')
+        ->select('*')
+        ->where('carrito.id_cliente', $id)
         ->get();
     
         return view('cliente.carrito.index')
-        ->with('Carrito',$CarritoCliente);
+        ->with('Carrito',$CarritoCliente)
+        ->with('num', $IdProducCount)
+        ->with('fechasAll', $IdCarFechas);
     }
 
     /**

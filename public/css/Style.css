@@ -640,6 +640,22 @@ nav a.sidenav-trigger i {
     margin-bottom: 1rem;
 }
 
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss 
+.b{
+   font-size: 15px;
+   color: black;
+  
+}
+
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss 
+.btn{
+
+    width: 50px;
+    height: 30px;
+}
+
+
+
 .contenedor .contenido .Carrito .opCarrito {
     grid-area: opCarrito;
 }
