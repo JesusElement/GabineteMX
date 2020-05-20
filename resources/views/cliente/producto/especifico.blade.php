@@ -68,17 +68,11 @@
                                     <i class="tiny material-icons star">star</i>
                                     @php 
 
-                                    $idp=$producto->id_produc;
-<<<<<<< HEAD
-                                    $flag=DB::table('stock')
-                                    ->join('oferta', 'oferta.id_produc', '=', 'stock.id_produc')
-                                    ->select('oferta.id_oferta','oferta.desc','stock.id_produc', 
-                                    DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
-                                    ->where('oferta.id_produc','=',$idp)->first();
-                                   
-                           
 
-=======
+                                   
+
+
+                                    $idp=$producto->id_produc;
 
 
                                     // $flag=DB::table('stock')
@@ -97,7 +91,6 @@
                                     DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
                                     ->where('oferta.id_produc','=',$idp)->first();
                                         
->>>>>>> 9e2ea6e62c27b6ad893625e12319a3d7dbc8ce07
                                     if($flag->promocionflag == 1){
                                         $desc = $producto->prec_uni * ($flag->desc / 100 );
                                         $precio = $producto->prec_uni - $desc;
