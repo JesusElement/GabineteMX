@@ -81,12 +81,12 @@ else{
  $(window).on("load", function () {
   setTimeout(function () {
     $(".master").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
-  }, 3990);
+  }, 2990);
 });
 $(window).on("load", function () {
   setTimeout(function () {
     $(".loader").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
-  }, 4000);
+  }, 3000);
 });
   
   </script>
@@ -155,7 +155,7 @@ $(window).on("load", function () {
                           ?>
 
 
-                          {{-- <img class="imgCard materialboxed" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg"> --}}
+                          <img class="imgCard materialboxed" src="Imagenes/Productos/{{$oferta->nom_fami}}/{{$oferta->nom}}/{{$oferta->id_produc}}/1.jpg">
                           
                           <a class="btn-floating halfway-fab waves-effect waves-light red modal-trigger" href="#modal{{$p}}"><i class="material-icons">add</i></a>
                         </div>

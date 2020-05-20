@@ -330,8 +330,37 @@
 
             </div>
              {{-- Zona de estrellas --}}
+             @php
+             $idp=$resultados->id_produc;
+   
+             try {
+             $flag=DB::table('oferta')
+             ->join('stock','oferta.id_produc','=','stock.id_produc')
+             ->select('oferta.id_produc','oferta.desc','stock.prec_uni',
+             DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+             ->where('oferta.id_produc','=',$idp)->first();
+   
+             if($flag->promocionflag == 1){
+             $desc = $flag->prec_uni * ($flag->desc / 100 );
+             $precio = $flag->prec_uni - $desc;
+             $precio = round($precio, 2);
+             }
+             else {
+             $precio = $resultados->prec_uni;
+             }
+   
+   
+   
+             } catch (\Throwable $th) {
+             $idp=$resultados->id_produc;
+             $precio = $resultados->prec_uni;
+             }
+   
+   
+           @endphp
+             
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{ number_format($resultados->prec_uni) }}</h6>
+                <h6 class="precio">Precio:${{number_format($precio,2)}} </h6>
                 </button>
                 <div class="footerCardCss">
                   @php
@@ -451,9 +480,43 @@
 
             </div>
              {{-- Zona de estrellas --}}
+
+            
+
                 <h6 class="titluloProve">Marca: {{ $resultados->nom }}</h6>
-                <h6 class="precio">${{number_format($resultados->prec_uni)}}</h6>
-                <</button>
+
+                @php
+                $idp=$resultados->id_produc;
+      
+                try {
+                $flag=DB::table('oferta')
+                ->join('stock','oferta.id_produc','=','stock.id_produc')
+                ->select('oferta.id_produc','oferta.desc','stock.prec_uni',
+                DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
+                ->where('oferta.id_produc','=',$idp)->first();
+      
+                if($flag->promocionflag == 1){
+                $desc = $flag->prec_uni * ($flag->desc / 100 );
+                $precio = $flag->prec_uni - $desc;
+                $precio = round($precio, 2);
+                }
+                else {
+                $precio = $resultados->prec_uni;
+                }
+      
+      
+      
+                } catch (\Throwable $th) {
+                $idp=$resultados->id_produc;
+                $precio = $resultados->prec_uni;
+                }
+      
+      
+              @endphp
+
+
+                <h6 class="precio">$Precio:${{number_format($precio,2)}} </h6>
+                </button>
                 <div class="footerCardCss">
                   @php
                   if($ResCarrito == false){
