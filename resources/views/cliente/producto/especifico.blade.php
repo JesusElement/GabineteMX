@@ -68,10 +68,6 @@
                                     <i class="tiny material-icons star">star</i>
                                     @php 
 
-
-                                   
-
-
                                     $idp=$producto->id_produc;
                                     $flag=DB::table('stock')
                                     ->join('oferta', 'oferta.id_produc', '=', 'stock.id_produc')
@@ -80,9 +76,6 @@
                                     ->where('oferta.id_produc','=',$idp)->first();
                                    
                            
-
-
-
 
                                     if($flag->promocionflag == 1){
                                         $desc = $producto->prec_uni * ($flag->desc / 100 );
