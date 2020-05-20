@@ -11,6 +11,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Session; 
 use Hamcrest\Core\HasToString;
 use App\Http\Controllers\Input;
+use PhpParser\Node\Stmt\Foreach_;
 use Symfony\Component\Console\Input\Input as InputInput;
 
 class CarritoController extends Controller
@@ -53,25 +54,58 @@ class CarritoController extends Controller
         //var_dump($Producto);
         $id  =  auth()->user()->id_cliente;
         $Id_Pro = $Producto;
-        $fechaPrimera = Carbon::now()->toDateString('Y-m-d');
-        //var_dump($fechaPrimera);
-        $fechaSegunda = Carbon::now()->addDay(7)->toDateString('Y-m-d');
-        //var_dump($fechaSegunda);
-          DB::table('carrito')->insert(
-              [
-                  'id_cliente'=>$id,
-                  'id_produc'=>$Id_Pro,
-                  'fecha_in'=>$fechaPrimera,
-                  'fecha_ter'=>$fechaSegunda
-              ]
-              );
+
+        $YastexisteC = DB::table('carrito')
+        ->select('*')
+        ->where('carrito.id_produc',$Id_Pro)
+        ->where('carrito.id_cliente',$id)->get();
+       
+      // var_dump($YastexisteC);
+    //    !empty($YastexisteC)
+
+
+
+        if ($YastexisteC->isEmpty()) {
+         
+
+            $fechaPrimera = Carbon::now()->toDateString('Y-m-d');
+            //var_dump($fechaPrimera);
+            $fechaSegunda = Carbon::now()->addDay(7)->toDateString('Y-m-d');
+            //var_dump($fechaSegunda);
+            $Uno = 1;
+               DB::table('carrito')->insert(
+                   [
+                       'id_cliente'=>$id,
+                       'id_produc'=>$Id_Pro,
+                       'cantidad' =>$Uno,
+                       'fecha_in'=>$fechaPrimera,
+                       'fecha_ter'=>$fechaSegunda
+                   ]
+            );
+
+        }else{
+               // var_dump($YastexisteC);
+           
+           foreach($YastexisteC as $cuantos){
+            $num = $cuantos->cantidad;
+       }
+
+               $num = $num + 1;
+           DB::table('carrito')
+           ->where('carrito.id_produc', $Id_Pro)
+           ->where('carrito.id_cliente',$id)
+           ->update([
+              'cantidad'=>$num,
+           ]);
+        }
+
         
                 $TodosCarrtios = DB::table('cliente')
                 ->select('cliente.id_cliente', 'cliente.nom')
                 ->where('cliente.id_cliente', $id)
                 ->get();
                 
-                // return view('cliente.carrito.index')
+                // return view('cliente.carrito.index');
                 // ->with('Carrito',$TodosCarrtios);
                 return redirect()->back();
     }
@@ -103,25 +137,19 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         ->join('familia','familia.id_familia','=','producto.id_familia')
         ->join('proveedor','proveedor.id_provee','=','producto.id_provee')
         ->join('stock','stock.id_produc','=','producto.id_produc')
-        ->select('carrito.id_produc', 'carrito.id_cliente', 'producto.titulo', 'producto.id_provee', 'familia.nom_fami', 'proveedor.nom', 'stock.stock', 'stock.prec_uni')
+        ->select('carrito.id_produc', 'carrito.id_cliente', 'carrito.cantidad','producto.titulo', 'producto.id_provee', 'familia.nom_fami', 'proveedor.nom', 'stock.stock', 'stock.prec_uni')
         ->where('carrito.id_cliente', $id)
         ->distinct()->get();
 //SELECT id_produc, COUNT(id_produc) as Np FROM carrito WHERE id_cliente = '260420323111' GROUP BY id_produc
-        $IdProducCount = DB::table('carrito')
-        ->select('carrito.id_produc')
-        ->where('carrito.id_cliente', $id)
-        ->groupBy('id_produc')
-        ->addSelect(DB::raw('count(carrito.id_produc) as Np'))->get();
+        // $IdProducCount = DB::table('carrito')
+        // ->select('carrito.id_produc')
+        // ->where('carrito.id_cliente', $id)
+        // ->groupBy('id_produc')
+        // ->addSelect(DB::raw('count(carrito.id_produc) as Np'))->get();
         
-        $IdCarFechas = DB::table('carrito')
-        ->select('*')
-        ->where('carrito.id_cliente', $id)
-        ->get();
     
         return view('cliente.carrito.index')
-        ->with('Carrito',$CarritoCliente)
-        ->with('num', $IdProducCount)
-        ->with('fechasAll', $IdCarFechas);
+        ->with('Carrito',$CarritoCliente);
     }
 
     /**
@@ -145,10 +173,68 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
     public function update(Request $request, carrito $carrito)
     {
 
-/* -------------- Voy a recibir que producto quiere el cliente -------------- */
-
+/* ------- No lo usare dado que no se que quiere hacer el cliente aun ------- */
 
     }
+
+    public function Menos(Request $request, $Menos)
+    {
+        $id  =  auth()->user()->id_cliente;
+        $Id_Pro = $Menos;
+
+        $YastexisteC = DB::table('carrito')
+        ->select('cantidad')
+        ->where('carrito.id_produc',$Id_Pro)
+        ->where('carrito.id_cliente',$id)->get();
+       
+        foreach($YastexisteC as $cantidad){
+             $son = $cantidad->cantidad;
+        }
+
+        if($son == 1){
+            DB::table('carrito')->where('id_produc', '=', $Id_Pro, 'AND', 'id_cliente', '=', $id  )->delete();
+            return redirect('carrito');
+        }
+
+        $num = $son - 1;
+        DB::table('carrito')
+        ->where('carrito.id_produc', $Id_Pro)
+        ->where('carrito.id_cliente',$id)
+        ->update([
+           'cantidad'=>$num,
+        ]);
+        return redirect('carrito');
+
+    }
+
+    public function Mas(Request $request, $Mas)
+    {
+
+        $id  =  auth()->user()->id_cliente;
+        $Id_Pro = $Mas;
+
+        $YastexisteC = DB::table('carrito')
+        ->select('cantidad')
+        ->where('carrito.id_produc',$Id_Pro)
+        ->where('carrito.id_cliente',$id)->get();
+
+        foreach($YastexisteC as $cantidad){
+            $son = $cantidad->cantidad;
+       }
+
+
+        $num = $son + 1;
+        DB::table('carrito')
+        ->where('carrito.id_produc', $Id_Pro)
+        ->where('carrito.id_cliente',$id)
+        ->update([
+           'cantidad'=>$num,
+        ]);
+        return redirect('carrito');
+    }
+
+
+
 
     /**
      * Remove the specified resource from storage.
