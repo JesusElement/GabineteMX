@@ -74,16 +74,6 @@
 
                                     $idp=$producto->id_produc;
 
-
-                                    // $flag=DB::table('stock')
-                                    // ->join('oferta','oferta.id_produc','=','stock.id_produc')
-                                    // ->select('oferta.id_oferta','oferta.desc','stock.id_produc', 
-                                    // DB::raw('(case when oferta.desc is null then 0 else 1 end) as promocionflag'))
-                                    // ->where('oferta.id_produc','=',$idp)->first();
-
-                                    // select  oferta.id_produc,oferta.desc,stock.prec_uni  
-                                    // from oferta INNER JOIN stock 
-                                    //where stock.id_produc=oferta.id_produc
                                     try {
                                         $flag=DB::table('oferta')
                                     ->join('stock','oferta.id_produc','=','stock.id_produc')
