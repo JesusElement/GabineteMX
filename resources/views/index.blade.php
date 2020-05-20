@@ -151,9 +151,7 @@ $(window).on("load", function () {
                           }
                           finfo_close($finfo);
 
-                          $aleatorio=rand(0,count($imagenes)-1);
-
-                          echo "<img class='imgCard materialboxed' src='".$imagenes[$aleatorio]."'>";
+                         
                           ?>
 
 
