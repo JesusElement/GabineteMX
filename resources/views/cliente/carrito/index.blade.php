@@ -6,9 +6,16 @@
       @php
           $Total = 0;
       @endphp
+    @foreach ($fechasAll as $fc)
+        {{$fc->id_produc}}
+        {{$fc->id_cliente}}
+        {{$fechaI = $fc->fecha_in}}
+        {{$fechaT = $fc->fecha_ter }}
+    @endforeach
     </div>
     <div class="tituloCarrito">
 <h3>Carrito</h3>
+
 <hr>
     </div>
     <div class="imagenCarrito">
@@ -23,19 +30,18 @@
       <div class="carritoCardInfoCss">
         <h5 class="titulo">{{$q->titulo}}</h5>
       <p>{{$q->nom}}</p>
+      <p>Cantidad:</p>
       <p style="display: none;">{{$H = $q->stock}}</p>
-  <div style="width: 8rem" class="input-field col s12">
-    <select>
-      <option value="1" selected>1</option>
-      @for ($i = 2; $i < $H; $i++)
       @php
-       echo"<option value='$i'>$i</option>";
+          foreach($num as $p){
+              if ($q->id_produc == $p->id_produc) {
+                $Num =$p->Np;
+              }
+          }
       @endphp
-      @endfor
-    </select>
-    <label>Cantidad de productos</label>
-  </div>
-
+      <a  class="waves-effect waves-light btn transparent"  value="" id="quantity"><i class="b material-icons">exposure_neg_1</i></a>
+        <b style="margin: 1rem; background-color: #fff;">{{$Num}}</b>
+      <a  class="waves-effect waves-light btn transparent"  value="" id="quantity"><i class="b material-icons">exposure_plus_1</i></a>
     </div>
       <div class="carritoEliPreCss">
         <b class="precio">${{number_format($q->prec_uni,2)}}</b>
@@ -52,7 +58,7 @@
     <div class="opCarrito">
   <div class="col s12 m7">
     <h5 class="header white">Comprar</h5>
-    <div class="card horizontal">
+    <div class="card horizontal z-depth-3">
       <div class="card-stacked">
         <div class="card-content">
           <h6>Total:

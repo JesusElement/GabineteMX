@@ -4,7 +4,15 @@
 
   <div class="buscarproductoCss">
     <div class="barraproductoCss">
-
+      @guest
+        @php
+            $id = "";
+        @endphp
+          @else
+          @php
+              $id  =  auth()->user()->id_cliente;
+          @endphp 
+      @endguest
       <h4>
         Resultados de la busqueda:
         @if(!$quefamilia -> isEmpty())
@@ -76,10 +84,11 @@
               <div class="EstrellasBuscarPCss">
                             @php
                            $id_Producto = $resultados->id_produc; 
-                           $id  =  auth()->user()->id_cliente;
                            //echo $id;
                     $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
                     $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+                    $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+                    
                     if ($Res == false) {
                             echo"Algo salio mal";
                           } else {
@@ -172,7 +181,9 @@
                     }
                 @endphp 
                 @if ($Agregado == $resultados->id_produc)
-                <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
+                @foreach($ResCarritoCount as $NumP)
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light orange darken-1 btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+               @endforeach
               </div>
                 @else
                 <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
@@ -200,10 +211,11 @@
               <div class="EstrellasBuscarPCss">
                 @php
                $id_Producto = $resultados->id_produc; 
-               $id  =  auth()->user()->id_cliente;
+              // $id  =  auth()->user()->id_cliente; 
 
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
         $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+        $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -296,7 +308,9 @@
                   }
               @endphp 
               @if ($Agregado == $resultados->id_produc)
-              <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
+              @foreach($ResCarritoCount as $NumP)
+              <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+             @endforeach
             </div>
               @else
               <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
@@ -321,9 +335,10 @@
               <div class="EstrellasBuscarPCss">
                 @php
                $id_Producto = $resultados->id_produc; 
-               $id  =  auth()->user()->id_cliente;
+              // $id  =  auth()->user()->id_cliente;
         $Res = DB::select("SELECT COUNT(com.id_produc) as totalComent, sum(com.star) as totalStar FROM comentario as com INNER JOIN producto as p on com.id_produc = p.id_produc WHERE p.id_produc ='$id_Producto';");
         $ResCarrito = DB::select("SELECT id_produc FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
+        $ResCarritoCount = DB::select("SELECT count(id_produc) as N FROM carrito WHERE id_produc = '$id_Producto' AND id_cliente = '$id'");
               
         if ($Res == false) {
                 echo"Algo salio mal";
@@ -410,12 +425,14 @@
                     foreach ($ResCarrito as $A) {
                               $Agregado = $A -> id_produc;
                           }
-                        
+                          echo $CarNumP;
                   }
               @endphp 
               @if ($Agregado == $resultados->id_produc)
-              <a href="" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito" disabled>En carrito :D</a> 
-            </div>
+               @foreach($ResCarritoCount as $NumP)
+                <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect orange darken-1 waves-light btnAgregarCarrito" >En carrito: {{$NumP -> N}}</a>
+               @endforeach
+              </div>
               @else
               <a href="{{ url("carrito/{$resultados->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
             </div>
