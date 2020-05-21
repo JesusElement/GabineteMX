@@ -43,8 +43,8 @@ Route::get('/carrito', function () {
     return view('cliente.carrito.index');
 })->name('carrito');
 
-Route::get('/ayuda', function () {
-    return view('cliente.ayuda.index');
+Route::get('/ayuda/{tip}', function ($tip) {
+    return view('cliente.ayuda.index',['tip'=>$tip]);
 })->name('ayuda');
 
 Route::get('/productos', function () {

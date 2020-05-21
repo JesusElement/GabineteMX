@@ -1,8 +1,6 @@
 $(document).ready(function() {
     M.AutoInit();
 
-
-
     $(document).ready(function() {
         $('.materialboxed').materialbox();
     });
@@ -53,6 +51,7 @@ $(window).on("load", function() {
         $(".master").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
     }, 3990);
 });
+
 $(window).on("load", function() {
     setTimeout(function() {
         $(".loader").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");

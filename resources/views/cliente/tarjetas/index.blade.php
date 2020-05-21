@@ -27,7 +27,7 @@
                 <span>Agregar Tarjeta:
                     <a href="{{route('RegistroT',['create'=>'creacionT'])}}" class="btn btn-info" ><ion-icon name="card-outline"></ion-icon></a>
                 </span>
-               <table class="centered responsive-table">
+               <table class="tabla centered responsive-table">
                    <thead>
                        <tr>
                            <th>Tarjeta</th>

@@ -1329,10 +1329,9 @@ fieldset {
 }
 
 .opcionCu {
-    background-color: rgba(140, 140, 140, 0.18);
     width: 100%;
     border-radius: 5px;
-    border: 2px inset rgba(0, 150, 192, 0.5);
+    border: 2px inset rgba(0, 150, 192, 0.288);
 }
 
 .opcionCu {
@@ -1388,6 +1387,11 @@ fieldset {
 .InfoC p {
     margin-top: 7px;
     margin-bottom: 4px;
+}
+
+.InfoC span a {
+    float: right;
+    margin-bottom: 1%;
 }
 
 .opcionesC {
@@ -1476,6 +1480,10 @@ fieldset {
     color: #404040;
     border-radius: 15px;
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.opcion3 span a {
+    margin-bottom: 1%;
 }
 
 @media screen and (max-width: 600px) {

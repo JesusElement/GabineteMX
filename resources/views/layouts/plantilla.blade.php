@@ -182,10 +182,10 @@
             <div class="col l4 offset-l2 s12">
               <h5 class="white-text">Ayuda</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'SAC'])}}">Servicio al cliente</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'CONT'])}}">Contacto</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'RAST'])}}">Rastrear</a></li>
-                <li><a class="grey-text text-lighten-3" href="{{route('ayuda',['tip' => 'ICORP'])}}">Informción corporativa</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{url('ayuda',['tip' => 'SAC'])}}">Servicio al cliente</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{url('ayuda',['tip' => 'CONT'])}}">Contacto</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{url('ayuda',['tip' => 'RAST'])}}">Rastrear</a></li>
+                <li><a class="grey-text text-lighten-3" href="{{url('ayuda',['tip' => 'ICORP'])}}">Informción corporativa</a></li>
               </ul>
             </div>
           </div>
@@ -194,7 +194,7 @@
         <div class="footer-copyright">
           <div class="container">
             Aviso de privacidad
-            <a class="grey-text text-lighten-4 right" href="{{route('ayuda',['tip' => 'TEC'])}}">Terminos y codiciones</a>
+            <a class="grey-text text-lighten-4 right" href="{{url('ayuda',['tip' => 'TEC'])}}">Terminos y codiciones</a>
           </div>
         </div>
       </footer>

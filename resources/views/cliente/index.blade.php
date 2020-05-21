@@ -29,6 +29,7 @@
                     <p>
                         Telefono: <b>{{auth()->user()->telefono}}</b>
                     </p>
+                    <span> <a class="btn btn-info">Editar perfil</a> </span>
             </div>
 
         </div>
