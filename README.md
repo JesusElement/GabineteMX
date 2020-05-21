@@ -7,4 +7,6 @@ Es una plataforma E-Commerce de practica Colaboradores:
 
 -David Jimenez Hernandez
 
--Raul Martinez
+-Sergio
+
+-Ruben
