@@ -10,6 +10,7 @@ use BD;
 use App\Http\Controllers\Session; 
 use Hamcrest\Core\HasToString;
 use App\Http\Controllers\Input;
+use Exception;
 use Symfony\Component\Console\Input\Input as InputInput;
 
 class ProductoController extends Controller

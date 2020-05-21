@@ -2,18 +2,23 @@
 <html lang="en">
 
 <head>
-  <title>Gabinete MX</title>
+
+<title>Gabinete MX</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="{{ asset('Imagenes/logo.ico')}}" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="icon" href="Imagenes/logo.ico" />
+
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <link rel="stylesheet" href="css/Style.css">
   <link href="{{ asset('css/Style.css') }}" rel="stylesheet">
   <link href="{{ asset('css/style_comen.css') }}" rel="stylesheet">
-  <!-- Compiled and minified JavaScript -->                                                                                                       
+  <!-- Compiled and minified JavaScript -->
   <script src="{{ asset('js/JQuery.js') }}"></script>
   <script src="https://unpkg.com/vue"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -24,16 +29,25 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
   </script>
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-  <script type="text/javascript" src="{{ asset('js/tablesorter.source.js')}}"> </script>
+  <script src="{{ asset('js/Main.js') }}"></script>
+  
+ <!-- <script src="js/JQuery.js"></script>-->
+  <!-- <script src="js/Main.js"></script>-->
+  <script type="text/javascript" src="js/tablesorter.source.js"> </script>
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
-<script src="{{ asset('js/Main.js')}}"></script>
-  <meta name="csrf-token" content="{{ csrf_token() }}">
+  
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <!--<script src="{{ asset('js/app.js') }}"></script>-->
 </head>
 
 <body>
+  
     <div class="contenedor">
         <div class="header">
            <!-- Haeader barra sub INICIO-->
@@ -104,7 +118,7 @@
                 <div class="carritoDiv">
           <a class=" NumProductosCarrito" href="{{ route('verCarrito') }}"><i class="material-icons iconProductosCarrito">shopping_cart</i>
             @guest
-             +
+             
             @else
               @php
                        $id  =  auth()->user()->id_cliente;
@@ -202,19 +216,14 @@
     </div>
   </div>
   <script> (function(b,c){var e=document.createElement('link');e.rel='stylesheet',e.type='text/css',e.href='https://chatboxlive.blahbox.net/static/css/main.css',document.getElementsByTagName('head')[0].appendChild(e); var f=document.createElement('script');f.onload=function(){var g;if(c)g='previewInit';else{var h=document.createElement('div');g='cbinit',h.id='cbinit',document.body.append(h)} console.log(document.querySelector('#'+g)),chatbox.initChat(document.querySelector('#'+g),b,c)},f.src='https://chatboxlive.blahbox.net/static/js/chat-lib.js',document.getElementsByTagName('head')[0].appendChild(f)}) ('67fdf26bb08d7701422d77bc25cfa268', 0); </script>
-  <script>
-  $.ajaxSetup({
+    <script>
+      $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
-  </script>
-  <script>
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, {
-      coverTrigger:false
-    });
-  </script>
+    }}
+);
+    </script>
+  
 </body>
 
 </html>

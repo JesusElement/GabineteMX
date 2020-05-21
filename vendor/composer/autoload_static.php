@@ -28,6 +28,7 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        'a806c12c6e24e7e4e900847766218dba' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -48,6 +49,10 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         array (
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
+        ),
+        'U' => 
+        array (
+            'UxWeb\\SweetAlert\\' => 17,
         ),
         'T' => 
         array (
@@ -188,6 +193,10 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'UxWeb\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert',
         ),
         'TijsVerkoyen\\CssToInlineStyles\\' => 
         array (
@@ -465,7 +474,6 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
     );
 
     public static $classMap = array (
-        'App\\BuscarProducto' => __DIR__ . '/../..' . '/app/buscarproducto.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Direccion' => __DIR__ . '/../..' . '/app/Direccion.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -479,10 +487,13 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         'App\\Http\\Controllers\\CarritoController' => __DIR__ . '/../..' . '/app/Http/Controllers/CarritoController.php',
         'App\\Http\\Controllers\\ContenidoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContenidoController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DireccionController' => __DIR__ . '/../..' . '/app/Http/Controllers/DireccionController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ProductoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductoController.php',
         'App\\Http\\Controllers\\PromocionController' => __DIR__ . '/../..' . '/app/Http/Controllers/PromocionController.php',
         'App\\Http\\Controllers\\ProveedorController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProveedorController.php',
+        'App\\Http\\Controllers\\ProveedoresController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProveedoresController.php',
+        'App\\Http\\Controllers\\TargCredController' => __DIR__ . '/../..' . '/app/Http/Controllers/TargCredController.php',
         'App\\Http\\Controllers\\TransporteController' => __DIR__ . '/../..' . '/app/Http/Controllers/TransporteController.php',
         'App\\Http\\Controllers\\VentaController' => __DIR__ . '/../..' . '/app/Http/Controllers/VentaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -494,12 +505,15 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\TargCredStoreRe' => __DIR__ . '/../..' . '/app/Http/Requests/TargCredStoreRe.php',
         'App\\Promocion' => __DIR__ . '/../..' . '/app/Promocion.php',
+        'App\\Proveedores' => __DIR__ . '/../..' . '/app/Proveedores.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\TargCred' => __DIR__ . '/../..' . '/app/TargCred.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\carrito' => __DIR__ . '/../..' . '/app/carrito.php',
         'App\\contenido' => __DIR__ . '/../..' . '/app/contenido.php',
@@ -4647,6 +4661,12 @@ class ComposerStaticInit1ad9195fc9563b109f7fc3f58139bb2a
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'UxWeb\\SweetAlert\\ConvertMessagesIntoSweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/ConvertMessagesIntoSweetAlert.php',
+        'UxWeb\\SweetAlert\\LaravelSessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/LaravelSessionStore.php',
+        'UxWeb\\SweetAlert\\SessionStore' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SessionStore.php',
+        'UxWeb\\SweetAlert\\SweetAlert' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlert.php',
+        'UxWeb\\SweetAlert\\SweetAlertNotifier' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertNotifier.php',
+        'UxWeb\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/uxweb/sweet-alert/src/SweetAlert/SweetAlertServiceProvider.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',

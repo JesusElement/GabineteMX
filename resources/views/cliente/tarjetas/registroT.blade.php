@@ -159,7 +159,7 @@ foreach($direc as $value){
               <button class="buy" type="submit"> Actualizar </button>
               @php
             }
-            else if($tip == 'creacionT'){
+            else if($tip == 'creacionT' || $tip == 'create'){
               @endphp
               <button class="buy" type="submit"> Registrar </button>
               @php
