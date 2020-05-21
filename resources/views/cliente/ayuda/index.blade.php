@@ -1,7 +1,9 @@
 @extends('layouts.plantilla')
 
 @section('seccion')
-
+<?php 
+    $tipo = $tip;
+?>
 
     <div class="ayuda">
         <div class="modifica">
@@ -10,11 +12,11 @@
         </div>
 
         <div class="opciones">
-        <a class="btn btn-block">Servicio al cliente</a>
-        <a class="btn btn-block">Contacto</a>
-        <a class="btn btn-block">Información Corporativas</a>
-        <a class="btn btn-block" onclick="aviso()">Aviso de Privacidad</a>
-        <a class="btn btn-block" onclick="termi()">Terminos y Condiciones</a>
+        <a class="btn btn-block" href="{{url('ayuda',['tip'=>'SAC'])}}" id="SAC">Servicio al cliente</a>
+        <a class="btn btn-block" href="{{url('ayuda',['tip'=>'CONT'])}}" id="CONT">Contacto</a>
+        <a class="btn btn-block" href="{{url('ayuda',['tip'=>'ICORP'])}}" id="ICORP">Información Corporativas</a>
+        <a class="btn btn-block" href="{{url('ayuda',['tip'=>'AVP'])}}" id="AVP">Aviso de Privacidad</a>
+        <a class="btn btn-block" href="{{url('ayuda',['tip'=>'TEC'])}}" id="TEC">Terminos y Condiciones</a>
         </div>
 
         <div class="informacion" id="content">
@@ -23,28 +25,41 @@
     </div>
 
     <script>
-        var contenido = document.querySelector('#content');
-        function aviso(){
-            fetch('contenidos/Aviso_Privacidad.html')
-            .then(data => data.text())
-                //Otra promesa que captura esa data que ya viene preformateada
-                .then(data => {
-                    //pintamos la data
-                    contenido.innerHTML = data
 
-                })
+var contenido = document.querySelector('#content');
 
-        }
-        function termi(){
-            fetch('contenidos/Ter_Condi.html')
-            .then(data => data.text())
-                //Otra promesa que captura esa data que ya viene preformateada
-                .then(data => {
-                    //pintamos la data
-                    contenido.innerHTML = data
-
-                })
-
-        }
+$(document).ready(function() {
+    if('<?php echo $tipo ?>' == 'SAC'){
+        $('#content').load('../contenidos/SAC.html');
+    }
+    if('<?php echo $tipo ?>' == 'AVP'){
+        $('#content').load('../contenidos/Aviso_Privacidad.html');
+    }
+    if('<?php echo $tipo ?>' == 'TEC'){
+        $('#content').load('../contenidos/Ter_Condi.html');
+    }
+    if('<?php echo $tipo ?>' == 'ICORP'){
+        $('#content').load('../contenidos/ICOP.html');
+    }
+    if('<?php echo $tipo ?>' == 'CONT'){
+        $('#content').load('../contenidos/Contacto.html');
+    }
+		
+       /* $("#TEC").click(function(){
+            $('#content').load('contenidos/Ter_Condi.html');
+        });
+        $("#AVP").click(function(){
+            $('#content').load('contenidos/Aviso_Privacidad.html');
+        });
+        $("#SAC").click(function(){
+            $('#content').load('contenidos/SAC.html');
+        });
+        $("#CONT").click(function(){
+            $('#content').load('contenidos/Contacto.html');
+        });
+        $("#ICORP").click(function(){
+            $('#content').load('contenidos/ICOP.html');
+        });*/
+});
     </script>
 @endsection

@@ -74,6 +74,14 @@ html {
     opacity: .8;
 }
 
+.MensajeT {
+    text-align: center;
+}
+
+.TarjetaGrid .btn-danger {
+    background-color: #ee1313d5 !important;
+}
+
 .TarjetaGrid .container .col1 .card .front {
     position: absolute;
     background-image: url('../Imagenes/Tarjeta/bg-tarjeta-01.jpg');
