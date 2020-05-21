@@ -17,7 +17,7 @@
                 <div class="titulo">
                     <h4>Pago</h4>
                 </div>
-                <div class="HederTres">
+                <div class="HederTres  z-depth-2">
                     <div class="Pan1">
                         <h5>Dirección</h5>
                         <div class="input-field col s12">
@@ -43,16 +43,16 @@
                         </div>
                     </div>
                     <div class="Pan3">
-                        <div class="col s12 m7">
+                        <div class="col s12 m7 z-depth-0">
                             <h5 class="header">Envio gratis</h5>
-                            <div class="card horizontal c">
+                            <div class="card horizontal c z-depth-0">
                                 <i class="material-icons i">a card_giftcard</i>
                                 <div class="card-stacked c">
                                     <div class="card-content c">
                                         <p>Por inauguración temporalmente todos nuestros envios son gratis</p>
                                     </div>
                                     <div class="card-action">
-                                        <a href="#">This is a link</a>
+                                     
                                     </div>
                                 </div>
                             </div>
@@ -91,14 +91,29 @@
                     </div>
 
                 </div>
-                @php
-                $Total = $Total + $q->prec_uni * $q->cantidad;
-            @endphp
+          
               @endforeach
       
             </div>
             <div class="Pago">
-                Aqui se pagan tus mamadas
+                <div class="col s12 m7">
+                    <h5 class="header">Pago</h5>
+                    <div class="card horizontal c">
+                        <i class="material-icons i">credit_card</i>
+                        <div class="card-stacked c">
+                            <div class="card-content c">
+                                <h6>Total:
+                                    @php
+                                        echo number_format($Total,2);
+                                    @endphp
+                                     </h6>
+                            </div>
+                            <div class="card-action">
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="bttnCss">
                     <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
                         id="cerrarmodal">Cerrar</button>

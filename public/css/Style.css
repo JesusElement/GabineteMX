@@ -1561,6 +1561,7 @@ fieldset {
 
 .contenedor61 {
     display: grid;
+    padding: 1rem;
     grid-template-rows: auto;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: 
@@ -1594,6 +1595,7 @@ fieldset {
 .contenedor61 .HederTres{
     grid-area: HederTres;
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
     grid-template-areas: "Pan1 Pan2 Pan3";
@@ -1628,12 +1630,16 @@ fieldset {
 
 .contenedor61 .HederTres .Pan3{
     grid-area: Pan3;
-      
+    width: 90%;
+    display: grid;
+    justify-self: right;
+    text-align: left;
+ 
   
 }
 
 .contenedor61 .HederTres .Pan3 .header{
-
+    padding: 10px;
     background-color: #f1f1f1;  
 }
 
@@ -1643,7 +1649,7 @@ fieldset {
 }
 
 .contenedor61 .HederTres .Pan3 .c{
-   
+  
     background-color: #f1f1f1;  
 
 }
@@ -1656,7 +1662,8 @@ fieldset {
 
 .contenedor61 .contenedor21  .carritoCardCss {
     display: grid;
-    margin: 1rem;
+    margin-top: 1rem;
+
     grid-template-columns: 15% 85%;
     grid-template-areas: "carritoCardImgCss carritoCardInfoCss" "carritoCardImgCss carritoEliPreCss";
 }
@@ -1711,5 +1718,31 @@ fieldset {
 
 .contenedor61 .Pago{
     grid-area: Pago;
-   
+}
+
+.contenedor61 .Pago{
+    
+    width: 100%;
+    display: grid;
+    justify-self: center;
+    text-align: left;
+ 
+  
+}
+
+.contenedor61 .Pago .header{
+    padding: 10px;
+    background-color: #f1f1f1;  
+}
+
+.contenedor61 .Pago .i{
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+  color: #cf1889; 
+}
+
+.contenedor61 .Pago .c{
+  
+    background-color: #f1f1f1;  
+
 }
