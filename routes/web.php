@@ -43,8 +43,8 @@ Route::get('/carrito', function () {
     return view('cliente.carrito.index');
 })->name('carrito');
 
-Route::get('/ayuda', function () {
-    return view('cliente.ayuda.index');
+Route::get('/ayuda/{tip}', function ($tip) {
+    return view('cliente.ayuda.index',['tip'=>$tip]);
 })->name('ayuda');
 
 Route::get('/productos', function () {
@@ -138,6 +138,23 @@ Route::middleware('auth')->group(function () {
 
     Route::get('cliente/Tarjetas', function () {
         return view('cliente.tarjetas.registroT');
-    });
+    })->name('RegistroT');
+
+    Route::get('cliente/Tarjetas/update', function () {
+        return view('cliente.tarjetas.registroT');
+    })->name('UpdateT');
+
     Route::post('cliente/Tarjetas', 'TargCredController@store')->name('AddTarj');
+
+    Route::get('cliente/', function () {
+        return view('cliente.index');
+    })->name('CuentaCli');
+
+    Route::post('cliente/Tarjetas/update', 'TargCredController@update')->name('ModTarj');
+
+    Route::get('cliente/metodos/pagos', function () {
+        return view('cliente.tarjetas.index');
+    })->name('MePaCli');
+
+    Route::delete('cliente/Tarjetas/delete/{id}', 'TargCredController@destroy')->name('DelTarj');
 });

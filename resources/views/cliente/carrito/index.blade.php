@@ -6,7 +6,6 @@
       @php
           $Total = 0;
       @endphp
-
     </div>
     <div class="tituloCarrito">
 <h3>Carrito</h3>
@@ -27,9 +26,9 @@
       <p>{{$q->nom}}</p>
       <p>Cantidad:</p>
       <p style="display: none;">{{$H = $q->stock}}</p>
-      <a  class="waves-effect waves-light btn transparent"   href="{{ url("carritoMenos/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">exposure_neg_1</i></a>
+      <a  class="waves-effect waves-light btn transparent"   href="{{ url("carritoMenos/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">remove</i></a>
         <b style="margin: 1rem; background-color: #fff;">{{$q->cantidad}}</b>
-      <a  class="waves-effect waves-light btn transparent"  href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">exposure_plus_1</i></a>
+      <a  class="waves-effect waves-light btn transparent"  href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">add</i></a>
     </div>
       <div class="carritoEliPreCss">
       <b class="precio">${{number_format($q->cantidad*$q->prec_uni,2)}} x {{$q->cantidad}}</b>

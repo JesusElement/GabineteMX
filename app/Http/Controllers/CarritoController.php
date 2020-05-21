@@ -181,7 +181,7 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
     {
         $id  =  auth()->user()->id_cliente;
         $Id_Pro = $Menos;
-
+            
         $YastexisteC = DB::table('carrito')
         ->select('cantidad')
         ->where('carrito.id_produc',$Id_Pro)
