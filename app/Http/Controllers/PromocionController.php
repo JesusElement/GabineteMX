@@ -70,7 +70,7 @@ class PromocionController extends Controller
 
 
         // return response()->json($datos);
-        return redirect('/admin/gestionpromocion');
+        return redirect()->back()->with('alertalta', 'alta');
     }
 
     /**
@@ -158,7 +158,7 @@ class PromocionController extends Controller
         ]);
 
         
-        return redirect('/admin/gestionpromocion');
+        return redirect()->back()->with('alertact', 'actualizacion');
         
     }
 
@@ -173,7 +173,7 @@ class PromocionController extends Controller
         DB::table('oferta')->where('id_produc', '=', $promocion)->delete();
 
 
-        return redirect('/admin/gestionpromocion');
+        return redirect()->back()->with('alertbaja', 'baja');
     }
 
 

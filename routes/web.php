@@ -76,6 +76,10 @@ Route::get('/buscarproducto', function() {
         return view('admin.producto.promocion.index');
     })->name('promocion');
 
+    Route::get('/admin/gestionproveedores', function () {
+        return view('admin.proveedores.index');
+    })->name('provedoresdash');
+
     Auth::routes();
 
     Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
@@ -88,16 +92,20 @@ Route::get('/buscarproducto', function() {
     Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
     Route::get('/buscarproducto/{search}','BuscarProductoController@show')->name('buscarproducto');
     Route::get('/buscarproductoS','BuscarProductoController@recibir')->name('buscarproductoS');
-    Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
     Route::get('/carrito/{producto}','CarritoController@store')->name('agregarAcarrito');
     Route::get('/carrito', 'CarritoController@show')->name('verCarrito');
     Route::get('/EliCarrito/{Eli}','CarritoController@destroy')->name('EliCarrito');
     Route::get('/carritoMenos/{Menos}','CarritoController@Menos')->name('carritoMenos');
     Route::get('/carritoMas/{Mas}','CarritoController@Mas')->name('carritoMas');
-
+    Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
     Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
     Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');
     Route::post('/admin/cambiopromocion/{id_oferta}', 'PromocionController@update')->name('cambiopromociones');
+
+    Route::get('/admin/gestionproveedores', 'ProveedoresController@show')->name('verproveedores');
+    Route::post('/admin/altaproveedores', 'ProveedoresController@store')->name('altaProveedores');
+    Route::delete('/admin/bajaproveedores/{id_provee}', 'ProveedoresController@destroy')->name('bajaProveedores');
+    Route::post('/admin/cambioproveedores/{id_provee}', 'ProveedoresController@update')->name('cambioProveedores');
 
 
 
