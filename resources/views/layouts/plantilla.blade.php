@@ -108,7 +108,8 @@
              +
             @else
               @php
-                  $NumP = DB::select("SELECT COUNT(id_cliente) as N FROM carrito");
+                       $id  =  auth()->user()->id_cliente;
+                  $NumP = DB::select("SELECT sum(cantidad) as N FROM carrito where id_cliente = '$id'");
               @endphp
              @foreach ($NumP as $item)
               {{$item->N}}
