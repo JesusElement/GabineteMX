@@ -23,7 +23,7 @@
             <br><br>
 
             <?php
-
+try{
             $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
             if (count($carpeta)>2){
                 $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
@@ -36,11 +36,16 @@
             }else{
                 echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
             }
+
+
+        }catch (\Throwable $th) {
+          echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+        }
             ?>
             <!--EndBody-->
         </div>
         <div class="modal-footer">
-            <form action="{{ url("actualizarproducto/{$resultados->id_produc}") }}"
+            <form action="{{ url("/admin/gestionarproducto/{$resultados->id_produc}") }}"
                 method="POST" enctype="multipart/form-data">
                 @method('DELETE')
                 {{ csrf_field() }}

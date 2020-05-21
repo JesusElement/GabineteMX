@@ -63,11 +63,11 @@ Route::get('/buscarproducto', function() {
 
 // Route::middleware('auth')->group(function () {
 
-    Route::get('/altaproducto', function () {
+    Route::get('/admin/altaproducto', function () {
         return view('admin.producto.index');
     })->name('altaproducto');
 
-    Route::get('/actualizarproducto', function () {
+    Route::get('/admin/gestionarproducto', function () {
         return view('admin.producto.cambios-baja.actualizarp');
     })->name('producto');
 
@@ -80,23 +80,35 @@ Route::get('/buscarproducto', function() {
         return view('admin.proveedores.index');
     })->name('provedoresdash');
 
+    
+    Route::get('/admin', function () {
+        return view('admin.index');
+    })->name('adminindex');
+
     Auth::routes();
 
     Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
 
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/altaproducto', 'ProductoController@index')->name('altaproducto');
-    Route::get('/actualizarproducto', 'ProductoController@show')->name('verproducto');
-    Route::post('/storeproducto', 'ProductoController@store')->name('insertarproducto');
-    Route::delete('/actualizarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
-    Route::post('/actualizarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
+    
+    Route::get('/admin/altaproducto', 'ProductoController@index')->name('altaproducto');
+    Route::get('/admin/gestionarproducto', 'ProductoController@show')->name('verproducto');
+    Route::post('/admin/storeproducto', 'ProductoController@store')->name('insertarproducto');
+    Route::delete('/admin/gestionarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
+    Route::post('/admin/gestionarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
+    
+    
+    
     Route::get('/buscarproducto/{search}','BuscarProductoController@show')->name('buscarproducto');
     Route::get('/buscarproductoS','BuscarProductoController@recibir')->name('buscarproductoS');
+    
     Route::get('/carrito/{producto}','CarritoController@store')->name('agregarAcarrito');
     Route::get('/carrito', 'CarritoController@show')->name('verCarrito');
     Route::get('/EliCarrito/{Eli}','CarritoController@destroy')->name('EliCarrito');
     Route::get('/carritoMenos/{Menos}','CarritoController@Menos')->name('carritoMenos');
     Route::get('/carritoMas/{Mas}','CarritoController@Mas')->name('carritoMas');
+    
+    
     Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
     Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
     Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');

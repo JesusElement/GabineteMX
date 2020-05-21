@@ -42,7 +42,14 @@
             <th><span>Descripcion.</span></th> {{-- datos --}}
             <th><span>Stock.</span></th> {{-- stock --}}
             <th><span>Precio U.</span></th> {{-- prec uni --}}
-            <th>Opciones.</th> {{-- actualizarEliminar --}}
+            <th>Opciones. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+            
+              <button class="btn  waves-effect waves-light btn green accent-3 btnacP"
+                                style="width:35%; height: 45px;" onclick="window.location='{{ url('/admin/altaproducto') }}'">
+                                <i class="large material-icons left">arrow_upward</i>Agregar
+                            </button>
+            </th> {{-- actualizarEliminar --}}
           </tr>
     
         </thead>

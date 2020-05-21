@@ -59,10 +59,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-
-
-
-
+        
         $datos = $request->except('_token');
 
         $c = 0;
@@ -103,7 +100,7 @@ class ProductoController extends Controller
 
 
             try {
-                $request->file('imagen')->move(public_path($path), $imgnomfin . $image_ext);
+                $request->file('imagen')->move(public_path($path), $image_name );
             } catch (Exception $e) {
                 echo "Entra en catch";
             }
@@ -113,10 +110,9 @@ class ProductoController extends Controller
 
 
 
-
-
-
-        DB::table('producto')->insert([
+        try {
+            //code...
+            DB::table('producto')->insert([
             'id_produc' => $id,
             'id_provee' => $datos['id_provee'],
             'id_familia' => $datos['id_familia'],
@@ -143,11 +139,44 @@ class ProductoController extends Controller
 
 
 
+    } catch (\Throwable $th) {
+        $c = 0;
+        $id = substr($datos['id_provee'], 0, 6);
+        $id = $id . substr($datos['id_familia'], 6, 8);
+        $id = $id . $c;
+        $id = $id . rand(30, 99);
+        
+        DB::table('producto')->insert([
+            'id_produc' => $id,
+            'id_provee' => $datos['id_provee'],
+            'id_familia' => $datos['id_familia'],
+            'titulo' => $datos['titulo'],
+            'datos' => $datos['datos'],
+            'clav_clas' => $datos['clav_clas']
+
+        ]);
+
+        DB::table('stock')->insert([
+            'id_produc' => $id,
+            'stock' => $datos['stock'],
+            'prec_uni' => $datos['prec_uni']
+
+        ]);
+
+        DB::table('contenido')->insert([
+            'id_conte' => $id_conte,
+            'id_produc' => $id,
+            'ruta' => $path,
+            'tip_arch' => $image_ext
+
+        ]);
+
+        
+    }
 
 
 
-
-        return redirect('/actualizarproducto')->with('alertalta', 'alta');
+        return redirect('/admin/gestionarproducto')->with('alertalta', 'alta');
     }
 
     /**
