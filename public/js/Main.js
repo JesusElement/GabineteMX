@@ -1,12 +1,9 @@
 $(document).ready(function() {
     M.AutoInit();
-  
-
-
-    $(document).ready(function() {
-        $('.materialboxed').materialbox();
+    var elems = document.querySelectorAll('.dropdown-trigger');
+    var instances = M.Dropdown.init(elems, {
+        'coverTrigger': false
     });
-
     //Esto es para que los filtros funcionen
     //Chekets de  filtros con jQuey
     //NOMOVER
@@ -21,12 +18,12 @@ $(document).ready(function() {
     });
 
 
-   
+
 });
 
 window.onload = function() {
-  
-       var fecha = new Date(); //Fecha actual
+
+    var fecha = new Date(); //Fecha actual
     var mes = fecha.getMonth() + 1; //obteniendo mes
     var dia = fecha.getDate(); //obteniendo dia
     var ano = fecha.getFullYear(); //obteniendo año
@@ -41,7 +38,7 @@ window.onload = function() {
     if (diat < 10) diat = "0" + diat; //agrega cero si el menor de 10
     if (mest < 10) mest = "0" + mest; //agrega cero si el menor de 10
     document.getElementById("fech_ter").value = anot + "-" + mest + "-" + diat;
-   
+
 };
 
 $(window).on("load", function() {

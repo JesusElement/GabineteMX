@@ -132,9 +132,18 @@ Route::middleware('auth')->group(function () {
 
     Route::get('cliente/direccion', function () {
         return view('cliente.dirreccion.agregarD');
-    });
+    })->name('AddDirecP');
+
+    Route::get('cliente/direcciones', function () {
+        return view('cliente.dirreccion.index');
+    })->name('Direcciones');
+
+    Route::get('cliente/direcciones/{tipo}/{id}', function ($tipo,$id) {
+        return view('cliente.dirreccion.agregarD',['tipo'=>$tipo,'id'=>$id]);
+    })->name('DireccionesActu');
 
     Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
+    Route::post('cliente/direcciones/actualiza/{id}', 'DireccionController@update')->name('DirecUpdate');
 
     Route::get('cliente/Tarjetas', function () {
         return view('cliente.tarjetas.registroT');

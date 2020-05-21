@@ -58,7 +58,11 @@ class DireccionController extends Controller
             'id_direc' => $id,
             'id_cliente' => $id_cli
         ]);
+        if(isset( $direccion['create'])){
+            return redirect('cliente/direcciones');
+        }else{
         return redirect('cliente/Tarjetas');
+        }
     }
 
     /**
