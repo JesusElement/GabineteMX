@@ -1,5 +1,7 @@
 $(document).ready(function() {
     M.AutoInit();
+  
+
 
     $(document).ready(function() {
         $('.materialboxed').materialbox();
@@ -7,28 +9,27 @@ $(document).ready(function() {
 
     //Esto es para que los filtros funcionen
     //Chekets de  filtros con jQuey
+    //NOMOVER
     $(function() {
         $("#tablaproductos").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
     });
     $(function() {
         $("#tablapromociones").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
     });
+    $(function() {
+        $("#tablaproveedores").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
+    });
 
-    var h = new Date();
-    var hr = h.getHours();
-    var min = h.getMinutes();
 
-    document.getElementById("hora_ini").value = hr + ":" + min;
-    document.getElementById("hora_ter").value = hr + ":" + min;
-
-    var horadeinicio = $("#hora_ini");
-    var horadetermino = $("#hora_ter");
-
-    horadeinicio.value = hr + ":" + min;
-    horadetermino.value = hr + ":" + min;
+   
 });
 
 window.onload = function() {
+  
+   
+
+
+   
     var fecha = new Date(); //Fecha actual
     var mes = fecha.getMonth() + 1; //obteniendo mes
     var dia = fecha.getDate(); //obteniendo dia
@@ -37,13 +38,15 @@ window.onload = function() {
     if (mes < 10) mes = "0" + mes; //agrega cero si el menor de 10
     document.getElementById("fech_ini").value = ano + "-" + mes + "-" + dia;
 
-    var x = new Date(); //Fecha actual
+    var x = new Date(); //Fecha termino
     var mest = x.getMonth() + 1; //obteniendo mes
     var diat = x.getDate() + 1; //obteniendo dia
     var anot = x.getFullYear(); //obteniendo año
     if (diat < 10) diat = "0" + diat; //agrega cero si el menor de 10
     if (mest < 10) mest = "0" + mest; //agrega cero si el menor de 10
     document.getElementById("fech_ter").value = anot + "-" + mest + "-" + diat;
+   
+
 };
 
 $(window).on("load", function() {

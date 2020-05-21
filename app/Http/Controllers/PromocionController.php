@@ -113,6 +113,7 @@ class PromocionController extends Controller
         $productos=DB::table('producto')
         ->select('producto.titulo','producto.id_produc')
         ->whereNotIn('producto.id_produc', DB::table('oferta')->select('oferta.id_produc'))
+        ->orderBy('producto.titulo', 'asc')
         ->get();
 
 

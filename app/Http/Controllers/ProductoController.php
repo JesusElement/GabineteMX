@@ -147,7 +147,7 @@ class ProductoController extends Controller
 
 
 
-        return redirect('/actualizarproducto');
+        return redirect('/actualizarproducto')->with('alertalta', 'alta');
     }
 
     /**
@@ -256,7 +256,7 @@ class ProductoController extends Controller
 
             ]);
 
-        return redirect('/actualizarproducto');
+            return redirect()->back()->with('alertact', 'actualizacion');
 
         // return response()->json($datos);
     }
@@ -299,6 +299,6 @@ class ProductoController extends Controller
         DB::table('producto')->where('id_produc', '=', $producto)->delete();
 
 
-        return redirect('/actualizarproducto');
+        return redirect()->back()->with('alertbaja', 'baja');
     }
 }

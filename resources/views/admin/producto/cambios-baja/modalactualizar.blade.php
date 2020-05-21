@@ -96,7 +96,7 @@
                 <div class="file-field input-field">
                   <div class="btn">
                       <span>File</span>
-                      <input type="file" id="imagen" name="imagen" multiple required >
+                      <input type="file" id="imagen" name="imagen" multiple  >
                   </div>
                   <div class="file-path-wrapper">
                       <input class="file-path validate" type="text"
@@ -117,7 +117,7 @@
                 <center>
 
                   <button type="submit"
-                    class="modal-close waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
+                    class="waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
 
                 </center>
               </div>

@@ -34,7 +34,7 @@
                             <div class="row">
                                 <div class="input-field col s12">
                                     <select id="id_produc" name="id_produc" onchange="ShowSelected()" required >
-                                        <option value="" selected="true" disabled="disabled">NOMBRE DE PRODUCTO</option>
+                                        <option value="" selected="true" disabled="disabled">SELECCIONE NOMBRE DE PRODUCTO</option>
                                         @foreach($producto ?? '' as $prod)
                                         <option value="{{ $prod->id_produc }}">{{$prod->titulo}}</option>
                                         @endforeach
@@ -43,12 +43,13 @@
                                 </div>
                                
                             </div>
-                            <input type="text" id="id_p" name="id_p" hidden>
+                            <input type="text" id="id_p" name="id_p" hidden required>
+
 
 
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input type="date" data-date="" data-date-format="YYYY MMMM DD"  required
+                                    <input type="date" data-date="" data-date-format="YYYY MMMM DD"  required 
                                         id="fech_ini" name="fech_ini">
                                     <label for="fech_ini">FECHA INICIO:</label>
                                 </div>
@@ -59,6 +60,7 @@
                                 </div>
                             </div>
 
+                            
 
                             <div class="row">
                                 <div class="input-field col s6">
@@ -91,7 +93,7 @@
             {{-- Token para que laravel tome como valido este form --}}
 
 
-            <button type="submit" class="modal-close waves-effect waves-green btn deep-orange accent-4">AGREGAR</button>
+            <button type="submit" class=" waves-effect waves-green btn deep-orange accent-4">AGREGAR</button>
 
         </form>
         <button class="modal-action modal-close waves-effect waves-red btn blue-grey lighten-2">Cerrar</button>

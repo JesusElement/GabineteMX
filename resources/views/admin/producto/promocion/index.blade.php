@@ -1,7 +1,30 @@
 @extends('layouts/plantilla')
 @section('seccion')
 <!-- Inicia Contenido -->
-
+@if(session('alertalta'))
+    <script>
+        swal({
+            icon: "success",
+            text: "¡Alta realizada!",
+        });
+    </script>
+@endif
+@if(session('alertbaja'))
+    <script>
+        swal({
+            icon: "error",
+            text: "¡Baja realizada!",
+        });
+    </script>
+@endif
+@if(session('alertact'))
+    <script>
+        swal({
+            icon: "success",
+            text: "¡Actualizacion realizada!",
+        });
+    </script>
+@endif
 
 <div class="contenido">
   <div class="actualizarProductoCss">

@@ -88,7 +88,7 @@
             {{-- Token para que laravel tome como valido este form --}}
 
 
-            <button type="submit" class="modal-close waves-effect waves-green btn deep-orange accent-4">AGREGAR</button>
+            <button type="submit" class=" waves-effect waves-green btn deep-orange accent-4">ACTUALIZAR</button>
 
         </form>
         <button class="modal-action modal-close waves-effect waves-red btn blue-grey lighten-2">Cerrar</button>
