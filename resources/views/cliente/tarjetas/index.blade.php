@@ -6,6 +6,7 @@
     <div class="opcionCu">
         <div class="ImgInfo">
             <div class="ImgC">
+            <a href="{{route('CuentaCli')}}" class="btn btn-info regresa">Regresar</a>
                 <img src="../../Imagenes/Clientes/fotoDe.jpg">
             </div>
             <div class="InfoC">

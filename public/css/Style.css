@@ -391,9 +391,7 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "carousel" 
-    "otroscontenidos";
+    grid-template-areas: "carousel" "otroscontenidos";
 }
 
 .contenedor .contenido .card-title {
@@ -401,13 +399,11 @@ nav a.sidenav-trigger i {
 }
 
 .contenedor .contenido .carousel {
-
     width: 100%;
     justify-content: center;
     grid-area: carousel;
-    background: rgb(2,0,36);
-background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 98%, rgba(255,255,255,1) 100%);
-
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 98%, rgba(255, 255, 255, 1) 100%);
 }
 
 .contenedor .contenido .carousel .carousel-item {
@@ -416,28 +412,23 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 98%, 
 }
 
 .contenedor .contenido .carousel .carousel-item .imgCaroCss {
-    width: 100% ;
-    height: 75% ;
+    width: 100%;
+    height: 75%;
 }
-
 
 @media screen and (max-width: 700px) {
     .contenedor .contenido .carousel {
         width: 100%;
         z-index: -1;
-     
     }
     .contenedor .contenido .carousel .carousel-item {
         width: 100%;
         height: 30%;
     }
-    
     .contenedor .contenido .carousel .carousel-item .imgCaroCss {
-        width: 100% ;
-        height: 30% ;
+        width: 100%;
+        height: 30%;
     }
-    
-
 }
 
 .contenedor .contenido .otroscontenidos {
@@ -447,8 +438,7 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 98%, 
     grid-area: otroscontenidos;
     grid-template-columns: 5% 20% 20% 20% 20% 5%;
     grid-template-rows: auto;
-    grid-template-areas: 
-    "marizq card1 card2 card3 card4 marder";
+    grid-template-areas: "marizq card1 card2 card3 card4 marder";
 }
 
 @media screen and (max-width: 700px) {
@@ -460,16 +450,8 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 98%, 
         display: grid;
         grid-area: otroscontenidos;
         grid-template-columns: 100%;
-        grid-template-areas: 
-        "marizq"
-         "card1" 
-         "card2" 
-         "card3" 
-         "card4" 
-         "marder" 
-         ;
+        grid-template-areas: "marizq" "card1" "card2" "card3" "card4" "marder";
     }
-
 }
 
 .contenido .contenido .otroscontenidos .marizq {
@@ -494,7 +476,6 @@ background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 98%, 
 .contenido .contenido .otroscontenidos .card4 {
     grid-area: card4;
 }
-
 
 .contenido .contenido .otroscontenidos .marder {
     grid-area: marder;
@@ -1442,6 +1423,10 @@ fieldset {
     margin-bottom: 1%;
 }
 
+.ImgC .regresa {
+    float: left;
+}
+
 .opcionesC {
     grid-column-start: OpcionesC;
     grid-column-end: OpcionesC;
@@ -1534,6 +1519,45 @@ fieldset {
     margin-bottom: 1%;
 }
 
+.formularioEdit {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: minmax(60px, 1fr) minmax(60px, 1fr);
+    grid-template-rows: minmax(100px, auto);
+}
+
+.formularioEdit div {
+    padding: 3%;
+}
+
+.formularioEdit div button {
+    float: right;
+}
+
+.formularioEdit2 {
+    padding: 3%;
+    display: grid;
+    grid-template-columns: minmax(60px, 1fr);
+    grid-template-rows: minmax(100px, auto);
+}
+
+.formularioEdit2 div {
+    padding: 3%;
+}
+
+.formularioEdit2 div button {
+    float: right;
+}
+
+.formularioEdit2 div span {
+    font-size: 15px;
+    color: #cf1889;
+}
+
+.editContra {
+    width: 50%;
+}
+
 @media screen and (max-width: 600px) {
     .OpcionesCuen {
         display: grid;
@@ -1556,19 +1580,35 @@ fieldset {
     .opcion2 ul li a {
         font-size: smaller;
     }
+    .formularioEdit {
+        padding: 3%;
+        display: grid;
+        grid-template-columns: minmax(60px, 1fr);
+        grid-template-rows: minmax(100px, auto) minmax(100px, auto);
+    }
+    .formularioEdit2 {
+        padding: 3%;
+        display: grid;
+        grid-template-columns: minmax(60px, 1fr);
+        grid-template-rows: minmax(100px, auto);
+    }
+    .editContra {
+        width: 100%;
+    }
+    .ImgC .regresa {
+        font-size: smaller;
+        width: 85px;
+        height: 30px;
+        margin-bottom: 2%;
+    }
 }
-
 
 .contenedor61 {
     display: grid;
     padding: 1rem;
     grid-template-rows: auto;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 
-    "titulo titulo titulo titulo"
-    "HederTres HederTres HederTres HederTres"
-    "contenedor21 contenedor21 contenedor21 Pago"
-    ;
+    grid-template-areas: "titulo titulo titulo titulo" "HederTres HederTres HederTres HederTres" "contenedor21 contenedor21 contenedor21 Pago";
 }
 
 @media screen and (max-width: 700px) {
@@ -1576,23 +1616,16 @@ fieldset {
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 100%;
-        grid-template-areas: 
-        "titulo"
-        "HederTres"
-        "contenedor21"
-        "Pago"
-        ;
+        grid-template-areas: "titulo" "HederTres" "contenedor21" "Pago";
     }
-
 }
 
-
-.contenedor61 .titulo{
+.contenedor61 .titulo {
     grid-area: titulo;
     margin-left: 2rem;
 }
 
-.contenedor61 .HederTres{
+.contenedor61 .HederTres {
     grid-area: HederTres;
     display: grid;
     justify-content: center;
@@ -1602,73 +1635,64 @@ fieldset {
 }
 
 @media screen and (max-width: 700px) {
-    .contenedor61 .HederTres{
+    .contenedor61 .HederTres {
         grid-area: HederTres;
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: auto;
         grid-template-areas: "Pan1" "Pan2" "Pan3";
     }
-
 }
 
-.contenedor61 .HederTres .Pan1{
+.contenedor61 .HederTres .Pan1 {
     display: grid;
     grid-area: Pan1;
     justify-content: stretch;
     width: 80%;
 }
 
-
-.contenedor61 .HederTres .Pan2{
+.contenedor61 .HederTres .Pan2 {
     display: grid;
     justify-content: stretch;
     grid-area: Pan2;
     width: 80%;
-   
 }
 
-.contenedor61 .HederTres .Pan3{
+.contenedor61 .HederTres .Pan3 {
     grid-area: Pan3;
     width: 90%;
     display: grid;
     justify-self: right;
     text-align: left;
- 
-  
 }
 
-.contenedor61 .HederTres .Pan3 .header{
+.contenedor61 .HederTres .Pan3 .header {
     padding: 10px;
-    background-color: #f1f1f1;  
+    background-color: #f1f1f1;
 }
 
-.contenedor61 .HederTres .Pan3 .i{
+.contenedor61 .HederTres .Pan3 .i {
     margin-top: 1.5rem;
-  color: #cf1889; 
+    color: #cf1889;
 }
 
-.contenedor61 .HederTres .Pan3 .c{
-  
-    background-color: #f1f1f1;  
-
+.contenedor61 .HederTres .Pan3 .c {
+    background-color: #f1f1f1;
 }
 
-.contenedor61 .contenedor21{
+.contenedor61 .contenedor21 {
     grid-area: contenedor21;
     width: 95%;
 }
 
-
-.contenedor61 .contenedor21  .carritoCardCss {
+.contenedor61 .contenedor21 .carritoCardCss {
     display: grid;
     margin-top: 1rem;
-
     grid-template-columns: 15% 85%;
     grid-template-areas: "carritoCardImgCss carritoCardInfoCss" "carritoCardImgCss carritoEliPreCss";
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoCardImgCss {
+.contenedor61 .contenedor21 .carritoCardCss .carritoCardImgCss {
     grid-area: carritoCardImgCss;
 }
 
@@ -1677,21 +1701,21 @@ fieldset {
     height: 200px;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoCardInfoCss {
+.contenedor61 .contenedor21 .carritoCardCss .carritoCardInfoCss {
     grid-area: carritoCardInfoCss;
     padding-left: 2rem;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoCardInfoCss .titulo {
+.contenedor61 .contenedor21 .carritoCardCss .carritoCardInfoCss .titulo {
     color: #ec9129;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoEliPreCss {
+.contenedor61 .contenedor21 .carritoCardCss .carritoEliPreCss {
     display: grid;
     grid-area: carritoEliPreCss;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoEliPreCss .precio {
+.contenedor61 .contenedor21 .carritoCardCss .carritoEliPreCss .precio {
     margin-right: 2rem;
     font-size: large;
     justify-self: end;
@@ -1706,43 +1730,38 @@ fieldset {
     margin-bottom: 1rem;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoCardInfoCss .b {
+.contenedor61 .contenedor21 .carritoCardCss .carritoCardInfoCss .b {
     font-size: 15px;
     color: black;
 }
 
-.contenedor61 .contenedor21  .carritoCardCss .carritoCardInfoCss .btn {
+.contenedor61 .contenedor21 .carritoCardCss .carritoCardInfoCss .btn {
     width: 50px;
     height: 30px;
 }
 
-.contenedor61 .Pago{
+.contenedor61 .Pago {
     grid-area: Pago;
 }
 
-.contenedor61 .Pago{
-    
+.contenedor61 .Pago {
     width: 100%;
     display: grid;
     justify-self: center;
     text-align: left;
- 
-  
 }
 
-.contenedor61 .Pago .header{
+.contenedor61 .Pago .header {
     padding: 10px;
-    background-color: #f1f1f1;  
+    background-color: #f1f1f1;
 }
 
-.contenedor61 .Pago .i{
+.contenedor61 .Pago .i {
     margin-top: 1.5rem;
     margin-left: 1rem;
-  color: #cf1889; 
+    color: #cf1889;
 }
 
-.contenedor61 .Pago .c{
-  
-    background-color: #f1f1f1;  
-
+.contenedor61 .Pago .c {
+    background-color: #f1f1f1;
 }

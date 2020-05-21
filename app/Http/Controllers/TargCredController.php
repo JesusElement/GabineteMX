@@ -192,7 +192,7 @@ class TargCredController extends Controller
                 return redirect()->route('MePaCli');
                 }
                 else{
-                    return redirect()->back()->withErrors(['expi' => 'La tarjeta que se ingreso ya expiro, ingrese una o verifique la fecha'])->withInput();
+                    return redirect('EditInfoCli')->back()->withErrors(['expi' => 'La tarjeta que se ingreso ya expiro, ingrese una o verifique la fecha'])->withInput();
 
                 }
                 

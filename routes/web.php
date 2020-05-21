@@ -155,7 +155,8 @@ Route::middleware('auth')->group(function () {
     })->name('DireccionesActu');
 
     Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
-    Route::post('cliente/direcciones/actualiza/{id}', 'DireccionController@update')->name('DirecUpdate');
+    Route::post('cliente/direcciones/{tipo}/{id}', 'DireccionController@update')->name('DirecUpdate');
+    Route::delete('cliente/direc/{id}', 'DireccionController@destroy')->name('DirecDestroy');
 
     Route::get('cliente/Tarjetas', function () {
         return view('cliente.tarjetas.registroT');
@@ -178,4 +179,13 @@ Route::middleware('auth')->group(function () {
     })->name('MePaCli');
 
     Route::delete('cliente/Tarjetas/delete/{id}', 'TargCredController@destroy')->name('DelTarj');
+
+    Route::get('/cliente/editar/{id}', function ($id) {
+        return view('cliente.edit',['id'=>$id]);
+    })->name('EditInfoCli');
+
+    Route::post('/cliente/update/datos/{id}', 'ClienteController@update')->name('EditCiente');
+
+    Route::delete('/cliente/eliminar/{id}', 'ClienteController@destoy')->name('CerrarCuenta');
+
 });

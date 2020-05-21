@@ -23,11 +23,8 @@
     if(isset($id) && $tipo == 'update'){
 ?>
 <form class="Direc-mar" action="{{route ('DirecUpdate',['tipo'=>'update','id'=>$id ]) }}" method="POST">
-<?php
-    }
-    else if(isset($id) && $tipo == 'delete'){
-        ?>
-        <form class="Direc-mar" action="{{route ('DirecUpdate',['tipo'=>'update','id'=>$id ]) }}" method="POST">
+
+<input type="hidden" name="id" value="{{$id}}">
 <?php
     }
     else{
@@ -41,6 +38,7 @@
     <legend>Direccion</legend>
     <div class="direccion-add">
                 <div class="Alias" >
+                
                     <label for="alias"> Alias de direccion </label>
                     <input type="text" name="alias" id="alias" value="{{ isset($alias) ? $alias : old('alias') }}">
                 </div>

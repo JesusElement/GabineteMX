@@ -133,6 +133,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'email'=>[
+            'unique' => 'El correo ingresado ya esta en uso',
+        ]
+        
     ],
 
     /*

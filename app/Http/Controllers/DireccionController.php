@@ -97,6 +97,22 @@ class DireccionController extends Controller
     public function update(Request $request, Direccion $direccion)
     {
         //
+        $direccion = $request->except('_token');
+        $id_cli =  auth()->user()->id_cliente;
+
+       DB::table('direccion')
+       ->where('id_direc',$direccion['id'])
+       ->update([
+            'alias' => $direccion['alias'],
+            'id_estado'=> $direccion['estado'],
+            'ciudad' => $direccion['ciudad'],
+            'calle' => $direccion['calle'],
+            'numero' => $direccion['NumEI'],
+            'colonia' => $direccion['colonia'],
+            'cp' => $direccion['CP'],
+            'muni_dele' => $direccion['MuDe']
+        ]);
+        return redirect('cliente/direcciones');
     }
 
     /**
@@ -105,8 +121,12 @@ class DireccionController extends Controller
      * @param  \App\Direccion  $direccion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Direccion $direccion)
+    public function destroy($id)
     {
         //
+        $id_cli =  auth()->user()->id_cliente;
+        DB::table('direc_cliente')->where('id_direc', '=', $id)->where('id_cliente','=',$id_cli)->delete();
+        DB::table('direccion')->where('id_direc', '=', $id)->delete();
+        return redirect('cliente/direcciones');
     }
 }

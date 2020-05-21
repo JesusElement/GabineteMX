@@ -6,6 +6,7 @@
     <div class="opcionCu">
         <div class="ImgInfo">
             <div class="ImgC">
+            <a href="{{route('CuentaCli')}}" class="btn btn-info regresa">Regresar</a>
                 <img src="../../Imagenes/Clientes/fotoDe.jpg">
             </div>
             <div class="InfoC">
@@ -54,8 +55,27 @@
                            <td><?php echo $direccion ?> </td>
                            <td><?php echo $estado ?> </td>
                            <td> <a href="{{ route('DireccionesActu',['tipo'=>'update','id'=>$id ]) }}" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a> </td>
-                           <td> <a href="" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a> </td>
+                           <td> <a href="#{{$id}}" class="btn btn-danger modal-trigger"><ion-icon name="trash-outline"></ion-icon></a> </td>
                        </tr>
+
+                       <div id="{{$id}}" class="modal">
+                             <div class="modal-content" style="text-align: center">
+                               <h4>¡Eliminar!</h4>
+                               <p>¿Desea eliminar la direccion selecionada?</p>
+                                <p>Alias:  <b>{{$alias }}</b> </p>
+                                 <p>Direccion: <b> {{$direccion}}</b> </p>
+                                <p> Estado: <b>{{$estado}}</b></p>
+                                <h5>Cuando lo elimine no lo podra recuperar</h5>
+                             </div>
+                             <div class="modal-footer">
+                             <form method="post" action="{{ route('DirecDestroy',['id'=>$id ]) }}">
+                             @method('DELETE')
+                             @csrf
+                                 <button style="color:black !important" type="submit" class="btn btn-danger">Eliminar</button>
+                             </form>
+                               
+                             </div>
+                        </div>
                         <?php
                     }
                     ?>
@@ -69,5 +89,9 @@
     </div>
 
 </div>
+
+<!-- Modal Structure -->
+
+
 
 @endsection
