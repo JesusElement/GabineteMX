@@ -32,7 +32,7 @@
   <script src="{{ asset('js/Main.js') }}"></script>
   
  <!-- <script src="js/JQuery.js"></script>-->
-  <!-- <script src="js/Main.js"></script>-->
+  <!-- <script src="js/Main.js"></script>
   <script type="text/javascript" src="js/tablesorter.source.js"> </script>
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
