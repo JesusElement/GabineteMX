@@ -1,6 +1,9 @@
 $(document).ready(function() {
     M.AutoInit();
-    $('.materialboxed').materialbox();
+
+    $(document).ready(function() {
+        $('.materialboxed').materialbox();
+    });
 
     //Esto es para que los filtros funcionen
     //Chekets de  filtros con jQuey
@@ -10,10 +13,6 @@ $(document).ready(function() {
     $(function() {
         $("#tablapromociones").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
     });
-    $(function() {
-        $("#tablaproveedores").tablesorter(); //FUNCION ORDER BY DE PRODUCTOS EN ACTPRODUCT
-    });
-    
 
     var h = new Date();
     var hr = h.getHours();
@@ -30,9 +29,6 @@ $(document).ready(function() {
 });
 
 window.onload = function() {
-    document.getElementById("tablaproveedores").tablesorter();
-    document.getElementById("tablaproductos").tablesorter();
-    document.getElementById("tablapromociones").tablesorter();
     var fecha = new Date(); //Fecha actual
     var mes = fecha.getMonth() + 1; //obteniendo mes
     var dia = fecha.getDate(); //obteniendo dia
@@ -55,7 +51,6 @@ $(window).on("load", function() {
         $(".master").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
     }, 3990);
 });
-
 $(window).on("load", function() {
     setTimeout(function() {
         $(".loader").css({ visibility: "hidden", opacity: "0" }).fadeOut("slow");
