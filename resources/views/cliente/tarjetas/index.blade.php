@@ -9,7 +9,7 @@
                 <img src="../../Imagenes/Clientes/fotoDe.jpg">
             </div>
             <div class="InfoC">
-                    <h6>
+                    <h6> 
                        Nombre: {{auth()->user()->nom}} {{auth()->user()->ape1}} {{auth()->user()->ape2}}
                     </h6>
                     <p>
