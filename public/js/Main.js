@@ -26,11 +26,7 @@ $(document).ready(function() {
 
 window.onload = function() {
   
-   
-
-
-   
-    var fecha = new Date(); //Fecha actual
+       var fecha = new Date(); //Fecha actual
     var mes = fecha.getMonth() + 1; //obteniendo mes
     var dia = fecha.getDate(); //obteniendo dia
     var ano = fecha.getFullYear(); //obteniendo año
@@ -46,7 +42,6 @@ window.onload = function() {
     if (mest < 10) mest = "0" + mest; //agrega cero si el menor de 10
     document.getElementById("fech_ter").value = anot + "-" + mest + "-" + diat;
    
-
 };
 
 $(window).on("load", function() {
