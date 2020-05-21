@@ -1,9 +1,6 @@
 $(document).ready(function() {
     M.AutoInit();
-
-    $(document).ready(function() {
-        $('.materialboxed').materialbox();
-    });
+    $('.materialboxed').materialbox();
 
     //Esto es para que los filtros funcionen
     //Chekets de  filtros con jQuey
