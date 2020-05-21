@@ -26,7 +26,7 @@
           @foreach($quemarca as $mar)
             <span>{{ $mar->nom }}</span>
           @endforeach
-      
+       
         @endif
       </h4>
 

@@ -145,16 +145,9 @@
                              
                                 </div>
                                 <div class="card-action">
-                                    <div class="input-field col s12">
-                                        <select>
-                                          <option value="" disabled selected>Cantidad</option>
-                                          <option value="1">1</option>
-                                          <option value="2">2</option>
-                                          <option value="3">3</option>
-                                        </select>
-                                        <label>Seleccione una cantidad</label>
-                                      </div>
-                                    <a href="Carrito.html" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a>
+
+                <a href="{{ url("carrito/{$producto->id_produc}") }}" id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito">Agregar a carrito</a> 
+                                   
                                     <br>
                                     <a href="#" class="btn waves-effect waves-light btnComprar">Comprar ahora</a>  
                                 </div>
