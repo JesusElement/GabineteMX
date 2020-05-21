@@ -42,7 +42,14 @@
             <th><span>Descripcion.</span></th> {{-- datos --}}
             <th><span>Stock.</span></th> {{-- stock --}}
             <th><span>Precio U.</span></th> {{-- prec uni --}}
-            <th>Opciones.</th> {{-- actualizarEliminar --}}
+            <th>Opciones. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              
+            
+              <button class="btn  waves-effect waves-light btn green accent-3 btnacP"
+                                style="width:35%; height: 45px;" onclick="window.location='{{ url('/admin/altaproducto') }}'">
+                                <i class="large material-icons left">arrow_upward</i>Agregar
+                            </button>
+            </th> {{-- actualizarEliminar --}}
           </tr>
     
         </thead>
@@ -62,12 +69,12 @@
             <td style="width: 170px;">
 
               <button data-target="#actualizarproducto{{ $resultados->id_produc }}"
-                class="btn modal-trigger waves-effect waves-light btn green accent-3 btnacP">
+                class="btn modal-trigger waves-effect waves-light btn amber accent-3 btnacP">
                 <i class="small material-icons left">update</i> Actualizar
               </button>
 
               <button data-target="#eliminarproducto{{ $resultados->id_produc }}"
-                class="btn modal-trigger waves-effect waves-light btn  amber darken-3 btnacP">
+                class="btn modal-trigger waves-effect waves-light btn  deep-orange accent-3 btnacP">
                 <i class="small material-icons left">clear</i> Eliminar
               </button>
             </td>

@@ -2,7 +2,7 @@
 @section('seccion')
 <!-- Inicia Contenido -->
 <div class="contenido">
-    <form action="{{ url ('/storeproducto') }}"  method="post" enctype="multipart/form-data" class="reviews-form" role="form">
+    <form action="{{ url ('/admin/storeproducto') }}"  method="post" enctype="multipart/form-data" class="reviews-form" role="form">
 
         {{ csrf_field() }}
         {{-- Token para que laravel tome como valido este form --}}

@@ -55,7 +55,10 @@
            </h6>
         </div>
         <div class="card-action">
-          <a class="btn" href="#">Proceder al pago</a>
+          <button data-target="#procederpago"
+            class="btn modal-trigger waves-effect waves-light btn  blue darken-4 btnacP">
+            <i class="small material-icons left">payment</i> Proceder con el pago
+          </button>
         </div>
       </div>
     </div>
@@ -66,4 +69,5 @@
     </div>
   </div>
 </div>
+@include('cliente.pago.index')
 @endsection

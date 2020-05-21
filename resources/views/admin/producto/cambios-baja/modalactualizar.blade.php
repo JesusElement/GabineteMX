@@ -16,7 +16,7 @@
 
       <aside class="contenedor60"> {{-- INICIA EL 60 % DEL FORMULARIO --}}
         <div class="contenido">
-          <form action="{{ url("actualizarproducto/{$resultados->id_produc}") }}"
+          <form action="{{ url("/admin/gestionarproducto/{$resultados->id_produc}") }}"
             method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             {{-- Token para que laravel tome como valido este form --}}
@@ -145,8 +145,8 @@
         <h4>Imagenes</h4>
       </div> {{-- TERMINA TITUTLO 40% --}}
       <?php
-
-        $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
+try{
+        $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->name/$resultados->id_produc");
         if (count($carpeta)>2){
           $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
         while (($e = readdir($d)) != false)
@@ -159,6 +159,11 @@
         }else{
             echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
           }
+
+        }catch (\Throwable $th) {
+          echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+        }
+          
         ?>
 
 

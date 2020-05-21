@@ -98,28 +98,26 @@ $(window).on("load", function () {
 @section('seccion')
  
 <div class="contenido">   
-
-            <div class="carousel">
-
-              <style>
-                .carousel .carousel-item {
-                width:82% !important;
-                height:100% !important;
-                }
-                .carousel-item img{
-                
-                height: 100%;
-                
-                }
-                </style>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_6.jpg"></a>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_2.jpg"></a>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_3.jpg"></a>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_4.jpg"></a>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_5.jpg"></a>
-                <a class="carousel-item" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_1.jpg"></a>
-               
-              </div>
+  <div class="carousel carousel-slider center">
+    <div class="carousel-item">
+    <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_6.jpg"></a>
+      </div>  
+      <div class="carousel-item">
+        <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_2.jpg"></a>
+      </div>
+      <div class="carousel-item">
+        <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_3.jpg"></a>
+      </div>
+      <div class="carousel-item">
+        <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_4.jpg"></a>
+      </div>
+      <div class="carousel-item">
+        <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_5.jpg"></a>
+      </div>
+      <div class="carousel-item">
+        <a class="" href="#one!"><img class="imgCaroCss" src="/Imagenes/Banners/Banner_1.jpg"></a>
+      </div>
+    </div>
               
 
             <div class="otroscontenidos">
@@ -217,22 +215,19 @@ $(window).on("load", function () {
                   echo '<div class="marizq"></div>';
                 }
                 @endphp
-                @endforeach             
+                @endforeach 
+      
             </div>
-
-                
-            <br>
-            <br>
-            <br>
-            
+              <br>
+          
             <div class="container paginacion" >
               <center>
               
               {{ $ofertas->render("pagination::materialize-ui")}}
               </center>
-            </div>
+            </div>    
             <br>
-            <br>
-            <br>
+     
+            <br>  
 </div>
 @endsection

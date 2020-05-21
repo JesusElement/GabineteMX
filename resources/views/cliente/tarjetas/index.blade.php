@@ -45,7 +45,7 @@
                     foreach($direc as $value){
                            $card= $value->num_tar;
                            $nom = $value->nom_card; 
-                           $expi = $value->expi;
+                          $expi = $value->expi;
                            $id=$value->id_pago;
                            $id = ($id*263412432)/2;
                         $key="Una oracion al santro padre 3425ytsdfhvbdfs ";
