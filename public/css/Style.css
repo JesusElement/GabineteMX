@@ -1119,12 +1119,7 @@ nav a.sidenav-trigger i {
 
 /* SI OCACIONA PROBLEMAS MOVER AL INICIO DE ACTUALIZARP */
 
-@import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
- 300,
-600,
-700,
-300italic,
-400italic);
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:400, 300,600,700,300italic,400italic);
 .tabla {
     margin: 0 auto;
 }
@@ -1167,12 +1162,7 @@ nav a.sidenav-trigger i {
     text-align: left;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Open + Sans:400,
- 300,
-600,
-700,
-300italic,
-400italic);
+@import url(https://fonts.googleapis.com/css?family=Open + Sans:400, 300,600,700,300italic,400italic);
 .tablaprom {
     margin: 0 auto;
 }
@@ -1329,4 +1319,185 @@ fieldset {
 .contenedor .header .fotoperfilDiv .dropmenu {
     color: black !important;
     min-width: 160px;
+}
+
+.OpcionesCuen {
+    display: grid;
+    grid-template-columns: minmax(50px, 180px) minmax(100px, 1fr) minmax(50px, 180px);
+    grid-template-rows: repeat(3, minmax(30px, auto));
+    grid-template-areas: "espaI cabeza espaD" "espaI contenidoC espaD" "espaI abajo espaD";
+}
+
+.opcionCu {
+    background-color: rgba(140, 140, 140, 0.18);
+    width: 100%;
+    border-radius: 5px;
+    border: 2px inset rgba(0, 150, 192, 0.5);
+}
+
+.opcionCu {
+    grid-column-start: contenidoC;
+    grid-column-end: contenidoC;
+    grid-row-start: contenidoC;
+    grid-row-end: contenidoC;
+}
+
+.opcionCu {
+    display: grid;
+    grid-template-columns: minmax(30px, 40px) minmax(100px, 1fr) minmax(30px, 40px);
+    grid-template-rows: repeat(2, minmax(30px, auto));
+    grid-template-areas: "EspacioI FotoInfo EspacioD" "EspacioI OpcionesC EspacioD";
+}
+
+.ImgInfo {
+    margin: 2%;
+    grid-column-start: FotoInfo;
+    grid-column-end: FotoInfo;
+}
+
+.ImgInfo {
+    display: grid;
+    grid-template-columns: minmax(100px, .5fr) minmax(100px, 1fr);
+    grid-template-rows: repeat(1, minmax(30px, auto));
+    grid-template-areas: "Foto Info";
+}
+
+.ImgC {
+    grid-column-start: Foto;
+    grid-column-end: Foto;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.ImgC img {
+    width: 85px;
+    height: 80px;
+    border-radius: 90px;
+}
+
+.InfoC {
+    grid-column-start: Info;
+    grid-column-end: Info;
+    border-bottom: 2px solid #404040;
+}
+
+.InfoC b {
+    color: #0096c0;
+}
+
+.InfoC p {
+    margin-top: 7px;
+    margin-bottom: 4px;
+}
+
+.opcionesC {
+    grid-column-start: OpcionesC;
+    grid-column-end: OpcionesC;
+    margin-bottom: 2%;
+}
+
+.opcionesC {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) minmax(100px, 1fr);
+    grid-template-rows: repeat(1, minmax(30px, auto));
+    grid-template-areas: "opcion1 opcion2";
+}
+
+.opcionesC ul li {
+    font-size: large;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+.opcion1 {
+    grid-column-start: opcion1;
+    grid-column-end: opcion1;
+}
+
+.opcion2 {
+    grid-column-start: opcion2;
+    grid-column-end: opcion2;
+}
+
+.opcion1 {
+    border-right: 2px solid #404040;
+    padding: 2%;
+    text-align: center;
+}
+
+.opcion1 ul li a {
+    color: #0046c2 !important;
+}
+
+.opcion2 ul li a {
+    color: #0046c2 !important;
+}
+
+.opcion2 {
+    padding: 2%;
+    text-align: center;
+}
+
+.opcion2 .red-i a {
+    color: #cf1889 !important;
+}
+
+.opcionesMPC {
+    grid-column-start: OpcionesC;
+    grid-column-end: OpcionesC;
+    margin-bottom: 2%;
+}
+
+.opcionesMPC {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr);
+    grid-template-rows: repeat(1, minmax(30px, auto));
+}
+
+.opcion3 {
+    font-size: large;
+}
+
+.opcion3 .btn-warning {
+    background-color: #dfdc12d5;
+    color: #404040;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.opcion3 .btn-danger {
+    background-color: #ee1313d5;
+    color: #404040;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.opcion3 .btn-info {
+    color: #404040;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+@media screen and (max-width: 600px) {
+    .OpcionesCuen {
+        display: grid;
+        grid-template-columns: minmax(10px, 10px) minmax(100px, 1fr) minmax(10px, 10px);
+        grid-template-rows: repeat(3, minmax(30px, auto));
+        grid-template-areas: "espaI cabeza espaD" "espaI contenidoC espaD" "espaI abajo espaD";
+    }
+    .opcionCu {
+        display: grid;
+        grid-template-columns: minmax(20px, 20px) minmax(100px, 1fr) minmax(20px, 20px);
+        grid-template-rows: repeat(2, minmax(30px, auto));
+        grid-template-areas: "EspacioI FotoInfo EspacioD" "EspacioI OpcionesC EspacioD";
+    }
+    .opcion3 {
+        font-size: smaller;
+    }
+    .opcion1 ul li a {
+        font-size: smaller;
+    }
+    .opcion2 ul li a {
+        font-size: smaller;
+    }
 }

@@ -5,6 +5,78 @@
 
 <div class="TarjetaGrid">
 
+<?php
+if(isset($_GET['update'])){
+  $tip = $_GET['update'];
+
+if(!isset($real)){
+    $real = "¿Que tramas?";
+
+}
+if(!isset($nom)){
+  $nom = "¿Que tramas?";
+
+}
+}
+elseif(isset($_GET['delete'])) {
+  $tip = $_GET['delete'];
+}
+elseif(isset($_GET['create'])) {
+  $tip = $_GET['create'];
+}
+else {
+  $tip='create';
+}
+
+if($tip == 'update' || $tip== 'delete'){
+  $id = $_GET['idcard'];
+  $id= ($id*2)/263412432;
+
+  $user = auth()->user()->id_cliente;
+  $direc = DB::select('SELECT * FROM `cli_m_pago` WHERE id_cliente = ? && id_pago =? ', [$user,$id]);
+foreach($direc as $value){
+      $card= $value->num_tar;
+      $nom = $value->nom_card; 
+      $expi = $value->expi;
+      $id=$value->id_pago;
+      $id = ($id*263412432)/2;
+   $key="Una oracion al santro padre 3425ytsdfhvbdfs ";
+   list($encrypted_data, $iv) = explode('::', base64_decode($card), 2);
+   $valor = openssl_decrypt($encrypted_data, 'aes-256-cbc', $key, 0, $iv);
+  $real = substr($valor,14,16);
+
+}
+
+}
+?>
+
+<div class="MensajeT">
+@php
+            if($tip == 'update'){
+              @endphp
+              <h3>Modifique los datos de la tarjeta</h3>
+              <p><h6>Con terminacion: {{$real}}</h6></p>
+              @php
+            }
+            else if($tip == 'creacionT'){
+              @endphp
+              <h3>Ingrese tu tarejta de credito o debito</h3>
+              @php
+            }
+            else if($tip == 'create'){
+              @endphp
+              <h3>Ingrese tu tarejta de credito o debito</h3> 
+              @php
+            }
+            else if($tip == 'delete'){
+              @endphp
+              <h3>Seguro que quieres eliminar la Tajeta</h3> 
+              <p><h6>Con terminacion: {{$real}}</h6></p>
+              @php
+            }
+        @endphp
+</div>
+
 <div class="container">
     <div class="col1">
       <div class="card">
@@ -26,7 +98,27 @@
       </div>
     </div>
     <div class="col2">
-          <form method="POST" action="{{route ('AddTarj') }}">
+
+         @php
+            if($tip == 'update'){
+              @endphp
+              <form method="POST" action="{{route ('ModTarj') }}">
+              <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
+              @php
+            }
+            else if($tip == 'creacionT'){
+              @endphp
+              <form method="POST" action="{{route ('AddTarj') }}">
+              <input type="hidden" name="val" id="val" value="Cambio">
+              @php
+            }
+            else if($tip == 'create'){
+              @endphp
+              <form method="POST" action="{{route ('AddTarj') }}">
+              @php
+            }
+            if($tip != 'delete'){
+        @endphp
           @csrf
             <div class="inpT">
                 <label for="num_tar">Card Number</label>
@@ -40,7 +132,7 @@
             </div>
             <div class="inpT">
               <label for="name">Cardholder name</label>
-              <input class="inputname" id="name" name="name" value="{{old('name')}}" type="text" placeholder=""/>
+              <input class="inputname" id="name" name="name" value="{{isset($id) ? $nom : old('name')}}" type="text" placeholder=""/>
             </div> 
             <div class="inpT">    
             <label for="expi">Expiry date</label>
@@ -60,14 +152,55 @@
                    </span>
                 @enderror 
             </div>
-        <button class="buy" type="submit"> Registrar </button>
+            @php
+            
+            if($tip == 'update'){
+              @endphp
+              <button class="buy" type="submit"> Actualizar </button>
+              @php
+            }
+            else if($tip == 'creacionT'){
+              @endphp
+              <button class="buy" type="submit"> Registrar </button>
+              @php
+            }
+          }
+          else if($tip == 'delete'){
+            @endphp
+            <div class="inpT">
+                <label for="num_tar">Card Number</label>
+                <input class="number" type="text" value="**** **** **** {{$real}}" id="num_tar" name="num_tar" ng-model="ncard" maxlength="19" /> 
+            </div>
+            @php
+            if($tip == 'delete'){
+              $id= ($id*2)/263412432;
+              @endphp
+              <form method="post" action="{{url('cliente/Tarjetas/delete',['id'=>$id]) }}">
+              @method('DELETE')
+              @csrf
+              @php
+            }
+            @endphp
+            <button class="buy btn-danger" type="submit"> Eliminar </button>
+@php
+          }
+        @endphp
         </form>
     </div>
 
 </div>
 
 </div>
+<div class="MensajeT">
+  @php
+            if($tip == 'update'){
+              @endphp
+  <h5>No se ponen los datos de la tarejeta por motivos de seguridad</h5>
+              @php
+            }
+        @endphp
 
+</div>
 <script>
     $(function(){
   

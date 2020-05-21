@@ -30,7 +30,7 @@
   <!-- Load the TableSorter plugin. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.21.5/js/jquery.tablesorter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script>
-<!-- <script src="js/Main.js"></script> -->
+<!--<script src="js/Main.js"></script>-->
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
@@ -78,7 +78,7 @@
                 <div class="fotoperfilDiv">
                   <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
                   <ul id='dropdown3' class='dropdown-content dropmenu'>
-                  <li class="blue-text text-darken-2"><a class="dropmenu"> Mi Cuenta </a></li>
+                  <li class="blue-text text-darken-2"><a class="dropmenu" href="{{route('CuentaCli')}}"> Mi Cuenta </a></li>
                   <li class="blue-text text-darken-2"><a class="dropmenu"> Mis Pedidos </a></li>
                   <li class="blue-text text-darken-2"><a class="dropmenu"> Ayuda </a></li>
                   </ul>
