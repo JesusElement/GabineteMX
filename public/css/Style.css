@@ -92,9 +92,10 @@
 }
 
 .contenedor .header .logoDiv .logo {
-    width: 120px;
-    height: 49px;
+    width: 130px;
+    height: 65px;
     margin-left: 10px;
+    z-index: +1;
 }
 
 .contenedor .header .barsub .menuDiv {
@@ -220,19 +221,21 @@ nav a.sidenav-trigger i {
     grid-area: barinf;
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-columns: 20% 10% 10% 10% 10% 10% 10% 20%;
     grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv salirDiv marder";
 }
 
 @media screen and (max-width: 1068px) {
     .contenedor .header .barinf {
         max-height: auto !important;
-        grid-template-columns: 15% 10% 20% 20% 20% 15%;
+        grid-template-columns: 10% 10% 20% 20% 20% 10% 10%;
         grid-template-rows: auto;
-        grid-template-areas: "marizq ejecutivaDiv trabajoDiv   gamerDiv hardwareDiv marder" "marizq gadetsDiv   salirDiv marder";
+        grid-template-areas:
+         "marizq ejecutivaDiv  trabajoDiv gamerDiv hardwareDiv gadetsDiv marder";
+     
     }
     .contenedor .header .barinf .marder {
-        justify-self: center;
+        justify-self: stretch;
     }
 }
 
@@ -241,13 +244,26 @@ nav a.sidenav-trigger i {
         max-height: auto !important;
         grid-template-columns: 5% 30% 30% 35%;
         grid-template-rows: auto;
-        grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv" "marizq hardwareDiv gadetsDiv  marder" "marizq  marder";
+        grid-template-areas: 
+        "marizq ejecutivaDiv trabajoDiv gamerDiv" 
+        "marizq hardwareDiv gadetsDiv  marder" 
+        ;
     }
     .contenedor .header .barinf .marder {
         grid-area: marder;
         padding-bottom: 0px !important;
         padding-top: 10px;
     }
+
+    .contenedor .header .barinf .gadetsDiv {
+        justify-self: stretch;
+        align-self: center;
+        color: #f2f2f2;
+        grid-area: gadetsDiv;
+        border-bottom: solid white;
+        text-align: center;
+    }
+    
 }
 
 .contenedor .header .barinf .marizq {
