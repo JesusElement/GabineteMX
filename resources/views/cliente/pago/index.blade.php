@@ -21,19 +21,40 @@
                     <div class="Pan1">
                         <h5>Dirección</h5>
                         <div class="input-field col s12">
-                            <select>
-                                <option value="" disabled selected>Direcciones</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                            <select id="tarjeta" class="form-control" name="tarjeta">
+                                <option value="" selected="true" disabled="disabled">Tarjetas</option>
+                                <?php
+
+                                $user = auth()->user()->id_cliente;
+                                $direc = DB::select('SELECT * FROM `cli_m_pago` WHERE id_cliente = ?', [$user]);
+                             foreach($direc as $value){
+                                    $card= $value->num_tar;
+                                    $nom = $value->nom_card; 
+                                   $expi = $value->expi;
+                                    $id=$value->id_pago;
+                                    $id = ($id*263412432)/2;
+                                 $key="Una oracion al santro padre 3425ytsdfhvbdfs ";
+                                 list($encrypted_data, $iv) = explode('::', base64_decode($card), 2);
+                                 $valor = openssl_decrypt($encrypted_data, 'aes-256-cbc', $key, 0, $iv);
+                                $real = substr($valor,14,16);
+         
+                                ?>
+
+
+                                <option value=<?php echo "**** ".$real ?>><?php echo "**** ".$real ?></option>
+
+                                <?php
+                            }
+                            ?>
                             </select>
-                            <label>Dirección de envio</label>
+                            <label>Tarjetas registradas</label>
                         </div>
                     </div>
                     <div class="Pan2">
-                        <h5>Tarjeta</h5>
+                        <h5>Direccion</h5>
                         <div class="input-field col s12">
                             <select>
+
                                 <option value="" disabled selected>Tarjetas</option>
                                 <option value="1">Option 1</option>
                                 <option value="2">Option 2</option>
@@ -52,7 +73,7 @@
                                         <p>Por inauguración temporalmente todos nuestros envios son gratis</p>
                                     </div>
                                     <div class="card-action">
-                                     
+
                                     </div>
                                 </div>
                             </div>
@@ -61,64 +82,64 @@
                     </div>
 
                 </div>
-            <div class="contenedor21">
-                @foreach ($Carrito as $q)
-                <div class="carritoCardCss z-depth-2">
-                    <div class="carritoCardImgCss">
-                        <img class="carritoImgCss"
-                            src="/Imagenes/Productos/{{ $q->nom_fami }}/{{ $q->nom }}/{{ $q->id_produc }}/1.jpg"
-                            alt="">
-                    </div>
-                    <div class="carritoCardInfoCss">
-                        <h5 class="titulo">{{ $q->titulo }}</h5>
-                        <p>{{ $q->nom }}</p>
-                        <p>Cantidad:</p>
-                        <p style="display: none;">{{ $H = $q->stock }}</p>
-                        <a class="waves-effect waves-light btn transparent"
-                            href="{{ url("carritoMenos/{$q->id_produc}") }}"
-                            id="quantity"><i class="b material-icons">remove</i></a>
-                        <b style="margin: 1rem; background-color: #fff;">{{ $q->cantidad }}</b>
-                        <a class="waves-effect waves-light btn transparent"
-                            href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i
-                                class="b material-icons">add</i></a>
-                    </div>
-                    <div class="carritoEliPreCss">
-                        <b class="precio">${{ number_format($q->cantidad*$q->prec_uni,2) }} x
-                            {{ $q->cantidad }}</b>
-                        <a class="Eli"
-                            href="{{ url("EliCarrito/{$q->id_produc}") }}">Eliminar</a>
+                <div class="contenedor21">
+                    @foreach($Carrito as $q)
+                        <div class="carritoCardCss z-depth-2">
+                            <div class="carritoCardImgCss">
+                                <img class="carritoImgCss"
+                                    src="/Imagenes/Productos/{{ $q->nom_fami }}/{{ $q->nom }}/{{ $q->id_produc }}/1.jpg"
+                                    alt="">
+                            </div>
+                            <div class="carritoCardInfoCss">
+                                <h5 class="titulo">{{ $q->titulo }}</h5>
+                                <p>{{ $q->nom }}</p>
+                                <p>Cantidad:</p>
+                                <p style="display: none;">{{ $H = $q->stock }}</p>
+                                <a class="waves-effect waves-light btn transparent"
+                                    href="{{ url("carritoMenos/{$q->id_produc}") }}"
+                                    id="quantity"><i class="b material-icons">remove</i></a>
+                                <b style="margin: 1rem; background-color: #fff;">{{ $q->cantidad }}</b>
+                                <a class="waves-effect waves-light btn transparent"
+                                    href="{{ url("carritoMas/{$q->id_produc}") }}"
+                                    id="quantity"><i class="b material-icons">add</i></a>
+                            </div>
+                            <div class="carritoEliPreCss">
+                                <b class="precio">${{ number_format($q->cantidad*$q->prec_uni,2) }} x
+                                    {{ $q->cantidad }}</b>
+                                <a class="Eli"
+                                    href="{{ url("EliCarrito/{$q->id_produc}") }}">Eliminar</a>
 
-                    </div>
+                            </div>
+
+                        </div>
+
+                    @endforeach
 
                 </div>
-          
-              @endforeach
-      
-            </div>
-            <div class="Pago">
-                <div class="col s12 m7">
-                    <h5 class="header">Pago</h5>
-                    <div class="card horizontal c">
-                        <i class="material-icons i">credit_card</i>
-                        <div class="card-stacked c">
-                            <div class="card-content c">
-                                <h6>Total:
-                                    @php
-                                        echo number_format($Total,2);
-                                    @endphp
-                                     </h6>
-                            </div>
-                            <div class="card-action">
-                             
+                <div class="Pago">
+                    <div class="col s12 m7">
+                        <h5 class="header">Pago</h5>
+                        <div class="card horizontal c">
+                            <i class="material-icons i">credit_card</i>
+                            <div class="card-stacked c">
+                                <div class="card-content c">
+                                    <h6>Total:
+                                        @php
+                                            echo number_format($Total,2);
+                                        @endphp
+                                    </h6>
+                                </div>
+                                <div class="card-action">
+
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="bttnCss">
+                        <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
+                            id="cerrarmodal">Cerrar</button>
+                    </div>
                 </div>
-                <div class="bttnCss">
-                    <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
-                        id="cerrarmodal">Cerrar</button>
-                </div>
-            </div>
             </div>
         </div> {{-- TERMINA BODY --}}
     </div> {{-- TERMINA CONTENT --}}
