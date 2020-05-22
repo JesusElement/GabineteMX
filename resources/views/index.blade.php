@@ -210,8 +210,8 @@ $(window).on("load", function () {
                   <div class="modal-footer">
                     <a href="#!" class="modal-close btn waves-effect waves-light red">Cerrar</a>
                     
-                    <a href="{{ url("carrito/{$oferta->id_produc}") }}"class="btn waves-effect waves-light btnAgregarCarrito" onclick="swal({icon: 'success', text: '¡Agregado a carrito!', });">Agregar a carrito</a>
-                    <a href="{{route('producto',['num_produc' => $oferta->id_produc]) }}" class="btn waves-effect waves-light btnComprar">Especificaciones</a>
+                    <a href="{{ url("carrito/{$oferta->id_produc}") }}"class="btn waves-effect waves-light btnAgregarCarrito" onclick="swal({icon: 'success', text: '¡Agregado a carrito!', });"><i class="large material-icons">add_shopping_cart</i>Agregar </a>
+                    <a href="{{route('producto',['num_produc' => $oferta->id_produc]) }}" class="btn waves-effect waves-light btnComprar" style="width: 25%;">Especificaciones<i class="material-icons">assignment</i></a>
                   </div>
                 </div> 
 
