@@ -30,7 +30,7 @@
                              foreach($direc as $value){
                                     $card= $value->num_tar;
                                     $nom = $value->nom_card; 
-                                   $expi = $value->expi;
+                                    $expi = $value->expi;
                                     $id=$value->id_pago;
                                     $id = ($id*263412432)/2;
                                  $key="Una oracion al santro padre 3425ytsdfhvbdfs ";
@@ -117,36 +117,33 @@
                             <i class="material-icons i">credit_card</i>
                             <div class="card-stacked c">
                                 <div class="card-content c">
-                                    <h6>Total:
+                                    <br>
+                                    <h6>Total: $
                                         @php
                                             echo number_format($Total,2);
                                         @endphp
                                     </h6>
                                     <br>
+                                    <p style="font-size: 13px;">Todos nuestros precios incluyen IVA</p>
                                     <br>
-                                    <br>
-
                                 </div>
                                 <div class="card-action">
-                                    <div class="bttnCss">
-                                    <button class="waves-effect waves-light btn  light-green lighten-2" 
+                                    <div class="bttnCss bconf ">
+                                    <button class="waves-effect waves-light btn  bconf light-green lighten-2" 
                                         onclick="verificar()">
                                         <span style="color: black">Confirmar pago</span></button>
                                     </div>
 
-
-                                    <div class="bttnCss">
-                                        <button class="waves-effect waves-light btn  light-green lighten-4" 
+                                    <div class="bttnCss bagre">
+                                        <button class="waves-effect waves-light btn light-green lighten-4" 
                                         onclick="window.location='{{ url('/cliente/Tarjetas') }}'">
                                             <span style="color: black">Agregar tarjeta</span></button>
                                         </div>
-    
 
-                                        <div class="bttnCss">
+                                        <div class="bttnCss bcer">
                                             <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
                                                 id="cerrarmodal">Cerrar</button>
                                         </div>
-
 
                                 </div>
                             </div>

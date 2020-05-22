@@ -615,6 +615,47 @@ nav a.sidenav-trigger i {
     grid-template-areas: "marizq tituloCarrito tituloCarrito marder" "marizq imagenCarrito  opCarrito marder";
 }
 
+.contenedor .contenido .Carrito {
+    display: grid;
+    grid-template-columns: 5% 70% 20% 5%;
+    grid-template-rows: auto;
+    grid-template-areas: "marizq tituloCarrito tituloCarrito marder" "marizq imagenCarrito  opCarrito marder";
+}
+
+@media screen and (max-width: 700px) {
+    .contenedor .contenido .Carrito {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "marizq" "tituloCarrito"   "opCarrito"   "imagenCarrito" "marder";
+    }
+
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
+        justify-content: right;
+
+    }    
+
+    .contenedor .contenido .Carrito .opCarrito {
+    grid-area: opCarrito;
+    text-align: center;   
+    }
+    
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss .Eli {
+    display: inline;
+    justify-self: right !important;
+    size: 10px;
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+}
+.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
+    grid-area: carritoCardInfoCss;
+    justify-content: right;
+}
+
+
+}
+
 .contenedor .contenido .Carrito .marizq {
     grid-area: marizq;
 }
@@ -631,7 +672,8 @@ nav a.sidenav-trigger i {
     display: grid;
     margin: 1rem;
     grid-template-columns: 15% 85%;
-    grid-template-areas: "carritoCardImgCss carritoCardInfoCss" "carritoCardImgCss carritoEliPreCss";
+    grid-template-areas: "carritoCardImgCss carritoCardInfoCss" 
+                            "carritoCardImgCss carritoEliPreCss";
 }
 
 .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardImgCss {
@@ -1765,4 +1807,22 @@ fieldset {
 
 .contenedor61 .Pago .c {
     background-color: #f1f1f1;
+}
+.contenedor61 .Pago .card-action {
+    display: grid;
+
+}
+
+.contenedor61 .Pago .card-action .bconf {
+    justify-self: left;
+  
+}
+.contenedor61 .Pago .card-action .bagre {
+   margin-top: 1rem;
+    text-align: left;
+    
+}
+.contenedor61 .Pago .card-action .bcer {
+   text-align: right;
+
 }

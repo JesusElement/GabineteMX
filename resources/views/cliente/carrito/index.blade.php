@@ -48,7 +48,7 @@
     <div class="card horizontal z-depth-3">
       <div class="card-stacked">
         <div class="card-content">
-          <h6>Total:
+          <h6>Total: $
           @php
               echo number_format($Total,2);
           @endphp
