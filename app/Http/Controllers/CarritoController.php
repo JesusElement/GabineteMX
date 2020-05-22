@@ -155,8 +155,8 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         $direccion = DB::table('direccion')
             ->join('estado', 'estado.id_estado', 'direccion.id_estado')
             ->join('direc_cliente', 'direc_cliente.id_direc', 'direccion.id_direc')
-            ->select('direccion.*', 'estado.estado')
-            ->where('direc_cliente.id_cliente', $id);
+            ->select('direccion.calle', 'estado.estado','direccion.numero','direccion.id_direc','direccion.colonia','direccion.alias','direccion.*')
+            ->where('direc_cliente.id_cliente', $id)->get();
         // var_dump($direccion);
 
 

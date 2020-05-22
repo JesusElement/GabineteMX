@@ -15,14 +15,14 @@
         <div class="modal-body"> {{-- INICIA BODY --}}
             <div class="contenedor61"> {{-- INICIA EL 60 % DEL FORMULARIO --}}
                 <div class="titulo">
-                    <h4>Pago</h4>
+                    <h4>Completa tu compra</h4>
                 </div>
                 <div class="HederTres  z-depth-2">
                     <div class="Pan1">
-                        <h5>Dirección</h5>
+                        <h5>Tarjetas</h5>
                         <div class="input-field col s12">
                             <select id="tarjeta" class="form-control" name="tarjeta">
-                                <option value="" selected="true" disabled="disabled">Tarjetas</option>
+                                <option value="" selected="true" disabled="disabled">Selecciona una</option>
                                 <?php
 
                                 $user = auth()->user()->id_cliente;
@@ -53,14 +53,16 @@
                     <div class="Pan2">
                         <h5>Direccion</h5>
                         <div class="input-field col s12">
-                            <select>
+                            <select id="direccion" class="form-control" name="direccion">
+                                <option value="" selected="true" disabled="disabled">Direcciones</option>
+                                @foreach($dir ?? '' as $direccion)
+                                    <option value="{{ $direccion->id_direc }}">
+                                        {{ $direccion->alias }}:&nbsp;&nbsp;{{ $direccion->calle }}&nbsp;{{ $direccion->numero }}&nbsp;{{ $direccion->ciudad }}
+                                    </option>
 
-                                <option value="" disabled selected>Tarjetas</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
+                                @endforeach
                             </select>
-                            <label>Selecciona tarjeta</label>
+                            <label>Selecciona un destino</label>
                         </div>
                     </div>
                     <div class="Pan3">
@@ -70,7 +72,8 @@
                                 <i class="material-icons i">a card_giftcard</i>
                                 <div class="card-stacked c">
                                     <div class="card-content c">
-                                        <p>Por inauguración temporalmente todos nuestros envios son gratis</p>
+                                        <p>Por que eres lo mas importante, todos tus envios corren por nuestra cuenta.
+                                        </p>
                                     </div>
                                     <div class="card-action">
 
@@ -92,22 +95,13 @@
                             </div>
                             <div class="carritoCardInfoCss">
                                 <h5 class="titulo">{{ $q->titulo }}</h5>
-                                <p>{{ $q->nom }}</p>
-                                <p>Cantidad:</p>
                                 <p style="display: none;">{{ $H = $q->stock }}</p>
-                                <a class="waves-effect waves-light btn transparent"
-                                    href="{{ url("carritoMenos/{$q->id_produc}") }}"
-                                    id="quantity"><i class="b material-icons">remove</i></a>
-                                <b style="margin: 1rem; background-color: #fff;">{{ $q->cantidad }}</b>
-                                <a class="waves-effect waves-light btn transparent"
-                                    href="{{ url("carritoMas/{$q->id_produc}") }}"
-                                    id="quantity"><i class="b material-icons">add</i></a>
+
                             </div>
                             <div class="carritoEliPreCss">
                                 <b class="precio">${{ number_format($q->cantidad*$q->prec_uni,2) }} x
                                     {{ $q->cantidad }}</b>
-                                <a class="Eli"
-                                    href="{{ url("EliCarrito/{$q->id_produc}") }}">Eliminar</a>
+
 
                             </div>
 
@@ -128,17 +122,37 @@
                                             echo number_format($Total,2);
                                         @endphp
                                     </h6>
+                                    <br>
+                                    <br>
+                                    <br>
+
                                 </div>
                                 <div class="card-action">
+                                    <div class="bttnCss">
+                                    <button class="waves-effect waves-light btn  light-green lighten-2" 
+                                        onclick="verificar()">
+                                        <span style="color: black">Confirmar pago</span></button>
+                                    </div>
+
+
+                                    <div class="bttnCss">
+                                        <button class="waves-effect waves-light btn  light-green lighten-4" 
+                                        onclick="window.location='{{ url('/cliente/Tarjetas') }}'">
+                                            <span style="color: black">Agregar tarjeta</span></button>
+                                        </div>
+    
+
+                                        <div class="bttnCss">
+                                            <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
+                                                id="cerrarmodal">Cerrar</button>
+                                        </div>
+
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bttnCss">
-                        <button class="modal-action modal-close waves-effect waves-red btn red lighten-1"
-                            id="cerrarmodal">Cerrar</button>
-                    </div>
+       
                 </div>
             </div>
         </div> {{-- TERMINA BODY --}}

@@ -138,7 +138,7 @@ $user = auth()->user()->nom;
                                 </div>
                                 <div class="card-action">
 
-                <a href="{{ url("carrito/{$producto->id_produc}") }}" id="jsAgrego"  class="btn waves-effect waves-light btnAgregarCarrito" onclick="swal({icon: 'success', text: '¡Agregado a carrito!', });">Agregar a carrito</a> 
+                <button href="{{ url("carrito/{$producto->id_produc}") }}" id="jsAgrego"  class="btn waves-effect waves-light btnAgregarCarrito" onclick="swal({icon: 'success', text: '¡Agregado a carrito!', });">Agregar a carrito</button> 
                 
                
                     

@@ -85,6 +85,8 @@ Route::get('/buscarproducto', function() {
         return view('admin.index');
     })->name('adminindex');
 
+
+
     Auth::routes();
 
     Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
@@ -97,6 +99,7 @@ Route::get('/buscarproducto', function() {
     Route::delete('/admin/gestionarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
     Route::post('/admin/gestionarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
     
+  
     
     
     Route::get('/buscarproducto/{search}','BuscarProductoController@show')->name('buscarproducto');
@@ -189,5 +192,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/cliente/eliminar/{id}', 'ClienteController@destoy')->name('CerrarCuenta');
 
     Route::post('/cliente/comentario/{producto}/{idcli}', 'ComentController@store')->name('addcoment');
+
+
+
+///CLIENTES PEDIDO
+
+Route::get('cliente/pedidos', function () {
+    return view('cliente.pedidos.index');
+})->name('verped');
+
 
 });

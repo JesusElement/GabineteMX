@@ -37,7 +37,7 @@
         <div class="opcionesC">
             <div class="opcion1">
                 <ul>
-                    <li><a>Mis Pedidos</a></li>
+                    <li><a href="{{route('verped')}}" >Mis Pedidos</a></li>
                     <li><a href="{{route('verCarrito')}}">Mi carrito</a></li>
                     <li><a>Mis Productos Comprados</a></li>
                 </ul>
@@ -65,7 +65,7 @@
     </div>
     <div class="modal-footer">
     <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar ventana</a>
-    <from action="{{route('CerrarCuenta',['id'=>auth()->user()->id_cliente])}}" method="POST">
+    <foRm action="{{route('CerrarCuenta',['id'=>auth()->user()->id_cliente])}}" method="POST">
     @method('DELETE')
     @csrf
         <button style="color:red" type="submit" class="modal-close waves-effect waves-green btn-flat">Eliminar mi cuenta</button>
