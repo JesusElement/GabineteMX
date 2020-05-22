@@ -1,6 +1,7 @@
 @extends('layouts.plantilla')
 @section('seccion')
         <?php
+        $user = auth()->user()->id_cliente;
         if(isset($_GET['num_produc'])){
         $produc = $_GET['num_produc'];
         $fech_ac = date("Y-m-s");
@@ -165,10 +166,26 @@
                 
                 <!-- Inicia contenido productos relacionados -->
                 <div class="comentarioProducto">
-                    <div class="CreaComent">
+                @guest
+                
+                <div class="CreaComent">
+                    <center>
+                        <h5>¿Quieres dejar un comentario u opinion del producto?</h5>
+                        <p><a href="{{ url('register') }}">Registrate</a> o <a href="{{route('login')}}">incica sesion</a> para dejar tu comentario</p>
+                    </center>
+                </div>
+                @else
+                <div class="CreaComent">
                     <h5 class="black-text"> Deja tu comentario </h5>
-                        <form id="comentariouser" action="" method="POST" enctype="multipart/form-data">
-                            <textarea id="WCU" rows="4" cols="30" >  </textarea>
+                        <form id="comentariouser" action="{{url('cliente/comentario',['producto'=>$produc,'idcli'=>$user])}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                            <textarea id="WCU" name="coment" rows="4" cols="30" >  </textarea>
+                            @error('coment')
+                            <br>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong style="color:red">{{ $message }}</strong>
+                                    </span>
+                             @enderror 
                             <div class="Estrella">
                             <h6 class="black-text"> Calificalo </h6>
                             <input id="radio1" type="radio" name="estrellas" value="5"><!--
@@ -187,6 +204,9 @@
                             
                         </form>
                     </div>
+                @endguest
+                    
+
                     <div class="tituloC"> <h5 class="black-text"> Opiniones de los usuarios </h5>  </div>
                     @foreach ($coments as $coment)
                         <div>

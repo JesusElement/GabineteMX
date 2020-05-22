@@ -188,4 +188,6 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/cliente/eliminar/{id}', 'ClienteController@destoy')->name('CerrarCuenta');
 
+    Route::post('/cliente/comentario/{producto}/{idcli}', 'ComentController@store')->name('addcoment');
+
 });

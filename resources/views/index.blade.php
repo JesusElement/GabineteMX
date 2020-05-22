@@ -1,6 +1,14 @@
 <!-- IMPORTANTE PARA QUE EL LOADER CARGUE PRIMERO TIENE QUE ESTAR EL CODIGO AQUI     -->
+
+@guest
+@else
 @php
-if(isset($_GET['page'])){
+$val = auth()->user()->nom;
+@endphp
+@endguest
+
+@php
+if(isset($_GET['page']) || isset($val)){
 }
 else{
 @endphp

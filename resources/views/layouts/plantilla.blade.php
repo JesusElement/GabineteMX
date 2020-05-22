@@ -135,7 +135,7 @@
             <!-- Haeader barra sub FIN-->
           <!-- Haeader barra inf INICIO-->
           <div class="barinf">
-            <?php $categorias = DB::select("SELECT * FROM familia WHERE id_familia != 000000000"); ?>
+           
             <div class="marizq"></div>
                 <div class="ejecutivaDiv">
                     Ejecutiva  
@@ -143,10 +143,13 @@
                 <div class="trabajoDiv">
                     Trabajo   
                 </div>
-                <div class="gamerDiv">
+                <?php $categorias = DB::select("SELECT * FROM familia WHERE id_familia != 000000000 && id_familia = '210420EQU'"); ?>
+                @foreach ($categorias as $categoria)
+                <a class="gamerDiv" href="{{ url("buscarproducto/{$categoria->nom_fami}") }}">
                     Gamer   
-                </div>
-                
+                </a>
+                @endforeach
+                <?php $categorias = DB::select("SELECT * FROM familia WHERE id_familia != 000000000 && id_familia != '210420EQU'"); ?>
                 <div class="hardwareDiv">
 
                     <a class='dropdown-trigger colortext' href='#' data-target='dropdown2'>Hardware</a>
