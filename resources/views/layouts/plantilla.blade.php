@@ -58,15 +58,6 @@
                   </a>
                 </div>
                 <div class="menuDiv">
-                    <a class="dropdown-trigger btnMenu" href='#' data-target='dropdown1'><i class="small material-icons">toc</i></a>
-                    <ul id='dropdown1' class='dropdown-content dropMenu'>
-                        <li><a class="ct" href="#!">Pedidos</a></li>
-                        <li><a class="ct" style="font-size: 15px;" href="#!">Devoluciones</a></li>
-                        <li class="divider" tabindex="-1"></li>
-                        <li><a class="ct" href="#!">Cuenta</a></li>
-                        <li><a class="ct" style="font-size: 15px;" href="#!">Compras</a></li>
-                        <li><a class="ct" style="font-size: 15px;" href="#!">Dirección</a></li>
-                      </ul>
                 </div>
                 <div class="buscarDiv">
                     <nav  class="buscador">
@@ -89,13 +80,12 @@
 
                 @else
                 <div class="fotoperfilDiv">
-                  <a class='dropdown-trigger colortext' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
+                  <a class='dropdown-trigger btnMenu' data-target='dropdown3'><i class="small material-icons" >account_box</i>  </a>
                   <ul id='dropdown3' class='dropdown-content dropmenu'>
                   <li class="blue-text text-darken-2"><a class="dropmenu" href="{{route('CuentaCli')}}"> Mi Cuenta </a></li>
                   <li class="blue-text text-darken-2"><a class="dropmenu"> Mis Pedidos </a></li>
-                  <li class="blue-text text-darken-2"><a class="dropmenu"> Ayuda </a></li>
+                  <li class="blue-text text-darken-2"><a class="dropmenu" href="{{url('ayuda',['tip' => 'SAC'])}}"> Ayuda </a></li>
                   </ul>
-                    
                 </div>
 
                 <div class="nombreperfilDiv">

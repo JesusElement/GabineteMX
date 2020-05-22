@@ -1346,8 +1346,9 @@ fieldset {
 /* Para la pagina de mi cuenta*/
 
 .contenedor .header .fotoperfilDiv .dropmenu {
-    color: black !important;
+    color: whitesmoke;
     min-width: 160px;
+    background-color: #404040;
 }
 
 .OpcionesCuen {
