@@ -678,6 +678,21 @@ nav a.sidenav-trigger i {
         margin: 8px;
         }
 
+        .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
+            color: #ec9129;
+            font-size: medium;
+        }
+}
+
+@media screen and (max-width: 1500px) {
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
+        color: #ec9129;
+        font-size: medium;
+    }
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
+        margin-left: 4rem;
+        justify-content: right;
+        }
 }
 
 .contenedor .contenido .Carrito .marizq {
