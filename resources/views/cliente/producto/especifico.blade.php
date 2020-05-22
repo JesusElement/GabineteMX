@@ -144,7 +144,7 @@ $user = auth()->user()->nom;
                     
               
                                     <br>
-                                    <a href="#" class="btn waves-effect waves-light btnComprar">Comprar ahora</a>  
+                                    {{-- <a href="#" class="btn waves-effect waves-light btnComprar">Comprar ahora</a>   --}}
                                 </div>
                             </div>
                         </div>
