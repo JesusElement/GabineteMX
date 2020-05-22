@@ -98,21 +98,20 @@
                 </div>
                 @endguest
   
-
-                
                 <div class="ubicacionDiv">
                     <p style="font-size: 10px;">Ubicación</p>
                     <p style="display: inline;">Cuautitlán</p>
                     <i class="material-icons">place</i>
                 </div>
+
                 <div class="carritoDiv">
           <a class=" NumProductosCarrito" href="{{ route('verCarrito') }}"><i class="material-icons iconProductosCarrito">shopping_cart</i>
             @guest
              
             @else
               @php
-                       $id  =  auth()->user()->id_cliente;
-                  $NumP = DB::select("SELECT sum(cantidad) as N FROM carrito where id_cliente = '$id'");
+              $id  =  auth()->user()->id_cliente;
+              $NumP = DB::select("SELECT sum(cantidad) as N FROM carrito where id_cliente = '$id'");
               @endphp
              @foreach ($NumP as $item)
               {{$item->N}}

@@ -80,6 +80,9 @@ class TargCredController extends Controller
                     'num_tar'=>$encryptado
                 ]);
                 if(isset($data['val'])){
+                    if($data['val'] == 'CambioP'){
+                        return redirect()->route('verCarrito');
+                    }
                     return redirect()->route('MePaCli');
                 }
                 else{

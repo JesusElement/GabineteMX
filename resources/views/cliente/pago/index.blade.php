@@ -56,8 +56,8 @@
                             <select id="direccion" class="form-control" name="direccion">
                                 <option value="" selected="true" disabled="disabled">Direcciones</option>
                                 @foreach($dir ?? '' as $direccion)
-                                    <option value="{{ $direccion->id_direc }}">
-                                        {{ $direccion->alias }}:&nbsp;&nbsp;{{ $direccion->calle }}&nbsp;{{ $direccion->numero }}&nbsp;{{ $direccion->ciudad }}
+                                    <option value="{{ $direccion->alias }}">
+                                        {{ $direccion->alias }}: {{ $direccion->calle }} {{ $direccion->numero }} {{ $direccion->ciudad }}
                                     </option>
 
                                 @endforeach
@@ -135,9 +135,8 @@
                                     </div>
 
                                     <div class="bttnCss bagre">
-                                        <button class="waves-effect waves-light btn light-green lighten-4" 
-                                        onclick="window.location='{{ url('/cliente/Tarjetas') }}'">
-                                            <span style="color: black">Agregar tarjeta</span></button>
+                                        <a class="waves-effect waves-light btn light-green lighten-4" href="{{route('RegistroT',['create'=>'creacionTP'])}}">
+                                            <span style="color: black">Agregar tarjeta</span></a>
                                         </div>
 
                                         <div class="bttnCss bcer">

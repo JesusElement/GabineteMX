@@ -112,6 +112,12 @@ foreach($direc as $value){
               <input type="hidden" name="val" id="val" value="Cambio">
               @php
             }
+            else if($tip == 'creacionTP'){
+              @endphp
+              <form method="POST" action="{{route ('AddTarj') }}">
+              <input type="hidden" name="val" id="val" value="CambioP">
+              @php
+            }
             else if($tip == 'create'){
               @endphp
               <form method="POST" action="{{route ('AddTarj') }}">
@@ -159,7 +165,7 @@ foreach($direc as $value){
               <button class="buy" type="submit"> Actualizar </button>
               @php
             }
-            else if($tip == 'creacionT' || $tip == 'create'){
+            else if($tip == 'creacionT' || $tip == 'create' || $tip == 'creacionTP'){
               @endphp
               <button class="buy" type="submit"> Registrar </button>
               @php
