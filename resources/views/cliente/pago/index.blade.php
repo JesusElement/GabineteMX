@@ -8,7 +8,17 @@
         background-color: white;
     }
 </style>
+<form action="{{route('procederpago',['total'=>$Total])}}" method="POST" >
+@csrf
 
+@foreach ($Carrito as $q)
+<?php
+$idcant = $q->id_produc;
+$idcant = "c-".$idcant;
+?>
+<input type="hidden" name="{{$q->id_produc}}" value="{{$q->id_produc}}">
+<input type="hidden" name="{{$idcant}}" value="{{$q->cantidad}}">
+@endforeach
 <div class="modal fullscreen" id="#procederpago">
     {{-- INICIA MODAL DE UPDATE --}}
     <div class="modal-content"> {{-- -INICIA CONTENT --}}
@@ -41,14 +51,20 @@
                                 ?>
 
 
-                                <option value=<?php echo "**** ".$real ?>><?php echo "**** ".$real ?></option>
+                                <option value="<?php echo $id ?>"><?php echo "**** ".$real ?></option>
 
                                 <?php
                             }
                             ?>
                             </select>
+                             
                             <label>Tarjetas registradas</label>
                         </div>
+                        @error('tarjeta')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong style="color:red">{{ $message }}</strong>
+                                </span>
+                        @enderror
                     </div>
                     <div class="Pan2">
                         <h5>Direccion</h5>
@@ -64,6 +80,11 @@
                             </select>
                             <label>Selecciona un destino</label>
                         </div>
+                        @error('direccion')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong style="color:red">{{ $message }}</strong>
+                                </span>
+                         @enderror
                     </div>
                     <div class="Pan3">
                         <div class="col s12 m7 z-depth-0">
@@ -129,8 +150,7 @@
                                 </div>
                                 <div class="card-action">
                                     <div class="bttnCss bconf ">
-                                    <button class="waves-effect waves-light btn  bconf light-green lighten-2" 
-                                        onclick="verificar()">
+                                    <button type="submit" class="waves-effect waves-light btn  bconf light-green lighten-2">
                                         <span style="color: black">Confirmar pago</span></button>
                                     </div>
 
@@ -154,3 +174,4 @@
         </div> {{-- TERMINA BODY --}}
     </div> {{-- TERMINA CONTENT --}}
 </div>{{-- TERMINA MODAL --}}
+</form>

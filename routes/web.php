@@ -193,6 +193,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/cliente/comentario/{producto}/{idcli}', 'ComentController@store')->name('addcoment');
 
+    Route::post('/cliente/pago/{total}', 'PagoController@store')->name('procederpago');
+
 
 
 ///CLIENTES PEDIDO
