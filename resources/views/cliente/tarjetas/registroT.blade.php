@@ -143,11 +143,6 @@ foreach($direc as $value){
             <div class="inpT">    
             <label for="expi">Expiry date</label>
             <input class="expire" id="expi" name="expi" value="{{old('expi')}}" type="text" placeholder="MM / YYYY"/>
-            @error('expi')
-                   <span class="invalid-feedback" role="alert">
-                       <strong>{{ $message }}</strong>
-                   </span>
-                @enderror 
             </div>
             <div class="inpT">
                 <label for="clave">Security Number</label>

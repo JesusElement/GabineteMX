@@ -241,7 +241,9 @@
 
         <div class="footer-copyright">
           <div class="container">
-            Aviso de privacidad
+            <a class="grey-text text-lighten-4 left"
+              href="{{ url('ayuda',['tip' => 'AVP']) }}">Aviso de privacidad</a>
+            
             <a class="grey-text text-lighten-4 right"
               href="{{ url('ayuda',['tip' => 'TEC']) }}">Terminos
               y codiciones</a>

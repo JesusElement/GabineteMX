@@ -96,7 +96,7 @@ return [
     'password' => 'The password is incorrect.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
-    'required' => 'The :attribute field is required.',
+    'required' => 'El :attribute es necesario',
     'required_if' => 'The :attribute field is required when :other is :value.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -135,8 +135,7 @@ return [
         ],
         'email'=>[
             'unique' => 'El correo ingresado ya esta en uso',
-        ]
-        
+        ],        
     ],
 
     /*

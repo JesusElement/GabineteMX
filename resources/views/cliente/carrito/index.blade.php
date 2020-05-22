@@ -9,7 +9,17 @@
     </div>
     <div class="tituloCarrito">
 <h3>Carrito</h3>
-
+<ul>
+@if ($errors->any())
+     <div style="color: red !important">Verifique que los datos ingresados sean correctos</div>
+     
+     @error('cantidadCar')
+        <span class="invalid-feedback" role="alert">
+            <strong style="color:red">{{ $message }}</strong>
+        </span>
+     @enderror
+ @endif
+</ul>
 <hr>
     </div>
     <div class="imagenCarrito">
@@ -42,6 +52,7 @@
       </div>
     @php
         $Total = $Total + $q->prec_uni * $q->cantidad;
+        
     @endphp
       @endforeach
     </div>
