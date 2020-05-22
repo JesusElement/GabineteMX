@@ -1,7 +1,14 @@
 @extends('layouts.plantilla')
 @section('seccion')
+
+@guest
+@else
+@php
+$user = auth()->user()->nom;
+@endphp
+@endguest
         <?php
-        $user = auth()->user()->id_cliente;
+        
         if(isset($_GET['num_produc'])){
         $produc = $_GET['num_produc'];
         $fech_ac = date("Y-m-s");
@@ -69,10 +76,6 @@
                                     <i class="tiny material-icons star">star</i>
                                     @php 
 
-
-                                   
-
-
                                     $idp=$producto->id_produc;
 
                                     try {
@@ -91,23 +94,11 @@
                                         $precio = $producto->prec_uni;
                                     }
 
-
-
                                     } catch (\Throwable $th) {
                                         $idp=$producto->id_produc;
                                         $precio = $producto->prec_uni;
                                     }
-                                   
-
-                                    
-
-                                   
-                           
-
-
-
-
-                                
+                                     
                                     @endphp
                                     <h5 class="black-text">Precio:${{number_format($precio,2)}}  </h5>
                                     <h6 class="black-text">En existencia: {{$producto->stock}}  </h6>
