@@ -28,14 +28,17 @@
       <p style="display: none;">{{$H = $q->stock}}</p>
       <a  class="waves-effect waves-light btn transparent"   href="{{ url("carritoMenos/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">remove</i></a>
         <b style="margin: 1rem; background-color: #fff;">{{$q->cantidad}}</b>
-      <a  class="waves-effect waves-light btn transparent"  href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">add</i></a>
+        @if ($H == $q->cantidad)
+      <a  class="waves-effect waves-light btn transparent" disabled  href="" id="quantity"><i class="b material-icons">add</i></a>
+        <p style="color: red;">Maximo de productos disponibles... Pronto tendremos mas.</p>
+        @else 
+       <a  class="waves-effect waves-light btn transparent"  href="{{ url("carritoMas/{$q->id_produc}") }}" id="quantity"><i class="b material-icons">add</i></a>
+       @endif
     </div>
       <div class="carritoEliPreCss">
       <b class="precio">${{number_format($q->cantidad*$q->prec_uni,2)}} x {{$q->cantidad}}</b>
     <a class="Eli" href="{{ url("EliCarrito/{$q->id_produc}")}}">Eliminar</a>
-
     </div>
-   
       </div>
     @php
         $Total = $Total + $q->prec_uni * $q->cantidad;

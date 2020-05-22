@@ -221,7 +221,7 @@ nav a.sidenav-trigger i {
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv masbuscadoDiv mascalificadoDiv salirDiv marder";
+    grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv hardwareDiv gadetsDiv salirDiv marder";
 }
 
 @media screen and (max-width: 1068px) {
@@ -229,7 +229,7 @@ nav a.sidenav-trigger i {
         max-height: auto !important;
         grid-template-columns: 15% 10% 20% 20% 20% 15%;
         grid-template-rows: auto;
-        grid-template-areas: "marizq ejecutivaDiv trabajoDiv   gamerDiv      hardwareDiv marder" "marizq gadetsDiv   masbuscadoDiv mascalificadoDiv salirDiv marder";
+        grid-template-areas: "marizq ejecutivaDiv trabajoDiv   gamerDiv hardwareDiv marder" "marizq gadetsDiv   salirDiv marder";
     }
     .contenedor .header .barinf .marder {
         justify-self: center;
@@ -241,7 +241,7 @@ nav a.sidenav-trigger i {
         max-height: auto !important;
         grid-template-columns: 5% 30% 30% 35%;
         grid-template-rows: auto;
-        grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv" "marizq hardwareDiv gadetsDiv  marder" "marizq masbuscadoDiv mascalificadoDiv marder";
+        grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv" "marizq hardwareDiv gadetsDiv  marder" "marizq  marder";
     }
     .contenedor .header .barinf .marder {
         grid-area: marder;
@@ -308,22 +308,6 @@ nav a.sidenav-trigger i {
     text-align: center;
 }
 
-.contenedor .header .barinf .masbuscadoDiv {
-    justify-self: stretch;
-    align-self: center;
-    text-align: center;
-    border-bottom: solid white;
-    color: #f2f2f2;
-    grid-area: masbuscadoDiv;
-}
-
-.contenedor .header .barinf .mascalificadoDiv {
-    align-self: center;
-    color: #f2f2f2;
-    grid-area: mascalificadoDiv;
-    text-align: center;
-    border-bottom: solid white;
-}
 
 .contenedor .header .barinf .salirDiv {
     grid-area: salirDiv;
@@ -367,20 +351,6 @@ nav a.sidenav-trigger i {
     align-self: center;
     color: #f2f2f2;
     grid-area: gadetsDiv;
-}
-
-.contenedor .header .barinf .masbuscadoDiv:hover {
-    justify-self: center;
-    align-self: center;
-    color: #f2f2f2;
-    grid-area: masbuscadoDiv;
-}
-
-.contenedor .header .barinf .mascalificadoDiv:hover {
-    justify-self: center;
-    align-self: center;
-    color: #f2f2f2;
-    grid-area: mascalificadoDiv;
 }
 
 
@@ -1878,3 +1848,35 @@ fieldset {
    margin: 10px;
 
 }
+
+.contenedor .contenido .Pedidos{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-areas: 
+    "marizq tituloP marder"
+    "marizq tablaP marder"
+    ;
+}
+
+.contenedor .contenido .Pedidos .marizq{
+    grid-area: marizq;
+    display: grid;
+}
+
+
+.contenedor .contenido .Pedidos .titutoP{
+    grid-area: titutloP;
+    display: grid;
+}
+
+
+.contenedor .contenido .Pedidos .tablaP{
+    grid-area: tablaP ;
+    display: grid;
+}
+
+.contenedor .contenido .Pedidos .marder{
+    grid-area: marder;
+    display: grid;
+}
+

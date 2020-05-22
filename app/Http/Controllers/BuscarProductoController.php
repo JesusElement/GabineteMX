@@ -20,7 +20,7 @@ class BuscarProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function recibir(Request $request)
-    {
+    { 
         $name = $request->search;
         // echo "Esto es del REQUEST:"; var_dump($name);
         $FueFamilia = DB::table('familia')
