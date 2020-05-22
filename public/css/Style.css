@@ -398,6 +398,24 @@ nav a.sidenav-trigger i {
     color: #ec9129;
 }
 
+
+@media screen and (max-width: 1500px) {
+    .contenedor .contenido .card-title {
+        color: #ec9129;
+        font-size: 15px;
+        -ms-word-break: break-all;
+        word-break: break-all !important;
+    }
+    .contenedor .contenido .CT {
+        color: #ec9129;
+        
+        font-size: 19px;
+        -ms-word-break: break-all;
+        word-break: break-all !important;
+    }
+    
+}
+
 .contenedor .contenido .carousel {
     width: 100%;
     justify-content: center;
