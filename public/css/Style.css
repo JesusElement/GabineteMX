@@ -398,6 +398,24 @@ nav a.sidenav-trigger i {
     color: #ec9129;
 }
 
+
+@media screen and (max-width: 1500px) {
+    .contenedor .contenido .card-title {
+        color: #ec9129;
+        font-size: 15px;
+        -ms-word-break: break-all;
+        word-break: break-all !important;
+    }
+    .contenedor .contenido .CT {
+        color: #ec9129;
+        
+        font-size: 19px;
+        -ms-word-break: break-all;
+        word-break: break-all !important;
+    }
+    
+}
+
 .contenedor .contenido .carousel {
     width: 100%;
     justify-content: center;
@@ -660,6 +678,21 @@ nav a.sidenav-trigger i {
         margin: 8px;
         }
 
+        .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
+            color: #ec9129;
+            font-size: medium;
+        }
+}
+
+@media screen and (max-width: 1500px) {
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
+        color: #ec9129;
+        font-size: medium;
+    }
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
+        margin-left: 4rem;
+        justify-content: right;
+        }
 }
 
 .contenedor .contenido .Carrito .marizq {
