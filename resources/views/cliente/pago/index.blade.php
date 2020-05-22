@@ -5,7 +5,7 @@
         max-height: 100%;
         height: 100%;
         top: 0 !important;
-        background-color: #f0f0f0;
+        background-color: white;
     }
 </style>
 

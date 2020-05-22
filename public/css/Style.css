@@ -633,26 +633,32 @@ nav a.sidenav-trigger i {
 
     .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
         justify-content: right;
-
+        text-align: right;
+        margin: 10px;
     }    
 
     .contenedor .contenido .Carrito .opCarrito {
     grid-area: opCarrito;
-    text-align: center;   
+    justify-items: right; 
     }
     
-.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss .Eli {
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss .Eli {
     display: inline;
     justify-self: right !important;
     size: 10px;
     margin-bottom: 1rem;
     margin-right: 1.5rem;
-}
-.contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
+    }
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
     grid-area: carritoCardInfoCss;
     justify-content: right;
-}
-
+    }
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss h5{
+        grid-area: carritoCardInfoCss;
+        font-size: medium;
+        text-align: right;
+        margin: 8px;
+        }
 
 }
 
@@ -1681,10 +1687,22 @@ fieldset {
     .contenedor61 .HederTres {
         grid-area: HederTres;
         display: grid;
+        padding: 10px;
         grid-template-columns: 100%;
         grid-template-rows: auto;
         grid-template-areas: "Pan1" "Pan2" "Pan3";
     }
+    .contenedor61 .contenedor21 .carritoCardCss {
+        display: grid;
+        margin-top: 1rem;
+        grid-template-columns: 50% 50%;
+        grid-template-areas: 
+       
+        "carritoCardInfoCss"
+         "carritoCardImgCss" 
+         "carritoEliPreCss";
+    }
+    
 }
 
 .contenedor61 .HederTres .Pan1 {
@@ -1711,7 +1729,7 @@ fieldset {
 
 .contenedor61 .HederTres .Pan3 .header {
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: white;
 }
 
 .contenedor61 .HederTres .Pan3 .i {
@@ -1720,7 +1738,7 @@ fieldset {
 }
 
 .contenedor61 .HederTres .Pan3 .c {
-    background-color: #f1f1f1;
+    background-color:white;
 }
 
 .contenedor61 .contenedor21 {
@@ -1796,7 +1814,7 @@ fieldset {
 
 .contenedor61 .Pago .header {
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: white;
 }
 
 .contenedor61 .Pago .i {
@@ -1806,7 +1824,7 @@ fieldset {
 }
 
 .contenedor61 .Pago .c {
-    background-color: #f1f1f1;
+    background-color: white;
 }
 .contenedor61 .Pago .card-action {
     display: grid;
@@ -1824,5 +1842,6 @@ fieldset {
 }
 .contenedor61 .Pago .card-action .bcer {
    text-align: right;
+   margin: 10px;
 
 }
