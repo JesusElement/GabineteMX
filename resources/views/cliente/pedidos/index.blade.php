@@ -59,24 +59,9 @@
                               ?>
                            </td>
                            <td><?php echo $total ?> </td>
-                           <td> <a href="#{{$folio}}" class="btn btn-danger modal-trigger"><ion-icon name="trash-outline"></ion-icon></a> </td>
+                           <td><a href="{{ url('/cliente/factura',['folio'=>$folio]) }}"
+                            class="btn btn-warning"> <ion-icon name="trash-outline"></ion-icon></a> </td>
                        </tr>
-
-                       <div id="{{$folio}}" class="modal">
-                             <div class="modal-content" style="text-align: center">
-                               <h4>¡Eliminar!</h4>
-                               <p>¿Desea eliminar la direccion selecionada?</p>
-                                <h5>Cuando lo elimine no lo podra recuperar</h5>
-                             </div>
-                             <div class="modal-footer">
-                             <form method="post" action="{{ route('DirecDestroy',['id'=>$folio ]) }}">
-                             @method('DELETE')
-                             @csrf
-                                 <button style="color:black !important" type="submit" class="btn btn-danger">Eliminar</button>
-                             </form>
-                               
-                             </div>
-                        </div>
                         <?php
                     }
                     ?>

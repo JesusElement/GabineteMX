@@ -213,4 +213,4 @@ Route::get('cliente/factura',function(){
     return view('cliente.factura.index');
  });
 
- Route::get('/cliente/factura','PagoController@printPDF')->name('ImPDF');
+ Route::get('/cliente/factura/{folio}','PagoController@printPDF')->name('ImPDF');

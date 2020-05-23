@@ -20,15 +20,35 @@ class PagoController extends Controller
         //
     }
 
-    public function printPDF()
+    public function printPDF($folio)
     {
 
-        
-           $data = [          
+        $user = auth()->user()->id_cliente;
+        $id_pedido = $folio;
+
+        $direc = DB::select('SELECT a.id_pedido, a.total, b.nom, a.num_rast FROM pedido as a, transporte as b WHERE b.id_trans = a.id_trans && a.id_cliente = ? && a.id_pedido = ?', [$user,$id_pedido]);
+        foreach($direc as $value){
+               $folio = $value->id_pedido;
+               $total= $value->total;
+               $trans = $value->nom;
+               $ras = $value->num_rast;
+        }
+        $direcc = DB::select('SELECT b.*, c.estado FROM direc_cliente as a, direccion as b, estado as c WHERE a.id_direc = b.id_direc && c.id_estado = b.id_estado && a.id_cliente = ?', [$user]);
+                    foreach($direcc as $value){
+                           $alias = $value->alias;
+                           $direccion = $value->calle." ".$value->numero." ".$value->colonia;
+                    }
+
+            $data = [          
                
-            'title' => 'Hola bbs',          
-            'heading' => 'AHUEVOOO',          
-            'content' => 'A chingaerle' ];
+                'folio' => $folio,          
+                'total' => $total,          
+                'transporte' => $trans,
+                'ras' => $ras,
+                'lugar'=>$alias,
+                'direccion'=>$direccion
+            
+            ];
         
         $pdf = PDF::loadView('cliente.factura.index', $data);  
         return $pdf->download('Comprobante.pdf');
