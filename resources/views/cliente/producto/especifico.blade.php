@@ -37,8 +37,13 @@
             <div style="" class="marizq">
                 <?php
 
-                    $carpeta = @scandir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc");
-                    if (count($carpeta)>2){     
+                 
+
+          
+            try {
+                //code...
+           
+                    
                       $d = opendir("./Imagenes/Productos/$producto->nom_fami/$producto->nom/$producto->id_produc/");
                     while (($e = readdir($d)) != false)
                       if ($e != '.' && $e != '..') {
@@ -49,9 +54,12 @@
                         $i++;  
                       }
 
-                    }else{
-                        echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
-                      }
+                      } catch (\Throwable $th) {
+                        echo "<img class='imgsize responsive-img materialboxed'  src='/imagenes/nodisponible.jpg'     ' ></div>  ";
+          
+            }
+
+                  
                     ?>
 
             </div>

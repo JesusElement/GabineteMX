@@ -59,20 +59,22 @@
             <br><br>
 
             <?php
-   
-            $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
-            if (count($carpeta)>2){
+            try {
+                //code...
+           
+
                 $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
                     while (($e = readdir($d)) != false)
                         if ($e != '.' && $e != '..') {
                              $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
                                 echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
                         
-                        }
-            }else{
-                echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+                            }
+
+        } catch (\Throwable $th) {
+            echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
             }
-            
+
             ?>
             <!--EndBody-->
         </div>
