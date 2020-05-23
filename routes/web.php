@@ -1,5 +1,6 @@
 <?php
 
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -203,3 +204,13 @@ Route::middleware('auth')->group(function () {
         return view('cliente.pedidos.index');
     })->name('verped');
 });
+
+
+
+Route::get('cliente/factura',function(){
+
+     //$pdf = PDF::loadView('cliente.factura.index');
+    return view('cliente.factura.index');
+ });
+
+ Route::get('/cliente/factura','PagoController@printPDF')->name('ImPDF');

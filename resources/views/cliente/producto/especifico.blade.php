@@ -138,13 +138,24 @@
 
                             </div>
                             <div class="card-action">
+                                
 
+                                 @guest
+                                
+                                <a href="{{ url("login") }}"
+                                    id="jsLO" class="btn waves-effect waves-light btnAgregarCarrito"
+                                    onclick="swal({icon: 'warning', text: 'PRIMERO INICIA SESION', });">Agregar a
+                                    carrito</a>
+                                
+
+                                @else
                                 <a href="{{ url("carrito/{$producto->id_produc}") }}"
                                     id="jsAgrego" class="btn waves-effect waves-light btnAgregarCarrito"
                                     onclick="swal({icon: 'success', text: '¡Agregado a carrito!', });">Agregar a
                                     carrito</a>
 
-
+                                    
+                                @endguest
 
 
                                 <br>
