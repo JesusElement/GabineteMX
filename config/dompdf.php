@@ -206,7 +206,7 @@ return array(
          * If this setting is set to true then DOMPDF will automatically insert
          * JavaScript code contained within <script type="text/javascript"> ... </script> tags.
          *
-         * @var bool
+         * @var bool 
          */
         "enable_javascript" => true,
 

@@ -213,4 +213,8 @@ Route::get('cliente/factura',function(){
     return view('cliente.factura.index');
  });
 
+<<<<<<< HEAD
  Route::get('/cliente/factura','PagoController@printPDF')->name('ImPDF');
+=======
+ Route::get('/cliente/factura','PagoController@printPDF')->name('ImPDF');
+>>>>>>> ed09c5a0d66990e1bf964c9918bf6eda1f64a129
