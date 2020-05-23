@@ -6,6 +6,7 @@ use App\Pago;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class PagoController extends Controller
 {
@@ -17,6 +18,20 @@ class PagoController extends Controller
     public function index()
     {
         //
+    }
+
+    public function printPDF()
+    {
+
+        
+           $data = [          
+               
+            'title' => 'Hola bbs',          
+            'heading' => 'AHUEVOOO',          
+            'content' => 'A chingaerle' ];
+        
+        $pdf = PDF::loadView('cliente.factura.index', $data);  
+        return $pdf->download('Comprobante.pdf');
     }
 
     /**
@@ -98,7 +113,7 @@ class PagoController extends Controller
                 DB::table('carrito')->where('id_cliente', '=', $id_cli)->delete();
             }
 
-        return redirect()->route('verped');
+        return redirect('/cliente/factura');
         }
         else{
             return redirect()->back()->withErrors(['cantidadCar' => 'No tiene nada en el carrito'])->withInput();
