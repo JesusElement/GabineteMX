@@ -6,7 +6,7 @@
             <span class="label label-primary" style="color: black; font-weight: bold; ">TIPO DE
                 PRODUCTO:&nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->nom_fami }}</label><br>
 
-        <span class="label label-primary"
+            <span class="label label-primary"
                 style="color: black; font-weight: bold; ">SUBTIPO:&nbsp;&nbsp;&nbsp;</span>
             <label>{{ $resultados->name }}</label><br>
 
@@ -45,7 +45,8 @@ try{
             <!--EndBody-->
         </div>
         <div class="modal-footer">
-            <form action="{{ url("/admin/gestionarproducto/{$resultados->id_produc}") }}"
+            <form
+                action="{{ url("/admin/gestionarproducto/{$resultados->id_produc}") }}"
                 method="POST" enctype="multipart/form-data">
                 @method('DELETE')
                 {{ csrf_field() }}

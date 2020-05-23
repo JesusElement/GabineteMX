@@ -39,7 +39,7 @@
                        <?php
 
                        $user = auth()->user()->id_cliente;
-                       $direc = DB::select('SELECT a.id_pedido, a.total, b.nom, b.num_rast FROM pedido as a, transporte as b WHERE b.id_trans = a.id_trans && a.id_cliente = ?', [$user]);
+                       $direc = DB::select('SELECT a.id_pedido, a.total, b.nom, a.num_rast FROM pedido as a, transporte as b WHERE b.id_trans = a.id_trans && a.id_cliente = ?', [$user]);
                     foreach($direc as $value){
                            $folio = $value->id_pedido;
                            $total= $value->total;

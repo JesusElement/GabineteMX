@@ -86,7 +86,8 @@
             <ul id='dropdown3' class='dropdown-content dropmenu'>
               <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ route('CuentaCli') }}">
                   Mi Cuenta </a></li>
-              <li class="blue-text text-darken-2"><a class="dropmenu"  href="{{ route('verped') }}"> Mis Pedidos </a></li> 
+              <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ route('verped') }}">
+                  Mis Pedidos </a></li>
               <li class="blue-text text-darken-2"><a class="dropmenu"
                   href="{{ url('ayuda',['tip' => 'SAC']) }}">
                   Ayuda </a></li>
@@ -191,7 +192,7 @@
         @endforeach
 
 
-        
+
         <div class="salirDiv">
 
         </div>
@@ -242,8 +243,9 @@
         <div class="footer-copyright">
           <div class="container">
             <a class="grey-text text-lighten-4 left"
-              href="{{ url('ayuda',['tip' => 'AVP']) }}">Aviso de privacidad</a>
-            
+              href="{{ url('ayuda',['tip' => 'AVP']) }}">Aviso
+              de privacidad</a>
+
             <a class="grey-text text-lighten-4 right"
               href="{{ url('ayuda',['tip' => 'TEC']) }}">Terminos
               y codiciones</a>

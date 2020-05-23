@@ -1,12 +1,12 @@
 <style>
     /* .modal { max-height: 100%; overflow: visible;} */
     .custominfo.open {
-      width: 35%;
-      max-height: 100%;
-      height: 95%;
-      top: 0 !important;
+        width: 35%;
+        max-height: 100%;
+        height: 95%;
+        top: 0 !important;
     }
-  </style>
+</style>
 
 <div class="modal custominfo" id="#informacionproducto{{ $resultados->id_produc }}">
     <div class="modal-content">
@@ -14,39 +14,39 @@
         <div class="modal-body">
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">ID OFERTA:
-                &nbsp;&nbsp;&nbsp;</span> <label >{{ $resultados->id_oferta }}</label><br><br> 
+                &nbsp;&nbsp;&nbsp;</span> <label>{{ $resultados->id_oferta }}</label><br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">ID
                 PRODUCTO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->id_produc }}</label><br><br>
+            <label>{{ $resultados->id_produc }}</label><br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">NOMBRE DEL
                 PRODUCTO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->titulo }}</label><br><br>
+            <label>{{ $resultados->titulo }}</label><br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">FECHA DE
                 INICIO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->fech_ini }}</label><br><br>
+            <label>{{ $resultados->fech_ini }}</label><br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">FECHA DE
                 TERMINO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->fech_ter }}</label><br><br>
+            <label>{{ $resultados->fech_ter }}</label><br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">HORA DE
                 INICIO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->hora_ini }}</label> <br><br>
+            <label>{{ $resultados->hora_ini }}</label> <br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">HORA DE
                 TERMINO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->hora_ter }}</label> <br><br>
+            <label>{{ $resultados->hora_ter }}</label> <br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PORCENTAJE DE
                 DESCUENTO:&nbsp;&nbsp;&nbsp;</span>
-            <label >{{ $resultados->desc }}%</label> <br><br>
+            <label>{{ $resultados->desc }}%</label> <br><br>
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO
                 NORMAL:&nbsp;&nbsp;&nbsp;</span>
-            <label >${{ $resultados->prec_uni }}</label> <br><br>
+            <label>${{ $resultados->prec_uni }}</label> <br><br>
 
 
             <span class="label label-primary" style="color: black; font-weight: bold; ">PRECIO CON
