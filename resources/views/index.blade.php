@@ -173,8 +173,8 @@ $(window).on("load", function () {
                           $precio = round($precio, 2);
                           
                         @endphp 
-                        <div class="CT" style="width: 300px; max-height: 800px;">
-                        <span class="card-title" style="text-overflow: ellipsis;    white-space: nowrap;  overflow: hidden;">{{ $oferta->titulo }}</span>
+                        <div class="CT" style="width: 200px; max-height: 800px;">
+                        <span class="card-title" style="text-overflow: ellipsis;   white-space: nowrap;  overflow: hidden;">{{ $oferta->titulo }}</span>
                         </div>
                           <h6 class="black-text"><s>Antes: ${{ number_format($oferta->prec_uni) }} </s> </h6>
                           <h6 class="black-text">Ahora: ${{ number_format($precio) }}</h6>
