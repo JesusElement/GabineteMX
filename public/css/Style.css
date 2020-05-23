@@ -392,11 +392,12 @@ nav a.sidenav-trigger i {
 }
 
 .contenedor .contenido .carousel {
+    margin-top: 1rem;
     width: 100%;
     justify-content: center;
     grid-area: carousel;
     background: rgb(2, 0, 36);
-    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 98%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 99%, rgba(255, 255, 255, 1) 100%);
 }
 
 .contenedor .contenido .carousel .carousel-item {
