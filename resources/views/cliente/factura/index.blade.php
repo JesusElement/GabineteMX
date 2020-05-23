@@ -38,8 +38,8 @@
 
   <table width="100%">
     <tr>
-        <td><strong>De:</strong>República de Uruguay 13 Centro Histórico de la Cdad. de México, Centro Cuauhtémoc 06080 Hervidero y Plancha, CDMX</td>
-    <td><strong>Para:</strong>{{$direccion}}</td>
+        <td><strong>De: </strong>República de Uruguay 13 Centro Histórico de la Cdad. de México, Centro Cuauhtémoc 06080 Hervidero y Plancha, CDMX</td>
+    <td><strong>Para: </strong>{{$direccion}}</td>
     </tr>
 
   </table>
