@@ -20,7 +20,7 @@ class BuscarProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function recibir(Request $request)
-    { 
+    {
         $name = $request->search;
         // echo "Esto es del REQUEST:"; var_dump($name);
         $FueFamilia = DB::table('familia')
@@ -309,7 +309,7 @@ class BuscarProductoController extends Controller
      */
     public function update(Request $request, BuscarProducto $buscarProducto)
     {
-        //$x = $request->all(); 
+        
     }
 
     /**
@@ -320,6 +320,6 @@ class BuscarProductoController extends Controller
      */
     public function destroy(BuscarProducto $buscarProducto)
     {
-        //
+       
     }
 }

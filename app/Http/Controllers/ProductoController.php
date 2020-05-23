@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use BD;
-use App\Http\Controllers\Session; 
+use App\Http\Controllers\Session;
 use Hamcrest\Core\HasToString;
 use App\Http\Controllers\Input;
 use Exception;
@@ -59,7 +59,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $datos = $request->except('_token');
 
         $c = 0;
@@ -100,7 +100,7 @@ class ProductoController extends Controller
 
 
             try {
-                $request->file('imagen')->move(public_path($path), $image_name );
+                $request->file('imagen')->move(public_path($path), $image_name);
             } catch (Exception $e) {
                 echo "Entra en catch";
             }
@@ -113,66 +113,61 @@ class ProductoController extends Controller
         try {
             //code...
             DB::table('producto')->insert([
-            'id_produc' => $id,
-            'id_provee' => $datos['id_provee'],
-            'id_familia' => $datos['id_familia'],
-            'titulo' => $datos['titulo'],
-            'datos' => $datos['datos'],
-            'clav_clas' => $datos['clav_clas']
+                'id_produc' => $id,
+                'id_provee' => $datos['id_provee'],
+                'id_familia' => $datos['id_familia'],
+                'titulo' => $datos['titulo'],
+                'datos' => $datos['datos'],
+                'clav_clas' => $datos['clav_clas']
 
-        ]);
+            ]);
 
-        DB::table('stock')->insert([
-            'id_produc' => $id,
-            'stock' => $datos['stock'],
-            'prec_uni' => $datos['prec_uni']
+            DB::table('stock')->insert([
+                'id_produc' => $id,
+                'stock' => $datos['stock'],
+                'prec_uni' => $datos['prec_uni']
 
-        ]);
+            ]);
 
-        DB::table('contenido')->insert([
-            'id_conte' => $id_conte,
-            'id_produc' => $id,
-            'ruta' => $path,
-            'tip_arch' => $image_ext
+            DB::table('contenido')->insert([
+                'id_conte' => $id_conte,
+                'id_produc' => $id,
+                'ruta' => $path,
+                'tip_arch' => $image_ext
 
-        ]);
+            ]);
+        } catch (\Throwable $th) {
+            $c = 0;
+            $id = substr($datos['id_provee'], 0, 6);
+            $id = $id . substr($datos['id_familia'], 6, 8);
+            $id = $id . $c;
+            $id = $id . rand(30, 99);
 
+            DB::table('producto')->insert([
+                'id_produc' => $id,
+                'id_provee' => $datos['id_provee'],
+                'id_familia' => $datos['id_familia'],
+                'titulo' => $datos['titulo'],
+                'datos' => $datos['datos'],
+                'clav_clas' => $datos['clav_clas']
 
+            ]);
 
-    } catch (\Throwable $th) {
-        $c = 0;
-        $id = substr($datos['id_provee'], 0, 6);
-        $id = $id . substr($datos['id_familia'], 6, 8);
-        $id = $id . $c;
-        $id = $id . rand(30, 99);
-        
-        DB::table('producto')->insert([
-            'id_produc' => $id,
-            'id_provee' => $datos['id_provee'],
-            'id_familia' => $datos['id_familia'],
-            'titulo' => $datos['titulo'],
-            'datos' => $datos['datos'],
-            'clav_clas' => $datos['clav_clas']
+            DB::table('stock')->insert([
+                'id_produc' => $id,
+                'stock' => $datos['stock'],
+                'prec_uni' => $datos['prec_uni']
 
-        ]);
+            ]);
 
-        DB::table('stock')->insert([
-            'id_produc' => $id,
-            'stock' => $datos['stock'],
-            'prec_uni' => $datos['prec_uni']
+            DB::table('contenido')->insert([
+                'id_conte' => $id_conte,
+                'id_produc' => $id,
+                'ruta' => $path,
+                'tip_arch' => $image_ext
 
-        ]);
-
-        DB::table('contenido')->insert([
-            'id_conte' => $id_conte,
-            'id_produc' => $id,
-            'ruta' => $path,
-            'tip_arch' => $image_ext
-
-        ]);
-
-        
-    }
+            ]);
+        }
 
 
 
@@ -199,14 +194,14 @@ class ProductoController extends Controller
 
 
 
-        $resultados=DB::table('producto')
-        ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
-        ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
-        ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
-        ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
-        ->select('familia.nom_fami', 'claves.name','proveedor.nom','producto.titulo','producto.datos','producto.id_provee','producto.id_familia','producto.clav_clas','producto.id_produc','stock.stock','stock.prec_uni')
-        ->orderBy('nom_fami', 'asc')
-        ->paginate(20);
+        $resultados = DB::table('producto')
+            ->join('familia', 'familia.id_familia', '=', 'producto.id_familia')
+            ->join('claves', 'claves.id_clav', '=', 'producto.clav_clas')
+            ->join('proveedor', 'proveedor.id_provee', '=', 'producto.id_provee')
+            ->join('stock', 'stock.id_produc', '=', 'producto.id_produc')
+            ->select('familia.nom_fami', 'claves.name', 'proveedor.nom', 'producto.titulo', 'producto.datos', 'producto.id_provee', 'producto.id_familia', 'producto.clav_clas', 'producto.id_produc', 'stock.stock', 'stock.prec_uni')
+            ->orderBy('nom_fami', 'asc')
+            ->paginate(20);
 
         $proveedores = DB::table('proveedor')
             ->get();
@@ -285,7 +280,7 @@ class ProductoController extends Controller
 
             ]);
 
-            return redirect()->back()->with('alertact', 'actualizacion');
+        return redirect()->back()->with('alertact', 'actualizacion');
 
         // return response()->json($datos);
     }

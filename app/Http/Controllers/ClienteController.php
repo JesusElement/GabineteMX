@@ -72,37 +72,33 @@ class ClienteController extends Controller
     public function update(Request $request, cliente $cliente)
     {
         //
-        
-      $cliente = $request->except('_token');
-      $id_cli =  auth()->user()->id_cliente;
-        if(isset($cliente['password'])){
 
-            if($cliente['newpass']!= NULL){
-                if($cliente['newpass'] == $cliente['confirmpass']){
+        $cliente = $request->except('_token');
+        $id_cli =  auth()->user()->id_cliente;
+        if (isset($cliente['password'])) {
+
+            if ($cliente['newpass'] != NULL) {
+                if ($cliente['newpass'] == $cliente['confirmpass']) {
                     $pass =  auth()->user()->password;
-                    if(password_verify($cliente['password'],$pass)){
+                    if (password_verify($cliente['password'], $pass)) {
                         DB::table('cliente')
-                             ->where('id_cliente',$id_cli)
-                             ->update([
-                                'password'=> Hash::make($data['password'])
-                              ]);
-                              return redirect('cliente/');
-                    }
-                    else{
+                            ->where('id_cliente', $id_cli)
+                            ->update([
+                                'password' => Hash::make($data['password'])
+                            ]);
+                        return redirect('cliente/');
+                    } else {
                         return redirect()->back()->withErrors(['password' => 'La contraseña que ingreso es incorrecta'])->withInput();
                     }
-                }
-                else{
+                } else {
                     return redirect()->back()->withErrors(['confirmpass' => 'Las contraseñas no coinciden'])->withInput();
                 }
-            }
-            else{
+            } else {
                 return redirect()->back()->withErrors(['newpass' => 'Debe ingresar una contraseña'])->withInput();
             }
-        }
-        else{
+        } else {
             $mail = auth()->user()->email;
-            if($cliente['email'] == $mail){
+            if ($cliente['email'] == $mail) {
                 $this->validate($request, [
                     'nom' => ['required', 'string', 'max:75'],
                     'ape2' => ['required', 'string', 'max:75'],
@@ -110,46 +106,41 @@ class ClienteController extends Controller
                     'telefono' => ['required', 'numeric', 'min:10'],
                 ]);
                 DB::table('cliente')
-                ->where('id_cliente',$id_cli)
-                ->update([
-                    'nom'=> $cliente['nom'],
-                    'ape1'=> $cliente['ape1'],
-                    'ape2'=> $cliente['ape2'],
-                    'email'=> $cliente['email'],
-                    'telefono'=> $cliente['telefono'],
-                    'fech_na'=> '2020/02/10',
-                 ]);
-            return redirect('cliente/');
+                    ->where('id_cliente', $id_cli)
+                    ->update([
+                        'nom' => $cliente['nom'],
+                        'ape1' => $cliente['ape1'],
+                        'ape2' => $cliente['ape2'],
+                        'email' => $cliente['email'],
+                        'telefono' => $cliente['telefono'],
+                        'fech_na' => '2020/02/10',
+                    ]);
+                return redirect('cliente/');
+            } else {
+                $si =     $this->validate($request, [
+                    'nom' => ['required', 'string', 'max:75'],
+                    'ape2' => ['required', 'string', 'max:75'],
+                    'ape2' => ['required', 'string', 'max:75'],
+                    'telefono' => ['required', 'numeric', 'min:10'],
+                    'email' => ['required', 'string', 'email', 'max:100', 'unique:cliente'],
+                ]);
+                if ($si) {
+                    DB::table('cliente')
+                        ->where('id_cliente', $id_cli)
+                        ->update([
+                            'nom' => $cliente['nom'],
+                            'ape1' => $cliente['ape1'],
+                            'ape2' => $cliente['ape2'],
+                            'email' => $cliente['email'],
+                            'telefono' => $cliente['telefono'],
+                            'fech_na' => '2020/02/10',
+                        ]);
+                    return redirect('cliente/');
+                } else {
+                    return redirect()->back()->withErrors(['unique' => 'El correo ingresado ya esta registrado'])->withInput();
+                }
             }
-            else{
-             $si =     $this->validate($request, [
-                'nom' => ['required', 'string', 'max:75'],
-                'ape2' => ['required', 'string', 'max:75'],
-                'ape2' => ['required', 'string', 'max:75'],
-                'telefono' => ['required', 'numeric', 'min:10'],
-                'email' => ['required', 'string', 'email', 'max:100', 'unique:cliente'],
-            ]);
-            if($si){
-            DB::table('cliente')
-                ->where('id_cliente',$id_cli)
-                ->update([
-                    'nom'=> $cliente['nom'],
-                    'ape1'=> $cliente['ape1'],
-                    'ape2'=> $cliente['ape2'],
-                    'email'=> $cliente['email'],
-                    'telefono'=> $cliente['telefono'],
-                    'fech_na'=> '2020/02/10',
-                 ]);
-                 return redirect('cliente/');
-            }
-            else{
-                return redirect()->back()->withErrors(['unique' => 'El correo ingresado ya esta registrado'])->withInput();
-            }
-
-            }
-
-      
-       }
+        }
         //return response()->json($cliente);
     }
 
