@@ -86,7 +86,7 @@
             <ul id='dropdown3' class='dropdown-content dropmenu'>
               <li class="blue-text text-darken-2"><a class="dropmenu" href="{{ route('CuentaCli') }}">
                   Mi Cuenta </a></li>
-              <li class="blue-text text-darken-2"><a class="dropmenu"> Mis Pedidos </a></li>
+              <li class="blue-text text-darken-2"><a class="dropmenu"  href="{{ route('verped') }}"> Mis Pedidos </a></li> 
               <li class="blue-text text-darken-2"><a class="dropmenu"
                   href="{{ url('ayuda',['tip' => 'SAC']) }}">
                   Ayuda </a></li>
