@@ -30,10 +30,10 @@ Route::get('/', function () {
         ->paginate(2);
 
     $ofertas = DB::table('oferta as b')
-        ->join('producto as a','a.id_produc','=','b.id_produc')
-        ->join('stock as c','c.id_produc','=','b.id_produc')
-        ->join('familia as d','d.id_familia','=','a.id_familia')
-        ->join('proveedor as e','e.id_provee','=','a.id_provee')
+        ->join('producto as a', 'a.id_produc', '=', 'b.id_produc')
+        ->join('stock as c', 'c.id_produc', '=', 'b.id_produc')
+        ->join('familia as d', 'd.id_familia', '=', 'a.id_familia')
+        ->join('proveedor as e', 'e.id_provee', '=', 'a.id_provee')
         ->orderBy('prec_uni', 'DESC')
         ->paginate(8);
     return view('index', ['productos' => $productos], ['ofertas' => $ofertas]);
@@ -44,7 +44,7 @@ Route::get('/carrito', function () {
 })->name('carrito');
 
 Route::get('/ayuda/{tip}', function ($tip) {
-    return view('cliente.ayuda.index',['tip'=>$tip]);
+    return view('cliente.ayuda.index', ['tip' => $tip]);
 })->name('ayuda');
 
 Route::get('/productos', function () {
@@ -56,77 +56,77 @@ Route::get('/producto', function () {
 })->name('producto');
 
 
-Route::get('/buscarproducto', function() {
-  
+Route::get('/buscarproducto', function () {
+
     return view('cliente.producto.buscarproducto');
- })->name('buscarproducto');
+})->name('buscarproducto');
 
 // Route::middleware('auth')->group(function () {
 
-    Route::get('/admin/altaproducto', function () {
-        return view('admin.producto.index');
-    })->name('altaproducto');
+Route::get('/admin/altaproducto', function () {
+    return view('admin.producto.index');
+})->name('altaproducto');
 
-    Route::get('/admin/gestionarproducto', function () {
-        return view('admin.producto.cambios-baja.actualizarp');
-    })->name('producto');
-
-
-    Route::get('/admin/gestionpromocion', function () {
-        return view('admin.producto.promocion.index');
-    })->name('promocion');
-
-    Route::get('/admin/gestionproveedores', function () {
-        return view('admin.proveedores.index');
-    })->name('provedoresdash');
-
-    
-    Route::get('/admin', function () {
-        return view('admin.index');
-    })->name('adminindex');
+Route::get('/admin/gestionarproducto', function () {
+    return view('admin.producto.cambios-baja.actualizarp');
+})->name('producto');
 
 
+Route::get('/admin/gestionpromocion', function () {
+    return view('admin.producto.promocion.index');
+})->name('promocion');
 
-    Auth::routes();
+Route::get('/admin/gestionproveedores', function () {
+    return view('admin.proveedores.index');
+})->name('provedoresdash');
 
-    Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
 
-    Route::get('/home', 'HomeController@index')->name('home');
-    
-    Route::get('/admin/altaproducto', 'ProductoController@index')->name('altaproducto');
-    Route::get('/admin/gestionarproducto', 'ProductoController@show')->name('verproducto');
-    Route::post('/admin/storeproducto', 'ProductoController@store')->name('insertarproducto');
-    Route::delete('/admin/gestionarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
-    Route::post('/admin/gestionarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
-    
-  
-    
-    
-    Route::get('/buscarproducto/{search}','BuscarProductoController@show')->name('buscarproducto');
-    Route::get('/buscarproductoS','BuscarProductoController@recibir')->name('buscarproductoS');
-    
-    Route::get('/carrito/{producto}','CarritoController@store')->name('agregarAcarrito');
-    Route::get('/carrito', 'CarritoController@show')->name('verCarrito');
-    Route::get('/EliCarrito/{Eli}','CarritoController@destroy')->name('EliCarrito');
-    Route::get('/carritoMenos/{Menos}','CarritoController@Menos')->name('carritoMenos');
-    Route::get('/carritoMas/{Mas}','CarritoController@Mas')->name('carritoMas');
-    
-    
-    Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
-    Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
-    Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');
-    Route::post('/admin/cambiopromocion/{id_oferta}', 'PromocionController@update')->name('cambiopromociones');
+Route::get('/admin', function () {
+    return view('admin.index');
+})->name('adminindex');
 
-    Route::get('/admin/gestionproveedores', 'ProveedoresController@show')->name('verproveedores');
-    Route::post('/admin/altaproveedores', 'ProveedoresController@store')->name('altaProveedores');
-    Route::delete('/admin/bajaproveedores/{id_provee}', 'ProveedoresController@destroy')->name('bajaProveedores');
-    Route::post('/admin/cambioproveedores/{id_provee}', 'ProveedoresController@update')->name('cambioProveedores');
+
+
+Auth::routes();
+
+Route::get('admin/home', 'HomeController@adminHome')->name('admin.index')->middleware('is_admin');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/altaproducto', 'ProductoController@index')->name('altaproducto');
+Route::get('/admin/gestionarproducto', 'ProductoController@show')->name('verproducto');
+Route::post('/admin/storeproducto', 'ProductoController@store')->name('insertarproducto');
+Route::delete('/admin/gestionarproducto/{id_produc}', 'ProductoController@destroy')->name('eliminarproducto');
+Route::post('/admin/gestionarproducto/{id_produc}', 'ProductoController@update')->name('actualizarproducto');
 
 
 
 
-   
-    
+Route::get('/buscarproducto/{search}', 'BuscarProductoController@show')->name('buscarproducto');
+Route::get('/buscarproductoS', 'BuscarProductoController@recibir')->name('buscarproductoS');
+
+Route::get('/carrito/{producto}', 'CarritoController@store')->name('agregarAcarrito');
+Route::get('/carrito', 'CarritoController@show')->name('verCarrito');
+Route::get('/EliCarrito/{Eli}', 'CarritoController@destroy')->name('EliCarrito');
+Route::get('/carritoMenos/{Menos}', 'CarritoController@Menos')->name('carritoMenos');
+Route::get('/carritoMas/{Mas}', 'CarritoController@Mas')->name('carritoMas');
+
+
+Route::get('/admin/gestionpromocion', 'PromocionController@show')->name('verpromociones');
+Route::post('/admin/altapromocion', 'PromocionController@store')->name('altapromociones');
+Route::delete('/admin/bajapromocion/{id_produc}', 'PromocionController@destroy')->name('bajapromociones');
+Route::post('/admin/cambiopromocion/{id_oferta}', 'PromocionController@update')->name('cambiopromociones');
+
+Route::get('/admin/gestionproveedores', 'ProveedoresController@show')->name('verproveedores');
+Route::post('/admin/altaproveedores', 'ProveedoresController@store')->name('altaProveedores');
+Route::delete('/admin/bajaproveedores/{id_provee}', 'ProveedoresController@destroy')->name('bajaProveedores');
+Route::post('/admin/cambioproveedores/{id_provee}', 'ProveedoresController@update')->name('cambioProveedores');
+
+
+
+
+
+
 // });
 
 
@@ -153,8 +153,8 @@ Route::middleware('auth')->group(function () {
         return view('cliente.dirreccion.index');
     })->name('Direcciones');
 
-    Route::get('cliente/direcciones/{tipo}/{id}', function ($tipo,$id) {
-        return view('cliente.dirreccion.agregarD',['tipo'=>$tipo,'id'=>$id]);
+    Route::get('cliente/direcciones/{tipo}/{id}', function ($tipo, $id) {
+        return view('cliente.dirreccion.agregarD', ['tipo' => $tipo, 'id' => $id]);
     })->name('DireccionesActu');
 
     Route::post('cliente/direccion', 'DireccionController@store')->name('AddDirec');
@@ -184,7 +184,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('cliente/Tarjetas/delete/{id}', 'TargCredController@destroy')->name('DelTarj');
 
     Route::get('/cliente/editar/{id}', function ($id) {
-        return view('cliente.edit',['id'=>$id]);
+        return view('cliente.edit', ['id' => $id]);
     })->name('EditInfoCli');
 
     Route::post('/cliente/update/datos/{id}', 'ClienteController@update')->name('EditCiente');
@@ -197,11 +197,9 @@ Route::middleware('auth')->group(function () {
 
 
 
-///CLIENTES PEDIDO
+    ///CLIENTES PEDIDO
 
-Route::get('cliente/pedidos', function () {
-    return view('cliente.pedidos.index');
-})->name('verped');
-
-
+    Route::get('cliente/pedidos', function () {
+        return view('cliente.pedidos.index');
+    })->name('verped');
 });

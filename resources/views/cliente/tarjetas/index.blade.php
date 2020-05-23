@@ -6,19 +6,19 @@
     <div class="opcionCu">
         <div class="ImgInfo">
             <div class="ImgC">
-            <a href="{{route('CuentaCli')}}" class="btn btn-info regresa">Regresar</a>
+                <a href="{{ route('CuentaCli') }}" class="btn btn-info regresa">Regresar</a>
                 <img src="../../Imagenes/Clientes/fotoDe.jpg">
             </div>
             <div class="InfoC">
-                    <h6> 
-                       Nombre: {{auth()->user()->nom}} {{auth()->user()->ape1}} {{auth()->user()->ape2}}
-                    </h6>
-                    <p>
-                        Correo: <b>{{auth()->user()->email}}</b>
-                    </p>
-                    <p>
-                        Telefono: <b>{{auth()->user()->telefono}}</b>
-                    </p>
+                <h6>
+                    Nombre: {{ auth()->user()->nom }} {{ auth()->user()->ape1 }} {{ auth()->user()->ape2 }}
+                </h6>
+                <p>
+                    Correo: <b>{{ auth()->user()->email }}</b>
+                </p>
+                <p>
+                    Telefono: <b>{{ auth()->user()->telefono }}</b>
+                </p>
             </div>
 
         </div>
@@ -26,20 +26,23 @@
         <div class="opcionesMPC">
             <div class="opcion3">
                 <span>Agregar Tarjeta:
-                    <a href="{{route('RegistroT',['create'=>'creacionT'])}}" class="btn btn-info" ><ion-icon name="card-outline"></ion-icon></a>
+                    <a href="{{ route('RegistroT',['create'=>'creacionT']) }}"
+                        class="btn btn-info">
+                        <ion-icon name="card-outline"></ion-icon>
+                    </a>
                 </span>
-               <table class="tabla centered responsive-table">
-                   <thead>
-                       <tr>
-                           <th>Tarjeta</th>
-                           <th>Propietario</th>
-                           <th>Fecha de expiracion</th>
-                           <th>Editar</th>
-                           <th>Eliminar</th>
-                       </tr>
-                   </thead>
-                   <tbody>
-                       <?php
+                <table class="tabla centered responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Tarjeta</th>
+                            <th>Propietario</th>
+                            <th>Fecha de expiracion</th>
+                            <th>Editar</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
 
                        $user = auth()->user()->id_cliente;
                        $direc = DB::select('SELECT * FROM `cli_m_pago` WHERE id_cliente = ?', [$user]);
@@ -55,18 +58,24 @@
                        $real = substr($valor,14,16);
 
                        ?>
-                       <tr>
-                           <td><?php echo "**** ".$real ?> </td>
-                           <td><?php echo $nom ?> </td>
-                           <td><?php echo $expi ?> </td>
-                           <td> <a href="{{route('RegistroT',['update'=>'update','idcard'=>$id])}}" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a> </td>
-                           <td> <a href="{{route('RegistroT',['delete'=>'delete','idcard'=>$id])}}" class="btn btn-danger"><ion-icon name="trash-outline"></ion-icon></a> </td>
-                       </tr>
+                        <tr>
+                            <td><?php echo "**** ".$real ?> </td>
+                            <td><?php echo $nom ?> </td>
+                            <td><?php echo $expi ?> </td>
+                            <td> <a href="{{ route('RegistroT',['update'=>'update','idcard'=>$id]) }}"
+                                    class="btn btn-warning">
+                                    <ion-icon name="create-outline"></ion-icon>
+                                </a> </td>
+                            <td> <a href="{{ route('RegistroT',['delete'=>'delete','idcard'=>$id]) }}"
+                                    class="btn btn-danger">
+                                    <ion-icon name="trash-outline"></ion-icon>
+                                </a> </td>
+                        </tr>
                         <?php
                     }
                     ?>
-                   </tbody>
-               </table>
+                    </tbody>
+                </table>
 
             </div>
 

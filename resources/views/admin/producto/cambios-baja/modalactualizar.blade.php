@@ -40,7 +40,7 @@
                   @endforeach
                 </select>
 
-               
+
 
               </div>
 
@@ -95,14 +95,14 @@
 
                 <div class="file-field input-field">
                   <div class="btn">
-                      <span>File</span>
-                      <input type="file" id="imagen" name="imagen" multiple  >
+                    <span>File</span>
+                    <input type="file" id="imagen" name="imagen" multiple>
                   </div>
                   <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text"
-                          placeholder="Subir imagenes (Para seleccionar varias presiona CTRL+Click)">
+                    <input class="file-path validate" type="text"
+                      placeholder="Subir imagenes (Para seleccionar varias presiona CTRL+Click)">
                   </div>
-              </div>
+                </div>
 
               </div>
               <div class="stockProCss">
@@ -116,8 +116,7 @@
               <div class="bttnCss">
                 <center>
 
-                  <button type="submit"
-                    class="waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
+                  <button type="submit" class="waves-effect waves-green btn green lighten-1">¡ACTUALIZAR!</button>
 
                 </center>
               </div>
