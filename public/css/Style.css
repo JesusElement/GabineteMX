@@ -405,6 +405,9 @@ nav a.sidenav-trigger i {
 .contenedor .contenido .carousel {
     margin-top: 1rem;
     width: 100%;
+    -webkit-box-shadow: 0px -7px 7px 1px rgba(178,175,186,1);
+    -moz-box-shadow: 0px -7px 7px 1px rgba(178,175,186,1);
+    box-shadow: 0px -7px 7px 1px rgba(178,175,186,1);
     justify-content: center;
     grid-area: carousel;
     background: rgb(2, 0, 36);
