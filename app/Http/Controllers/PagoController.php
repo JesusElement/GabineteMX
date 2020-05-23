@@ -57,24 +57,15 @@ class PagoController extends Controller
             }
             if($num > 0){
        $ras = rand(1000000000,99999999999);
-       $id_trans = rand(100000000,99999999);
                 if($ya == 0){
-       DB::table('transporte')->insert(
-        [
-            'id_trans' => $id_trans, 
-            'nom' => 'DHL', 
-            'telefono' => '5543123322', 
-            'num_rast'=> $ras
-             ]
-         );
-
          DB::table('pedido')->insert(
              [
                  'id_pedido' => $id, 
                  'id_cliente' =>$id_cli, 
-                 'id_trans' => $id_trans, 
+                 'id_trans' => '09364763', 
                  'id_tarj' => $data['tarjeta'], 
                  'fech_pe' => $dia, 
+                 'num_rast' => $ras,
                  'total' => $total
              ]
          );  $ya = 1;
