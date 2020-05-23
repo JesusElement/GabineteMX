@@ -17,14 +17,14 @@ class User extends Authenticatable
 
     public $timestamps = false;
     const UPDATED_AT = null;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'id_cliente','ape1','ape2','nom','email','telefono','fech_na','password','is_admin'
+        'id_cliente', 'ape1', 'ape2', 'nom', 'email', 'telefono', 'fech_na', 'password', 'is_admin'
     ];
 
     /**

@@ -230,9 +230,7 @@ nav a.sidenav-trigger i {
         max-height: auto !important;
         grid-template-columns: 10% 10% 20% 20% 20% 10% 10%;
         grid-template-rows: auto;
-        grid-template-areas:
-         "marizq ejecutivaDiv  trabajoDiv gamerDiv hardwareDiv gadetsDiv marder";
-     
+        grid-template-areas: "marizq ejecutivaDiv  trabajoDiv gamerDiv hardwareDiv gadetsDiv marder";
     }
     .contenedor .header .barinf .marder {
         justify-self: stretch;
@@ -244,17 +242,13 @@ nav a.sidenav-trigger i {
         max-height: auto !important;
         grid-template-columns: 5% 30% 30% 35%;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "marizq ejecutivaDiv trabajoDiv gamerDiv" 
-        "marizq hardwareDiv gadetsDiv  marder" 
-        ;
+        grid-template-areas: "marizq ejecutivaDiv trabajoDiv gamerDiv" "marizq hardwareDiv gadetsDiv  marder";
     }
     .contenedor .header .barinf .marder {
         grid-area: marder;
         padding-bottom: 0px !important;
         padding-top: 10px;
     }
-
     .contenedor .header .barinf .gadetsDiv {
         justify-self: stretch;
         align-self: center;
@@ -263,7 +257,6 @@ nav a.sidenav-trigger i {
         border-bottom: solid white;
         text-align: center;
     }
-    
 }
 
 .contenedor .header .barinf .marizq {
@@ -324,7 +317,6 @@ nav a.sidenav-trigger i {
     text-align: center;
 }
 
-
 .contenedor .header .barinf .salirDiv {
     grid-area: salirDiv;
 }
@@ -384,7 +376,6 @@ nav a.sidenav-trigger i {
     color: #ec9129;
 }
 
-
 @media screen and (max-width: 1500px) {
     .contenedor .contenido .card-title {
         color: #ec9129;
@@ -394,12 +385,10 @@ nav a.sidenav-trigger i {
     }
     .contenedor .contenido .CT {
         color: #ec9129;
-        
         font-size: 19px;
         -ms-word-break: break-all;
         word-break: break-all !important;
     }
-    
 }
 
 .contenedor .contenido .carousel {
@@ -635,43 +624,38 @@ nav a.sidenav-trigger i {
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: auto;
-        grid-template-areas: 
-        "marizq" "tituloCarrito"   "opCarrito"   "imagenCarrito" "marder";
+        grid-template-areas: "marizq" "tituloCarrito" "opCarrito" "imagenCarrito" "marder";
     }
-
     .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
         justify-content: right;
         text-align: right;
         margin: 10px;
-    }    
-
-    .contenedor .contenido .Carrito .opCarrito {
-    grid-area: opCarrito;
-    justify-items: right; 
     }
-    
+    .contenedor .contenido .Carrito .opCarrito {
+        grid-area: opCarrito;
+        justify-items: right;
+    }
     .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoEliPreCss .Eli {
-    display: inline;
-    justify-self: right !important;
-    size: 10px;
-    margin-bottom: 1rem;
-    margin-right: 1.5rem;
+        display: inline;
+        justify-self: right !important;
+        size: 10px;
+        margin-bottom: 1rem;
+        margin-right: 1.5rem;
     }
     .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
-    grid-area: carritoCardInfoCss;
-    justify-content: right;
+        grid-area: carritoCardInfoCss;
+        justify-content: right;
     }
-    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss h5{
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss h5 {
         grid-area: carritoCardInfoCss;
         font-size: medium;
         text-align: right;
         margin: 8px;
-        }
-
-        .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
-            color: #ec9129;
-            font-size: medium;
-        }
+    }
+    .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss .titulo {
+        color: #ec9129;
+        font-size: medium;
+    }
 }
 
 @media screen and (max-width: 1500px) {
@@ -682,7 +666,7 @@ nav a.sidenav-trigger i {
     .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardInfoCss {
         margin-left: 4rem;
         justify-content: right;
-        }
+    }
 }
 
 .contenedor .contenido .Carrito .marizq {
@@ -701,8 +685,7 @@ nav a.sidenav-trigger i {
     display: grid;
     margin: 1rem;
     grid-template-columns: 15% 85%;
-    grid-template-areas: "carritoCardImgCss carritoCardInfoCss" 
-                            "carritoCardImgCss carritoEliPreCss";
+    grid-template-areas: "carritoCardImgCss carritoCardInfoCss" "carritoCardImgCss carritoEliPreCss";
 }
 
 .contenedor .contenido .Carrito .imagenCarrito .carritoCardCss .carritoCardImgCss {
@@ -1424,7 +1407,7 @@ fieldset {
 
 .OpcionesCuen {
     display: grid;
-    grid-template-columns: minmax(50px, 180px) minmax(100px, 1fr) minmax(50px, 180px);
+    grid-template-columns: minmax(50px, 100px) minmax(100px, 1fr) minmax(50px, 100px);
     grid-template-rows: repeat(3, minmax(30px, auto));
     grid-template-areas: "espaI cabeza espaD" "espaI contenidoC espaD" "espaI abajo espaD";
 }
@@ -1719,13 +1702,8 @@ fieldset {
         display: grid;
         margin-top: 1rem;
         grid-template-columns: 50% 50%;
-        grid-template-areas: 
-       
-        "carritoCardInfoCss"
-         "carritoCardImgCss" 
-         "carritoEliPreCss";
+        grid-template-areas: "carritoCardInfoCss" "carritoCardImgCss" "carritoEliPreCss";
     }
-    
 }
 
 .contenedor61 .HederTres .Pan1 {
@@ -1761,7 +1739,7 @@ fieldset {
 }
 
 .contenedor61 .HederTres .Pan3 .c {
-    background-color:white;
+    background-color: white;
 }
 
 .contenedor61 .contenedor21 {
@@ -1849,54 +1827,47 @@ fieldset {
 .contenedor61 .Pago .c {
     background-color: white;
 }
+
 .contenedor61 .Pago .card-action {
     display: grid;
-
 }
 
 .contenedor61 .Pago .card-action .bconf {
     justify-self: left;
-  
 }
+
 .contenedor61 .Pago .card-action .bagre {
-   margin-top: 1rem;
+    margin-top: 1rem;
     text-align: left;
-    
 }
+
 .contenedor61 .Pago .card-action .bcer {
-   text-align: right;
-   margin: 10px;
-
+    text-align: right;
+    margin: 10px;
 }
 
-.contenedor .contenido .Pedidos{
+.contenedor .contenido .Pedidos {
     display: grid;
     grid-template-columns: 10% 80% 10%;
-    grid-template-areas: 
-    "marizq tituloP marder"
-    "marizq tablaP marder"
-    ;
+    grid-template-areas: "marizq tituloP marder" "marizq tablaP marder";
 }
 
-.contenedor .contenido .Pedidos .marizq{
+.contenedor .contenido .Pedidos .marizq {
     grid-area: marizq;
     display: grid;
 }
 
-
-.contenedor .contenido .Pedidos .titutoP{
+.contenedor .contenido .Pedidos .titutoP {
     grid-area: titutloP;
     display: grid;
 }
 
-
-.contenedor .contenido .Pedidos .tablaP{
-    grid-area: tablaP ;
+.contenedor .contenido .Pedidos .tablaP {
+    grid-area: tablaP;
     display: grid;
 }
 
-.contenedor .contenido .Pedidos .marder{
+.contenedor .contenido .Pedidos .marder {
     grid-area: marder;
     display: grid;
 }
-

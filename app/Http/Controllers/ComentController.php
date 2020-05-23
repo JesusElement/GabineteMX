@@ -37,27 +37,27 @@ class ComentController extends Controller
     public function store(Request $request)
     {
         //
-    $dia = date("y-m-d");
-    $prod = $request->producto;
-    $idc = auth()->user()->id_cliente;
-    $data = $request->except('_token');
+        $dia = date("y-m-d");
+        $prod = $request->producto;
+        $idc = auth()->user()->id_cliente;
+        $data = $request->except('_token');
 
-    $validar = DB::select('SELECT COUNT(*) AS num FROM comentario WHERE id_produc= ? && id_cliente = ? ', [$prod,$idc]);
-    foreach($validar as $value){
-        $si = $value->num;
-    }
-        if($si == 0){
- DB::table('comentario')->insert([
-        'id_cliente' => $idc,
-        'id_produc' => $prod,
-        'coment'=> $data['coment'],
-        'star'=> $data['estrellas'],
-        'fecha_c'=> $dia
-    ]);
-        return redirect()->back();
-    }  else{
-        return redirect()->back()->withErrors(['coment' => 'Solo se puede agregar un comentario por producto'])->withInput();
-    } 
+        $validar = DB::select('SELECT COUNT(*) AS num FROM comentario WHERE id_produc= ? && id_cliente = ? ', [$prod, $idc]);
+        foreach ($validar as $value) {
+            $si = $value->num;
+        }
+        if ($si == 0) {
+            DB::table('comentario')->insert([
+                'id_cliente' => $idc,
+                'id_produc' => $prod,
+                'coment' => $data['coment'],
+                'star' => $data['estrellas'],
+                'fecha_c' => $dia
+            ]);
+            return redirect()->back();
+        } else {
+            return redirect()->back()->withErrors(['coment' => 'Solo se puede agregar un comentario por producto'])->withInput();
+        }
     }
 
     /**

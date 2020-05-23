@@ -155,7 +155,7 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         $direccion = DB::table('direccion')
             ->join('estado', 'estado.id_estado', 'direccion.id_estado')
             ->join('direc_cliente', 'direc_cliente.id_direc', 'direccion.id_direc')
-            ->select('direccion.calle', 'estado.estado','direccion.numero','direccion.id_direc','direccion.colonia','direccion.alias','direccion.*')
+            ->select('direccion.calle', 'estado.estado', 'direccion.numero', 'direccion.id_direc', 'direccion.colonia', 'direccion.alias', 'direccion.*')
             ->where('direc_cliente.id_cliente', $id)->get();
         // var_dump($direccion);
 
@@ -180,8 +180,6 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         return view('cliente.carrito.index')
             ->with('Carrito', $CarritoCliente)
             ->with('dir', $direccion);
-
-           
     }
 
     /**
@@ -280,15 +278,5 @@ INNER JOIN stock as sk on sk.id_produc = p.id_produc*/
         return redirect('carrito');
     }
 
-    // public function CarritoPlantilla(){
-    //     $id  =  auth()->user()->id_cliente;
-    //     $NumeroProduc = DB::table('carrito')
-    //     ->selectRaw('carrito.id_cliente')
-    //     ->where('carrito.id_cliente',$id)
-    //     ->get();
 
-    //     var_dump($NumeroProduc);
-    //     return view('layouts.plantilla')
-    //     ->with($NumeroProduc, 'NumP');
-    // }
 }

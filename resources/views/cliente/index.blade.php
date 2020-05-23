@@ -55,7 +55,7 @@
 
     </div>
 
-</div>CerrarCuenta
+</div>
 
 
 <div id="cerrarCuenta" class="modal">
