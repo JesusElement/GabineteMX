@@ -124,7 +124,7 @@ class PagoController extends Controller
                 DB::table('carrito')->where('id_cliente', '=', $id_cli)->delete();
             }
 
-        return redirect('/cliente/factura');
+        return redirect('cliente/pedidos');
         }
         else{
             return redirect()->back()->withErrors(['cantidadCar' => 'No tiene nada en el carrito'])->withInput();
