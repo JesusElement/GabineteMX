@@ -23,7 +23,7 @@
 
   <table width="100%">
     <tr>
-        <td valign="top"></td>
+        <td align="top"></td>
         <td align="right">
             <h3>GabienteMX SA.CV.</h3>
             <pre>

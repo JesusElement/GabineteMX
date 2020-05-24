@@ -32,7 +32,7 @@
                       <center>
                       <br>
                <label for="">¿Aun no tienes una cuenta?</label>
-               <a class="" type="submit" href="{{ url('register') }}">!Registrate¡</a>
+               <a class="" type="submit" href="{{ url('register') }}">¡Registrate!</a>
                    
                       </center>
                     </form>
