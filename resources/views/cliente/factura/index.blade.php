@@ -59,7 +59,7 @@
                 $productos = $value->titulo." ".$value->cantidad." X ".$value->precio_uni;
                     echo"
                     <tr>
-                    <td colspan='3'>$productos</td> 
+                    <th colspan='3'>$productos</th> 
                     </tr>
                     ";
               }
