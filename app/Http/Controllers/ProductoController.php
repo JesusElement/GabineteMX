@@ -298,8 +298,8 @@ class ProductoController extends Controller
     public function destroy($producto)
     {
 
-
-        $contenido = DB::table('contenido')
+        try {
+            $contenido = DB::table('contenido')
             ->where('id_produc', $producto)
             ->first();
         $carpeta = public_path($contenido->ruta);
@@ -312,15 +312,25 @@ class ProductoController extends Controller
         }
 
         rmdir($carpeta);
+        } catch (\Throwable $th) {
+            echo"Precaucion, carpeta no encontrada";
+        }
 
 
 
 
+        try {
 
+            DB::table('oferta')->where('id_produc', '=', $producto)->delete();
+            DB::table('stock')->where('id_produc', '=', $producto)->delete();
+            DB::table('contenido')->where('id_produc', '=', $producto)->delete();
+            DB::table('producto')->where('id_produc', '=', $producto)->delete();
+        } catch (\Throwable $th) {
+            DB::table('stock')->where('id_produc', '=', $producto)->delete();
+            DB::table('contenido')->where('id_produc', '=', $producto)->delete();
+            DB::table('producto')->where('id_produc', '=', $producto)->delete();
+        }
 
-        DB::table('stock')->where('id_produc', '=', $producto)->delete();
-        DB::table('contenido')->where('id_produc', '=', $producto)->delete();
-        DB::table('producto')->where('id_produc', '=', $producto)->delete();
 
 
         return redirect()->back()->with('alertbaja', 'baja');
