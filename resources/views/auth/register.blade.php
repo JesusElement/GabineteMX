@@ -25,7 +25,7 @@
                 </div>
                 <div class="RegistreUserNombreCss">
                     <input id="Nombre" type="text" value="{{old('nom')}}" class="validate" name="nom">
-                    <label for="Nombre">{{'Nombre Completo'}}</label>
+                    <label for="Nombre">{{'Nombre(s)'}}</label>
                     <br>
                     <center>
                     <a class="btn" id="siguienteDos">

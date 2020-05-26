@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Direccion;
 use Illuminate\Http\Request;
+use App\Http\Requests\direcRequ;
 use Illuminate\Support\Facades\DB;
 
 class DireccionController extends Controller
@@ -34,7 +35,7 @@ class DireccionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(direcRequ $request)
     {
         //
         $direccion = $request->except('_token');

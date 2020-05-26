@@ -40,6 +40,11 @@
                 
                     <label for="alias"> Alias de direccion </label>
                     <input type="text" name="alias" id="alias" value="{{ isset($alias) ? $alias : old('alias') }}">
+                    @error('alias')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Espacio" >
                     @php if(isset($_GET['create'])){
@@ -56,35 +61,71 @@
                 </div>
                 <div class="Calle" >
                     <label for="calle"> Calle </label>
-                    <input type="text" name="calle" id="calle" value="{{ isset($calle) ? $calle : old('alias') }}">
+                    <input type="text" name="calle" id="calle" value="{{ isset($calle) ? $calle : old('calle') }}">
+                    @error('calle')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Numero">
                     <label for="alias"> Numero </label>
-                    <input type="text" name="NumEI" id="NumEI" value="{{ isset($num) ? $num : old('alias') }}">
+                    <input type="text" name="NumEI" id="NumEI" value="{{ isset($num) ? $num : old('NumEI') }}">
+                    @error('NumEI')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Estado" >
                     <label for="alias"> Estado </label>
                     <select name="estado" id="estado">
+                    <option value="">Seleccione un estado</option>
                         @foreach($estado as $key)
                         <option value="{{$key->id_estado}}">{{$key->estado}}</option>
                         @endforeach
                     </select>
+                    @error('estado')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Ciudad" >
                     <label for="ciudad"> Ciudad </label>
-                    <input type="text" name="ciudad" id="ciudad" value="{{ isset($ciudad) ? $ciudad : old('alias') }}">
+                    <input type="text" name="ciudad" id="ciudad" value="{{ isset($ciudad) ? $ciudad : old('ciudad') }}">
+                    @error('ciudad')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="CodigoPost" >
                     <label for="CP"> Codigo Postal </label>
-                    <input type="text" name="CP" id="CP" value="{{ isset($cp) ? $cp : old('alias') }}">
+                    <input type="text" name="CP" id="CP" value="{{ isset($cp) ? $cp : old('CP') }}">
+                    @error('CP')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Colonia" >
                     <label for="colonia"> Colonia </label>
-                    <input type="text" name="colonia" id="colonia" value="{{ isset($colonia) ? $colonia: old('alias') }}">
+                    <input type="text" name="colonia" id="colonia" value="{{ isset($colonia) ? $colonia: old('colonias') }}">
+                    @error('colonia')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="Referencia" >
                     <label for="Refe"> Municipio o Delegación </label>
-                    <input type="text" name="MuDe" id="MuDe" value="{{ isset($muni) ? $muni : old('alias') }}">
+                    <input type="text" name="MuDe" id="MuDe" value="{{ isset($muni) ? $muni : old('MuDE') }}">
+                    @error('MuDe')
+                        <span class="invalid-feedback color" role="alert">
+                            <strong style="color:red">{{ $message }}</strong>
+                        </span>
+                    @enderror
                     <input type="hidden" name="create" value="{{ (isset($_GET['create'])) ? 1:0 }}">
                 </div>
                 <div class="boton">
