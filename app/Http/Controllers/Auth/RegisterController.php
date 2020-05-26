@@ -51,13 +51,30 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nom' => ['required', 'string', 'max:75'],
-            'ape2' => ['required', 'string', 'max:75'],
+            'nom' => ['required', 'string', 'max:75','min:3'],
+            'ape1' => ['required', 'string', 'max:75'],
             'ape2' => ['required', 'string', 'max:75'],
             'telefono' => ['required', 'numeric', 'min:10'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:cliente'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        ],[
+            'nom.required' => 'El campo de nombre esta vacio',
+            'nom.max' => 'El maximo perdimitido es de 75 caraxteres',
+            'nom.min' => 'El minimo perdimitido es de 3 caraxteres',
+            'ape1.required'=> 'El campo de primer apellido esta vacio',
+            'ape1.max' => 'El maximo perdimitido es de 75 caraxteres',
+            'ape2.required'=> 'El campo de segundo apellido esta vacio',
+            'ape2.max' => 'El maximo perdimitido es de 75 caraxteres',
+            'telefono.required'=> 'El campo de telefono esta vacio',
+            'telefono.numeric' => 'El telefono solo puedens er numeros',
+            'email.required'=> 'El campo de email esta vacio',
+            'email.email' => 'El correo electronico no tiene el formato adecuado',
+            'email.max' => 'El correo debe de tener como maximo 100 caracteres',
+            'password.required'=> 'El campo de segundo apellido esta vacio',
+            'password.min' => 'La contraseña debe tener como minimo 8 caracteres',
+            'password.confirmed' => 'Las contraseñas no coinciden',
+        ]   
+    );
     }
 
     /**
