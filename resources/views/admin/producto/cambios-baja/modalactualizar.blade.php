@@ -143,28 +143,26 @@
       <div> {{-- INICIA TITUTLO 40% --}}
         <h4>Imagenes</h4>
       </div> {{-- TERMINA TITUTLO 40% --}}
-      <?php
+             <?php
 try{
-        $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->name/$resultados->id_produc");
-        if (count($carpeta)>2){
-          $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
-        while (($e = readdir($d)) != false)
-          if ($e != '.' && $e != '..') {
-       
-             $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
-            echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
-          }
+            $carpeta = @scandir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc");
+            if (count($carpeta)>2){
+                $d = opendir("./Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/");
+                    while (($e = readdir($d)) != false)
+                        if ($e != '.' && $e != '..') {
+                             $e1 = "/Imagenes/Productos/$resultados->nom_fami/$resultados->nom/$resultados->id_produc/" . $e;
+                                echo "<img   src='$e1'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+                        
+                        }
+            }else{
+                echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
+            }
 
-        }else{
-            echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
-          }
 
         }catch (\Throwable $th) {
           echo "<img   src='/imagenes/nodisponible.jpg'  style=' width: 30%; height: 30%;     position: sticky;' >  ";
         }
-          
-        ?>
-
+            ?>
 
     </article>{{-- TERMINA 40% PARA MOSTRAR IMAGENES DEL PRODUCTO --}}
 
