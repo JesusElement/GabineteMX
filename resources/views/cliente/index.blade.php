@@ -41,7 +41,6 @@
                 <ul>
                     <li><a href="{{ route('verped') }}">Mis Pedidos</a></li>
                     <li><a href="{{ route('verCarrito') }}">Mi carrito</a></li>
-                    <li><a>Mis Productos Comprados</a></li>
                 </ul>
 
             </div>
