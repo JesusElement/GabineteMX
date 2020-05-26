@@ -28,6 +28,18 @@
     </script>
 @endif
 
+@if(session('errorbaja'))
+    <script>
+        swal({
+            icon: "error",
+            text: "Algunos productos dependen de este proveedor, elimine los productos primero",
+        });
+    </script>
+   
+@endif
+
+session='null';
+
 <div class="contenido">
     <div class="actualizarProductoCss">
         <div class="actProTabCss">

@@ -156,9 +156,16 @@ class ProveedoresController extends Controller
      */
     public function destroy($proveedores)
     {
-        DB::table('proveedor')->where('id_provee', '=', $proveedores)->delete();
+
+        try {
+            DB::table('proveedor')->where('id_provee', '=', $proveedores)->delete();
+            return redirect()->back()->with('alertbaja', 'baja');
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('errorbaja', 'errorbaja');
+        }
+        
 
 
-        return redirect()->back()->with('alertbaja', 'baja');
+        
     }
 }
