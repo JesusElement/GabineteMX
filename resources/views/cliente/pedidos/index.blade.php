@@ -32,7 +32,7 @@
                            <th>Numero de Rastreo</th>
                            <th>Productos</th>
                            <th>Total</th>
-                           <th>Eliminar</th>
+                           <th>Descargar comprobante</th>
                        </tr>
                    </thead>
                    <tbody>
@@ -60,7 +60,7 @@
                            </td>
                            <td><?php echo $total ?> </td>
                            <td><a href="{{ url('/cliente/factura',['folio'=>$folio]) }}"
-                            class="btn btn-warning"> <ion-icon name="trash-outline"></ion-icon></a> </td>
+                            class="btn btn-success">   <i class="large material-icons">file_download</i></a> </td>
                        </tr>
                         <?php
                     }
